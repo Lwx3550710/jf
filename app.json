@@ -1,6 +1,8 @@
 {
   "pages": [
     "pages/index/index",
+    "pages/coupons/index",
+    "pages/kf/index",
     "pages/redpacket/index",
     "pages/diningway/index",
     "pages/address/index",
@@ -18,8 +20,6 @@
     "pages/invite/index",
     "pages/authorize/authorize",
     "pages/member/index",
-    "pages/coupons/index",
-    "pages/kf/index",
     "pages/ourCulture/ourCulture",
     "pages/joinUs/joinUs",
     "pages/myScore/myScore",
