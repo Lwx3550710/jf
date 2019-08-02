@@ -9,5 +9,5 @@
         <view class="items"><input type="text"></input></view>
     </view>
     <view class="h-60"></view>
-    <view class="btn">保存密码</view>
+    <view class="btn" bindtap="keep">保存密码</view>
 </view>

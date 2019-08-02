@@ -9,6 +9,9 @@ Page({
 			content: '为保障您的钱包安全，请先设置6位数密码',
 			showCancel: false,
 			confirmColor: '#17c717',
+			success(){
+				app.openUrlCs('tradepinone/index');
+			}
 		})
 	},
 	toArticlePage(e) {

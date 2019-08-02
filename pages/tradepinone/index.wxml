@@ -9,5 +9,5 @@
         <view class="items"><input type="text"></input></view>
     </view>
     <view class="h-60"></view>
-    <view class="btn">下一步</view>
+    <view class="btn" bindtap="toNextPage">下一步</view>
 </view>

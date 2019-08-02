@@ -1,47 +1,40 @@
 <view class="addressPage">
-    <view class="addressContent">
-        <view class="addressLi flex ai jcb">
-            <view class="addressInfo">
-                <view class="addressInfoPlace">
-                    <text >悠方购物中心</text>
-                    <text >写字楼</text>
-                </view>
-                <view class="addressInfoPerson">
-                    <text >李一</text>                    
-                    <text >136666666</text>
-                </view>
-            </view>
-
-
-            <view class="addressIcon">
-                <image src="../../images/images/address.png"></image>
-            </view>
+  <view class="addressContent">
+    <view class="addressLi flex ai jcb">
+      <view class="addressInfo">
+        <view class="addressInfoPlace">
+          <text>悠方购物中心</text>
+          <text>写字楼</text>
         </view>
-    </view>
-
-    <view class="addressTips">以下地址超出配送范围</view>
-
-    <view class="addressContent active">
-        <view class="addressLi flex ai jcb">
-            <view class="addressInfo">
-                <view class="addressInfoPlace">
-                    <text >悠方购物中心</text>
-                    <text >写字楼</text>
-                </view>
-                <view class="addressInfoPerson">
-                    <text >李一</text>
-                    <text >136666666</text>
-                </view>
-            </view>
-
-
-            <view class="addressIcon">
-                <image src="../../images/images/address.png"></image>
-            </view>
+        <view class="addressInfoPerson">
+          <text>李一</text>
+          <text>136666666</text>
         </view>
+      </view>
+      <view class="addressIcon" bindtap="toEditAddressPage">
+        <image src="../../images/images/address.png"></image>
+      </view>
     </view>
+  </view>
 
+  <view class="addressTips">以下地址超出配送范围</view>
 
-
-    <view class="btn">添加地址</view>
+  <view class="addressContent active">
+    <view class="addressLi flex ai jcb">
+      <view class="addressInfo">
+        <view class="addressInfoPlace">
+          <text>悠方购物中心</text>
+          <text>写字楼</text>
+        </view>
+        <view class="addressInfoPerson">
+          <text>李一</text>
+          <text>136666666</text>
+        </view>
+      </view>
+      <view class="addressIcon" bindtap="toEditAddressPage">
+        <image src="../../images/images/address.png"></image>
+      </view>
+    </view>
+  </view>
+  <view class="btn" bindtap="toAddAddressPage">添加地址</view>
 </view>

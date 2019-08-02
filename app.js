@@ -35,6 +35,20 @@ App({
 			},
 		})
 	},
+	openUrlCs(file, param, success, fail) { // 关闭当前并跳转
+		if (file.indexOf('/') == -1) {
+			file = file + '/' + file;
+		}
+		wx.redirectTo({
+			url: '/pages/' + file + '?' + param,
+			success(t) {
+				success && success(t);
+			},
+			fail(t) {
+				fail && fail(t);
+			},
+		})
+	},
 	onLaunch(options) {
 		that = this;
         // // auto login via SDK
