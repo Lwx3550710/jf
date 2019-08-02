@@ -6,7 +6,7 @@
 	<view class="cap">积分明细<view class="rule">积分规则</view></view>
 	<view class="list">
 		<view class="li df hao" wx:for="{{list}}" wx:key="*this">
-			<view class="flex">
+			<view class="flex-1">
 				<view class="title">{{item.title}}</view>
 				<text>{{item.date}}</text>
 			</view>

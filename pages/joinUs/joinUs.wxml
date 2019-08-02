@@ -1,14 +1,14 @@
 <view class="line df hao">
 	<view class="cap df hao"><em>*</em>姓名</view>
-	<view class="flex input"><input placeholder="请输入"></input></view>
+	<view class="flex-1 input"><input placeholder="请输入"></input></view>
 </view>
 <view class="line df hao">
 	<view class="cap df hao"><em>*</em>电话</view>
-	<view class="flex input"><input placeholder="请输入"></input></view>
+	<view class="flex-1 input"><input placeholder="请输入"></input></view>
 </view>
 <view class="line df hao">
 	<view class="cap df hao"><em>*</em>意向区域</view>
-	<view class="flex input"><input placeholder="请输入"></input></view>
+	<view class="flex-1 input"><input placeholder="请输入"></input></view>
 </view>
 <view class="line">
 	<view class="cap df hao"><em>*</em>投资额度</view>

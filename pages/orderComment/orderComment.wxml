@@ -28,7 +28,7 @@
 <view class="commentline">
 	<textarea placeholder="餐点味道好，包装也很不错，下次还点你们家" placeholder-class="place"></textarea>
 	<view class="tool df har">
-		<view class="pic flex">
+		<view class="pic flex-1">
 			<view class="picAdd df cf hao wao"><image src="/images/sg-img/pic.png"></image>添加照片</view>
 			<view class="picLi"><image src="/images/sg-img/food.jpg" mode="aspectFill"></image></view>
 		</view>
