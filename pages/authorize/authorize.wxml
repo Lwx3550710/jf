@@ -1,10 +1,10 @@
-<view class="logo dFlex cFlex hAuto wAuto">
-  <image src="{{serverUrl+logo}}" mode="widthFix"></image>
-  <text>废品回收</text>
+<view class="logo df cf hao wao">
+  <image src="/images/sg-img/logo.png" mode="widthFix"></image>
+  <text>匠方</text>
 </view>
 
 <view class="info">
-  <view class="p">访问本引用必须登录</view>
+  <view class="p">访问本应用必须登录</view>
   <view class="p2">获取您的微信头像和昵称</view>
 </view>
 

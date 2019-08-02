@@ -1,5 +1,6 @@
 {
   "pages": [
+		"pages/authorize/authorize",
     "pages/index/index",
     "pages/member/index",
     "pages/kf/index",
@@ -19,7 +20,6 @@
     "pages/add-address/index",
     "pages/about/index",
     "pages/invite/index",
-    "pages/authorize/authorize",
     "pages/ourCulture/ourCulture",
     "pages/joinUs/joinUs",
     "pages/myScore/myScore",
