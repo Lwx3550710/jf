@@ -1,1 +1,8 @@
-/* pages/member/index.wxss */
+page{
+    text-align: center;
+}
+.member{
+    width: 648rpx;
+margin: 40rpx auto 0;
+
+}
