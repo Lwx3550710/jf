@@ -22,8 +22,11 @@ App({
 		return e.currentTarget.dataset[name];
 	},
 	openUrl(file, param, success, fail) { // 跳转
+		if (file.indexOf('/')==-1){
+			file = file + '/' + file;
+		}
 		wx.navigateTo({
-			url: '/pages/' + file + '/' + file + '?' + param,
+			url: '/pages/' + file + '?' + param,
 			success(t) {
 				success && success(t);
 			},

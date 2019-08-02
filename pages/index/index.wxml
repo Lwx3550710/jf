@@ -4,7 +4,7 @@
             <span>匠方银泰城店</span>
             <image mode="widthFix" src="../../images/takefood/aw.png" class="icon-1" alt=""></image>
         </view>
-        <view class="waimai" bingtap="targetUrl('diningway')">
+        <view class="waimai" bindtap="toDiningwayPage">
             <image mode="widthFix" src="../../images/home/waimai.png" class="icon-1" alt=""></image>
             <span>外卖</span>
             <image mode="widthFix" src="../../images/home/arrow.png" class="icon-2" alt=""></image>

@@ -1,10 +1,10 @@
 <view class="uBox">
-	<view class="address df cf wao" hidden="{{orderType!=0}}">
+	<view class="address df cf wao" hidden="{{orderType!=0}}" bindtap="toChooseShopPage">
 		<view class="one ov-d">匠方肉夹馍（银泰城店）</view>
 		<view class="three">您距离当前门店5000米以上，请确定下单门店是否正确</view>
 		<image src="/images/sg-img/arrow.png"></image>
 	</view>
-	<view class="address df cf wao" hidden="{{orderType!=1}}">
+	<view class="address df cf wao" hidden="{{orderType!=1}}" bindtap="toChooseAddressPage">
 		<view class="one ov-d">这里是用户设置的收货地址这里是用户设置的收货地址这里是用户设置的收货地址</view>
 		<view class="two">收货人(先生/女士) 13920191234</view>
 		<image src="/images/sg-img/arrow.png"></image>

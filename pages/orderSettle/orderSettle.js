@@ -5,9 +5,11 @@ Page({
 	data: {
 		orderType: 0, // [0 自取] [1 外卖]
 	},
-	toArticlePage(e) {
-		// var choose = app.attr(e, 'id');
-		// app.openUrl('question');
+	toChooseAddressPage(e) {
+		app.openUrl('address/index');
+	},
+	toChooseShopPage(e) {
+		app.openUrl('mapShop');
 	},
 	chooseType(e){
 		var index = app.attr(e,'index');
