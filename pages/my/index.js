@@ -53,7 +53,31 @@ Page({
 
   myScore: function (e) {
     wx.navigateTo({
-      url: `../pages/myScore `
+      url: `../myScore/myScore`
     })
   },
+
+  coupons: function (e) {
+    wx.navigateTo({
+      url: `../coupons/index`
+    })
+  },
+
+  redpacket: function (e) {
+    wx.navigateTo({
+      url: `../redpacket/index`
+    })
+  },
+
+  myWallet: function (e) {
+    wx.navigateTo({
+      url: `../myWallet/myWallet`
+    })
+  },
+
+  bindShowTarget: function(e){
+    wx.navigateTo({
+      url: `../${e.currentTarget.dataset.id}/index`
+    })
+  }
 })

@@ -27,7 +27,7 @@
     "pages/orderComment/orderComment",
     "pages/mapShop/mapShop",
     "pages/orderDetails/orderDetails",
-    "pages/orderSettle/orderSettle",
+    "pages/orderSettle/orderSettle"
   ],
   "window": {
     "backgroundTextStyle": "light",

@@ -12,22 +12,22 @@
             <b>28</b>
             <span>积分</span>
         </view>
-        <view class="items" bindtap="">
+        <view class="items" bindtap="coupons">
             <b>5</b>
             <span>我的券</span>
         </view>
-        <view class="items" bindtap="">
+        <view class="items" bindtap="redpacket">
             <b>0</b>
             <span>我的红包</span>
         </view>
-        <view class="items" bindtap="">
+        <view class="items" bindtap="myWallet">
             <b>29</b>
             <span>钱包</span>
         </view>
     </view>
 </view>
 <view class="mod-group">
-    <view class="items" wx:for="{{group}}" wx:key="index">
+    <view class="items" wx:for="{{group}}" wx:key="index" data-id="{{item.target}}" bindtap="bindShowTarget">
         <image src="{{item.icon}}" class="icon"></image>
         <b class="title">{{item.title}}</b>
         <image src="../../images/my/arrow.png" class="arrow"></image>
