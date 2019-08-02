@@ -32,7 +32,7 @@ Page({
     }, {
       'title': '意见反馈',
       'icon': '/../../images/my/idea.png',
-      'target': 'idea'
+			'target': 'feedback'
     }, {
       'title': '关于匠方',
       'icon': '/../../images/my/about.png',
@@ -79,5 +79,5 @@ Page({
     wx.navigateTo({
       url: `../${e.currentTarget.dataset.id}/index`
     })
-  }
+	},
 })

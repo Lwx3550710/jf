@@ -8,9 +8,32 @@ AV.init({
 	appKey: appKey,
 });
 
-// 授权登录
+var that;
+
 App({
-	onLaunch: function () {
+	globalData: {
+		// API_URL: 'http://localhost:3000',
+		serverUrl: 'http://120.79.37.4:8094/jig/'
+	},
+	back() { // 返回上一页
+		wx.navigateBack();
+	},
+	attr(e, name) { // 获取点击对象的data
+		return e.currentTarget.dataset[name];
+	},
+	openUrl(file, param, success, fail) { // 跳转
+		wx.navigateTo({
+			url: '/pages/' + file + '/' + file + '?' + param,
+			success(t) {
+				success && success(t);
+			},
+			fail(t) {
+				fail && fail(t);
+			},
+		})
+	},
+	onLaunch(options) {
+		that = this;
         // // auto login via SDK
         // var that = this;
         // AV.User.loginWithWeapp();
@@ -48,8 +71,6 @@ App({
         //   }
         // });
   },
-  globalData:{
-    // API_URL: 'http://localhost:3000',
-    serverUrl: 'http://120.79.37.4:8094/jig/'
-  }
+	onShow(options) {
+	},
 })

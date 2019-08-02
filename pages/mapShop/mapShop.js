@@ -12,9 +12,9 @@ Page({
 			height: 28
 		}],
 	},
-	toArticlePage(e) {
+	chooseShop(e) { // 选择门店
 		// var choose = app.attr(e, 'id');
-		// app.openUrl('question');
+		app.back();
 	},
 	onLoad(options) {
 		that = this;

@@ -1,6 +1,6 @@
 <view class="shop_container">
     <view class="header_bd">
-        <view class="store">
+        <view class="store" bindtap="toChooseShopPage">
             <span>匠方银泰城店</span>
             <image mode="widthFix" src="../../images/takefood/aw.png" class="icon-1" alt=""></image>
         </view>
@@ -242,7 +242,7 @@
             <view class="info">
                 <dl>
                     <dt>￥109</dt>
-                    <dd bingtap="targetUrl('confirm')">结算</dd>
+                    <dd bindtap="toOrderSettlePage">结算</dd>
                 </dl>
             </view>
         </view>
