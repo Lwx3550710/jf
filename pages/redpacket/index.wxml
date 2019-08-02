@@ -1,5 +1,5 @@
 <view class="wrap">
-    <view class="group group-1">
+    <view class="group group-1 flex ai jcb">
         <view class="info-1">
             <b>¥ 20</b>
             <span>会员专属红包</span>
@@ -8,6 +8,25 @@
             <b>满任意金额可用，不限制 使门店用</b>
             <span>2019-08-12到期</span>
         </view>
-        <view class="info-3"></view>
+        <view class="info-3">立即使用</view>
     </view>
 </view>
+
+<view class="wrap wrapGuoQi">
+    <view class="group group-1 flex ai jcb">
+        <view class="info-1">
+            <b>¥ 20</b>
+            <span>会员专属红包</span>
+        </view>
+        <view class="info-2">
+            <b>满任意金额可用，不限制 使门店用</b>
+            <span>2019-08-12到期</span>
+        </view>
+        <view class="info-3">立即使用</view>
+    </view>
+    <view class="guoqi flex ai">
+        <image src="../../images/images/jingtanghao.png"></image>
+        <text >不可用原因：已过期</text>
+    </view>
+</view>
+

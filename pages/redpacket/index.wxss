@@ -1,8 +1,11 @@
+page{
+  background:#F8F9F7;
+}
 .wrap{
-    background: rgb(247,247,247);
-    width: 100%;
-    height: 100%;
-    position: absolute;
+width: 100%;
+margin-bottom: 20rpx;
+background: #fff;
+
 }
 .items{
     width: 100%;
@@ -21,36 +24,93 @@
 .group{
     width: 100%;
     height: 180rpx;
+
 }
 .group-1{
     background: #FFF1B6;
 }
 .info-1{
-    width: 25%;
-    text-align: center;
-    float: left;
+text-align: center;
+margin-left: 30rpx;
+
 }
 .info-2{
     width: 45%;
-    text-align: center;
-    float: left;
+}
+.info-2 span{
+    font-size: 20rpx;
+color: #735B27;
+
 }
 .info-3{
-    width: 30%;
-    text-align: center;
-    float: left;
+text-align: center;
+color: #FFF1B6;
+background: #44331A;
+font-size: 24rpx;
+width: 144rpx;
+height: 54rpx;
+line-height: 54rpx;
+border-radius: 30rpx;
+margin-right: 20rpx;
+
 }
 .info-1 b{
-    font-size: 22px;
+font-size: 35rpx;
+display: block;
+color: #44331A;
+font-weight: bold;
+
 }
 .info-1 span{
-    font-size:22rpx;
-    line-height:80rpx;
+color: #735B27;
+font-size: 22rpx;
+
 }
 .info-2 b{
-    font-size:14px;
-    line-height:80rpx;
+font-size: 28rpx;
+display: block;
+color: #44331A;
+font-weight: bold;
+
 }
 .group-1 .info-1 span{
-    color:rgba(115,91,39,1);
+    color: #735B27;
+font-size: 22rpx;
+
+}
+
+.guoqi{
+height: 90rpx;
+border-top: 2rpx solid #EFEFEF;
+
+}
+.guoqi image{
+width: 24rpx;
+height: 24rpx;
+margin-right: 20rpx;
+margin-left: 30rpx;
+
+}
+.guoqi text{
+color: #AAAAAA;
+font-size: 22rpx;
+
+}
+.wrapGuoQi .group-1{
+    background: #FFf;
+}
+
+.wrapGuoQi .info-3{
+    background:#B2B2B2;
+    color:#fff;
+}
+.wrapGuoQi .info-1 b {
+    color:#C79F62;
+}
+
+.wrapGuoQi .info-1 span {
+    color:#AAAAAA;
+}
+.wrapGuoQi .info-2 span {
+    color:#AAAAAA;
 }
