@@ -1,8 +1,8 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/feedback/feedback",
     "pages/coupons/index",
+    "pages/feedback/feedback",
     "pages/kf/index",
     "pages/redpacket/index",
     "pages/diningway/index",

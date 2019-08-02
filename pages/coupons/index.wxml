@@ -1,2 +1,26 @@
-<!--pages/coupons/index.wxml-->
-<text>我的券</text>
+<view class="coupons">
+    <image class="couponsBg" mode="widthFix" src="../../images/images/quanYes.png"></image>
+    <text class="couponsMoney">￥3</text>
+    <text class="couponsQuan">抵扣券</text>
+    <view class="couponsInfo flex ai jcb">
+        <view class="couponsLeft">
+            <text >满29可用，不限制适用门店</text>
+            <text >使用期限：2019.5.16  ~  2019.08.12</text>
+        </view>
+        <text class="couponsRight">未使用</text>
+    </view>
+</view>
+
+<view class="coupons">
+    <image class="couponsBg" mode="widthFix" src="../../images/images/quanNo.png"></image>
+    <text class="couponsMoney">￥3</text>
+    <text class="couponsQuan">抵扣券</text>
+    <image class="quanTime" src="../../images/images/quanGuoQi.png"></image>
+    <view class="couponsInfo flex ai jcb">
+        <view class="couponsLeft">
+            <text >满29可用，不限制适用门店</text>
+            <text >使用期限：2019.5.16  ~  2019.08.12</text>
+        </view>
+        <text class="couponsRight">未使用</text>
+    </view>
+</view>
