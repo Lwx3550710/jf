@@ -1,7 +1,7 @@
 pages/about/index                           关于匠方
 pages/add-address/index                     添加地址
 pages/address/index                         收货地址
-pages/authorize/index                       授权页面
+pages/authorize/authorize                   授权页面
 pages/coupons/index                         我的券
 pages/diningway/index                       选择用餐方式
 pages/index/index                           首页

@@ -1,2 +1,59 @@
-<!--pages/kf/index.wxml-->
-<text>pages/kf/index.wxml</text>
+<view class="flex flv">
+  <view class="kfTitle flex ai jcc">
+      <image src="../../images/images/kf.png"></image>
+      <text>客服热线</text>
+  </view>
+  <view class="kfContent flex-1">
+    <view class="kfInfo">
+      <view class="kfInfoOther">您好，</view>
+    </view>
+    <view class="kfInfo flex jce">
+      <view class="kfInfoMy">你好，请问你们匠方可以加盟嘛？我想要加盟</view>
+    </view>
+    <view class="kfInfo">
+      <view class="kfInfoOther">你好，请问你们匠方可以加盟嘛？我想要加盟</view>
+    </view>
+    <view class="kfInfo flex jce">
+      <view class="kfInfoMy">你好，</view>
+    </view>
+    <view class="kfInfo">
+      <view class="kfInfoOther">你好，请问你们匠方可以加盟嘛？我想要加盟</view>
+    </view>
+    <view class="kfInfo flex jce">
+      <view class="kfInfoMy">你好，</view>
+    </view>
+    <view class="kfInfo">
+      <view class="kfInfoOther">你好，请问你们匠方可以加盟嘛？我想要加盟</view>
+    </view>
+    <view class="kfInfo flex jce">
+      <view class="kfInfoMy">你好，</view>
+    </view>
+    <view class="kfInfo">
+      <view class="kfInfoOther">你好，请问你们匠方可以加盟嘛？我想要加盟</view>
+    </view>
+    <view class="kfInfo flex jce">
+      <view class="kfInfoMy">你好，</view>
+    </view>
+    <view class="kfInfo">
+      <view class="kfInfoOther">你好，请问你们匠方可以加盟嘛？我想要加盟</view>
+    </view>
+    <view class="kfInfo flex jce">
+      <view class="kfInfoMy">你好，</view>
+    </view>
+    <view class="kfInfo">
+      <view class="kfInfoOther">你好，请问你们匠方可以加盟嘛？我想要加盟</view>
+    </view>
+    <view class="kfInfo flex jce">
+      <view class="kfInfoMy">你好，</view>
+    </view>
+    <view class="kfInfo">
+      <view class="kfInfoOther">你好，请问你们匠方可以加盟嘛？我想要加盟</view>
+    </view>
+    <view class="kfInfo flex jce">
+      <view class="kfInfoMy">你好，</view>
+    </view>
+  </view>
+</view>
+<view class="kfInput flex ai jcc">
+  <textarea auto-height="true" placeholder="请简短描述您的问题" placeholder-class="placeholder"></textarea>
+</view>

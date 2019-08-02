@@ -1,1 +1,76 @@
-/* pages/kf/index.wxss */
+page{
+  background: #f2f2f2;
+}
+.kfTitle{
+  height:80rpx;
+  background: #fff;
+  border-top: 2rpx solid #E5E5E5;
+  margin-bottom: 20rpx;
+}
+.kfTitle image{
+  width: 42rpx;
+  height:42rpx;
+  margin-right:5rpx;
+}
+.kfTitle text{
+  color: #000000;
+  font-size:30rpx;
+}
+.kfContent{
+  margin-bottom: 80rpx;
+
+}
+.kfInfo{
+  width: 100%;
+
+}
+.kfContent .kfInfoOther{
+  font-size: 26rpx;
+  color:#000000;
+  background:#fff;
+  padding: 15rpx 20rpx;
+  margin-bottom: 50rpx;
+  margin-left:20rpx;
+  border-radius: 10rpx;
+  line-height: 40rpx;
+  max-width: 450rpx;
+  float: left;
+
+}
+.kfContent .kfInfoMy{
+  font-size: 26rpx;
+  color: #fff;
+  background:#C79F62;
+  padding: 15rpx 20rpx;
+  margin-bottom: 50rpx;
+  margin-right:20rpx;
+  border-radius: 10rpx;
+  line-height: 40rpx;
+  max-width: 450rpx;
+  float: right;
+
+}
+.kfInput{
+  min-height: 98rpx;
+  background:#fff;
+  position: fixed;
+  bottom: 0;
+  left:0;
+  width: 100%;
+}
+.kfInput textarea{
+background: #f7f7f7;
+width: 90%;
+height: 100%;
+border-radius: 10rpx;
+padding: 14rpx 20rpx 10rpx 20rpx;
+font-size: 26rpx;
+color: #333;
+margin: 20rpx 0;
+
+}
+.kfInput .placeholder{
+  font-size:26rpx;
+  color:#ccc;
+}
+
