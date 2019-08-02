@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/index/index",
     "pages/wallet/index",
     "pages/tradepintwo/index",
     "pages/tradepinone/index",
@@ -14,12 +15,19 @@
     "pages/about/index",
     "pages/invite/index",
     "pages/authorize/authorize",
-    "pages/index/index",
     "pages/member/index",
     "pages/address/index",
     "pages/coupons/index",
     "pages/kf/index",
-    "pages/diningway/index"
+    "pages/diningway/index",
+    "pages/ourCulture/ourCulture",
+    "pages/joinUs/joinUs",
+    "pages/myScore/myScore",
+    "pages/myWallet/myWallet",
+    "pages/orderComment/orderComment",
+    "pages/mapShop/mapShop",
+    "pages/orderDetails/orderDetails",
+    "pages/orderSettle/orderSettle",
   ],
   "window": {
     "backgroundTextStyle": "light",

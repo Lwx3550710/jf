@@ -20,6 +20,7 @@
 	box-shadow: 0 2rpx 4rpx 0 rgba(0,0,0,0.2);
 	z-index: 66;
 	position: relative;
+  width:100%;
 }
 
 .sifBox-tabLi {

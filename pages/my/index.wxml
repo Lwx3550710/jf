@@ -8,19 +8,19 @@
         </view>
     </view>
     <view class="assets">
-        <view class="items">
-            <b>29</b>
+        <view class="items" bindtap="myScore">
+            <b>28</b>
             <span>积分</span>
         </view>
-        <view class="items">
+        <view class="items" bindtap="">
             <b>5</b>
             <span>我的券</span>
         </view>
-        <view class="items">
+        <view class="items" bindtap="">
             <b>0</b>
             <span>我的红包</span>
         </view>
-        <view class="items">
+        <view class="items" bindtap="">
             <b>29</b>
             <span>钱包</span>
         </view>
