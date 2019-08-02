@@ -1,0 +1,36 @@
+<view class="counter-warp">
+<view class="mod-hd">
+    <view class="user">
+        <view class="photo"><image src="../../images/my/per-default.png"></image></view>
+        <view class="info">
+            <view class="name">这里是用户</view>
+            <view class="btn">点击授权</view>
+        </view>
+    </view>
+    <view class="assets">
+        <view class="items">
+            <b>29</b>
+            <span>积分</span>
+        </view>
+        <view class="items">
+            <b>5</b>
+            <span>我的券</span>
+        </view>
+        <view class="items">
+            <b>0</b>
+            <span>我的红包</span>
+        </view>
+        <view class="items">
+            <b>29</b>
+            <span>钱包</span>
+        </view>
+    </view>
+</view>
+<view class="mod-group">
+    <view class="items" wx:for="{{group}}" wx:key="index">
+        <image src="{{item.icon}}" class="icon"></image>
+        <b class="title">{{item.title}}</b>
+        <image src="../../images/my/arrow.png" class="arrow"></image>
+    </view>
+</view>
+</view>

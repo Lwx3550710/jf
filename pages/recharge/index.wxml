@@ -1,0 +1,12 @@
+<view class="rechargePage">
+    <view class="title">请选择充值金额</view>
+    <view class="group">
+        <view class="items {{index==0?'active':''}}" wx:for="{{list}}" wx:key="{{index}}">
+            <view class="money">￥{{item.money}}</view>
+            <view class="bg" wx:if="{{index == 0}}"><image src="../../images/images/recharge-2.png" alt=""></image></view>
+            <view class="bg" wx:else><image src="../../images/images/recharge-1.png" alt=""></image></view>
+        </view>
+    </view>
+    <view class="btn">立即充值</view>
+    <view class="foot"><image src="../../images/images/recharge-3.png" alt=""></image></view>
+</view>

@@ -1,0 +1,24 @@
+.container{
+    padding: 30rpx;
+    overflow: hidden;
+}
+.group{
+    line-height: 100rpx;
+    height:100rpx;
+    width: 100%;
+    border-bottom: 1rpx #E6E6E6 solid;
+    clear: both;
+}
+.group text{
+    font-size:30rpx;
+    color: #333;
+    float: left;
+}
+.group .arrow{
+    width: 30rpx;
+    height: 30rpx;
+    opacity: .3;
+    float: right;
+    margin-top: 38rpx;
+    transform: rotate(-180deg);
+}

@@ -1,0 +1,76 @@
+.container{
+    padding: 15px;
+    overflow: hidden;
+}
+.hd{
+    width: 100%;
+    clear: both;
+    margin: 0 auto;
+    padding: 20px 0;
+    border-bottom: 1px #E6E6E6 solid;
+    overflow: hidden;
+}
+.hd .money{
+    text-align: center;
+
+}
+
+.hd .logo image{
+    width: 500rpx;
+    height: 300rpx;
+    display: block;
+    margin: 0 auto;
+}
+.hd dl{
+    text-align: center;
+    margin: 10px auto;
+    overflow: hidden;
+}
+.hd dt{
+    font-size:26rpx;
+    line-height: 40px;
+}
+.hd dd{
+    font-size: 24px;
+    color: #000;
+    font-weight: bold;
+    line-height: 30px;
+    display: block;
+
+}
+.hd dd:before{
+    content: '￥';
+    font-size: 12px;
+    font-weight: normal;
+}
+.hd .btn{
+    width:240rpx;
+    line-height:80rpx;
+    font-size: 18px;
+    text-align: center;
+    color: #fff;
+    margin: 0 auto;
+    background:rgba(38,30,19,1);
+    border-radius:10rpx;
+}
+.group{
+    line-height: 100rpx;
+    width: 100%;
+    border-bottom: 1rpx #E6E6E6 solid;
+    clear: both;
+    height: 100rpx;
+    
+}
+.group b{
+    font-size:30rpx;
+    color: #333;
+    float: left;
+}
+.group .arrow{
+    width: 15px;
+    height: 15px;
+    opacity: .3;
+    float: right;
+    margin-top: 19px;
+    transform: rotate(-180deg);
+}

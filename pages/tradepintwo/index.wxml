@@ -1,0 +1,13 @@
+<view class="tradePage">
+    <view class="title">请再次输入</view>
+    <view class="group">
+        <view class="items"><input type="text"></input></view>
+        <view class="items"><input type="text"></input></view>
+        <view class="items"><input type="text"></input></view>
+        <view class="items"><input type="text"></input></view>
+        <view class="items"><input type="text"></input></view>
+        <view class="items"><input type="text"></input></view>
+    </view>
+    <view class="h-60"></view>
+    <view class="btn">保存密码</view>
+</view>

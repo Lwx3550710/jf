@@ -1,0 +1,209 @@
+@import "../../common/sg.wxss";
+
+page {
+  background: #f7f7f7;
+}
+
+.uBox {
+  margin-bottom: 20rpx;
+  background: #fff;
+}
+
+.title {
+  padding-top: 30rpx;
+  font-size: 36rpx;
+  font-weight: bold;
+  color: #000;
+  line-height: 40rpx;
+  margin: 0 24rpx;
+  margin-bottom: 16rpx;
+}
+
+.product {
+  padding: 9rpx 0 25rpx 0;
+  padding-left: 24rpx;
+}
+
+.productLi {
+  padding: 25rpx 0;
+}
+
+.productLi-cap {
+  font-size: 30rpx;
+  color: #333;
+  line-height: 34rpx;
+}
+
+.productLi-txt {
+  font-size: 24rpx;
+  color: #999;
+  line-height: 32rpx;
+  margin-top: 18rpx;
+  text-align: justify;
+}
+
+.productLi-num {
+  width: 134rpx;
+  text-align: center;
+  font-size: 30rpx;
+  color: #333;
+  line-height: 34rpx;
+}
+
+.productLi-price {
+  width: 112rpx;
+  text-align: center;
+  font-size: 30rpx;
+  color: #000;
+  line-height: 34rpx;
+}
+
+.line {
+  border-bottom: 2rpx solid #e6e6e6;
+  padding: 22rpx 24rpx;
+  min-height: 44rpx;
+}
+
+.etLine {
+  min-height: 64rpx;
+}
+
+.line.noBor {
+  border-bottom: 0;
+}
+
+.line .cap {
+  font-size: 28rpx;
+  color: #333;
+  line-height: 44rpx;
+}
+
+.line .txt {
+  font-size: 28rpx;
+  color: #777;
+  line-height: 44rpx;
+  text-align: right;
+  padding-left: 60rpx;
+}
+
+.line .txt .arrow {
+  width: 11rpx;
+  height: 20rpx;
+  margin-left: 16rpx;
+}
+
+.line .txt.red {
+  color: #e50110;
+}
+
+.line .txt.orange {
+  color: #c79f62;
+}
+
+.line .txt em {
+  color: #333;
+}
+
+.line .wechat {
+  width: 34rpx;
+  height: 30rpx;
+  margin-right: 14rpx;
+}
+
+.line .input {
+}
+
+.line .input input {
+  width: 100%;
+  text-align: right;
+  font-size: 28rpx;
+  color: #333;
+  line-height: 44rpx;
+  height: 44rpx;
+}
+
+.address {
+  height: 140rpx;
+  padding: 0 120rpx 0 24rpx;
+  position: relative;
+  border-top: 2rpx solid #eee;
+}
+
+.address .one {
+  font-size: 30rpx;
+  color: #000;
+  line-height: 34rpx;
+}
+
+.address .two {
+  margin-top: 18rpx;
+  font-size: 26rpx;
+  color: #333;
+  line-height: 30rpx;
+}
+
+.address .three {
+  margin-top: 18rpx;
+  font-size: 22rpx;
+  color: #999;
+  line-height: 26rpx;
+}
+
+.address image {
+  width: 11rpx;
+  height: 20rpx;
+  position: absolute;
+  right: 24rpx;
+  top: 50%;
+  margin-top: -10rpx;
+}
+
+.tabType {
+  padding: 0 12rpx;
+}
+
+.tabTypeLi {
+  border: 2rpx solid #000;
+  margin: 0 12rpx;
+  font-size: 30rpx;
+  line-height: 34rpx;
+  height: 118rpx;
+}
+
+.tabTypeLi image {
+  width: 60rpx;
+  height: 60rpx;
+  margin-right: 40rpx;
+}
+
+.tabTypeLi.cur {
+  border-color: #c79f62;
+  color: #c79f62;
+}
+
+.fixedTool {
+  height: 98rpx;
+  background: #fff;
+  box-shadow: 0 0 4rpx 0 rgba(0, 0, 0, 0.4);
+  position: fixed;
+  z-index: 888;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.fixedTool .price {
+  font-size: 40rpx;
+  color: #333;
+  line-height: 44rpx;
+  padding-left: 24rpx;
+}
+
+.fixedTool .pay {
+  line-height: 98rpx;
+  width: 200rpx;
+  text-align: center;
+  background: #c79f62;
+  color: #fff;
+  font-size: 36rpx;
+}

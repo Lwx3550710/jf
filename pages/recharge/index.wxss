@@ -1,0 +1,78 @@
+.rechargePage{
+    padding: 15px;
+    overflow: hidden;
+}
+.title{
+    font-size:36rpx;
+    font-weight:500;
+    color:rgba(0,0,0,1);
+    line-height:50px;
+}
+.rechargePage .group{
+    padding-bottom: 40px;
+    clear: both;
+    overflow: hidden;
+}
+.rechargePage .group .items{
+    width: 150px;
+    height: 75px;
+    position: relative;
+    z-index: 1;
+    float: left;
+    margin: 10px;
+    overflow: hidden;
+}
+.rechargePage .group .items:nth-child(odd){
+    margin-right: 15px;
+}
+.rechargePage .group .items div{
+    width: 150px;
+    height: 75px;
+    text-align: center;
+    position: absolute;
+}
+.rechargePage .group .items .money{
+    z-index: 2;
+    font-size: 20px;
+    color: #C79F62;
+    line-height: 75px;
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    
+}
+.rechargePage .group .items.active .money{
+    color: #fff;
+}
+.rechargePage .group .items .bg{
+    z-index: 1;
+    position: absolute;
+    top: 0;
+    left: 0;
+
+}
+.rechargePage .group .items image{
+    width: 150px;
+    height: 75px;
+}
+.rechargePage .btn{
+    width:640rpx;
+    line-height:80rpx;
+    color: #fff;
+    font-size:36rpx;
+    margin: 0 auto;
+    border-radius:10rpx;
+    text-align: center;
+    background:#C79F62;
+}
+.rechargePage .foot{
+    width: 100%;
+    clear: both;
+    padding: 20px 0;
+}
+.rechargePage .foot image{
+    width: 418rpx;
+    height: 402rpx;
+    display: block;
+    margin: 0 auto;
+}

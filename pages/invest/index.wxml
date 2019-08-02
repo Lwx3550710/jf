@@ -1,0 +1,6 @@
+<view class="container">
+    <view class="jf-box">
+        <view class="jf-input"><input type="text" value="https://s?tn=news&rtt=1&bsst=.."></input></view>
+        <view class="jf-btn"><button>复制</button></view>
+    </view>
+</view>

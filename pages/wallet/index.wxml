@@ -1,0 +1,16 @@
+<view class="container">
+    <view class="hd">
+        <view class="logo"><image src="../../images/images/qb-hyk.png" alt=""></image></view>
+        <view class="money">
+            <dl>
+                <dt>可用余额</dt>
+                <dd>0</dd>
+            </dl>
+        </view>
+        <view class="btn">立即充值</view>
+    </view>
+    <view class="group" wx:for="{{list}}">
+        <b>{{item.name}}</b>
+        <span><image src="../../images/my/arrow.png" class="arrow"></image></span>
+    </view>
+</view>

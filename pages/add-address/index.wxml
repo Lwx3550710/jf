@@ -1,0 +1,30 @@
+<view class="addressPage">
+    <view class="ad-form">
+        <view class="group">
+            <view class="form-label">联系人</view>
+            <view class="form-input">
+                <input type="text" class="i-text" value="李一"></input>
+            </view>
+        </view>
+        <view class="group">
+            <view class="form-label"></view>
+            <view class="form-input">
+                <label for="sex1"><radio checked></radio>男士</label>
+                <label for="sex2"><radio></radio>女士</label>
+            </view>
+        </view>
+        <view class="group">
+            <view class="form-label">手机号</view>
+            <view class="form-input"><input type="text" class="i-text" value="13920191234"></input></view>
+        </view>
+        <view class="group">
+            <view class="form-label">收货地址</view>
+            <view class="form-input"><input type="text" class="i-text" value="悠方购物中心"></input></view>
+        </view>
+        <view class="group">
+            <view class="form-label">门牌号</view>
+            <view class="form-input"><input type="text" class="i-text" value="写字楼A座2006室"></input></view>
+        </view>
+    </view>
+    <view class="btn">保存</view>
+</view>

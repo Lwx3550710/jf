@@ -1,0 +1,33 @@
+@import "../../common/sg.wxss";
+
+.noOpenWallet {
+  position: fixed;
+  z-index: 888;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+}
+
+.noOpenWallet image {
+  width: 298rpx;
+  height: 309rpx;
+  margin-top: -200rpx;
+}
+
+.noOpenWallet text {
+  font-size: 26rpx;
+  color: #333;
+  line-height: 30rpx;
+  margin: 6rpx 0 85rpx 0;
+}
+
+.noOpenWalletBtn {
+  font-size: 36rpx;
+  color: #fff;
+  line-height: 80rpx;
+  width: 640rpx;
+  border-radius: 8rpx;
+  background: #c79f62;
+  text-align: center;
+}

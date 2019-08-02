@@ -1,0 +1,87 @@
+.mod-hd{
+    background: rgb(246, 246, 246);
+    width: 100%;
+    min-height: 100px;
+    overflow: hidden;
+}
+.mod-hd .user{
+    padding: 20px;
+    clear: both;
+    overflow: hidden;
+}
+.mod-hd .user .photo{
+    float: left;
+    width: 60px;
+    margin-right: 15px;
+}
+.mod-hd .user .photo image{
+    width: 60px;
+    height: 60px;
+}
+.mod-hd .user .info{
+    float: left;
+}
+.mod-hd .user .info .name{
+    font-size: 18px;
+    color: #000;
+    line-height: 30px;
+    font-weight: bold;
+}
+.mod-hd .user .info .btn{
+    line-height: 22px;
+    background: #040404;
+    color: #fff;
+    padding: 0 10px;
+    border-radius: 20px;
+    display: inline-block;
+    text-align: center;
+}
+.mod-hd .assets{
+    clear: both;
+    display: flex;
+}
+.mod-hd .assets .items{
+    flex: 1;
+    text-align: center;
+    padding: 15px 0;
+}
+.mod-hd .assets .items b{
+    font-size: 24px;
+    color: #000;
+}
+.mod-hd .assets .items span{
+    font-size: 12px;
+    color: #000;
+    display: block;
+
+}
+.mod-group {
+    width: 100%;
+    clear: both;
+    overflow: hidden;
+}
+.mod-group .items{
+    padding: 10px 15px;
+    clear: both;
+    overflow: hidden;
+}
+.mod-group .items .icon{
+    width: 20px;
+    height: 20px;
+    float: left;
+    margin: 5px 10px 0 0;
+}
+.mod-group .items .title{
+    float: left;
+    line-height: 30px;
+    color: #333;
+    font-size: 14px;
+}
+.mod-group .items .arrow{
+    width: 15px;
+    height: 15px;
+    opacity: .3;
+    float: right;
+    margin-top: 7px;
+    transform: rotate(-180deg);
+}

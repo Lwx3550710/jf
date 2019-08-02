@@ -1,0 +1,91 @@
+<view class="uBox">
+	<view class="address df cf wao" hidden="{{orderType!=0}}">
+		<view class="one ov-d">匠方肉夹馍（银泰城店）</view>
+		<view class="three">您距离当前门店5000米以上，请确定下单门店是否正确</view>
+		<image src="/images/sg-img/arrow.png"></image>
+	</view>
+	<view class="address df cf wao" hidden="{{orderType!=1}}">
+		<view class="one ov-d">这里是用户设置的收货地址这里是用户设置的收货地址这里是用户设置的收货地址</view>
+		<view class="two">收货人(先生/女士) 13920191234</view>
+		<image src="/images/sg-img/arrow.png"></image>
+	</view>
+	<view class="tabType df">
+		<view class="tabTypeLi flex df hao wao {{orderType==0?'cur':''}}" bindtap="chooseType" data-index="0">
+			<image src="/images/sg-img/type-1.png" hidden="{{orderType==0}}"></image>
+			<image src="/images/sg-img/type-1-cur.png" hidden="{{orderType!=0}}"></image>
+			门店自取
+		</view>
+		<view class="tabTypeLi flex df hao wao {{orderType==1?'cur':''}}" bindtap="chooseType" data-index="1">
+			<image src="/images/sg-img/type-2.png" hidden="{{orderType==1}}"></image>
+			<image src="/images/sg-img/type-2-cur.png" hidden="{{orderType!=1}}"></image>
+			外卖配送
+		</view>
+	</view>
+	<view class="line etLine df hao noBor" hidden="{{orderType!=0}}">
+		<view class="cap">取餐时间</view>
+		<view class="txt orange flex df hao war">尽快取餐<image src="/images/sg-img/arrow.png" class="arrow"></image></view>
+	</view>
+	<view class="line etLine df hao noBor" hidden="{{orderType!=0}}" style="margin-top: -40rpx;">
+		<view class="cap">联系电话</view>
+		<view class="txt flex"><em>13920191234</em></view>
+	</view>
+	<view class="line etLine df hao noBor" hidden="{{orderType!=1}}">
+		<view class="cap">送达时间</view>
+		<view class="txt orange flex">现在下单预计12:00送达</view>
+	</view>
+</view>
+<view class="uBox">
+	<view class="title">商品明细</view>
+	<view class="product">
+		<view class="productLi df hal">
+			<view class="productLi-lt flex">
+				<view class="productLi-cap ov-d">这里是商品名称</view>
+				<view class="productLi-txt">这里是用户选择的规格这里是用户选择的规格这里是用户选择的规格这里是用户选择的规格</view>
+			</view>
+			<view class="productLi-num">x1</view>
+			<view class="productLi-price">￥29</view>
+		</view>
+		<view class="productLi df hal">
+			<view class="productLi-lt flex">
+				<view class="productLi-cap ov-d">这里是商品名称</view>
+				<view class="productLi-txt">这里是用户选择的规格这里是用户选择的规格这里是用户选择的规格这里是用户选择的规格</view>
+			</view>
+			<view class="productLi-num">x1</view>
+			<view class="productLi-price">￥29</view>
+		</view>
+	</view>
+	<view class="line df hao noBor">
+		<view class="cap">配送费</view>
+		<view class="txt flex"><em>￥5</em></view>
+	</view>
+	<view class="line df hao noBor">
+		<view class="cap">优惠券</view>
+		<view class="txt flex red">-10</view>
+	</view>
+	<view class="line df hao noBor">
+		<view class="cap">红包</view>
+		<view class="txt flex df hao war">暂无可用<image src="/images/sg-img/arrow.png" class="arrow"></image></view>
+	</view>
+	<view class="line df hao noBor">
+		<view class="cap"></view>
+		<view class="txt flex big">共2个商品，小计：<em>￥48</em></view>
+	</view>
+</view>
+<view class="uBox" style="padding-bottom: 98rpx;">
+	<view class="line df hao noBor">
+		<view class="cap">支付方式</view>
+		<view class="txt flex df hao war">
+			<image src="/images/sg-img/wechat.png" class="wechat"></image>
+			<em>微信支付</em>
+			<image src="/images/sg-img/arrow.png" class="arrow"></image>
+		</view>
+	</view>
+	<view class="line df hao noBor">
+		<view class="cap">备注</view>
+		<view class="input flex"><input placeholder="选填"></input></view>
+	</view>
+</view>
+<view class="fixedTool df hao">
+	<view class="flex price">￥48</view>
+	<view class="pay">支付</view>
+</view>

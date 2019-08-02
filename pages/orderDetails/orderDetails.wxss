@@ -1,0 +1,148 @@
+@import "../../common/sg.wxss";
+
+page {
+  background: #f8f9f7;
+}
+
+.uBox {
+  background: #fff;
+  margin-bottom: 20rpx;
+}
+
+.state {
+  height: 180rpx;
+  padding: 0 24rpx;
+  font-size: 48rpx;
+  color: #333;
+  line-height: 52rpx;
+  position: relative;
+}
+
+.state .rbtn {
+  width: 118rpx;
+  line-height: 38rpx;
+  border: 2rpx solid #c79f62;
+  color: #c79f62;
+  font-size: 24rpx;
+  text-align: center;
+  border-radius: 6rpx;
+  position: absolute;
+  right: 28rpx;
+  bottom: 30rpx;
+}
+
+.title {
+  padding-top: 30rpx;
+  font-size: 36rpx;
+  font-weight: bold;
+  color: #000;
+  line-height: 40rpx;
+  margin: 0 24rpx;
+  margin-bottom: 16rpx;
+}
+
+.person {
+  font-size: 28rpx;
+  color: #333;
+  line-height: 32rpx;
+  padding: 0 24rpx 0 32rpx;
+  height: 128rpx;
+}
+
+.person .head {
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 50%;
+  margin-right: 40rpx;
+}
+
+.person .btn {
+  width: 144rpx;
+  line-height: 38rpx;
+  border: 2rpx solid #c79f62;
+  color: #c79f62;
+  font-size: 24rpx;
+  text-align: center;
+  border-radius: 6rpx;
+}
+
+.product {
+  padding: 9rpx 0 25rpx 0;
+  padding-left: 24rpx;
+}
+
+.productLi {
+  padding: 25rpx 0;
+}
+
+.productLi-cap {
+  font-size: 30rpx;
+  color: #333;
+  line-height: 34rpx;
+}
+
+.productLi-txt {
+  font-size: 24rpx;
+  color: #999;
+  line-height: 32rpx;
+  margin-top: 18rpx;
+  text-align: justify;
+}
+
+.productLi-num {
+  width: 134rpx;
+  text-align: center;
+  font-size: 30rpx;
+  color: #333;
+  line-height: 34rpx;
+}
+
+.productLi-price {
+  width: 112rpx;
+  text-align: center;
+  font-size: 30rpx;
+  color: #000;
+  line-height: 34rpx;
+}
+
+.line {
+  border-bottom: 2rpx solid #e6e6e6;
+  padding: 22rpx 24rpx;
+  min-height: 44rpx;
+}
+
+.line.noBor {
+  border-bottom: 0;
+}
+
+.line .cap {
+  font-size: 30rpx;
+  color: #333;
+  line-height: 44rpx;
+}
+
+.line .txt {
+  font-size: 30rpx;
+  color: #999;
+  line-height: 44rpx;
+  text-align: right;
+  padding-left: 60rpx;
+}
+
+.line .txt .arrow {
+  width: 11rpx;
+  height: 20rpx;
+  margin-left: 16rpx;
+}
+
+.line .txt.red {
+  color: #e50110;
+}
+
+.line .txt.orange {
+  color: #c79f62;
+}
+
+.line .txt em {
+  color: #333;
+}

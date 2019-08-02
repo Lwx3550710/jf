@@ -1,0 +1,12 @@
+<view class="logo dFlex cFlex hAuto wAuto">
+  <image src="{{serverUrl+logo}}" mode="widthFix"></image>
+  <text>废品回收</text>
+</view>
+
+<view class="info">
+  <view class="p">访问本引用必须登录</view>
+  <view class="p2">获取您的微信头像和昵称</view>
+</view>
+
+<button wx:if="{{canIUse}}" class="getPower" open-type="getUserInfo" bindgetuserinfo="getUserinfoSuccess">确认登录</button>
+<view wx:else>请升级微信版本</view>

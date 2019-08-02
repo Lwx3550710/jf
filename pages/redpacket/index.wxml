@@ -1,0 +1,13 @@
+<view class="wrap">
+    <view class="group group-1">
+        <view class="info-1">
+            <b>¥ 20</b>
+            <span>会员专属红包</span>
+        </view>
+        <view class="info-2">
+            <b>满任意金额可用，不限制 使门店用</b>
+            <span>2019-08-12到期</span>
+        </view>
+        <view class="info-3"></view>
+    </view>
+</view>

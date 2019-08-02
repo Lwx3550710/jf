@@ -1,0 +1,8 @@
+<view class="container">
+    <view class="group" wx:for="{{list}}">
+        <text>{{item.name}}</text>
+        <view>
+            <image src="../../images/my/arrow.png" class="arrow"></image>
+        </view>
+    </view>
+</view>

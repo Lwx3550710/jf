@@ -1,0 +1,61 @@
+@import "../../common/sg.wxss";
+
+.line {
+  border-top: 2rpx solid #e6e6e6;
+  padding: 0 24rpx;
+}
+
+.cap {
+  line-height: 106rpx;
+  width: 268rpx;
+  font-size: 28rpx;
+  color: #333;
+}
+
+.cap em {
+  color: #de2121;
+}
+
+.input {
+}
+
+.input input {
+  width: 100%;
+  font-size: 28rpx;
+  line-height: 36rpx;
+  height: 36rpx;
+}
+
+.place {
+  color: #999;
+}
+
+.choose {
+}
+
+.choose-li {
+  width: 168rpx;
+  line-height: 64rpx;
+  text-align: center;
+  border: 2rpx solid #c29b62;
+  border-radius: 8rpx;
+  color: #c29b62;
+  font-size: 26rpx;
+  margin-right: 40rpx;
+}
+
+.choose-li.cur {
+  background: #c29b62;
+  color: #fff;
+}
+
+.submit {
+  margin: 180rpx 96rpx 0 96rpx;
+  line-height: 80rpx;
+  width: 560rpx;
+  text-align: center;
+  font-size: 34rpx;
+  color: #fff;
+  background: #c29b62;
+  border-radius: 12rpx;
+}

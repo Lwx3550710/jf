@@ -1,0 +1,326 @@
+<view class="shop_container">
+    <view class="header_bd">
+        <view class="store">
+            <span>匠方银泰城店</span>
+            <image mode="widthFix" src="../../images/takefood/aw.png" class="icon-1" alt=""></image>
+        </view>
+        <view class="waimai" bingtap="targetUrl('diningway')">
+            <image mode="widthFix" src="../../images/home/waimai.png" class="icon-1" alt=""></image>
+            <span>外卖</span>
+            <image mode="widthFix" src="../../images/home/arrow.png" class="icon-2" alt=""></image>
+        </view>
+        <view class="address"><image mode="widthFix" src="../../images/home/address.png" alt=""></image>距您500m</view>
+    </view>
+		<view class="sifBox flex">
+			<view class="sifBox-tab df hao">
+				<view class="sifBox-tabLi {{curSifMain=='菜单'?'cur':''}}" bindtap="chooseSifMain" data-type="菜单">菜单</view>
+				<view class="sifBox-tabLi {{curSifMain=='评价'?'cur':''}}" bindtap="chooseSifMain" data-type="评价">评价</view>
+				<view class="sifBox-tabLi {{curSifMain=='门店'?'cur':''}}" bindtap="chooseSifMain" data-type="门店">门店</view>
+			</view>
+			<view class="sifBox-content pt0 df cf" hidden="{{curSifMain!='菜单'}}">
+				<view class="food_bd">
+					<view class="menu_bd">
+						<ul>
+								<li class="active">热销</li>
+								<li>优惠</li>
+								<li>口味1</li>
+								<li>口味2</li>
+								<li>口味3</li>
+								<li>口味4</li>
+						</ul>
+					</view>
+					<view class="wrapper_bd">
+							<view class="photo"><image mode="widthFix" src="../../images/home/adv.png" alt=""></image></view>
+							<view class="items" bindtap="showProductDetail">
+									<view class="food-img"><image mode="widthFix" src="//elm.cangdu.org/img/16772d91c1823153.jpg" alt=""></image></view>
+									<view class="food-info">
+											<view class="name">驴肉火烧</view>
+											<view class="desc">来自西安地道的驴肉火烧 制作手艺传 承22年 好吃不贵！</view>
+											<view class="price">
+													<b>￥4.85</b>
+													<span>¥4.85</span>
+													<em catchtap="showProductAttr">选规格</em>
+											</view>
+									</view>
+							</view>
+							<view class="items" bindtap="showProductDetail">
+									<view class="food-img"><image mode="widthFix" src="//elm.cangdu.org/img/16772d91c1823153.jpg" alt=""></image></view>
+									<view class="food-info">
+											<view class="name">驴肉火烧</view>
+											<view class="desc">来自西安地道的驴肉火烧 制作手艺传 承22年 好吃不贵！</view>
+											<view class="price">
+													<b>￥4.85</b>
+													<span>¥4.85</span>
+													<em catchtap="showProductAttr">选规格</em>
+											</view>
+									</view>
+							</view>
+							<view class="items" bindtap="showProductDetail">
+									<view class="food-img"><image mode="widthFix" src="//elm.cangdu.org/img/16772d91c1823153.jpg" alt=""></image></view>
+									<view class="food-info">
+											<view class="name">驴肉火烧</view>
+											<view class="desc">来自西安地道的驴肉火烧 制作手艺传 承22年 好吃不贵！</view>
+											<view class="price">
+													<b>￥4.85</b>
+													<span>¥4.85</span>
+													<em catchtap="showProductAttr">选规格</em>
+											</view>
+									</view>
+							</view>
+							<view class="items" bindtap="showProductDetail">
+									<view class="food-img"><image mode="widthFix" src="//elm.cangdu.org/img/16772d91c1823153.jpg" alt=""></image></view>
+									<view class="food-info">
+											<view class="name">驴肉火烧</view>
+											<view class="desc">来自西安地道的驴肉火烧 制作手艺传 承22年 好吃不贵！</view>
+											<view class="price">
+													<b>￥4.85</b>
+													<span>¥4.85</span>
+													<em catchtap="showProductAttr">选规格</em>
+											</view>
+									</view>
+							</view>
+							<view class="items" bindtap="showProductDetail">
+									<view class="food-img"><image mode="widthFix" src="//elm.cangdu.org/img/16772d91c1823153.jpg" alt=""></image></view>
+									<view class="food-info">
+											<view class="name">驴肉火烧</view>
+											<view class="desc">来自西安地道的驴肉火烧 制作手艺传 承22年 好吃不贵！</view>
+											<view class="price">
+													<b>￥4.85</b>
+													<span>¥4.85</span>
+													<em catchtap="showProductAttr">选规格</em>
+											</view>
+									</view>
+							</view>
+							<view class="items" bindtap="showProductDetail">
+									<view class="food-img"><image mode="widthFix" src="//elm.cangdu.org/img/16772d91c1823153.jpg" alt=""></image></view>
+									<view class="food-info">
+											<view class="name">驴肉火烧</view>
+											<view class="desc">来自西安地道的驴肉火烧 制作手艺传 承22年 好吃不贵！</view>
+											<view class="price">
+													<b>￥4.85</b>
+													<span>¥4.85</span>
+													<em catchtap="showProductAttr">选规格</em>
+											</view>
+									</view>
+							</view>
+					</view>
+				</view>
+			</view>
+			<scroll-view class="sifBox-content" scroll-y="true" hidden="{{curSifMain!='评价'}}">
+				<view class="sifBox-cmtTop df hao">
+					<view class="sifBox-cmtScore">
+						<em>5.0</em>
+						<span>门店评分</span>
+					</view>
+					<view class="flex sifBox-cmtPut">
+						<view class="sifBox-cmtStar df hao">
+							<span>食材</span>
+							<image src="/images/sg-img/star.png"></image>
+							<image src="/images/sg-img/star.png"></image>
+							<image src="/images/sg-img/star.png"></image>
+							<image src="/images/sg-img/star.png"></image>
+							<image src="/images/sg-img/star.png"></image>
+							<em>5.0</em>
+						</view>
+						<view class="sifBox-cmtStar df hao">
+							<span>包装</span>
+							<image src="/images/sg-img/star.png"></image>
+							<image src="/images/sg-img/star.png"></image>
+							<image src="/images/sg-img/star.png"></image>
+							<image src="/images/sg-img/star.png"></image>
+							<image src="/images/sg-img/star.png"></image>
+							<em>5.0</em>
+						</view>
+					</view>
+					<!-- <view class="sifBox-cmtLoc">
+						<em>4.0</em>
+						<span>配送评分</span>
+					</view> -->
+				</view>
+				<!-- <view class="sifBox-cmtLable">
+					<view class="sifBox-cmtLableLi cur">全部评价(1235)</view>
+					<view class="sifBox-cmtLableLi">只看有图(1002)</view>
+					<view class="sifBox-cmtLableLi">好评(1230)</view>
+					<view class="sifBox-cmtLableLi">差评(5)</view>
+					<view class="sifBox-cmtLableLi">满意(7)</view>
+				</view> -->
+				<view class="sifBox-cmtList">
+					<view class="sifBox-cmtLi">
+						<view class="sifBox-cmtPerson df hao">
+							<image src="https://c-ssl.duitang.com/uploads/item/201805/13/20180513224039_tgfwu.png" class="sifBox-cmtHead"></image>
+							<view class="sifBox-cmtInfo flex">
+								<view class="sifBox-cmtName">用过的昵称</view>
+								<view class="sifBox-cmtStar2 df hao">
+									<image src="/images/sg-img/star2.png"></image>
+									<image src="/images/sg-img/star2.png"></image>
+									<image src="/images/sg-img/star2.png"></image>
+									<image src="/images/sg-img/star2.png"></image>
+									<image src="/images/sg-img/star2.png"></image>
+									10分钟内送达
+								</view>
+							</view>
+							<view class="sifBox-cmtDate">2019.05.28</view>
+						</view>
+						<view class="sifBox-cmtTxt">这是用户评论这是用户评论这是用户评论这是用户评论这是用户评论这是用户评论这是用户评论这是用户评论</view>
+						<view class="sifBox-cmtImg">
+							<image src="https://c-ssl.duitang.com/uploads/item/201805/13/20180513224039_tgfwu.png"></image>
+							<image src="https://c-ssl.duitang.com/uploads/item/201805/13/20180513224039_tgfwu.png"></image>
+						</view>
+					</view>
+					<view class="sifBox-cmtLi">
+						<view class="sifBox-cmtPerson df hao">
+							<image src="https://c-ssl.duitang.com/uploads/item/201805/13/20180513224039_tgfwu.png" class="sifBox-cmtHead"></image>
+							<view class="sifBox-cmtInfo flex">
+								<view class="sifBox-cmtName">用过的昵称</view>
+								<view class="sifBox-cmtStar2 df hao">
+									<image src="/images/sg-img/star2.png"></image>
+									<image src="/images/sg-img/star2.png"></image>
+									<image src="/images/sg-img/star2.png"></image>
+									<image src="/images/sg-img/star2.png"></image>
+									<image src="/images/sg-img/star2.png"></image>
+									10分钟内送达
+								</view>
+							</view>
+							<view class="sifBox-cmtDate">2019.05.28</view>
+						</view>
+						<view class="sifBox-cmtTxt">这是用户评论这是用户评论这是用户评论这是用户评论这是用户评论这是用户评论这是用户评论这是用户评论</view>
+						<view class="sifBox-cmtImg">
+							<image src="https://c-ssl.duitang.com/uploads/item/201805/13/20180513224039_tgfwu.png"></image>
+							<image src="https://c-ssl.duitang.com/uploads/item/201805/13/20180513224039_tgfwu.png"></image>
+						</view>
+					</view>
+					<view class="sifBox-cmtLi">
+						<view class="sifBox-cmtPerson df hao">
+							<image src="https://c-ssl.duitang.com/uploads/item/201805/13/20180513224039_tgfwu.png" class="sifBox-cmtHead"></image>
+							<view class="sifBox-cmtInfo flex">
+								<view class="sifBox-cmtName">用过的昵称</view>
+								<view class="sifBox-cmtStar2 df hao">
+									<image src="/images/sg-img/star2.png"></image>
+									<image src="/images/sg-img/star2.png"></image>
+									<image src="/images/sg-img/star2.png"></image>
+									<image src="/images/sg-img/star2.png"></image>
+									<image src="/images/sg-img/star2.png"></image>
+									10分钟内送达
+								</view>
+							</view>
+							<view class="sifBox-cmtDate">2019.05.28</view>
+						</view>
+						<view class="sifBox-cmtTxt">这是用户评论这是用户评论这是用户评论这是用户评论这是用户评论这是用户评论这是用户评论这是用户评论</view>
+						<view class="sifBox-cmtImg">
+							<image src="https://c-ssl.duitang.com/uploads/item/201805/13/20180513224039_tgfwu.png"></image>
+							<image src="https://c-ssl.duitang.com/uploads/item/201805/13/20180513224039_tgfwu.png"></image>
+						</view>
+					</view>
+				</view>
+			</scroll-view>
+			<scroll-view class="sifBox-content" scroll-y="true" hidden="{{curSifMain!='门店'}}">
+				<view class="sifBox-spAdd df hao">
+					<image src="/images/sg-img/gps.png" class="ig1"></image>
+					<view class="flex ov-d">这里是门店的详细地址</view>
+					<image src="/images/sg-img/phone.png" class="ig2"></image>
+				</view>
+				<view class="sifBox-spFood df hao">
+					<image src="/images/sg-img/safe.png" class="ig3"></image>
+					<view class="flex ov-d">查看食品安全档案</view>
+					<image src="/images/sg-img/arrow.png" class="ig4"></image>
+				</view>
+				<view class="sifBox-spTime df hao">
+					<image src="/images/sg-img/clock.png" class="ig5"></image>
+					<view class="flex ov-d">营业时间：08:30——20:30 （节假日照常）</view>
+				</view>
+				<view class="sifBox-spLoc df hao">配送服务 :<image src="/images/sg-img/ps.png" class="ps"></image>提供高品质送餐服务</view>
+			</scroll-view>
+		</view>
+    <view class="buy-cart" hidden="{{curSifMain!='菜单'}}">
+        <view class="cart-bd">
+            <view class="btn">
+                <view class="wrap" bindtap="showShopCar">
+                    <view class="txt"><image mode="widthFix" src="../../images/home/cart.png" alt=""></image>购物袋</view>
+                    <view class="num">5</view>
+                </view>
+            </view>
+            <view class="info">
+                <dl>
+                    <dt>￥109</dt>
+                    <dd bingtap="targetUrl('confirm')">结算</dd>
+                </dl>
+            </view>
+        </view>
+    </view>
+		<view class="spCarBox" hidden="{{!isShowShopCar}}" bindtap="hideShopCar">
+			<view class="spCarBox-content" catchtap="noEvent">
+				<view class="spCarBox-tool df hao">
+					<view class="spCarBox-toolLi df hao"><image src="/images/sg-img/del.png"></image>清空购物车</view>
+				</view>
+				<scroll-view class="spCarBox-sc" scroll-y="true">
+					<view class="spCarBox-scLi df hao">
+						<view class="spCarBox-scFood ov-d flex">这里是食物名称</view>
+						<view class="spCarBox-scPrice">￥19</view>
+						<view class="spCarBox-scSub"></view>
+						<view class="spCarBox-scInput"><input type="number" value="1"></input></view>
+						<view class="spCarBox-scAdd"></view>
+					</view>
+					<view class="spCarBox-scLi df hao">
+						<view class="spCarBox-scFood ov-d flex">这里是食物名称</view>
+						<view class="spCarBox-scPrice">￥19</view>
+						<view class="spCarBox-scSub"></view>
+						<view class="spCarBox-scInput"><input type="number" value="1"></input></view>
+						<view class="spCarBox-scAdd"></view>
+					</view>
+					<view class="spCarBox-scLi df hao">
+						<view class="spCarBox-scFood ov-d flex">这里是食物名称</view>
+						<view class="spCarBox-scPrice">￥19</view>
+						<view class="spCarBox-scSub"></view>
+						<view class="spCarBox-scInput"><input type="number" value="1"></input></view>
+						<view class="spCarBox-scAdd"></view>
+					</view>
+					<view class="spCarBox-scLi df hao">
+						<view class="spCarBox-scFood ov-d flex">这里是食物名称</view>
+						<view class="spCarBox-scPrice">￥19</view>
+						<view class="spCarBox-scSub"></view>
+						<view class="spCarBox-scInput"><input type="number" value="1"></input></view>
+						<view class="spCarBox-scAdd"></view>
+					</view>
+				</scroll-view>
+			</view>
+		</view>
+</view>
+
+<view class="foodCatBox" hidden="{{!isShowProductDetail}}">
+	<view class="foodCatBox-content">
+		<view class="foodCatBox-close" bindtap="hideProductDetail"></view>
+		<image class="foodCatBox-pdimg" src="/images/sg-img/food.jpg"></image>
+		<view class="foodCatBox-name">商品的名称</view>
+		<view class="foodCatBox-sale">月售102</view>
+		<view class="foodCatBox-txt">这里是具体的描述这里是具体的描述这里是具体的描述这里是具体的描述这里是具体的描述这里是具体的描述这里是具体的描述这里是具体的描述这里是具体的描述这里是具体的描述</view>
+		<view class="foodCatBox-tool df hao">
+			<view class="foodCatBox-price df hao flex">￥19<em>￥29</em></view>
+			<view class="foodCatBox-choose" bindtap="showProductAttr">选规格</view>
+		</view>
+	</view>
+</view>
+
+<view class="foodCsBox" hidden="{{!isShowProductAttr}}">
+	<view class="foodCsBox-content">
+		<view class="foodCsBox-close" bindtap="hideProductAttr"></view>
+		<image class="foodCsBox-pdimg" src="/images/sg-img/food.jpg" mode="aspectFill"></image>
+		<view class="foodCsBox-name">商品的名称</view>
+		<view class="foodCsBox-type">规格</view>
+		<view class="foodCsBox-label">
+			<view class="foodCsBox-labelLi choose">小份<image src="/images/sg-img/star3.png"></image></view>
+			<view class="foodCsBox-labelLi">大份<image src="/images/sg-img/star3.png"></image></view>
+		</view>
+		<view class="foodCsBox-pd df hao">
+			<view class="foodCsBox-pdInfo df cf wao flex">
+				<view class="foodCsBox-price">￥19</view>
+				<view class="foodCsBox-data ov-d">小份</view>
+			</view>
+			<view class="foodCsBox-pdNum df hao">
+				<view class="foodCsBox-pdSub"></view>
+				<view class="foodCsBox-pdInput"><input type="number" value="1"></input></view>
+				<view class="foodCsBox-pdAdd"></view>
+			</view>
+		</view>
+		<view class="foodCsBox-add">加入购物车</view>
+	</view>
+</view>

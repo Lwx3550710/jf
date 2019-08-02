@@ -1,0 +1,24 @@
+.addressPage{
+    background: rgb(247,247,247);
+    width: 100%;
+    height: 100%;
+    position: absolute;
+}
+.addressPage img{
+    width: 750rpx;
+    height: 157rpx;
+    display: block;
+}
+.addressPage .btn{
+    width:640rpx;
+    line-height:80rpx;
+    color: #fff;
+    font-size:36rpx;
+    margin: 0 auto;
+    border-radius:10rpx;
+    left: 55rpx;
+    bottom: 40rpx;
+    text-align: center;
+    position: absolute;
+    background:rgba(38,30,19,1);
+}

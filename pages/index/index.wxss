@@ -1,0 +1,241 @@
+@import "../../common/sg.wxss";
+@import "home.wxss";
+
+.shop_container {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  right: 0;
+  left: 0;
+  height: 100%;
+}
+
+.header_bd {
+  padding: 0 30rpx;
+}
+
+.header_bd .store {
+  float: left;
+  line-height: 60rpx;
+}
+
+.header_bd .store span {
+  font-size: 32rpx;
+  color: #000;
+  margin-right: 12rpx;
+}
+
+.header_bd .store image {
+  transform: rotate(90deg);
+  width: 20rpx;
+  height: 20rpx;
+}
+
+.header_bd .waimai {
+  float: right;
+  line-height: 60rpx;
+}
+
+.header_bd .waimai span {
+  color: #c79f62;
+  padding: 0 10rpx;
+}
+
+.header_bd .waimai .icon-1 {
+  width: 32rpx;
+  height: 30rpx;
+}
+
+.header_bd .waimai .icon-2 {
+  width: 10rpx;
+  height: 16rpx;
+}
+
+.header_bd .address {
+  clear: both;
+  font-size: 22rpx;
+  line-height: 60rpx;
+  color: #666;
+}
+
+.header_bd .address image {
+  width: 19rpx;
+  height: 22rpx;
+  margin-right: 12rpx;
+}
+
+.food_bd {
+  display: flex;
+  flex: 1;
+  padding-bottom: 100rpx;
+  overflow: hidden;
+}
+
+.menu_bd {
+  width: 180rpx;
+  background: #f7f7f7;
+}
+
+.menu_bd li {
+  line-height: 120rpx;
+  font-size: 28rpx;
+  color: #999;
+  text-align: center;
+  padding: 0 10rpx;
+  display: block;
+}
+
+.menu_bd li.active {
+  border-left: 15rpx solid #c79f62;
+  background-color: #fff;
+}
+
+.wrapper_bd {
+  flex: 4;
+  padding: 20rpx;
+  overflow-y: auto;
+}
+
+.wrapper_bd .photo image {
+  width: 530rpx;
+  height: 242rpx;
+}
+
+.wrapper_bd .items {
+  width: 100%;
+  clear: both;
+  display: flex;
+  overflow: hidden;
+}
+
+.wrapper_bd .items .food-image {
+  width: 120rpx;
+  margin-right: 20rpx;
+}
+
+.wrapper_bd .items .food-img image {
+  width: 120rpx;
+  height: 120rpx;
+}
+
+.wrapper_bd .items .food-info {
+  width: 100%;
+}
+
+.wrapper_bd .items .food-info .name {
+  font-size: 28rpx;
+  line-height: 60rpx;
+  color: #000;
+}
+
+.wrapper_bd .items .food-info .desc {
+  color: #rpx;
+  font-size: 22rpx;
+  line-height: 28rpx;
+}
+
+.wrapper_bd .items .food-info .price b {
+  font-size: 28rpx;
+  color: #c79f62;
+  line-height: 60rpx;
+  display: inline-block;
+  margin-right: 20rpx;
+}
+
+.wrapper_bd .items .food-info .price span {
+  font-size: 20rpx;
+  color: #ccc;
+  line-height: 60rpx;
+  display: inline-block;
+}
+
+.wrapper_bd .items .food-info .price em {
+  display: inline-block;
+  background: #c79f62;
+  color: #fff;
+  line-height: 40rpx;
+  padding: 0 10rpx;
+  border-radius: 40rpx;
+  font-size: 22rpx;
+  float: right;
+  margin-top: 12rpx;
+}
+
+.buy-cart {
+  clear: both;
+  position: absolute;
+  background-color: #f2f2f2;
+  bottom: 0;
+  left: 0;
+  z-index: 89;
+  display: flex;
+  width: 100%;
+  height: 100rpx;
+}
+
+.cart-bd {
+  flex: 1;
+}
+
+.cart-bd .btn {
+  position: absolute;
+  top: -16rpx;
+  left: 30rpx;
+  width: 200rpx;
+  height: 90rpx;
+  border-radius: 60rpx;
+  background: #fff;
+  text-align: center;
+  box-shadow: 0 4rpx 20rpx 2rpx rgba(16, 16, 16, 0.1);
+}
+
+.cart-bd .btn .wrap {
+  flex: 1;
+  position: relative;
+}
+
+.cart-bd .btn .wrap .txt {
+  font-size: 30rpx;
+  color: #000;
+  line-height: 90rpx;
+}
+
+.cart-bd .btn .wrap .txt image {
+  width: 30rpx;
+  height: 36rpx;
+  margin-right: 12rpx;
+  vertical-align: text-top;
+}
+
+.cart-bd .btn .wrap .num {
+  position: absolute;
+  z-index: 2;
+  width: 38rpx;
+  height: 38rpx;
+  line-height: 38rpx;
+  top: 0;
+  right: 10rpx;
+  background: #c79f62;
+  color: #fff;
+  font-size: 22rpx;
+  border-radius: 50%;
+}
+
+.cart-bd .info {
+  float: right;
+}
+
+.cart-bd .info dt {
+  float: left;
+  padding: 0 30rpx;
+  line-height: 100rpx;
+}
+
+.cart-bd .info dd {
+  float: left;
+  background: #c79f62;
+  color: #fff;
+  line-height: 100rpx;
+  width: 200rpx;
+  text-align: center;
+}

@@ -1,0 +1,60 @@
+<view class="orderPage">
+    <view class="group">
+        <view class="userPhoto"><image src="../../images/images/order-logo.png" alt=""></image></view>
+        <view class="orderInfo">
+            <view class="hd">
+                <view class="store">
+                    <p class="name">匠方肉夹馍(银泰店) <image src="../../images/images/aw-r.png" alt=""></image></p>
+                    <p class="time">2019-05-28 11:00</p>
+                </view>
+                <view class="status">待接单</view>
+            </view>
+            <view class="bd">
+                <span>￥19</span>
+                <p>这里是订单食物的名称</p>
+            </view>
+            <view class="ft">
+                <span class="cancel">取消订单</span>
+            </view>
+        </view>
+    </view>
+    <view class="group">
+        <view class="userPhoto"><image src="../../images/images/order-logo.png" alt=""></image></view>
+        <view class="orderInfo">
+            <view class="hd">
+                <view class="store">
+                    <p class="name">匠方肉夹馍(银泰店) <image src="../../images/images/aw-r.png" alt=""></image></p>
+                    <p class="time">2019-05-28 11:00</p>
+                </view>
+                <view class="status">待取餐</view>
+            </view>
+            <view class="bd">
+                <span>￥19</span>
+                <p>这里是订单食物的名称</p>
+            </view>
+            <view class="ft">
+                <span class="confirm">确认取餐</span>
+            </view>
+        </view>
+    </view>
+    <view class="group">
+        <view class="userPhoto"><image src="../../images/images/order-logo.png" alt=""></image></view>
+        <view class="orderInfo">
+            <view class="hd">
+                <view class="store">
+                    <p class="name">匠方肉夹馍(银泰店) <image src="../../images/images/aw-r.png" alt=""></image></p>
+                    <p class="time">2019-05-28 11:00</p>
+                </view>
+                <view class="status">已完成</view>
+            </view>
+            <view class="bd">
+                <span>￥19</span>
+                <p>这里是订单食物的名称</p>
+            </view>
+            <view class="ft">
+                <span class="confirm">再来一单</span>
+                <span class="pingjia">评价</span>
+            </view>
+        </view>
+    </view>
+</view>

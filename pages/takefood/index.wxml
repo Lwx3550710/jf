@@ -1,0 +1,49 @@
+<view class="container">
+      <view class="card-main">
+          <view class="body">
+              <view class="title">堂食</view>
+              <view class="process">
+                  <view class="no">JF009</view>
+                  <view class="jd">您的餐品正在制作中</view>
+                  <view class="store">
+                      <b>匠方银泰城店</b>
+                      <image src="../../images/takefood/aw.png"></image>
+                  </view>
+              </view>
+              <view class="info">
+                  <view class="item">
+                      <view class="box1">
+                          <view class="name">商品信息名称</view>
+                          <view class="price">￥12</view>
+                          <view class="spec">x1</view>
+                      </view>
+                      <view class="box2">口味内容</view>
+                  </view>
+                  <view class="item">
+                      <view class="box1">
+                          <view class="name">商品信息名称</view>
+                          <view class="price">￥12</view>
+                          <view class="spec">x1</view>
+                      </view>
+                      <view class="box2">口味内容</view>
+                  </view>
+                  <view class="more">
+                      <dl>
+                          <dt>查看其余3件</dt>
+                          <dd><image src="../../images/takefood/aw-cur.png" alt=""></image></dd>
+                      </dl>
+                  </view>
+              </view>
+              <view class="total">
+                  <dl>
+                      <dt>总计</dt>
+                      <dd>￥60</dd>
+                  </dl>
+              </view>
+          </view>
+          <view class="bg">
+              <image src="../../images/takefood/card-bg.png" alt=""></image>
+          </view>
+      </view>
+    <view class="copyright"><text>注:请注意前台叫号，您也可以通过刷新小程序\n查看取餐进度</text></view>
+  </view>

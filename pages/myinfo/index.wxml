@@ -1,0 +1,29 @@
+<view class="addressPage">
+    <view class="info-bd">
+        <dl>
+            <dt><image src="../../images/my/per-default.png" alt=""></image></dt>
+            <dd>用户的微信名</dd>
+        </dl>
+    </view>
+    <view class="ad-form">
+        <view class="group">
+            <view class="form-label">昵称</view>
+            <view class="form-input"><input type="text" class="i-text" value="默认微信名"></input></view>
+        </view>
+        <view class="group">
+            <view class="form-label">手机号</view>
+            <view class="form-input"><input type="text" class="i-text" value="13920191234"></input></view>
+        </view>
+        <view class="group">
+            <view class="form-label">性别</view>
+            <view class="form-input">
+                <label for="sex1"><radio checked></radio>男士</label>
+                <label for="sex2"><radio></radio>女士</label>
+            </view>
+        </view>
+        <view class="group">
+            <view class="form-label">生日</view>
+            <view class="form-input"><input type="text" class="i-text"></input></view>
+        </view>
+    </view>
+</view>

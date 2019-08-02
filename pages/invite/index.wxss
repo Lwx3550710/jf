@@ -1,0 +1,84 @@
+.container {
+    background: #fff;
+    width: 100%;
+    position: relative;
+}
+
+.container image {
+    width: 100%;
+    height: 100%;
+}
+
+.inviteInfo {
+    position: absolute;
+    top: 0;
+    width: 584rpx;
+    height: 848rpx;
+    background: #F8F7F8;
+    opacity: 0.9;
+    right: 0;
+    left: 0;
+    margin: 270rpx auto 0;
+    border-radius: 10rpx;
+    text-align: center;
+}
+
+.inviteTitle {
+    margin-top: 25rpx;
+}
+
+.inviteTitle text {
+    font-size: 28rpx;
+    color: #000;
+}
+
+.inviteQR {
+    width: 361rpx;
+    height: 359rpx;
+    margin: 30rpx auto 20rpx;
+
+}
+
+.inviteCode {
+    font-size: 24rpx;
+    color: #666;
+}
+
+.inviteLine {
+    width: 100%;
+    border-top: 2rpx dashed #011B36;
+    margin: 20rpx 0;
+}
+
+.invitePerson {}
+
+.invitePerson .invitePersonLi {
+    margin-bottom: 30rpx;
+    padding: 0 35rpx;
+}
+
+.invitePerson .invitePersonLi text {
+    font-size: 24rpx;
+    color: #666;
+}
+
+.inviteCircle {
+    position: absolute;
+bottom: 238rpx;
+width: 100%;
+
+}
+
+.inviteCircle .inviteCircleLi{
+    width: 46rpx;
+height: 46rpx;
+border-radius: 50%;
+background: #011B36;
+
+}
+.inviteCircle .inviteCircleLi:nth-of-type(1){
+    margin-left:-23rpx;
+}
+.inviteCircle .inviteCircleLi:nth-of-type(2){
+    margin-right:-23rpx;
+}

@@ -1,0 +1,121 @@
+@import "../../common/sg.wxss";
+
+page {
+  background: #f7f7f7;
+}
+
+.top {
+  height: 104rpx;
+  padding: 0 30rpx;
+  background: #fff;
+}
+
+.top .address {
+  font-size: 26rpx;
+  color: #666;
+  line-height: 30rpx;
+  overflow: hidden;
+}
+
+.top .address image {
+  width: 11rpx;
+  height: 20rpx;
+  margin-left: 18rpx;
+}
+
+.top .search {
+  padding: 0 24rpx;
+  line-height: 68rpx;
+  border-radius: 40rpx;
+  font-size: 26rpx;
+  color: #898989;
+  background: #f7f7f7;
+}
+
+.top .search image {
+  width: 28rpx;
+  height: 28rpx;
+  margin-right: 14rpx;
+}
+
+.map {
+  width: 100%;
+  height: 500rpx;
+}
+
+.addList {
+  overflow-y: auto;
+  position: absolute;
+  top: 604rpx;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.addEt {
+  height: 50rpx;
+}
+
+.addEt::before {
+  content: '';
+  width: 80rpx;
+  height: 10rpx;
+  border-radius: 40rpx;
+  background: #b7b7b7;
+}
+
+.addLi {
+  margin: 0 32rpx 24rpx 32rpx;
+  padding: 30rpx 0;
+  background: #fff;
+  border-radius: 8rpx;
+}
+
+.addLi-info {
+  padding: 4rpx 60rpx 4rpx 36rpx;
+  border-right: 2rpx solid #efefef;
+}
+
+.addLi-cap {
+  font-size: 30rpx;
+  color: #333;
+  line-height: 34rpx;
+  font-weight: bold;
+}
+
+.addLi-cap em {
+  font-size: 24rpx;
+  font-weight: normal;
+  padding: 0 6rpx;
+  line-height: 30rpx;
+  border: 2rpx solid #e0e0e0;
+  border-radius: 6rpx;
+  margin-left: 14rpx;
+}
+
+.addLi-jl {
+  font-size: 24rpx;
+  color: #666;
+  line-height: 28rpx;
+  padding: 20rpx 0 14rpx 0;
+}
+
+.addLi-data, .addLi-time {
+  font-size: 24rpx;
+  color: #999;
+  line-height: 36rpx;
+  text-align: justify;
+}
+
+.addLi-time {
+  line-height: 28rpx;
+  margin-top: 12rpx;
+}
+
+.addLi-to {
+  width: 150rpx;
+  font-size: 26rpx;
+  color: #000;
+  line-height: 30rpx;
+  text-align: center;
+}

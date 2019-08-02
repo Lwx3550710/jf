@@ -1,0 +1,46 @@
+<view class="addressPage">
+    <view>
+        <view class="flex ai jcb">
+            <view class="">
+                <view>
+                    <text >悠方购物中心</text>
+                    <text >写字楼</text>
+                </view>
+                <view>
+                    <text >李一</text>
+                    <text >136666666</text>
+                </view>
+            </view>
+
+
+            <view>
+                <image></image>
+            </view>
+        </view>
+    </view>
+
+    <view >以下地址超出配送范围</view>
+
+    <view >
+        <view class="flex ai jcb">
+            <view class="">
+                <view >
+                    <text >悠方购物中心</text>
+                    <text >写字楼</text>
+                </view>
+                <view >
+                    <text >李一</text>
+                    <text >136666666</text>
+                </view>
+            </view>
+            
+            <view>
+                <image></image>
+            </view>
+        </view>
+    </view>
+
+
+
+    <view class="btn">添加地址</view>
+</view>

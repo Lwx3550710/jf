@@ -1,0 +1,21 @@
+<view class="line df hao">
+	<view class="cap df hao"><em>*</em>姓名</view>
+	<view class="flex input"><input placeholder="请输入"></input></view>
+</view>
+<view class="line df hao">
+	<view class="cap df hao"><em>*</em>电话</view>
+	<view class="flex input"><input placeholder="请输入"></input></view>
+</view>
+<view class="line df hao">
+	<view class="cap df hao"><em>*</em>意向区域</view>
+	<view class="flex input"><input placeholder="请输入"></input></view>
+</view>
+<view class="line">
+	<view class="cap df hao"><em>*</em>投资额度</view>
+	<view class="choose df hao">
+		<view class="choose-li cur">20—30万</view>
+		<view class="choose-li">31—45万</view>
+		<view class="choose-li">46—60万</view>
+	</view>
+</view>
+<view class="submit">提交</view>

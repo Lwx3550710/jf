@@ -1,0 +1,10 @@
+@import "../../common/sg.wxss";
+
+.txt {
+  font-size: 28rpx;
+  color: #333;
+  line-height: 48rpx;
+  text-align: justify;
+  padding: 30rpx 26rpx;
+  display: block;
+}

@@ -1,0 +1,58 @@
+/**app.wxss**/
+/* css3 布局样式*/
+
+.flex {
+    display: flex;
+}
+
+/*水平居中*/
+
+.jcc {
+    box-pack: center;
+    justify-content: center;
+}
+
+.jcb {
+    box-pack: justify;
+    justify-content: space-between;
+}
+
+.jce {
+    justify-content: flex-end;
+}
+
+.jcr {
+    justify-content: space-around;
+}
+
+.flw {
+    flex-wrap: wrap;
+}
+
+/*垂直居中*/
+
+.ai {
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    box-align: center;
+    align-items: center;
+}
+
+.bzx {
+    box-sizing: border-box;
+}
+
+.flex-1 {
+    flex: 1;
+}
+
+.flex-2 {
+    flex: 2;
+}
+
+/* 垂直方向 */
+
+.flv {
+    flex-direction: column;
+}
+

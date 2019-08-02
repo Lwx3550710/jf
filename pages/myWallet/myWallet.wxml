@@ -1,0 +1,5 @@
+<view class="noOpenWallet df cf wao hao">
+	<image src="/images/sg-img/earth.png"></image>
+	<text>您尚未开通钱包服务</text>
+	<view class="noOpenWalletBtn" bindtap="openWallet">开通钱包</view>
+</view>

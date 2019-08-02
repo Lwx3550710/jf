@@ -1,0 +1,67 @@
+.flex {
+  flex: 1;
+}
+
+.df {
+  display: flex;
+}
+
+.wao {
+  justify-content: center;
+}
+
+.wal {
+  justify-content: flex-start;
+}
+
+.war {
+  justify-content: flex-end;
+}
+
+.hao {
+  align-items: center;
+}
+
+.hal {
+  align-items: flex-start;
+}
+
+.har {
+  align-items: flex-end;
+}
+
+.bob {
+  box-sizing: border-box;
+}
+
+.cf {
+  flex-direction: column;
+}
+
+.jcb {
+  justify-content: space-between;
+}
+
+.ov-d {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.ov-2d {
+  text-overflow: -o-ellipsis-lastline;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.ov-3d {
+  text-overflow: -o-ellipsis-lastline;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}

@@ -1,0 +1,38 @@
+<view class="starLine">
+	<view class="cap">对门店的评价</view>
+	<view class="star df hao wao">
+		<image src="/images/sg-img/star-u-2.png"></image>
+		<image src="/images/sg-img/star-u-2.png"></image>
+		<image src="/images/sg-img/star-u-2.png"></image>
+		<image src="/images/sg-img/star-u-2.png"></image>
+		<image src="/images/sg-img/star-u-1.png"></image>
+	</view>
+	<view class="txt">非常满意</view>
+	<view class="star2 df hao wao">
+		<em>食材</em>
+		<image src="/images/sg-img/star-u-4.png"></image>
+		<image src="/images/sg-img/star-u-4.png"></image>
+		<image src="/images/sg-img/star-u-4.png"></image>
+		<image src="/images/sg-img/star-u-4.png"></image>
+		<image src="/images/sg-img/star-u-3.png"></image>
+	</view>
+	<view class="star2 df hao wao">
+		<em>包装</em>
+		<image src="/images/sg-img/star-u-4.png"></image>
+		<image src="/images/sg-img/star-u-4.png"></image>
+		<image src="/images/sg-img/star-u-4.png"></image>
+		<image src="/images/sg-img/star-u-4.png"></image>
+		<image src="/images/sg-img/star-u-3.png"></image>
+	</view>
+</view>
+<view class="commentline">
+	<textarea placeholder="餐点味道好，包装也很不错，下次还点你们家" placeholder-class="place"></textarea>
+	<view class="tool df har">
+		<view class="pic flex">
+			<view class="picAdd df cf hao wao"><image src="/images/sg-img/pic.png"></image>添加照片</view>
+			<view class="picLi"><image src="/images/sg-img/food.jpg" mode="aspectFill"></image></view>
+		</view>
+		<view class="info">评价文字/图片可得积分</view>
+	</view>
+</view>
+<view class="submit">发表评价</view>
