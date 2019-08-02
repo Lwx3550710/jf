@@ -1,0 +1,17 @@
+<view class="title">反馈问题类型</view>
+<view class="type df hao">
+	<view class="flex" wx:for="{{fb_type}}" wx:key="*this"><view class="type-li {{fb_chooseType==index?'cur':''}}" bindtap="chooseTypeFb" data-value="{{index}}">{{item}}</view></view>
+</view>
+<view class="txt">
+	<textarea placeholder="请选择问题类型帮助我们更快处理你的宝贵反馈" placeholder-class="place" maxlength="80" bindinput="contentInput" value="{{fb_contentVal}}"></textarea>
+	<text class="rich">{{fb_contentVal.length}}/80</text>
+	<view class="df hao upload">
+		<view class="upload-li" wx:for="{{fb_uploadImg}}" wx:key="*this">
+			<image mode="aspectFill" class="img" src="{{imgUrl+item}}" bindtap="showImg" data-url="{{item}}"></image>
+			<view class="del df hao wao" bindtap="delUploadImg" data-index="{{index}}"><image mode="widthFix" src="/images/sg-img/del2.png"></image></view>
+		</view>
+		<view class="upload-add" bindtap="getImgFile" hidden="{{fb_uploadImg.length>=3}}"></view>
+	</view>
+</view>
+<view class="info">*会员异常问题将在收到问题反馈的72小时内处理,非工作日则自动顺延</view>
+<view class="submit" bindtap="submitForm">提交反馈</view>
