@@ -1,0 +1,135 @@
+@import "/common/sg.wxss";
+
+.title {
+  font-size: 30rpx;
+  color: #333;
+  line-height: 34rpx;
+  padding: 40rpx;
+}
+
+.type {
+  padding: 6rpx 40rpx 40rpx 20rpx;
+}
+
+.type-li {
+  font-size: 24rpx;
+  color: #5c5c5c;
+  line-height: 58rpx;
+  border: 2rpx solid #dcdddd;
+  border-radius: 4rpx;
+  text-align: center;
+  margin-left: 20rpx;
+}
+
+.type-li.cur {
+  color: #c79f62;
+  border-color: #c79f62;
+}
+
+.txt {
+  border: 2rpx solid #dcdddd;
+  margin: 0 40rpx;
+  border-radius: 6rpx;
+  padding: 24rpx;
+}
+
+.txt textarea {
+  font-size: 28rpx;
+  padding: 16rpx 10rpx;
+  height: 134rpx;
+}
+
+.txt .place {
+  color: #ccc;
+}
+
+.txt .rich {
+  font-size: 24rpx;
+  color: #c1c1c1;
+  line-height: 28rpx;
+  display: block;
+  text-align: right;
+}
+
+.upload {
+  padding-top: 24rpx;
+}
+
+.upload-add {
+  width: 140rpx;
+  height: 140rpx;
+  border: 2rpx dashed #c1c1c1;
+  border-radius: 8rpx;
+  position: relative;
+}
+
+.upload-add::before {
+  content: '';
+  width: 4rpx;
+  height: 40rpx;
+  border-radius: 40rpx;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  background: #c1c1c1;
+  margin-left: -2rpx;
+  margin-top: -20rpx;
+}
+
+.upload-add::after {
+  content: '';
+  width: 40rpx;
+  height: 4rpx;
+  border-radius: 40rpx;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  background: #c1c1c1;
+  margin-left: -20rpx;
+  margin-top: -2rpx;
+}
+
+.upload-li {
+  width: 144rpx;
+  height: 144rpx;
+  margin-right: 36rpx;
+  position: relative;
+}
+
+.upload-li .img {
+  width: 100%;
+  height: 100%;
+  border-radius: 8rpx;
+  overflow: hidden;
+}
+
+.upload-li .del {
+  width: 30rpx;
+  height: 30rpx;
+  border-radius: 50%;
+  background: rgba(161, 161, 161, 0.9);
+  position: absolute;
+  right: -15rpx;
+  top: -15rpx;
+}
+
+.upload-li .del image {
+  width: 16rpx;
+}
+
+.info {
+  font-size: 24rpx;
+  color: #999;
+  line-height: 38rpx;
+  padding: 18rpx 40rpx;
+}
+
+.submit {
+  margin: 60rpx 40rpx 0 40rpx;
+  border-radius: 8rpx;
+  color: #fff;
+  line-height: 80rpx;
+  text-align: center;
+  font-size: 32rpx;
+  background: #c79f62;
+}
