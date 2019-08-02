@@ -1,1 +1,51 @@
-/* pages/diningway/index.wxss */
+page{
+    background: #F8F9F7;
+}
+.diningway{
+background: #fff;
+margin-bottom: 20rpx;
+position: relative;
+
+}
+.diningway .diningwayTitle{
+color: #999999;
+font-size: 26rpx;
+margin-left: 50rpx;
+
+}
+.diningway .diningwayContent{
+margin: 0 50rpx;
+
+}
+.diningway .diningwayInfo{
+height: 130rpx;
+line-height: 130rpx;
+
+
+}
+.diningway .diningwaySelect{
+width: 34rpx;
+height: 34rpx;
+
+}
+.diningway .diningwayInfo image{
+width: 34rpx;
+height: 34rpx;
+
+}
+.diningway .diningwayInfo text{
+color: #C79F62;
+font-size: 30rpx;
+margin-left: 15rpx;
+
+}
+
+
+.diningwayLine{
+    position: absolute;
+top: 130rpx;
+height: 2rpx;
+width: 100%;
+background: #EFEFEF;
+
+}

@@ -22,3 +22,58 @@
     position: absolute;
     background:rgba(38,30,19,1);
 }
+.addressContent{
+
+}
+.addressContent .addressLi{
+height: 158rpx;
+background: #fff;
+margin-top: 20rpx;
+
+}
+.addressContent .addressLi .addressInfo{
+
+}
+.addressInfo .addressInfoPlace{
+margin-left: 24rpx;
+
+}
+.addressInfo .addressInfoPlace text{
+color: #333;
+font-size: 30rpx;
+margin-right: 20rpx;
+
+}
+.addressInfo .addressInfoPerson{
+margin-left: 24rpx;
+margin-top: 5rpx;
+
+
+}
+.addressInfo .addressInfoPerson text{
+color: #333;
+font-size: 26rpx;
+margin-right: 20rpx;
+
+}
+
+.addressContent .addressLi .addressIcon{
+  width:30rpx;
+  height:30rpx;
+  margin-right: 24rpx;
+
+}
+.addressIcon image{
+  width:100%;
+  height:100%;
+}
+.addressTips{
+font-size: 26rpx;
+color: #999999;
+margin-left: 24rpx;
+margin-top: 20rpx;
+
+}
+.addressContent.active text{
+    color:#999999;
+}

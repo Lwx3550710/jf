@@ -1,2 +1,25 @@
-<!--pages/diningway/index.wxml-->
-<text>pages/diningway/index.wxml</text>
+<view class="diningway">
+    <text class="diningwayTitle">当前方式</text>
+    <view class="diningwayContent flex ai jcb">
+        <view class="diningwayInfo">
+            <image src="../../images/home/waimai.png"></image>
+            <text >外卖</text>
+        </view>
+
+        <image class="diningwaySelect" src="../../images/home/diningSelect.png"></image>
+    </view>
+</view>
+
+<view class="diningway">
+    <view class="diningwayContent">
+        <view  class="diningwayInfo">
+            <image src="../../images/home/ziqu.png"></image>
+            <text >自取</text>
+        </view>
+        <view  class="diningwayInfo">
+            <image src="../../images/home/shitang.png"></image>
+            <text >食堂</text>
+        </view>
+    </view>
+    <view class="diningwayLine"></view>
+</view>
