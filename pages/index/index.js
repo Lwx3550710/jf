@@ -15,6 +15,9 @@ Page({
 	toOrderSettlePage() { // 去结算
 		app.openUrl('orderSettle');
 	},
+	toDiningwayPage() { // 选择用餐方式
+		app.openUrl('diningway/index');
+	},
 	chooseSifMain(e) {
 		var type = app.attr(e, 'type');
 		that.setData({
