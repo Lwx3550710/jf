@@ -26,4 +26,5 @@ pages/takefood/index                        取餐
 pages/tradepinone/index                     匠方钱包 输入密码
 pages/tradepintwo/index                     匠方钱包 确认密码
 pages/wallet/index                          余额
+pages/feedback/feedback                     功能反馈
 
