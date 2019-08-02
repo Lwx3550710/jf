@@ -5,7 +5,7 @@
 <map id="map" class="map" longitude="113.324520" latitude="23.099994" scale="14" markers="{{markers}}" bindmarkertap="markertap" show-location></map>
 <scroll-view scroll-y="true" class="addList">
 	<view class="addEt df hao wao"></view>
-	<view class="addLi df hao">
+	<view class="addLi df hao" bindtap="chooseShop">
 		<view class="flex-1 addLi-info">
 			<view class="addLi-cap df hao">悠方购物中心店<em>支持自取/外卖</em></view>
 			<view class="addLi-jl">距离您 8.4km</view>
@@ -14,7 +14,7 @@
 		</view>	
 		<view class="addLi-to">去下单</view>	
 	</view>
-	<view class="addLi df hao">
+	<view class="addLi df hao" bindtap="chooseShop">
 		<view class="flex-1 addLi-info">
 			<view class="addLi-cap df hao">悠方购物中心店<em>支持自取/外卖</em></view>
 			<view class="addLi-jl">距离您 8.4km</view>
@@ -23,7 +23,7 @@
 		</view>	
 		<view class="addLi-to">去下单</view>	
 	</view>
-	<view class="addLi df hao">
+	<view class="addLi df hao" bindtap="chooseShop">
 		<view class="flex-1 addLi-info">
 			<view class="addLi-cap df hao">悠方购物中心店<em>支持自取/外卖</em></view>
 			<view class="addLi-jl">距离您 8.4km</view>

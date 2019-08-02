@@ -1,5 +1,5 @@
 <view class="orderPage">
-    <view class="group">
+    <view class="group" bindtap="toOrderDetailPage">
         <view class="userPhoto"><image src="../../images/images/order-logo.png" alt=""></image></view>
         <view class="orderInfo">
             <view class="hd">
@@ -18,7 +18,7 @@
             </view>
         </view>
     </view>
-    <view class="group">
+    <view class="group" bindtap="toOrderDetailPage">
         <view class="userPhoto"><image src="../../images/images/order-logo.png" alt=""></image></view>
         <view class="orderInfo">
             <view class="hd">
@@ -37,7 +37,7 @@
             </view>
         </view>
     </view>
-    <view class="group">
+    <view class="group" bindtap="toOrderDetailPage">
         <view class="userPhoto"><image src="../../images/images/order-logo.png" alt=""></image></view>
         <view class="orderInfo">
             <view class="hd">
@@ -53,7 +53,7 @@
             </view>
             <view class="ft">
                 <span class="confirm">再来一单</span>
-                <span class="pingjia">评价</span>
+                <span class="pingjia" catchtap="toOrderCommentPage">评价</span>
             </view>
         </view>
     </view>
