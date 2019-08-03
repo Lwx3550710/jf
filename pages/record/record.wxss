@@ -1,0 +1,90 @@
+@import "../../common/sg.wxss";
+
+.top {
+  height: 220rpx;
+  font-size: 26rpx;
+  color: #000;
+  line-height: 28rpx;
+  position: relative;
+  border-bottom: 20rpx solid #f5f6f7;
+}
+
+.top .score {
+  font-size: 62rpx;
+  color: #dba871;
+  line-height: 62rpx;
+  margin-bottom: 20rpx;
+}
+
+.card {
+  overflow-y: auto;
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  border-top: 2rpx solid #eee;
+
+}
+
+.card .cap {
+  font-size: 32rpx;
+  color: #000;
+  line-height: 110rpx;
+  padding: 0 24rpx;
+  position: relative;
+}
+
+.card .rule {
+  position: absolute;
+  right: 24rpx;
+  top: 50%;
+  margin-top: -15rpx;
+  font-size: 26rpx;
+  line-height: 30rpx;
+  color: #cfac78;
+}
+
+.card .list {
+  padding-left: 24rpx;
+}
+
+.card .li {
+  font-size: 20rpx;
+  color: #999;
+  line-height: 14rpx;
+  height: 108rpx;
+  border-bottom: 2rpx solid #eee;
+  padding-right: 40rpx;
+}
+
+
+
+.card .title {
+  font-size: 26rpx;
+  color: #333;
+  line-height: 30rpx;
+  margin-bottom: 14rpx;
+}
+
+.card .score {
+  font-size: 26rpx;
+  color: #000;
+  line-height: 30rpx;
+}
+
+.noMore {
+  font-size: 22rpx;
+  height: 78rpx;
+  text-align: center;
+  line-height: 58rpx;
+  color: #bbb;
+}
+
+.empty {
+  font-size: 24rpx;
+  text-align: center;
+  line-height: 24rpx;
+  color: #bbb;
+  padding-top: 274rpx;
+}

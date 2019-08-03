@@ -1,0 +1,14 @@
+<scroll-view class="card" scroll-y>
+	<view class="list">
+		<view class="li df hao" wx:for="{{list}}" wx:key="*this">
+			<view class="flex-1">
+				<view class="title">{{item.title}}</view>
+				<text>{{item.date}}</text>
+			</view>
+			<view class="score">{{item.score>0?'+'+item.score:item.score}}</view>
+		</view>
+
+		<view class="noMore" hidden="{{list.length==0}}">没有更多记录了~</view>
+		<view class="empty" hidden="{{list.length>0}}">暂无积分记录</view>
+	</view>
+</scroll-view>

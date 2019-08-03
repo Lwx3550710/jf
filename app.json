@@ -1,9 +1,10 @@
 {
   "pages": [
-    "pages/authorize/authorize",
-    "pages/kf/index",
     "pages/index/index",
     "pages/member/index",
+    "pages/record/record",
+    "pages/authorize/authorize",
+    "pages/kf/index",
     "pages/coupons/index",
     "pages/redpacket/index",
     "pages/diningway/index",

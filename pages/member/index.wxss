@@ -1,8 +1,45 @@
-page{
-    text-align: center;
-}
 .member{
-    width: 648rpx;
-margin: 40rpx auto 0;
 
+}
+.memberImg{
+width: 640rpx;
+height: 320rpx;
+position: relative;
+margin: 30rpx auto 0;
+}
+.memberImg image{
+  width:640rpx;
+  height:320rpx
+}
+.memberImg text{
+  position: absolute;
+  right: 20rpx;
+  bottom: 20rpx;
+  color: #fff;
+  font-size: 24rpx;
+}
+.memberTq{
+width: 640rpx;
+margin: 50rpx auto 0;
+
+}
+.memberTqTitle{
+  font-size: 35rpx;
+  color: #333;
+  font-weight: bold;
+}
+.memberTqInfo{
+  margin-top: 30rpx;
+}
+.memberTqLi{
+  text-align: center;
+}
+.memberTqLi image{
+  width: 84rpx;
+  height:84rpx;
+}
+.memberTqLi text{
+  display: block;
+  font-size: 30rpx;
+  color:#333;
 }

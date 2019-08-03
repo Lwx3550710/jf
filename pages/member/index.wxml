@@ -1,2 +1,28 @@
-<!--pages/member/index.wxml-->
-<image class="member" mode="widthFix" src="../../images/images/member.png"></image>
+<view class="member">
+  <view class="memberImg">
+    <image src="../../images/images/memberBg.png"></image>
+    <text>卡号：JF2222222222</text>
+  </view>
+
+  <view class="memberTq">
+    <text class="memberTqTitle">会员特权</text>
+    <view class="memberTqInfo flex ai jcb">
+      <view class="memberTqLi">
+        <image src="../../images/images/srtq.png"></image>
+        <text>生日特权</text>
+      </view>
+      <view class="memberTqLi">
+        <image src="../../images/images/hyzk.png"></image>
+        <text>会员折扣</text>
+      </view>
+      <view class="memberTqLi">
+        <image src="../../images/images/zshb.png"></image>
+        <text>专属红包</text>
+      </view>
+      <view class="memberTqLi">
+        <image src="../../images/images/zskf.png"></image>
+        <text>专属客服</text>
+      </view>
+    </view>
+  </view>
+</view>
