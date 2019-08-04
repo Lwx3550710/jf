@@ -1,15 +1,12 @@
-// pages/my/index.js
 var app = getApp()
+var that;
 
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
     userInfo: {
+      isOpenWallet: false, // 是否已开通钱包功能
       nickName: 'mpvue',
-      avatarUrl: 'http://mpvue.com/assets/logo.png'
+      avatarUrl: 'http://mpvue.com/assets/logo.png',
     },
     group: [{
       'title': '收货地址',
@@ -45,66 +42,58 @@ Page({
       'target': 'invest'
     }]
   },
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-    var that = this;
-    app.request({
-      url: app.globalData.serverUrl+'/user/getById',
-      data: {
-        userId: 972
-      },
-      success: function(res) {
-        console.log(res);
-        console.log(res.data);
+  getUserData(){ // 获取用户信息
+    app.ajax({
+      url: 'user/getById',
+      success: function (res) {
         that.setData({
-          headUrl: res.data.value.headUrl,
-          nickname: res.data.value.nickname,
-          point: res.data.value.point,
-          couponNum: res.data.value.other.couponNum,
-          leftAmount: res.data.value.leftAmount
+          isOpenWallet: (res.payPwd == null ? false : true), // 是否已开通钱包功能
+          headUrl: res.headUrl,
+          nickname: res.nickname,
+          point: res.point,
+          couponNum: res.other.couponNum,
+          leftAmount: res.leftAmount,
         })
       },
-      fail: function() {},
-      complete: function() {}
     })
   },
-
   myinfo: function (e) {
     wx.navigateTo({
       url: `../myinfo/index`
     })
   },
-
   myScore: function (e) {
     wx.navigateTo({
       url: `../myScore/myScore`
     })
   },
-
   coupons: function (e) {
     wx.navigateTo({
       url: `../coupons/index`
     })
   },
-
   redpacket: function (e) {
     wx.navigateTo({
       url: `../redpacket/index`
     })
   },
-
   myWallet: function (e) {
-    wx.navigateTo({
-      url: `../myWallet/myWallet`
-    })
+    if (that.data.isOpenWallet){ // 已开启钱包
+      app.openUrl('wallet/index');
+    }else{
+      app.openUrl('myWallet/myWallet');
+    }
   },
-
   bindShowTarget: function(e){
     wx.navigateTo({
       url: `../${e.currentTarget.dataset.id}/index`
     })
-	},
+  },
+  onLoad(options) {
+    that = this;
+    that.getUserData(); // 获取用户信息
+  },
+  onShow() {
+    that.getUserData(); // 获取用户信息
+  },
 })

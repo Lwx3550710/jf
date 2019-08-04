@@ -2,7 +2,7 @@
 	<view class="address df hao flex-1">成都市 武侯区 <image src="/images/sg-img/arrow.png"></image></view>
 	<view class="search df hao"><image src="/images/sg-img/search.png"></image>搜索</view>
 </view>
-<map id="map" class="map" longitude="113.324520" latitude="23.099994" scale="14" markers="{{markers}}" bindmarkertap="markertap" show-location></map>
+<map id="map" class="map" longitude="{{userLocation.long}}" latitude="{{userLocation.lat}}" scale="14" markers="{{markers}}" bindmarkertap="markertap" show-location></map>
 <scroll-view scroll-y="true" class="addList">
 	<view class="addEt df hao wao"></view>
 	<view class="addLi df hao" bindtap="chooseShop">

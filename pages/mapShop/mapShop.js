@@ -3,6 +3,10 @@ var appData = app.globalData;
 var that;
 Page({
 	data: {
+    userLocation: {
+      lat: '',
+      long: '',
+    },
 		markers: [{
 			iconPath: "/images/sg-img/ads-1.png",
 			id: 0,
@@ -18,6 +22,9 @@ Page({
 	},
 	onLoad(options) {
 		that = this;
+    that.setData({
+      userLocation: appData.userLocation,
+    });
 	},
 	onShareAppMessage() { },
 })

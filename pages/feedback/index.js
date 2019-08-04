@@ -5,7 +5,7 @@ var that;
 Page({
 	data: {
 		imgUrl: '',
-		fb_type: [ '功能异常', '体验问题', '功能建议', '其他问题' ],
+		fb_type: [],
 		canSubmit: 0,
 		fb_chooseType: 0, // 反馈问题类型
 		fb_contentVal: '', // 反馈问题内容
@@ -94,6 +94,19 @@ Page({
 	},
 	onLoad(options) {
 		that = this;
+
+    // 获取类型
+    app.ajax({
+      url: '/common/configs',
+      data: {
+        type: 0,
+      },
+      success: function (res) {
+        that.setData({
+          fb_type: res,
+        })
+      }
+    })
 	},
 	onShareAppMessage() { },
 })

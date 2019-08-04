@@ -1,5 +1,7 @@
 {
   "pages": [
+    "pages/authorizeLocation/authorizeLocation",
+    "pages/setPass/setPass",
     "pages/index/index",
     "pages/member/index",
     "pages/record/record",
@@ -64,5 +66,10 @@
     ],
     "position": "bottom"
   },
-  "sitemapLocation": "sitemap0.json"
+  "sitemapLocation": "sitemap0.json",
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于获取最近的门店"
+    }
+  }
 }

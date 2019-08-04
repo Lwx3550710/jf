@@ -1,0 +1,157 @@
+@import "/common/sg.wxss";
+
+.loadBox {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+}
+
+.loadTx {
+    transform: rotate(45deg);
+    width: 80rpx;
+    height: 80rpx;
+    position: relative;
+}
+
+.loadTxItem {
+    position: absolute;
+    border-radius: 2rpx;
+    width: 40rpx;
+    height: 40rpx;
+}
+
+.loadTxItem1 {
+    left: 0;
+    background: #5c6bc0;
+    animation: loadTxItemShape1 2s ease 0s infinite reverse;
+}
+
+.loadTxItem2 {
+    right: 0;
+    background: #8bc34a;
+    animation: loadTxItemShape2 2s ease 0s infinite reverse;
+}
+
+.loadTxItem3 {
+    bottom: 0;
+    background: #ffb74d;
+    animation: loadTxItemShape3 2s ease 0s infinite reverse;
+}
+
+.loadTxItem4 {
+    bottom: 0;
+    right: 0;
+    background: #f44336;
+    animation: loadTxItemShape4 2s ease 0s infinite reverse;
+}
+
+@keyframes loadTxItemShape1 {
+    0% {
+        transform: translate(0, 0);
+    }
+
+    25% {
+        transform: translate(0, 15px);
+    }
+
+    50% {
+        transform: translate(15px, 15px);
+    }
+
+    75% {
+        transform: translate(15px, 0);
+    }
+}
+
+@keyframes loadTxItemShape2 {
+    0% {
+        transform: translate(0, 0);
+    }
+
+    25% {
+        transform: translate(-15px, 0);
+    }
+
+    50% {
+        transform: translate(-15px, 15px);
+    }
+
+    75% {
+        transform: translate(0, 15px);
+    }
+}
+
+@keyframes loadTxItemShape3 {
+    0% {
+        transform: translate(0, 0);
+    }
+
+    25% {
+        transform: translate(15px, 0);
+    }
+
+    50% {
+        transform: translate(15px, -15px);
+    }
+
+    75% {
+        transform: translate(0, -15px);
+    }
+}
+
+@keyframes loadTxItemShape4 {
+    0% {
+        transform: translate(0, 0);
+    }
+
+    25% {
+        transform: translate(0, -15px);
+    }
+
+    50% {
+        transform: translate(-15px, -15px);
+    }
+
+    75% {
+        transform: translate(-15px, 0);
+    }
+}
+
+.loadInfo {
+    margin-top: 60rpx;
+    font-size: 32rpx;
+    color: #333;
+    line-height: 48rpx;
+    padding: 0 80rpx;
+    text-align: justify;
+}
+
+.failBox {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+}
+
+.failInfo {
+    font-size: 32rpx;
+    color: #333;
+    line-height: 48rpx;
+    padding: 0 80rpx;
+    text-align: justify;
+}
+
+.failReset {
+    font-size: 30rpx;
+    color: #fff;
+    background: #333;
+    text-align: center;
+    width: 200rpx;
+    line-height: 72rpx;
+    border-radius: 10rpx;
+    margin-top: 100rpx;
+    box-shadow: 0 0 6rpx 2rpx rgba(0, 0, 0, 0.4);
+}

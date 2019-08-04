@@ -1,0 +1,14 @@
+<view class="loadBox df cf hao wao" hidden="{{initLoadState!=1&&initLoadState!=3}}">
+	<view class="loadTx">
+		<view class="loadTxItem loadTxItem1"></view>
+		<view class="loadTxItem loadTxItem2"></view>
+		<view class="loadTxItem loadTxItem3"></view>
+		<view class="loadTxItem loadTxItem4"></view>
+	</view>
+	<text class="loadInfo">正在加载小程序，请耐心等待...</text>
+</view>
+
+<view class="failBox df cf hao wao" hidden="{{initLoadState!=4}}">
+	<text class="failInfo">抱歉，由于网络系统的原因，无法打开小程序，请尝试按“重试”按钮或重新打开微信！</text>
+	<view class="failReset" bindtap="resetInit">重试</view>
+</view>

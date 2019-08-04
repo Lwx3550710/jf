@@ -9,7 +9,7 @@
         </view>
         <view class="btn">立即充值</view>
     </view>
-    <view class="group" wx:for="{{list}}">
+    <view class="group" wx:for="{{list}}" bindtap="toPage" data-page="{{item.target}}" data-param="{{item.param}}">
         <b>{{item.name}}</b>
         <span><image src="../../images/my/arrow.png" class="arrow"></image></span>
     </view>

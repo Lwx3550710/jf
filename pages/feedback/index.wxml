@@ -1,6 +1,6 @@
 <view class="title">反馈问题类型</view>
 <view class="type df hao">
-	<view class="flex-1" wx:for="{{fb_type}}" wx:key="*this"><view class="type-li {{fb_chooseType==index?'cur':''}}" bindtap="chooseTypeFb" data-value="{{index}}">{{item}}</view></view>
+	<view class="flex-1" wx:for="{{fb_type}}" wx:key="*this"><view class="type-li {{fb_chooseType==index?'cur':''}}" bindtap="chooseTypeFb" data-value="{{index}}">{{item.name}}</view></view>
 </view>
 <view class="txt">
 	<textarea placeholder="请选择问题类型帮助我们更快处理你的宝贵反馈" placeholder-class="place" maxlength="80" bindinput="contentInput" value="{{fb_contentVal}}"></textarea>

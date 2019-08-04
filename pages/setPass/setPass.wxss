@@ -1,0 +1,94 @@
+@import "/common/sg.wxss";
+
+.title {
+    font-size: 32rpx;
+    line-height: 36rpx;
+    color: #333;
+    font-weight: bold;
+    text-align: center;
+    padding-top: 30rpx;
+}
+
+.info {
+    font-size: 20rpx;
+    line-height: 24rpx;
+    color: #999;
+    text-align: center;
+    padding-top: 36rpx;
+    padding-bottom: 20rpx;
+}
+
+.imp {
+    font-size: 28rpx;
+    line-height: 32rpx;
+    color: #ea3323;
+    text-align: center;
+    padding-top: 34rpx;
+}
+
+.passInput {
+    padding-top: 22rpx;
+    position: relative;
+}
+
+.passInput .passI {
+    width: 80rpx;
+    height: 100rpx;
+    text-align: center;
+    border-radius: 8rpx;
+    font-size: 30rpx;
+    line-height: 100rpx;
+    color: #333;
+    background: #f7f7f7;
+    margin: 0 10rpx;
+    font-weight: bold;
+    position: relative;
+}
+
+.passInput .passI text {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 16rpx;
+    height: 16rpx;
+    border-radius: 50%;
+    background: #333;
+    margin-left: -8rpx;
+    margin-top: -8rpx;
+}
+
+.passHide, .passConfirmHide, .passOldHide, phoneCodeHide {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 0.01px;
+    height: 0.01px;
+    overflow: hidden;
+    opacity: 0;
+}
+
+.passHide.passHide_SHOW, .passConfirmHide.passHide_SHOW,
+.passOldHide.passHide_SHOW, .phoneCodeHide.passHide_SHOW {
+    background: #194f39;
+    position: absolute;
+    width: 400rpx;
+    height: 60rpx;
+    left: 80rpx;
+    top: 134rpx;
+    opacity: 0.8;
+    font-size: 28rpx;
+    color: #fff;
+    padding: 0 10rpx;
+}
+
+.passConfirmHide.passHide_SHOW {
+    top: 200rpx;
+}
+
+.passOldHide.passHide_SHOW {
+    top: 266rpx;
+}
+
+.phoneCodeHide.passHide_SHOW {
+    top: 332rpx;
+}

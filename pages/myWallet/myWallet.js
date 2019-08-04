@@ -10,16 +10,23 @@ Page({
 			showCancel: false,
 			confirmColor: '#17c717',
 			success(){
-				app.openUrlCs('tradepinone/index');
+        // app.openUrlCs('tradepinone/index');
+        app.openUrlCs('setPass');
 			}
 		})
 	},
-	toArticlePage(e) {
-		// var choose = app.attr(e, 'id');
-		// app.openUrl('question');
-	},
 	onLoad(options) {
 		that = this;
+
+    app.ajax({
+      url: 'user/getById',
+      success: r => {
+        // console.log(r);
+        if (r.payPwd != null) { // 已开通
+          app.openUrlCs('wallet/index');
+        }
+      }
+    })
 	},
 	onShareAppMessage() { },
 })
