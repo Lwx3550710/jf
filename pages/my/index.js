@@ -1,4 +1,6 @@
 // pages/my/index.js
+var app = getApp()
+
 Page({
 
   /**
@@ -48,7 +50,32 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    var that = this;
+    app.request({
+      url: app.globalData.serverUrl+'/user/getById',
+      data: {
+        userId: 972
+      },
+      success: function(res) {
+        console.log(res);
+        console.log(res.data);
+        that.setData({
+          headUrl: res.data.value.headUrl,
+          nickname: res.data.value.nickname,
+          point: res.data.value.point,
+          couponNum: res.data.value.other.couponNum,
+          leftAmount: res.data.value.leftAmount
+        })
+      },
+      fail: function() {},
+      complete: function() {}
+    })
+  },
 
+  myinfo: function (e) {
+    wx.navigateTo({
+      url: `../myinfo/index`
+    })
   },
 
   myScore: function (e) {

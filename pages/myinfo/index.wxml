@@ -26,4 +26,5 @@
             <view class="form-input"><input type="text" class="i-text"></input></view>
         </view>
     </view>
+    <view class="btn">保存</view>
 </view>

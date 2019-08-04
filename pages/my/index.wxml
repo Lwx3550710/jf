@@ -1,19 +1,19 @@
 <view class="counter-warp">
 <view class="mod-hd">
     <view class="user">
-        <view class="photo"><image src="../../images/my/per-default.png"></image></view>
+        <view class="photo" bindtap="myinfo"><image src="{{headUrl}}"></image></view>
         <view class="info">
-            <view class="name">这里是用户</view>
-            <view class="btn">点击授权</view>
+            <view class="name">{{nickname}}</view>
+            <!-- <view class="btn">点击授权</view> -->
         </view>
     </view>
     <view class="assets">
         <view class="items" bindtap="myScore">
-            <b>28</b>
+            <b>{{point}}</b>
             <span>积分</span>
         </view>
         <view class="items" bindtap="coupons">
-            <b>5</b>
+            <b>{{couponNum}}</b>
             <span>我的券</span>
         </view>
         <view class="items" bindtap="redpacket">
@@ -21,7 +21,7 @@
             <span>我的红包</span>
         </view>
         <view class="items" bindtap="myWallet">
-            <b>29</b>
+            <b>{{leftAmount}}</b>
             <span>钱包</span>
         </view>
     </view>

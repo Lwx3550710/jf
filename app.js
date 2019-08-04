@@ -49,6 +49,28 @@ App({
 			},
 		})
 	},
+	request: function(obj) {
+		var header = obj.header || {}
+		if (!header['Content-Type']) {
+			header['Content-Type'] = 'application/json'
+		}
+		if (!header['Authorization']) {
+			header['Authorization'] = this.globalData.token
+		}
+
+		// This must be wx.request !
+		wx.request({
+			url: obj.url,
+			data: obj.data || {},
+			method: obj.method || 'GET',
+			header: header,
+			success: function(res) {
+			typeof obj.success == "function" && obj.success(res)
+			},
+			fail: obj.fail || function() {},
+			complete: obj.complete || function() {}
+		})
+	},
 	onLaunch(options) {
 		that = this;
         // // auto login via SDK
