@@ -2,12 +2,25 @@
 const AV = require('./utils/av-weapp.js');
 const appId = "wx8afdcf3654b4ba03";
 const appKey = "143d15030aa33de9f37e87491e20a2f9";
+const qiniuUploader = require("./utils/qiniuUploader.js");
 
 AV.init({ 
 	appId: appId, 
 	appKey: appKey,
 });
 
+// 初始化七牛相关参数
+function initQiniu(uptoken) {
+  var options = {
+    region: 'SCN', // 华北区
+    // uptokenURL: 'https://[yourserver.com]/api/uptoken', //请求后端uptoken的url地址
+    uptoken: uptoken,  //你请求后端的uptoken,和上面一样的，uptokenURL不填就找uptoken,填一个就可以了（这里是字符串数据不是url了）
+    domain: '', //yourBucketId:这个去你域名配置那里要
+    shouldUseQiniuFileName: false,
+    //key: '' 
+  };
+  qiniuUploader.init(options);
+}
 
 // 小程序版本迭代
 function checkUpdateVersion() {
@@ -42,7 +55,6 @@ function checkUpdateVersion() {
   }
 }
 
-
 var that;
 
 App({
@@ -52,6 +64,7 @@ App({
     userid: 972,
     shopid: 251,
     userLocation: {}, // 用户当前经纬度信息
+    qiniu_uploadToken: '', // 七牛图片上传的token
 	},
 	back() { // 返回上一页
 		wx.navigateBack();
@@ -147,34 +160,38 @@ App({
   },
   uploadImg(imgArr, call, endData) { // 上传图片【配合选择图片使用】
     endData = endData || [];
-    wx.uploadFile({
-      url: serverUrl + 'Uploader/image',
-      filePath: imgArr[0],
-      name: 'images',
-      formData: {},
-      success: function (r) {
-        var d = JSON.parse(r.data);
-        if (d.status == 'success') {
-          endData.push(d.data);
-          if (imgArr.length > 1) {
-            imgArr.splice(0, 1);
-            that.uploadImg(imgArr, call, endData);
-          } else {
-            call && call('success', endData);
-          }
-        } else {
-          call && call('fail', d.msg);
-        }
-      },
-      fail(r) {
-        // call && call('wxfail',r.errMsg);
-        console.error(r.errMsg);
-        wx.showModal({
-          title: '提示',
-          content: '【wechat】上传出错，请重试',
-          showCancel: false,
-        })
-      },
+    // wx.uploadFile({
+    //   url: serverUrl + 'Uploader/image',
+    //   filePath: imgArr[0],
+    //   name: 'images',
+    //   formData: {},
+    //   success: function (r) {
+    //     var d = JSON.parse(r.data);
+    //     if (d.status == 'success') {
+    //       endData.push(d.data);
+    //       if (imgArr.length > 1) {
+    //         imgArr.splice(0, 1);
+    //         that.uploadImg(imgArr, call, endData);
+    //       } else {
+    //         call && call('success', endData);
+    //       }
+    //     } else {
+    //       call && call('fail', d.msg);
+    //     }
+    //   },
+    //   fail(r) {
+    //     // call && call('wxfail',r.errMsg);
+    //     console.error(r.errMsg);
+    //     wx.showModal({
+    //       title: '提示',
+    //       content: '【wechat】上传出错，请重试',
+    //       showCancel: false,
+    //     })
+    //   },
+    // })
+    qiniuUploader.upload(imgArr[0], res => {
+      console.log(res);
+
     })
   },
 	onLaunch(options) {
@@ -217,6 +234,17 @@ App({
     //     that.pixelRatio = res.pixelRatio;
     //   }
     // });
+
+    // 获取七牛图片上传的token
+    that.ajax({
+      url: 'common/getUpToken',
+      data: {},
+      success: r=>{
+        // console.log(r);
+        that.globalData.qiniu_uploadToken = r||''; // 七牛图片上传的token
+        initQiniu(r);
+      },
+    })
   },
 	onShow(options) {
 	},

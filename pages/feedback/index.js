@@ -91,7 +91,7 @@ Page({
 			// 	},
 			// });
 		}
-	},
+  },
 	onLoad(options) {
 		that = this;
 
