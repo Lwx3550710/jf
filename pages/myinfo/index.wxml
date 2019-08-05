@@ -1,30 +1,43 @@
 <view class="addressPage">
     <view class="info-bd">
         <dl>
-            <dt><image src="../../images/my/per-default.png" alt=""></image></dt>
-            <dd>用户的微信名</dd>
+            <dt><image src="{{headUrl}}" alt=""></image></dt>
+            <dd>{{nickname}}</dd>
         </dl>
     </view>
+  <form bindsubmit="formSubmit">
     <view class="ad-form">
         <view class="group">
             <view class="form-label">昵称</view>
-            <view class="form-input"><input type="text" class="i-text" value="默认微信名"></input></view>
+            <view class="form-input"><view class="form-info">{{nickname}}</view></view>
         </view>
         <view class="group">
             <view class="form-label">手机号</view>
-            <view class="form-input"><input type="text" class="i-text" value="13920191234"></input></view>
+            <view class="form-input"><input name="mobile" type="text" class="i-text" value="{{mobile}}"></input></view>
         </view>
         <view class="group">
             <view class="form-label">性别</view>
             <view class="form-input">
-                <label for="sex1"><radio checked></radio>男士</label>
-                <label for="sex2"><radio></radio>女士</label>
+              <radio-group name="sex">
+                <label for="sex1"><radio value="1" checked="{{sex == 1}}"></radio>男士</label>
+                <label for="sex2"><radio value="2" checked="{{sex == 2}}"></radio>女士</label>
+              </radio-group>
             </view>
+            
         </view>
         <view class="group">
             <view class="form-label">生日</view>
-            <view class="form-input"><input type="text" class="i-text"></input></view>
+
+            <block wx:if="birth">
+              <view class="form-input"><view class="form-info">{{birth}}</view></view>
+            </block>
+            <block wx:else>
+              <view class="form-input"><input name="birth" type="text" class="i-text" placeholder="请输入生日信息，保存后不可修改" placeholder-class="placeholder"></input></view>
+            </block>
+
         </view>
+
     </view>
-    <view class="btn">保存</view>
+    <button form-type="submit" class="btn">保存</button >
+  </form>
 </view>

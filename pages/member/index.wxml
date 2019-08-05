@@ -1,7 +1,7 @@
 <view class="member">
   <view class="memberImg">
     <image src="../../images/images/memberBg.png"></image>
-    <text>卡号：JF2222222222</text>
+    <text>卡号：{{cardId}}</text>
   </view>
 
   <view class="memberTq">

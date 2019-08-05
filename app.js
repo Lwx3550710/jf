@@ -61,7 +61,7 @@ App({
 	globalData: {
 		// API_URL: 'http://localhost:3000',
 		serverUrl: 'http://120.79.37.4:8094/jig/',
-    userid: 972,
+    userid: '',
     shopid: 251,
     userLocation: {}, // 用户当前经纬度信息
     qiniu_uploadToken: '', // 七牛图片上传的token

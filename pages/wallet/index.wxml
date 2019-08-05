@@ -4,10 +4,10 @@
         <view class="money">
             <dl>
                 <dt>可用余额</dt>
-                <dd>0</dd>
+                <dd>{{left_amount}}</dd>
             </dl>
         </view>
-        <view class="btn">立即充值</view>
+        <view class="btn" bindtap="invest">立即充值</view>
     </view>
     <view class="group" wx:for="{{list}}" bindtap="toPage" data-page="{{item.target}}" data-param="{{item.param}}">
         <b>{{item.name}}</b>

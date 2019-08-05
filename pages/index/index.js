@@ -5,6 +5,7 @@ var that;
 Page({
   data: {
 		curSifMain: '菜单',
+    shopMenuIndex: 0,
 		isShowShopCar: false, // 是否显示购物车详情
 		isShowProductDetail: false, // 是否显示商品详情
 		isShowProductAttr: false, // 是否显示商品规格
@@ -55,9 +56,36 @@ Page({
 			isShowProductAttr: false,
 		})
 	},
+  getShop(){//获取产品数据
+    app.ajax({
+      url: 'shop/getById',
+      data: {
+        shopId: app.globalData.shopid,
+        key: ''
+      },
+      success: function (res) {
+        console.log(res)
+        that.setData({
+          shopData: res.map,
+        })
+        that.setData({
+          goodsData: that.data.shopData.types[that.data.shopMenuIndex].goods
+        })
+      },
+    })
+  },
+  chooseShopMenu(e) {
+    var type = app.attr(e, 'type');
+    that.setData({
+      shopMenuIndex: type,
+    })
+    that = this;
+    that.getShop();
+  },
 	noEvent(){}, // 用来阻止事件
 	onLoad(options) {
 		that = this;
+    that.getShop();
 	},
 	onShareAppMessage() { },
 })

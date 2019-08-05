@@ -8,8 +8,6 @@
 	<view class="passI" bindtap="openPass"><text hidden="{{numberLength<4}}"></text></view>
 	<view class="passI" bindtap="openPass"><text hidden="{{numberLength<5}}"></text></view>
 	<view class="passI" bindtap="openPass"><text hidden="{{numberLength<6}}"></text></view>
-	<input class="passHide {{showPass_development?'passHide_SHOW':''}}" type="number" focus="{{passFocus}}" maxlength="6" bindinput="passInput" value="{{passVal}}" placeholder="设定密码"></input>
-	<input class="passConfirmHide {{showPass_development?'passHide_SHOW':''}}" type="number" focus="{{passConfirmFocus}}" maxlength="6" bindinput="passConfirmInput" value="{{passConfirmVal}}" placeholder="重复密码"></input>
-	<input class="passOldHide {{showPass_development?'passHide_SHOW':''}}" type="number" focus="{{passOldFocus}}" maxlength="6" bindinput="passOldInput" value="{{passOldVal}}" placeholder="旧密码"></input>
-	<input class="phoneCodeHide {{showPass_development?'passHide_SHOW':''}}" type="number" focus="{{phoneCodeFocus}}" maxlength="6" bindinput="phoneCodeInput" value="{{phoneCodeVal}}" placeholder="手机验证码"></input>
+	<input style="opacity:0" class="passHide {{showPass_development?'passHide_SHOW':''}}" type="number" focus="{{passFocus}}" maxlength="6" bindinput="passInput" value="{{passVal}}" placeholder="设定密码"></input>
+	<input style="opacity:0" class="passConfirmHide {{showPass_development?'passHide_SHOW':''}}" type="number" focus="{{passConfirmFocus}}" maxlength="6" bindinput="passConfirmInput" value="{{passConfirmVal}}" placeholder="重复密码"></input>
 </view>

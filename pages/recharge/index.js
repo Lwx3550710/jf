@@ -1,4 +1,7 @@
-// pages/recharge/index.js
+var app = getApp();
+var appData = app.globalData;
+var that;
+
 Page({
 
   /**
@@ -6,23 +9,53 @@ Page({
    */
   data: {
     list: [{
-      'money': '59'
+      'money': '100'
     }, {
-      'money': '23'
+      'money': '200'
     }, {
-      'money': '534'
+      'money': '300'
     }, {
-      'money': '343'
-    }]
+      'money': '400'
+    }],
+    shopMoney:'100',
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    that = this;
   },
+  chooseMoney(e) {//选择充值金额
+    var type = app.attr(e, 'type');
+    that.setData({
+      shopMoney: type,
+    })
+  },
+  comfirmMoney(){//点击立即充值
+    wx.showModal({
+      title: '提示',
+      content: '确认充值？',
+      success: function (res) {
+        if (res.confirm) {
+          app.ajax({
+            url: 'pay/prepare',
+            data: {
+              userId: app.globalData.userid,
+              amount: that.data.shopMoney
+            },
+            success: function (res) {
+              console.log(res)
+              wx.showToast({
+                title: '充值成功！'
+              })
+            },
+          })
 
+        }
+      }
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

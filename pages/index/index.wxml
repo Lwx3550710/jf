@@ -21,88 +21,27 @@
 			<view class="food_bd">
 				<view class="menu_bd">
 					<ul>
-							<li class="active">热销</li>
-							<li>优惠</li>
-							<li>口味1</li>
-							<li>口味2</li>
-							<li>口味3</li>
-							<li>口味4</li>
+							<li class="{{shopMenuIndex==index?'active':''}}" bindtap="chooseShopMenu" wx:for="{{shopData.types}}" wx:key="index" data-type="{{index}}">{{item.name}}</li>
 					</ul>
 				</view>
 				<view class="wrapper_bd">
-						<view class="photo"><image mode="widthFix" src="../../images/home/adv.png" alt=""></image></view>
-						<view class="items" bindtap="showProductDetail">
-								<view class="food-img"><image mode="widthFix" src="//elm.cangdu.org/img/16772d91c1823153.jpg" alt=""></image></view>
-								<view class="food-info">
-										<view class="name">驴肉火烧</view>
-										<view class="desc">来自西安地道的驴肉火烧 制作手艺传 承22年 好吃不贵！</view>
-										<view class="price">
-												<b>￥4.85</b>
-												<span>¥4.85</span>
-												<em catchtap="showProductAttr">选规格</em>
-										</view>
-								</view>
-						</view>
-						<view class="items" bindtap="showProductDetail">
-								<view class="food-img"><image mode="widthFix" src="//elm.cangdu.org/img/16772d91c1823153.jpg" alt=""></image></view>
-								<view class="food-info">
-										<view class="name">驴肉火烧</view>
-										<view class="desc">来自西安地道的驴肉火烧 制作手艺传 承22年 好吃不贵！</view>
-										<view class="price">
-												<b>￥4.85</b>
-												<span>¥4.85</span>
-												<em catchtap="showProductAttr">选规格</em>
-										</view>
-								</view>
-						</view>
-						<view class="items" bindtap="showProductDetail">
-								<view class="food-img"><image mode="widthFix" src="//elm.cangdu.org/img/16772d91c1823153.jpg" alt=""></image></view>
-								<view class="food-info">
-										<view class="name">驴肉火烧</view>
-										<view class="desc">来自西安地道的驴肉火烧 制作手艺传 承22年 好吃不贵！</view>
-										<view class="price">
-												<b>￥4.85</b>
-												<span>¥4.85</span>
-												<em catchtap="showProductAttr">选规格</em>
-										</view>
-								</view>
-						</view>
-						<view class="items" bindtap="showProductDetail">
-								<view class="food-img"><image mode="widthFix" src="//elm.cangdu.org/img/16772d91c1823153.jpg" alt=""></image></view>
-								<view class="food-info">
-										<view class="name">驴肉火烧</view>
-										<view class="desc">来自西安地道的驴肉火烧 制作手艺传 承22年 好吃不贵！</view>
-										<view class="price">
-												<b>￥4.85</b>
-												<span>¥4.85</span>
-												<em catchtap="showProductAttr">选规格</em>
-										</view>
-								</view>
-						</view>
-						<view class="items" bindtap="showProductDetail">
-								<view class="food-img"><image mode="widthFix" src="//elm.cangdu.org/img/16772d91c1823153.jpg" alt=""></image></view>
-								<view class="food-info">
-										<view class="name">驴肉火烧</view>
-										<view class="desc">来自西安地道的驴肉火烧 制作手艺传 承22年 好吃不贵！</view>
-										<view class="price">
-												<b>￥4.85</b>
-												<span>¥4.85</span>
-												<em catchtap="showProductAttr">选规格</em>
-										</view>
-								</view>
-						</view>
-						<view class="items" bindtap="showProductDetail">
-								<view class="food-img"><image mode="widthFix" src="//elm.cangdu.org/img/16772d91c1823153.jpg" alt=""></image></view>
-								<view class="food-info">
-										<view class="name">驴肉火烧</view>
-										<view class="desc">来自西安地道的驴肉火烧 制作手艺传 承22年 好吃不贵！</view>
-										<view class="price">
-												<b>￥4.85</b>
-												<span>¥4.85</span>
-												<em catchtap="showProductAttr">选规格</em>
-										</view>
-								</view>
-						</view>
+          <view class="photo"><image mode="widthFix" src="../../images/home/adv.png" alt=""></image></view>
+          <view class="items" bindtap="showProductDetail" wx:if="{{goodsData.length>0}}" wx:for="{{goodsData}}" wx:key="index">
+              <view class="food-image"><image mode="widthFix" src="{{item.logoUrl}}" alt=""></image></view>
+              <view class="food-info">
+                  <view class="name">{{item.name}}</view>
+                  <view class="desc">{{item.content}}</view>
+                  <view class="price">
+                      <b>￥{{item.price}}</b>
+                      <span>¥{{item.oldPrice}}</span>
+                      <em catchtap="showProductAttr">选规格</em>
+                  </view>
+              </view>
+          </view>
+
+          
+        
+          <view class="noGoods" wx:if="{{goodsData.length==0}}">暂无产品！</view>
 				</view>
 			</view>
 		</view>

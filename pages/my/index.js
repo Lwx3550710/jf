@@ -46,12 +46,14 @@ Page({
     app.ajax({
       url: 'user/getById',
       success: function (res) {
+        console.log(res)
         that.setData({
           isOpenWallet: (res.payPwd == null ? false : true), // 是否已开通钱包功能
           headUrl: res.headUrl,
           nickname: res.nickname,
           point: res.point,
           couponNum: res.other.couponNum,
+          repackNum: res.other.repackNum,
           leftAmount: res.leftAmount,
         })
       },

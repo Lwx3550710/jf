@@ -19,8 +19,23 @@ Page({
       app.openUrl(target, param);
     }
   },
+  invest(){
+    app.openUrl('recharge/index');
+  },
   onLoad: function (options) {
     that = this;
+    that.getUserData();
+  },
+  getUserData() { // 获取用户信息
+    app.ajax({
+      url: 'user/getById',
+      success: function (res) {
+        console.log(res)
+        that.setData({
+          left_amount: res.leftAmount
+        })
+      },
+    })
   },
   onShow: function () {},
   onShareAppMessage: function () {}

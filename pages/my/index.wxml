@@ -17,7 +17,7 @@
             <span>我的券</span>
         </view>
         <view class="items" bindtap="redpacket">
-            <b>0</b>
+            <b>{{repackNum}}</b>
             <span>我的红包</span>
         </view>
         <view class="items" bindtap="myWallet">

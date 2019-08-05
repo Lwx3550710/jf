@@ -12,6 +12,8 @@ Page({
       serverUrl: app.globalData.serverUrl,
       logo: 'static/logo.jpg',
     });
+    
+
   },
   getUserinfoSuccess: function(e){
     var that = this;
@@ -24,10 +26,10 @@ Page({
                 console.log(res.code)
                 console.log(that.data.serverUrl)
                 // 获取openId并缓存
-                wx.request({
-                  url: that.data.serverUrl+'user/getWechatAuthorize.do',
+                app.ajax({
+                  url: 'user/getWechatAuthorize.do',
                   data: {
-                    code: res.code,
+                    js_code: res.code,
                   },
                   method: 'Get',
                   header: {
@@ -35,7 +37,8 @@ Page({
                   },
                   success: function (response) {
                     console.log(response)
-                    that.openid = response.data.openid;
+
+                    app.globalData.userid = response.userId;
                     wx.switchTab({
                       url: '/pages/index/index',
                     })

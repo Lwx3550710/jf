@@ -1,4 +1,7 @@
-// pages/coupons/index.js
+var app = getApp();
+var appData = app.globalData;
+var that;
+
 Page({
 
   /**
@@ -12,9 +15,20 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.getCoupon();
   },
 
+  getCoupon: function(){
+    app.ajax({
+      url: 'user/coupons',
+      data: {
+        userId: app.globalData.userid,
+      },
+      success: function (res) {
+        console.log(res);
+      },
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

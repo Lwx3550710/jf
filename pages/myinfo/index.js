@@ -1,4 +1,6 @@
-// pages/myinfo/index.js
+var app = getApp();
+var that;
+
 Page({
 
   /**
@@ -12,55 +14,64 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    that = this;
+    that.getUserData();
   },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
+  getUserData() { // 获取用户信息
+    app.ajax({
+      url: 'user/getById',
+      success: function (res) {
+        that.setData({
+          headUrl: res.headUrl,
+          nickname: res.nickname,
+          mobile: res.mobile,
+          sex: res.sex,
+          birth: res.birth
+        })
+      },
+    })
   },
+  formSubmit: function (e) {
+    console.log('form发生了submit事件，携带数据为：', e.detail.value)
+    that.setData({
+      mobile: e.detail.value.mobile,
+      sex: e.detail.value.sex,
+      birth: e.detail.value.birth
+    })
+    wx.showModal({
+      title: '提示',
+      content: '确认保存？',
+      success: function (res) {
+        if (res.confirm) {
+          app.ajax({
+            url: 'user/updateUser',
+            formPost: true,
+            data:{
+              userId: app.globalData.userid,
+              mobile: that.data.mobile,
+              sex: that.data.sex,
+            },
+            success: function (res) {
+              console.log(res)
+              wx.showToast({
+                title: '保存成功！'
+              })
+            },
+          })
 
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
+          app.ajax({
+            url: 'user/updateBirth',
+            formPost: true,
+            data: {
+              userId: app.globalData.userid,
+              birth: that.data.birth
+            },
+            success: function (res) {
+              console.log(res)
+            },
+          })
+        }
+      }
+    })
   },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
-  }
 })

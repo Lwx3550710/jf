@@ -1,4 +1,6 @@
-// pages/member/index.js
+var app = getApp();
+var that;
+
 Page({
 
   /**
@@ -12,9 +14,20 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    that = this;
+    that.getUserData();
   },
-
+  getUserData() { // 获取用户信息
+    app.ajax({
+      url: 'user/getById',
+      success: function (res) {
+        console.log(res)
+        that.setData({
+          cardId: res.vipCode
+        })
+      },
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

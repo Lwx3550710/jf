@@ -1,11 +1,11 @@
 {
   "pages": [
+    "pages/authorize/authorize",
     "pages/authorizeLocation/authorizeLocation",
     "pages/setPass/setPass",
     "pages/index/index",
     "pages/member/index",
     "pages/record/record",
-    "pages/authorize/authorize",
     "pages/kf/index",
     "pages/coupons/index",
     "pages/redpacket/index",
