@@ -23,10 +23,38 @@ Page({
 
       // that.toInitPage();
 
-      // 先检测是否已经进行用户授权，如已经授权直接进入首页
-      that.checkPower();
+      // 获取最近门店 shopid
+      that.getShop({
+        lat: lor.lat,
+        long: lor.long,
+        call: r=>{
+          // console.log(r);
+          if(r.list.length>0){
+            var s = r.list[0];
+            appData.shopid = s.id;
+            s.distance = parseInt(s.distance);
+            appData.shopInfo = s;
+          }
+
+          // 先检测是否已经进行用户授权，如已经授权直接进入首页，否则进入授权页
+          that.checkPower();
+        },
+      })
     });
 	},
+  getShop(json){ // 获取附近门店
+    app.ajax({
+      url: 'shop/selectShop',
+      data: {
+        lati: json.lat,
+        longt: json.long,
+      },
+      success: r=>{
+        // console.log(r);
+        json.call && json.call(r);
+      },
+    })
+  },
 	resetInit() { // 重试
 		that.setData({
 			requestCount: 0, // 请求次数（最多为5次，都不成功显示手动刷新）
@@ -108,6 +136,7 @@ Page({
             // 获取openId并缓存
             app.ajax({
               url: 'user/getWechatAuthorize.do',
+              noUserid: true,
               data: {
                 js_code: res.code,
               },

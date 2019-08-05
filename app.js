@@ -70,13 +70,20 @@ App({
       head: '', // 微信头像
       gender: 0, // 性别
     },
-    shopid: 251,
     userLocation: { // 用户当前经纬度信息
       lat: 0, // 经度
       long: 0, // 纬度
     },
+    shopid: 251,
+    shopInfo: {}, // shopid 对应的门店信息
     qiniu_uploadToken: '', // 七牛图片上传的token
     qiniu_imgServer: 'https://yhjm-cdn.yihuijumei.com/', // 七牛链接前缀
+    wayImgUrl: '../../images/home/', // 下单方式图片地址
+    wayList: [ // 下单方式
+      { type: '外卖', img: 'waimai.png' },
+      { type: '自取', img: 'ziqu.png' },
+      { type: '堂食', img: 'shitang.png' },
+    ],
 	},
 	back() { // 返回上一页
 		wx.navigateBack();
@@ -144,6 +151,11 @@ App({
       },
       fail: obj.fail || function () { },
     })
+  },
+  getPage(num) { // 获取指定page 如 -1 为上一页
+    var pages = getCurrentPages();
+    var curPage = pages[pages.length - 1 + num];
+    return curPage;
   },
   chooseImg(num, needCompressImage, fun) { // 选择图片 （图片最大选择数,是否需要压缩图片）
     wx.chooseImage({

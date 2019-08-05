@@ -39,6 +39,8 @@
 .header_bd .waimai span {
   color: #c79f62;
   padding: 0 10rpx;
+  font-size: 30rpx;
+  line-height: 34rpx;
 }
 
 .header_bd .waimai .icon-1 {

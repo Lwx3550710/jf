@@ -1,175 +1,172 @@
 <view class="shop_container">
     <view class="header_bd">
         <view class="store" bindtap="toChooseShopPage">
-            <span>匠方银泰城店</span>
+            <span>{{shopInfo.name}}</span>
             <image mode="widthFix" src="../../images/takefood/aw.png" class="icon-1" alt=""></image>
         </view>
         <view class="waimai" bindtap="toDiningwayPage">
-            <image mode="widthFix" src="../../images/home/waimai.png" class="icon-1" alt=""></image>
-            <span>外卖</span>
+            <image mode="widthFix" src="{{wayImgUrl+orderWayImg}}" class="icon-1" alt=""></image>
+            <span>{{orderWayType}}</span>
             <image mode="widthFix" src="../../images/home/arrow.png" class="icon-2" alt=""></image>
         </view>
-        <view class="address"><image mode="widthFix" src="../../images/home/address.png" alt=""></image>距您500m</view>
+        <view class="address"><image mode="widthFix" src="../../images/home/address.png" alt=""></image>距您{{shopInfo.distance}}m</view>
     </view>
-	<view class="sifBox flex-1">
-		<view class="sifBox-tab df hao">
-			<view class="sifBox-tabLi {{curSifMain=='菜单'?'cur':''}}" bindtap="chooseSifMain" data-type="菜单">菜单</view>
-			<view class="sifBox-tabLi {{curSifMain=='评价'?'cur':''}}" bindtap="chooseSifMain" data-type="评价">评价</view>
-			<view class="sifBox-tabLi {{curSifMain=='门店'?'cur':''}}" bindtap="chooseSifMain" data-type="门店">门店</view>
-		</view>
-		<view class="sifBox-content pt0 df cf" hidden="{{curSifMain!='菜单'}}">
-			<view class="food_bd">
-				<view class="menu_bd">
-					<ul>
-							<li class="{{shopMenuIndex==index?'active':''}}" bindtap="chooseShopMenu" wx:for="{{shopData.types}}" wx:key="index" data-type="{{index}}">{{item.name}}</li>
-					</ul>
-				</view>
-				<view class="wrapper_bd">
-          <view class="photo"><image mode="widthFix" src="../../images/home/adv.png" alt=""></image></view>
-          <view class="items" bindtap="showProductDetail" wx:if="{{goodsData.length>0}}" wx:for="{{goodsData}}" wx:key="index">
-              <view class="food-image"><image mode="widthFix" src="{{item.logoUrl}}" alt=""></image></view>
-              <view class="food-info">
-                  <view class="name">{{item.name}}</view>
-                  <view class="desc">{{item.content}}</view>
-                  <view class="price">
-                      <b>￥{{item.price}}</b>
-                      <span>¥{{item.oldPrice}}</span>
-                      <em catchtap="showProductAttr">选规格</em>
-                  </view>
-              </view>
+    <view class="sifBox flex-1">
+      <view class="sifBox-tab df hao">
+        <view class="sifBox-tabLi {{curSifMain=='菜单'?'cur':''}}" bindtap="chooseSifMain" data-type="菜单">菜单</view>
+        <view class="sifBox-tabLi {{curSifMain=='评价'?'cur':''}}" bindtap="chooseSifMain" data-type="评价">评价</view>
+        <view class="sifBox-tabLi {{curSifMain=='门店'?'cur':''}}" bindtap="chooseSifMain" data-type="门店">门店</view>
+      </view>
+      <view class="sifBox-content pt0 df cf" hidden="{{curSifMain!='菜单'}}">
+        <view class="food_bd">
+          <view class="menu_bd">
+            <ul>
+                <li class="{{shopMenuIndex==index?'active':''}}" bindtap="chooseShopMenu" wx:for="{{shopData}}" wx:key="index" data-type="{{index}}">{{item.name}}</li>
+            </ul>
           </view>
-
-          
-        
-          <view class="noGoods" wx:if="{{goodsData.length==0}}">暂无产品！</view>
-				</view>
-			</view>
-		</view>
-		<scroll-view class="sifBox-content" scroll-y="true" hidden="{{curSifMain!='评价'}}">
-			<view class="sifBox-cmtTop df hao">
-				<view class="sifBox-cmtScore">
-					<em>5.0</em>
-					<span>门店评分</span>
-				</view>
-				<view class="flex-1 sifBox-cmtPut">
-					<view class="sifBox-cmtStar df hao">
-						<span>食材</span>
-						<image src="/images/sg-img/star.png"></image>
-						<image src="/images/sg-img/star.png"></image>
-						<image src="/images/sg-img/star.png"></image>
-						<image src="/images/sg-img/star.png"></image>
-						<image src="/images/sg-img/star.png"></image>
-						<em>5.0</em>
-					</view>
-					<view class="sifBox-cmtStar df hao">
-						<span>包装</span>
-						<image src="/images/sg-img/star.png"></image>
-						<image src="/images/sg-img/star.png"></image>
-						<image src="/images/sg-img/star.png"></image>
-						<image src="/images/sg-img/star.png"></image>
-						<image src="/images/sg-img/star.png"></image>
-						<em>5.0</em>
-					</view>
-				</view>
-				<!-- <view class="sifBox-cmtLoc">
-					<em>4.0</em>
-					<span>配送评分</span>
-				</view> -->
-			</view>
-			<!-- <view class="sifBox-cmtLable">
-				<view class="sifBox-cmtLableLi cur">全部评价(1235)</view>
-				<view class="sifBox-cmtLableLi">只看有图(1002)</view>
-				<view class="sifBox-cmtLableLi">好评(1230)</view>
-				<view class="sifBox-cmtLableLi">差评(5)</view>
-				<view class="sifBox-cmtLableLi">满意(7)</view>
-			</view> -->
-			<view class="sifBox-cmtList">
-				<view class="sifBox-cmtLi">
-					<view class="sifBox-cmtPerson df hao">
-						<image src="https://c-ssl.duitang.com/uploads/item/201805/13/20180513224039_tgfwu.png" class="sifBox-cmtHead"></image>
-						<view class="sifBox-cmtInfo flex-1">
-							<view class="sifBox-cmtName">用过的昵称</view>
-							<view class="sifBox-cmtStar2 df hao">
-								<image src="/images/sg-img/star2.png"></image>
-								<image src="/images/sg-img/star2.png"></image>
-								<image src="/images/sg-img/star2.png"></image>
-								<image src="/images/sg-img/star2.png"></image>
-								<image src="/images/sg-img/star2.png"></image>
-								10分钟内送达
-							</view>
-						</view>
-						<view class="sifBox-cmtDate">2019.05.28</view>
-					</view>
-					<view class="sifBox-cmtTxt">这是用户评论这是用户评论这是用户评论这是用户评论这是用户评论这是用户评论这是用户评论这是用户评论</view>
-					<view class="sifBox-cmtImg">
-						<image src="https://c-ssl.duitang.com/uploads/item/201805/13/20180513224039_tgfwu.png"></image>
-						<image src="https://c-ssl.duitang.com/uploads/item/201805/13/20180513224039_tgfwu.png"></image>
-					</view>
-				</view>
-				<view class="sifBox-cmtLi">
-					<view class="sifBox-cmtPerson df hao">
-						<image src="https://c-ssl.duitang.com/uploads/item/201805/13/20180513224039_tgfwu.png" class="sifBox-cmtHead"></image>
-						<view class="sifBox-cmtInfo flex-1">
-							<view class="sifBox-cmtName">用过的昵称</view>
-							<view class="sifBox-cmtStar2 df hao">
-								<image src="/images/sg-img/star2.png"></image>
-								<image src="/images/sg-img/star2.png"></image>
-								<image src="/images/sg-img/star2.png"></image>
-								<image src="/images/sg-img/star2.png"></image>
-								<image src="/images/sg-img/star2.png"></image>
-								10分钟内送达
-							</view>
-						</view>
-						<view class="sifBox-cmtDate">2019.05.28</view>
-					</view>
-					<view class="sifBox-cmtTxt">这是用户评论这是用户评论这是用户评论这是用户评论这是用户评论这是用户评论这是用户评论这是用户评论</view>
-					<view class="sifBox-cmtImg">
-						<image src="https://c-ssl.duitang.com/uploads/item/201805/13/20180513224039_tgfwu.png"></image>
-						<image src="https://c-ssl.duitang.com/uploads/item/201805/13/20180513224039_tgfwu.png"></image>
-					</view>
-				</view>
-				<view class="sifBox-cmtLi">
-					<view class="sifBox-cmtPerson df hao">
-						<image src="https://c-ssl.duitang.com/uploads/item/201805/13/20180513224039_tgfwu.png" class="sifBox-cmtHead"></image>
-						<view class="sifBox-cmtInfo flex-1">
-							<view class="sifBox-cmtName">用过的昵称</view>
-							<view class="sifBox-cmtStar2 df hao">
-								<image src="/images/sg-img/star2.png"></image>
-								<image src="/images/sg-img/star2.png"></image>
-								<image src="/images/sg-img/star2.png"></image>
-								<image src="/images/sg-img/star2.png"></image>
-								<image src="/images/sg-img/star2.png"></image>
-								10分钟内送达
-							</view>
-						</view>
-						<view class="sifBox-cmtDate">2019.05.28</view>
-					</view>
-					<view class="sifBox-cmtTxt">这是用户评论这是用户评论这是用户评论这是用户评论这是用户评论这是用户评论这是用户评论这是用户评论</view>
-					<view class="sifBox-cmtImg">
-						<image src="https://c-ssl.duitang.com/uploads/item/201805/13/20180513224039_tgfwu.png"></image>
-						<image src="https://c-ssl.duitang.com/uploads/item/201805/13/20180513224039_tgfwu.png"></image>
-					</view>
-				</view>
-			</view>
-		</scroll-view>
-		<scroll-view class="sifBox-content" scroll-y="true" hidden="{{curSifMain!='门店'}}">
-			<view class="sifBox-spAdd df hao">
-				<image src="/images/sg-img/gps.png" class="ig1"></image>
-				<view class="flex-1 ov-d">这里是门店的详细地址</view>
-				<image src="/images/sg-img/phone.png" class="ig2"></image>
-			</view>
-			<view class="sifBox-spFood df hao">
-				<image src="/images/sg-img/safe.png" class="ig3"></image>
-				<view class="flex-1 ov-d">查看食品安全档案</view>
-				<image src="/images/sg-img/arrow.png" class="ig4"></image>
-			</view>
-			<view class="sifBox-spTime df hao">
-				<image src="/images/sg-img/clock.png" class="ig5"></image>
-				<view class="flex-1 ov-d">营业时间：08:30——20:30 （节假日照常）</view>
-			</view>
-			<view class="sifBox-spLoc df hao">配送服务 :<image src="/images/sg-img/ps.png" class="ps"></image>提供高品质送餐服务</view>
-		</scroll-view>
-	</view>
+          <view class="wrapper_bd">
+            <view class="photo"><image mode="widthFix" src="../../images/home/adv.png" alt=""></image></view>
+            <view class="items" bindtap="showProductDetail" wx:for="{{goodsData}}" wx:key="index" data-id="{{item.id}}">
+                <view class="food-image"><image mode="widthFix" src="{{item.logoUrl}}" alt=""></image></view>
+                <view class="food-info">
+                    <view class="name">{{item.name}}</view>
+                    <view class="desc">{{item.content}}</view>
+                    <view class="price">
+                        <b>￥{{item.price}}</b>
+                        <span>¥{{item.oldPrice}}</span>
+                        <em catchtap="showProductAttr" data-id="{{item.id}}">选规格</em>
+                    </view>
+                </view>
+            </view>
+            <view class="noGoods" wx:if="{{goodsData.length==0}}">暂无产品！</view>
+          </view>
+        </view>
+      </view>
+      <scroll-view class="sifBox-content" scroll-y="true" hidden="{{curSifMain!='评价'}}">
+        <view class="sifBox-cmtTop df hao">
+          <view class="sifBox-cmtScore">
+            <em>5.0</em>
+            <span>门店评分</span>
+          </view>
+          <view class="flex-1 sifBox-cmtPut">
+            <view class="sifBox-cmtStar df hao">
+              <span>食材</span>
+              <image src="/images/sg-img/star.png"></image>
+              <image src="/images/sg-img/star.png"></image>
+              <image src="/images/sg-img/star.png"></image>
+              <image src="/images/sg-img/star.png"></image>
+              <image src="/images/sg-img/star.png"></image>
+              <em>5.0</em>
+            </view>
+            <view class="sifBox-cmtStar df hao">
+              <span>包装</span>
+              <image src="/images/sg-img/star.png"></image>
+              <image src="/images/sg-img/star.png"></image>
+              <image src="/images/sg-img/star.png"></image>
+              <image src="/images/sg-img/star.png"></image>
+              <image src="/images/sg-img/star.png"></image>
+              <em>5.0</em>
+            </view>
+          </view>
+          <!-- <view class="sifBox-cmtLoc">
+            <em>4.0</em>
+            <span>配送评分</span>
+          </view> -->
+        </view>
+        <!-- <view class="sifBox-cmtLable">
+          <view class="sifBox-cmtLableLi cur">全部评价(1235)</view>
+          <view class="sifBox-cmtLableLi">只看有图(1002)</view>
+          <view class="sifBox-cmtLableLi">好评(1230)</view>
+          <view class="sifBox-cmtLableLi">差评(5)</view>
+          <view class="sifBox-cmtLableLi">满意(7)</view>
+        </view> -->
+        <view class="sifBox-cmtList">
+          <view class="sifBox-cmtLi">
+            <view class="sifBox-cmtPerson df hao">
+              <image src="https://c-ssl.duitang.com/uploads/item/201805/13/20180513224039_tgfwu.png" class="sifBox-cmtHead"></image>
+              <view class="sifBox-cmtInfo flex-1">
+                <view class="sifBox-cmtName">用过的昵称</view>
+                <view class="sifBox-cmtStar2 df hao">
+                  <image src="/images/sg-img/star2.png"></image>
+                  <image src="/images/sg-img/star2.png"></image>
+                  <image src="/images/sg-img/star2.png"></image>
+                  <image src="/images/sg-img/star2.png"></image>
+                  <image src="/images/sg-img/star2.png"></image>
+                  10分钟内送达
+                </view>
+              </view>
+              <view class="sifBox-cmtDate">2019.05.28</view>
+            </view>
+            <view class="sifBox-cmtTxt">这是用户评论这是用户评论这是用户评论这是用户评论这是用户评论这是用户评论这是用户评论这是用户评论</view>
+            <view class="sifBox-cmtImg">
+              <image src="https://c-ssl.duitang.com/uploads/item/201805/13/20180513224039_tgfwu.png"></image>
+              <image src="https://c-ssl.duitang.com/uploads/item/201805/13/20180513224039_tgfwu.png"></image>
+            </view>
+          </view>
+          <view class="sifBox-cmtLi">
+            <view class="sifBox-cmtPerson df hao">
+              <image src="https://c-ssl.duitang.com/uploads/item/201805/13/20180513224039_tgfwu.png" class="sifBox-cmtHead"></image>
+              <view class="sifBox-cmtInfo flex-1">
+                <view class="sifBox-cmtName">用过的昵称</view>
+                <view class="sifBox-cmtStar2 df hao">
+                  <image src="/images/sg-img/star2.png"></image>
+                  <image src="/images/sg-img/star2.png"></image>
+                  <image src="/images/sg-img/star2.png"></image>
+                  <image src="/images/sg-img/star2.png"></image>
+                  <image src="/images/sg-img/star2.png"></image>
+                  10分钟内送达
+                </view>
+              </view>
+              <view class="sifBox-cmtDate">2019.05.28</view>
+            </view>
+            <view class="sifBox-cmtTxt">这是用户评论这是用户评论这是用户评论这是用户评论这是用户评论这是用户评论这是用户评论这是用户评论</view>
+            <view class="sifBox-cmtImg">
+              <image src="https://c-ssl.duitang.com/uploads/item/201805/13/20180513224039_tgfwu.png"></image>
+              <image src="https://c-ssl.duitang.com/uploads/item/201805/13/20180513224039_tgfwu.png"></image>
+            </view>
+          </view>
+          <view class="sifBox-cmtLi">
+            <view class="sifBox-cmtPerson df hao">
+              <image src="https://c-ssl.duitang.com/uploads/item/201805/13/20180513224039_tgfwu.png" class="sifBox-cmtHead"></image>
+              <view class="sifBox-cmtInfo flex-1">
+                <view class="sifBox-cmtName">用过的昵称</view>
+                <view class="sifBox-cmtStar2 df hao">
+                  <image src="/images/sg-img/star2.png"></image>
+                  <image src="/images/sg-img/star2.png"></image>
+                  <image src="/images/sg-img/star2.png"></image>
+                  <image src="/images/sg-img/star2.png"></image>
+                  <image src="/images/sg-img/star2.png"></image>
+                  10分钟内送达
+                </view>
+              </view>
+              <view class="sifBox-cmtDate">2019.05.28</view>
+            </view>
+            <view class="sifBox-cmtTxt">这是用户评论这是用户评论这是用户评论这是用户评论这是用户评论这是用户评论这是用户评论这是用户评论</view>
+            <view class="sifBox-cmtImg">
+              <image src="https://c-ssl.duitang.com/uploads/item/201805/13/20180513224039_tgfwu.png"></image>
+              <image src="https://c-ssl.duitang.com/uploads/item/201805/13/20180513224039_tgfwu.png"></image>
+            </view>
+          </view>
+        </view>
+      </scroll-view>
+      <scroll-view class="sifBox-content" scroll-y="true" hidden="{{curSifMain!='门店'}}">
+        <view class="sifBox-spAdd df hao">
+          <image src="/images/sg-img/gps.png" class="ig1"></image>
+          <view class="flex-1 ov-d">{{shopInfo.address}}</view>
+          <image src="/images/sg-img/phone.png" class="ig2" bindtap="makePhone" data-phone="{{shopInfo.mobile}}"></image>
+        </view>
+        <view class="sifBox-spFood df hao">
+          <image src="/images/sg-img/safe.png" class="ig3"></image>
+          <view class="flex-1 ov-d">查看食品安全档案</view>
+          <image src="/images/sg-img/arrow.png" class="ig4"></image>
+        </view>
+        <view class="sifBox-spTime df hao">
+          <image src="/images/sg-img/clock.png" class="ig5"></image>
+          <view class="flex-1 ov-d">营业时间：{{shopInfo.businessTime}}（节假日照常）</view>
+        </view>
+        <view class="sifBox-spLoc df hao">配送服务 :<image src="/images/sg-img/ps.png" class="ps"></image>提供高品质送餐服务</view>
+      </scroll-view>
+    </view>
     <view class="buy-cart" hidden="{{curSifMain!='菜单'}}">
         <view class="cart-bd">
             <view class="btn">
@@ -228,13 +225,13 @@
 <view class="foodCatBox" hidden="{{!isShowProductDetail}}">
 	<view class="foodCatBox-content">
 		<view class="foodCatBox-close" bindtap="hideProductDetail"></view>
-		<image class="foodCatBox-pdimg" src="/images/sg-img/food.jpg"></image>
-		<view class="foodCatBox-name">商品的名称</view>
-		<view class="foodCatBox-sale">月售102</view>
-		<view class="foodCatBox-txt">这里是具体的描述这里是具体的描述这里是具体的描述这里是具体的描述这里是具体的描述这里是具体的描述这里是具体的描述这里是具体的描述这里是具体的描述这里是具体的描述</view>
+		<image class="foodCatBox-pdimg" src="{{showProductDetailData.img}}"></image>
+		<view class="foodCatBox-name">{{showProductDetailData.name}}</view>
+		<view class="foodCatBox-sale">月售{{showProductDetailData.sale}}</view>
+		<view class="foodCatBox-txt">{{showProductDetailData.txt}}</view>
 		<view class="foodCatBox-tool df hao">
-			<view class="foodCatBox-price df hao flex-1">￥19<em>￥29</em></view>
-			<view class="foodCatBox-choose" bindtap="showProductAttr">选规格</view>
+			<view class="foodCatBox-price df hao flex-1">￥{{showProductDetailData.price}}<em>￥{{showProductDetailData.priceOld}}</em></view>
+			<view class="foodCatBox-choose" bindtap="showProductAttr" data-id="{{showProductDetailData.id}}">选规格</view>
 		</view>
 	</view>
 </view>
@@ -242,21 +239,21 @@
 <view class="foodCsBox" hidden="{{!isShowProductAttr}}">
 	<view class="foodCsBox-content">
 		<view class="foodCsBox-close" bindtap="hideProductAttr"></view>
-		<image class="foodCsBox-pdimg" src="/images/sg-img/food.jpg" mode="aspectFill"></image>
-		<view class="foodCsBox-name">商品的名称</view>
+		<image class="foodCsBox-pdimg" src="{{showProductAttrData.img}}" mode="aspectFill"></image>
+		<view class="foodCsBox-name">{{showProductAttrData.name}}</view>
 		<view class="foodCsBox-type">规格</view>
 		<view class="foodCsBox-label">
-			<view class="foodCsBox-labelLi choose">小份<image src="/images/sg-img/star3.png"></image></view>
+			<view class="foodCsBox-labelLi choose" wx:for="{{showProductAttrData.attr}}" wx:key="showProductAttrDataAttr">小份<image src="/images/sg-img/star3.png"></image></view>
 			<view class="foodCsBox-labelLi">大份<image src="/images/sg-img/star3.png"></image></view>
 		</view>
 		<view class="foodCsBox-pd df hao">
 			<view class="foodCsBox-pdInfo df cf wao flex-1">
-				<view class="foodCsBox-price">￥19</view>
+				<view class="foodCsBox-price">￥{{showProductAttrData.price}}</view>
 				<view class="foodCsBox-data ov-d">小份</view>
 			</view>
 			<view class="foodCsBox-pdNum df hao">
 				<view class="foodCsBox-pdSub"></view>
-				<view class="foodCsBox-pdInput"><input type="number" value="1"></input></view>
+				<view class="foodCsBox-pdInput"><input type="number" value="{{showProductAttrData.num}}"></input></view>
 				<view class="foodCsBox-pdAdd"></view>
 			</view>
 		</view>

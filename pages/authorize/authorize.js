@@ -53,6 +53,7 @@ Page({
             // 获取openId并缓存
             app.ajax({
               url: 'user/getWechatAuthorize.do',
+              noUserid: true,
               data: {
                 js_code: res.code,
               },

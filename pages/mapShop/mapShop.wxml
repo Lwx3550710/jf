@@ -2,34 +2,16 @@
 	<view class="address df hao flex-1">成都市 武侯区 <image src="/images/sg-img/arrow.png"></image></view>
 	<view class="search df hao"><image src="/images/sg-img/search.png"></image>搜索</view>
 </view>
-<map id="map" class="map" longitude="{{userLocation.long}}" latitude="{{userLocation.lat}}" scale="14" markers="{{markers}}" bindmarkertap="markertap" show-location></map>
+<map id="map" class="map" longitude="{{chooseLocation.long}}" latitude="{{chooseLocation.lat}}" scale="14" markers="{{markers}}" bindmarkertap="markertap" show-location="true"></map>
 <scroll-view scroll-y="true" class="addList">
 	<view class="addEt df hao wao"></view>
-	<view class="addLi df hao" bindtap="chooseShop">
+	<view class="addLi df" bindtap="showShop" wx:for="{{shopList}}" wx:key="*this" data-index="{{index}}">
 		<view class="flex-1 addLi-info">
-			<view class="addLi-cap df hao">悠方购物中心店<em>支持自取/外卖</em></view>
-			<view class="addLi-jl">距离您 8.4km</view>
-			<view class="addLi-data">成都市武侯区交子大道300号“悠方购物中心”一层132/133/136/137号</view>
-			<view class="addLi-time">营业时间 10:00-22:00</view>
+			<view class="addLi-cap df hao">{{item.name}}<em>支持自取/外卖</em></view>
+			<view class="addLi-jl">距离您 {{item.distance}}km</view>
+			<view class="addLi-data">{{item.address}}</view>
+			<view class="addLi-time">营业时间 {{item.businessTime}}</view>
 		</view>	
-		<view class="addLi-to">去下单</view>	
-	</view>
-	<view class="addLi df hao" bindtap="chooseShop">
-		<view class="flex-1 addLi-info">
-			<view class="addLi-cap df hao">悠方购物中心店<em>支持自取/外卖</em></view>
-			<view class="addLi-jl">距离您 8.4km</view>
-			<view class="addLi-data">成都市武侯区交子大道300号“悠方购物中心”一层132/133/136/137号</view>
-			<view class="addLi-time">营业时间 10:00-22:00</view>
-		</view>	
-		<view class="addLi-to">去下单</view>	
-	</view>
-	<view class="addLi df hao" bindtap="chooseShop">
-		<view class="flex-1 addLi-info">
-			<view class="addLi-cap df hao">悠方购物中心店<em>支持自取/外卖</em></view>
-			<view class="addLi-jl">距离您 8.4km</view>
-			<view class="addLi-data">成都市武侯区交子大道300号“悠方购物中心”一层132/133/136/137号</view>
-			<view class="addLi-time">营业时间 10:00-22:00</view>
-		</view>	
-		<view class="addLi-to">去下单</view>	
+		<view class="addLi-to df wao hao" catchtap="chooseShop" data-index="{{index}}">去下单</view>	
 	</view>
 </scroll-view>
