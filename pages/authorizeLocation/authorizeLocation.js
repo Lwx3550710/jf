@@ -140,6 +140,7 @@ Page({
               data: {
                 js_code: res.code,
               },
+              noUserid:true,
               header: {
                 'content-type': 'application/x-www-form-urlencoded'
               },

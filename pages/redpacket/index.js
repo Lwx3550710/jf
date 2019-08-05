@@ -1,4 +1,6 @@
-// pages/redpacket/index.js
+var app = getApp();
+var appData = app.globalData;
+var that;
 Page({
 
   /**
@@ -12,7 +14,23 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    that = this;
+    this.getRepacks();
+  },
 
+  getRepacks: function () {
+    app.ajax({
+      url: 'user/repacks',
+      data: {
+        userId: app.globalData.userid,
+      },
+      success: function (res) {
+        console.log(res);
+        that.setData({
+          repacksData: res.list,
+        })
+      },
+    })
   },
 
   /**
