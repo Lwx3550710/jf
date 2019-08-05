@@ -1,26 +1,18 @@
-<view class="coupons">
-    <image class="couponsBg" mode="widthFix" src="../../images/images/quanYes.png"></image>
-    <text class="couponsMoney">￥3</text>
+<wxs src="../../wxs/dataSubstring.wxs" module="tools" />
+<view class="coupons" wx:for="{{couponData}}" wx:key="index">
+    <image wx:if="{{item.status == 0}}" class="couponsBg" mode="widthFix" src="../../images/images/quanYes.png"></image>
+    <image wx:else class="couponsBg" mode="widthFix" src="../../images/images/quanYes.png"></image>
+    <text class="couponsMoney">￥{{item.coupon.amount}}</text>
     <text class="couponsQuan">抵扣券</text>
+    <image wx:if="{{item.status == 3}}" class="quanTime" src="../../images/images/quanGuoQi.png"></image>
     <view class="couponsInfo flex ai jcb">
         <view class="couponsLeft">
-            <text >满29可用，不限制适用门店</text>
-            <text >使用期限：2019.5.16  ~  2019.08.12</text>
+            <text >满{{item.coupon.mamount}}可用，不限制适用门店</text>
+            <text >使用期限：{{tools.dateSubstring(item.coupon.beginTime)}}  ~  {{tools.dateSubstring(item.coupon.endTime)}}</text>
         </view>
-        <text class="couponsRight">未使用</text>
-    </view>
-</view>
 
-<view class="coupons">
-    <image class="couponsBg" mode="widthFix" src="../../images/images/quanNo.png"></image>
-    <text class="couponsMoney">￥3</text>
-    <text class="couponsQuan">抵扣券</text>
-    <image class="quanTime" src="../../images/images/quanGuoQi.png"></image>
-    <view class="couponsInfo flex ai jcb">
-        <view class="couponsLeft">
-            <text >满29可用，不限制适用门店</text>
-            <text >使用期限：2019.5.16  ~  2019.08.12</text>
-        </view>
-        <text class="couponsRight">未使用</text>
+        <text wx:if="{{item.status == 0}}" class="couponsRight">未使用</text>
+        <text wx:elif="{{item.status == 1}}" class="couponsRight">已使用</text>
+        <text wx:else class="couponsRight">过期</text>
     </view>
 </view>

@@ -15,6 +15,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    that = this;
     this.getCoupon();
   },
 
@@ -26,6 +27,9 @@ Page({
       },
       success: function (res) {
         console.log(res);
+        that.setData({
+          couponData: res.list,
+        })
       },
     })
   },
