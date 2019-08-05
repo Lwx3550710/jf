@@ -59,12 +59,24 @@ var that;
 
 App({
 	globalData: {
-		// API_URL: 'http://localhost:3000',
 		serverUrl: 'http://120.79.37.4:8094/jig/',
     userid: '',
+    userOpenid: '',
+    userInfo: { // 用户微信信息
+      country: '', // 国家
+      province: '', // 省份
+      city: '', // 城市
+      name: '', // 用户昵称
+      head: '', // 微信头像
+      gender: 0, // 性别
+    },
     shopid: 251,
-    userLocation: {}, // 用户当前经纬度信息
+    userLocation: { // 用户当前经纬度信息
+      lat: 0, // 经度
+      long: 0, // 纬度
+    },
     qiniu_uploadToken: '', // 七牛图片上传的token
+    qiniu_imgServer: 'https://yhjm-cdn.yihuijumei.com/', // 七牛链接前缀
 	},
 	back() { // 返回上一页
 		wx.navigateBack();

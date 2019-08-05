@@ -60,11 +60,11 @@ Page({
     app.ajax({
       url: 'shop/getById',
       data: {
-        shopId: app.globalData.shopid,
+        shopId: appData.shopid,
         key: ''
       },
       success: function (res) {
-        console.log(res)
+        // console.log(res)
         that.setData({
           shopData: res.map,
         })

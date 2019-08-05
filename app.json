@@ -1,7 +1,7 @@
 {
   "pages": [
-    "pages/authorize/authorize",
     "pages/authorizeLocation/authorizeLocation",
+    "pages/authorize/authorize",
     "pages/setPass/setPass",
     "pages/index/index",
     "pages/member/index",

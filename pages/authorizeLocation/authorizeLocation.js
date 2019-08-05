@@ -7,9 +7,7 @@ Page({
 		initLoadState: 0, // 请求状态 [0 未请求] [1 请求中] [2 请求成功] [3 请求失败] [4 4次请求失败]
 	},
 	toInitPage() {
-    wx.switchTab({
-      url: '/pages/index/index',
-    });
+    app.openUrlCs('authorize');
 	},
 	getData() {
 		that.setData({
@@ -19,67 +17,14 @@ Page({
 
     that.getLocationPower(lor=>{
       app.globalData.userLocation = {
-        // lat: lor.lat,
-        // long: lor.long,
-        lat: lor.lat+4,
-        long: lor.long+1,
+        lat: lor.lat,
+        long: lor.long,
       };
 
-      that.toInitPage();
-      return false;
-  //------------------------------------------------------
-  
-      app.ajax({
-        url: 'shop/selectShop',
-        noUserid: true,
-        data: {
-          lati: lor.lat,
-          longt: lor.long,
-        },
-        success: r => {
-          var d = r.data;
-          console.log(d);
-          if (r.statusCode == 404) {
-            // console.error('获取内容失败：', r);
-            app.debug({ failSocket: JSON.stringify(r), type: '初始化文件404' });
+      // that.toInitPage();
 
-            if (that.data.requestCount >= 4) {
-              that.setData({
-                initLoadState: 4,
-              })
-            } else {
-              that.setData({
-                initLoadState: 3,
-              })
-              that.getData();
-            }
-            return false;
-          }
-
-          app.sg_otherData = d;
-
-          that.setData({
-            initLoadState: 2,
-          })
-
-          that.toInitPage();
-        },
-        fail: r => {
-          // console.error('获取内容失败：', r);
-          app.debug({ failSocket: JSON.stringify(r), type: '获取初始化数据失败' });
-
-          if (that.data.requestCount >= 4) {
-            that.setData({
-              initLoadState: 4,
-            })
-          } else {
-            that.setData({
-              initLoadState: 3,
-            })
-            that.getData();
-          }
-        },
-      })
+      // 先检测是否已经进行用户授权，如已经授权直接进入首页
+      that.checkPower();
     });
 	},
 	resetInit() { // 重试
@@ -120,9 +65,80 @@ Page({
       }
     })
   },
-	onLoad: function (options) {
-		that = this;
-		that.getData();
-	},
-	onShow() {},
+  checkPower() {
+    // 判断是否获得了用户个人信息授权
+    wx.getSetting({
+      success: (r) => {
+        if (r.authSetting['scope.userInfo']) { // 用户已授权个人信息权限
+          wx.getUserInfo({
+            success: r2 => {
+              that.getUserinfoSuccess({
+                detail: {
+                  userInfo: r2.userInfo,
+                },
+              });
+            }
+          })
+        } else {
+          that.toInitPage();
+        }
+      },
+      fail: (r) => {
+        that.toInitPage();
+      }
+    })
+  },
+  getUserinfoSuccess: function (e) {
+    var s = e.detail.userInfo;
+    // console.log(s)
+    if (s) {
+      appData.userInfo = { // 用户微信信息
+        country: s.country, // 国家
+        province: s.province, // 省份
+        city: s.city, // 城市
+        name: s.nickName, // 用户昵称
+        head: s.avatarUrl, // 微信头像
+        gender: s.gender, // 性别
+      }
+
+      wx.login({
+        success: function (res) {
+          if (res.code) {
+            that.code = res.code;
+            // 获取openId并缓存
+            app.ajax({
+              url: 'user/getWechatAuthorize.do',
+              data: {
+                js_code: res.code,
+              },
+              header: {
+                'content-type': 'application/x-www-form-urlencoded'
+              },
+              success: function (r) {
+                // console.log(r)
+                appData.userOpenid = r.openId;
+                appData.userid = r.userId;
+                wx.switchTab({
+                  url: '/pages/index/index',
+                })
+              }
+            });
+          } else {
+            console.log('获取用户登录态失败！' + res.errMsg)
+          }
+        }
+      });
+    } else {
+      wx.showModal({
+        title: '提示',
+        content: '拒绝授权个人信息则无法正常使用小程序，请重新点击授权！',
+        showCancel: false,
+      })
+    }
+  },
+  onLoad: function (options) {
+    that = this;
+    that.getData();
+  },
+  onShow() { },
 })
