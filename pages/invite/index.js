@@ -1,4 +1,7 @@
-// pages/invite/index.js
+var app = getApp();
+var appData = app.globalData;
+var that;
+
 Page({
 
   /**
@@ -12,7 +15,20 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    that = this;
+    this.getInvites();
+  },
 
+  getInvites: function () {
+    app.ajax({
+      url: 'user/invites',
+      success: function (res) {
+        console.log(res);
+        // that.setData({
+        //   couponData: res.list,
+        // })
+      },
+    })
   },
 
   /**

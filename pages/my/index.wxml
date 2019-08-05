@@ -8,10 +8,10 @@
         </view>
     </view>
     <view class="assets">
-        <view class="items" bindtap="myScore">
+        <!-- <view class="items" bindtap="myScore">
             <b>{{point}}</b>
             <span>积分</span>
-        </view>
+        </view> -->
         <view class="items" bindtap="coupons">
             <b>{{couponNum}}</b>
             <span>我的券</span>
