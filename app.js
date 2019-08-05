@@ -214,8 +214,16 @@ App({
     //   },
     // })
     qiniuUploader.upload(imgArr[0], res => {
-      console.log(res);
-
+      // console.log(res);
+      endData.push(res);
+      if (imgArr.length > 1) {
+        imgArr.splice(0, 1);
+        that.uploadImg(imgArr, call, endData);
+      } else {
+        call && call('success', endData);
+      }
+    }, error=>{
+      call && call('fail', error);
     })
   },
 	onLaunch(options) {
