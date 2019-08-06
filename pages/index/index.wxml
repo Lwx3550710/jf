@@ -241,18 +241,21 @@
 		<view class="foodCsBox-close" bindtap="hideProductAttr"></view>
 		<image class="foodCsBox-pdimg" src="{{showProductAttrData.img}}" mode="aspectFill"></image>
 		<view class="foodCsBox-name">{{showProductAttrData.name}}</view>
-		<view class="foodCsBox-type">规格</view>
-		<view class="foodCsBox-label">
-			<view class="foodCsBox-labelLi choose" wx:for="{{showProductAttrData.attr}}" wx:key="showProductAttrDataAttr">小份<image src="/images/sg-img/star3.png"></image></view>
-			<view class="foodCsBox-labelLi">大份<image src="/images/sg-img/star3.png"></image></view>
-		</view>
+    <block wx:for="{{showProductAttrData.attr}}" wx:key="productAttr" wx:for-item="t">
+      <view class="foodCsBox-type">{{t.name}}</view>
+      <view class="foodCsBox-label">
+        <block wx:for="{{t.list}}" wx:key="productAttr2" wx:for-item="t2">
+          <view class="foodCsBox-labelLi">{{t2.val}}<image src="/images/sg-img/star3.png"></image></view><!-- choose -->
+        </block>
+      </view>
+    </block>
 		<view class="foodCsBox-pd df hao">
 			<view class="foodCsBox-pdInfo df cf wao flex-1">
 				<view class="foodCsBox-price">￥{{showProductAttrData.price}}</view>
 				<view class="foodCsBox-data ov-d">小份</view>
 			</view>
 			<view class="foodCsBox-pdNum df hao">
-				<view class="foodCsBox-pdSub"></view>
+				<view class="foodCsBox-pdSub" bindtap=""></view>
 				<view class="foodCsBox-pdInput"><input type="number" value="{{showProductAttrData.num}}"></input></view>
 				<view class="foodCsBox-pdAdd"></view>
 			</view>
