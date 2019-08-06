@@ -1,7 +1,7 @@
 // 初始化AV
 const AV = require('./utils/av-weapp.js');
-const appId = "wx8afdcf3654b4ba03";
-const appKey = "143d15030aa33de9f37e87491e20a2f9";
+const appId = "wxb59d10019c76d3ed";
+const appKey = "wxb59d10019c76d3ed";
 const qiniuUploader = require("./utils/qiniuUploader.js");
 
 AV.init({ 
@@ -59,7 +59,7 @@ var that;
 
 App({
 	globalData: {
-		serverUrl: 'http://120.79.37.4:8094/jig/',
+    serverUrl: 'https://dcan.transtive.com/jig/',
     userid: '',
     userOpenid: '',
     userInfo: { // 用户微信信息
@@ -77,7 +77,7 @@ App({
     shopid: 251,
     shopInfo: {}, // shopid 对应的门店信息
     qiniu_uploadToken: '', // 七牛图片上传的token
-    qiniu_imgServer: 'https://yhjm-cdn.yihuijumei.com/', // 七牛链接前缀
+    qiniu_imgServer: 'https://qijiang.kangjiaobainian.xyz/', // 七牛链接前缀
     wayImgUrl: '../../images/home/', // 下单方式图片地址
     wayList: [ // 下单方式
       { type: '外卖', img: 'waimai.png' },

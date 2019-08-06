@@ -3,7 +3,7 @@
     <view class="user">
         <view class="photo" bindtap="myinfo"><image src="{{headUrl}}"></image></view>
         <view class="info">
-            <view class="name">{{nickname}}</view>
+            <view class="name">{{nickname || '--'}}</view>
             <!-- <view class="btn">点击授权</view> -->
         </view>
     </view>
