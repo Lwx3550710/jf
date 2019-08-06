@@ -1,7 +1,7 @@
 // 初始化AV
 const AV = require('./utils/av-weapp.js');
-const appId = "wx8afdcf3654b4ba03";
-const appKey = "143d15030aa33de9f37e87491e20a2f9";
+const appId = "wxb59d10019c76d3ed";
+const appKey = "wxb59d10019c76d3ed";
 const qiniuUploader = require("./utils/qiniuUploader.js");
 
 AV.init({ 

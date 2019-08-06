@@ -16,6 +16,8 @@ Page({
    */
   onLoad: function (options) {
     that = this;
+    
+
     this.getInvites();
   },
 

@@ -1,10 +1,10 @@
 <wxs src="../../wxs/dataSubstring.wxs" module="tools" />
 <view class="coupons" wx:for="{{couponData}}" wx:key="index">
     <image wx:if="{{item.status == 0}}" class="couponsBg" mode="widthFix" src="../../images/images/quanYes.png"></image>
-    <image wx:else class="couponsBg" mode="widthFix" src="../../images/images/quanYes.png"></image>
+    <image wx:else class="couponsBg" mode="widthFix" src="../../images/images/quanNo.png"></image>
     <text class="couponsMoney">￥{{item.coupon.amount}}</text>
     <text class="couponsQuan">抵扣券</text>
-    <image wx:if="{{item.status == 3}}" class="quanTime" src="../../images/images/quanGuoQi.png"></image>
+    <image wx:if="{{item.status == 2}}" class="quanTime" src="../../images/images/quanGuoQi.png"></image>
     <view class="couponsInfo flex ai jcb">
         <view class="couponsLeft">
             <text >满{{item.coupon.mamount}}可用，不限制适用门店</text>
