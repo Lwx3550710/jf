@@ -112,6 +112,9 @@ Page({
 		that.setData({
 			isShowProductDetail: false,
     })
+    wx.showTabBar({
+      animation: true,
+    });
 	},
   showProductAttr(e) { // 显示商品规格
     var pid = app.attr(e, 'id');
