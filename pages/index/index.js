@@ -82,14 +82,10 @@ Page({
 		that.setData({
 			isShowProductDetail: false,
     })
-    wx.showTabBar({
-      animation: true,
-    });
 	},
   showProductAttr(e) { // 显示商品规格
     var pid = app.attr(e, 'id');
     var pd = goodsDataById[pid] || {};
-    that.getShopProductAttr(pid);
     that.setData({
       showProductAttrData: { // 商品规格数据
         id: pid,
@@ -102,14 +98,39 @@ Page({
 			isShowProductDetail: false,
 			isShowProductAttr: true,
     })
-    wx.showTabBar({
+    that.getShopProductAttr(pid,function(r){
+      // console.log(r);
+      var attrArr = [];
+      r.forEach((b,a)=>{
+        var list = [];
+        b.items.forEach((b2, a2) => {
+          list.push({
+            // gid: b2.goodId,
+            id: b2.id,
+            val: b2.name,
+            price: b.price,
+          })
+        })
+        attrArr.push({
+          name: b.itemName,
+          list: list,
+        })
+      })
+      that.setData({
+        'showProductAttrData.attr': attrArr,
+      })
+    });
+    wx.hideTabBar({
       animation: true,
     });
 	},
   hideProductAttr(e) { // 隐藏商品规格
 		that.setData({
 			isShowProductAttr: false,
-		})
+    })
+    wx.showTabBar({
+      animation: true,
+    });
 	},
   getShopProduct(){//获取产品数据
     app.ajax({

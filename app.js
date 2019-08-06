@@ -119,7 +119,7 @@ App({
 			},
 		})
 	},
-  ajax: function (obj) { // formPost为true时为“post表单提交”
+  ajax(obj) { // formPost为true时为“post表单提交”
     var header = obj.header || {}
     if (!header['Content-Type']) {
       header['Content-Type'] = 'application/json'
