@@ -17,10 +17,10 @@
   height: 76rpx;
   background: #fff;
   padding: 0 24rpx;
-	box-shadow: 0 2rpx 4rpx 0 rgba(0,0,0,0.2);
-	z-index: 66;
-	position: relative;
-  width:100%;
+  box-shadow: 0 2rpx 4rpx 0 rgba(0, 0, 0, 0.2);
+  z-index: 66;
+  position: relative;
+  width: 100%;
 }
 
 .sifBox-tabLi {
@@ -55,7 +55,7 @@
 
 .sifBox-content.pt0 {
   padding-top: 0;
-	background: #fff;
+  background: #fff;
 }
 
 .sifBox-cmtTop {
@@ -285,6 +285,13 @@
 .spCarBox-sc {
   max-height: 452rpx;
   overflow-y: auto;
+}
+
+.spCarBox-empty {
+  font-size: 28rpx;
+  color: #a1a1a1;
+  text-align: center;
+  line-height: 140rpx;
 }
 
 .spCarBox-scLi {

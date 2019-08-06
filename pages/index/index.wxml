@@ -1,3 +1,5 @@
+<wxs src="../../wxs/sg.wxs" module="sgApi" />
+
 <view class="shop_container">
     <view class="header_bd">
         <view class="store" bindtap="toChooseShopPage">
@@ -45,31 +47,23 @@
       <scroll-view class="sifBox-content" scroll-y="true" hidden="{{curSifMain!='评价'}}">
         <view class="sifBox-cmtTop df hao">
           <view class="sifBox-cmtScore">
-            <em>5.0</em>
+            <em>{{shopInfo.totalStar}}.0</em>
             <span>门店评分</span>
           </view>
           <view class="flex-1 sifBox-cmtPut">
             <view class="sifBox-cmtStar df hao">
               <span>食材</span>
-              <image src="/images/sg-img/star.png"></image>
-              <image src="/images/sg-img/star.png"></image>
-              <image src="/images/sg-img/star.png"></image>
-              <image src="/images/sg-img/star.png"></image>
-              <image src="/images/sg-img/star.png"></image>
-              <em>5.0</em>
+              <image src="/images/sg-img/star.png" wx:for="{{foodStarArr}}" wx:key="foodStar"></image>
+              <em>{{shopInfo.foodStar}}.0</em>
             </view>
             <view class="sifBox-cmtStar df hao">
               <span>包装</span>
-              <image src="/images/sg-img/star.png"></image>
-              <image src="/images/sg-img/star.png"></image>
-              <image src="/images/sg-img/star.png"></image>
-              <image src="/images/sg-img/star.png"></image>
-              <image src="/images/sg-img/star.png"></image>
-              <em>5.0</em>
+              <image src="/images/sg-img/star.png" wx:for="{{packageStarArr}}" wx:key="packageStar"></image>
+              <em>{{shopInfo.packageStar}}.0</em>
             </view>
           </view>
           <!-- <view class="sifBox-cmtLoc">
-            <em>4.0</em>
+            <em>{{shopInfo.sendStar}}.0</em>
             <span>配送评分</span>
           </view> -->
         </view>
@@ -81,50 +75,6 @@
           <view class="sifBox-cmtLableLi">满意(7)</view>
         </view> -->
         <view class="sifBox-cmtList">
-          <view class="sifBox-cmtLi">
-            <view class="sifBox-cmtPerson df hao">
-              <image src="https://c-ssl.duitang.com/uploads/item/201805/13/20180513224039_tgfwu.png" class="sifBox-cmtHead"></image>
-              <view class="sifBox-cmtInfo flex-1">
-                <view class="sifBox-cmtName">用过的昵称</view>
-                <view class="sifBox-cmtStar2 df hao">
-                  <image src="/images/sg-img/star2.png"></image>
-                  <image src="/images/sg-img/star2.png"></image>
-                  <image src="/images/sg-img/star2.png"></image>
-                  <image src="/images/sg-img/star2.png"></image>
-                  <image src="/images/sg-img/star2.png"></image>
-                  10分钟内送达
-                </view>
-              </view>
-              <view class="sifBox-cmtDate">2019.05.28</view>
-            </view>
-            <view class="sifBox-cmtTxt">这是用户评论这是用户评论这是用户评论这是用户评论这是用户评论这是用户评论这是用户评论这是用户评论</view>
-            <view class="sifBox-cmtImg">
-              <image src="https://c-ssl.duitang.com/uploads/item/201805/13/20180513224039_tgfwu.png"></image>
-              <image src="https://c-ssl.duitang.com/uploads/item/201805/13/20180513224039_tgfwu.png"></image>
-            </view>
-          </view>
-          <view class="sifBox-cmtLi">
-            <view class="sifBox-cmtPerson df hao">
-              <image src="https://c-ssl.duitang.com/uploads/item/201805/13/20180513224039_tgfwu.png" class="sifBox-cmtHead"></image>
-              <view class="sifBox-cmtInfo flex-1">
-                <view class="sifBox-cmtName">用过的昵称</view>
-                <view class="sifBox-cmtStar2 df hao">
-                  <image src="/images/sg-img/star2.png"></image>
-                  <image src="/images/sg-img/star2.png"></image>
-                  <image src="/images/sg-img/star2.png"></image>
-                  <image src="/images/sg-img/star2.png"></image>
-                  <image src="/images/sg-img/star2.png"></image>
-                  10分钟内送达
-                </view>
-              </view>
-              <view class="sifBox-cmtDate">2019.05.28</view>
-            </view>
-            <view class="sifBox-cmtTxt">这是用户评论这是用户评论这是用户评论这是用户评论这是用户评论这是用户评论这是用户评论这是用户评论</view>
-            <view class="sifBox-cmtImg">
-              <image src="https://c-ssl.duitang.com/uploads/item/201805/13/20180513224039_tgfwu.png"></image>
-              <image src="https://c-ssl.duitang.com/uploads/item/201805/13/20180513224039_tgfwu.png"></image>
-            </view>
-          </view>
           <view class="sifBox-cmtLi">
             <view class="sifBox-cmtPerson df hao">
               <image src="https://c-ssl.duitang.com/uploads/item/201805/13/20180513224039_tgfwu.png" class="sifBox-cmtHead"></image>
@@ -172,12 +122,12 @@
             <view class="btn">
                 <view class="wrap" bindtap="showShopCar">
                     <view class="txt"><image mode="widthFix" src="../../images/home/cart.png" alt=""></image>购物袋</view>
-                    <view class="num">5</view>
+                    <view class="num">{{shopCarNum}}</view>
                 </view>
             </view>
             <view class="info">
                 <dl>
-                    <dt>￥109</dt>
+                    <dt>￥{{shopCarAllPrice}}</dt>
                     <dd bindtap="toOrderSettlePage">结算</dd>
                 </dl>
             </view>
@@ -186,37 +136,21 @@
 		<view class="spCarBox" hidden="{{!isShowShopCar}}" bindtap="hideShopCar">
 			<view class="spCarBox-content" catchtap="noEvent">
 				<view class="spCarBox-tool df hao">
-					<view class="spCarBox-toolLi df hao"><image src="/images/sg-img/del.png"></image>清空购物车</view>
+					<view class="spCarBox-toolLi df hao" bindtap="emptyShopCar"><image src="/images/sg-img/del.png"></image>清空购物车</view>
 				</view>
 				<scroll-view class="spCarBox-sc" scroll-y="true">
-					<view class="spCarBox-scLi df hao">
-						<view class="spCarBox-scFood ov-d flex-1">这里是食物名称</view>
-						<view class="spCarBox-scPrice">￥19</view>
-						<view class="spCarBox-scSub"></view>
-						<view class="spCarBox-scInput"><input type="number" value="1"></input></view>
-						<view class="spCarBox-scAdd"></view>
-					</view>
-					<view class="spCarBox-scLi df hao">
-						<view class="spCarBox-scFood ov-d flex-1">这里是食物名称</view>
-						<view class="spCarBox-scPrice">￥19</view>
-						<view class="spCarBox-scSub"></view>
-						<view class="spCarBox-scInput"><input type="number" value="1"></input></view>
-						<view class="spCarBox-scAdd"></view>
-					</view>
-					<view class="spCarBox-scLi df hao">
-						<view class="spCarBox-scFood ov-d flex-1">这里是食物名称</view>
-						<view class="spCarBox-scPrice">￥19</view>
-						<view class="spCarBox-scSub"></view>
-						<view class="spCarBox-scInput"><input type="number" value="1"></input></view>
-						<view class="spCarBox-scAdd"></view>
-					</view>
-					<view class="spCarBox-scLi df hao">
-						<view class="spCarBox-scFood ov-d flex-1">这里是食物名称</view>
-						<view class="spCarBox-scPrice">￥19</view>
-						<view class="spCarBox-scSub"></view>
-						<view class="spCarBox-scInput"><input type="number" value="1"></input></view>
-						<view class="spCarBox-scAdd"></view>
-					</view>
+          <block wx:for="{{shopCarList}}" wx:key="shopCar" wx:for-item="sc">
+            <view class="spCarBox-scLi df hao">
+              <view class="spCarBox-scFood ov-d flex-1">{{sc.name}}</view>
+              <view class="spCarBox-scPrice">￥{{sc.price}}</view>
+              <view class="spCarBox-scSub" bindtap="subShopCarNum" data-index="{{index}}"></view>
+              <view class="spCarBox-scInput">
+                <input type="number" value="{{sc.num}}" bindinput="inputShopCarNum" data-index="{{index}}"></input>
+              </view>
+              <view class="spCarBox-scAdd" bindtap="addShopCarNum" data-index="{{index}}"></view>
+            </view>
+          </block>
+          <view class="spCarBox-empty" hidden="{{shopCarNum>0}}">您的购物车还是空的噢~</view>
 				</scroll-view>
 			</view>
 		</view>
@@ -245,21 +179,21 @@
       <view class="foodCsBox-type">{{t.name}}</view>
       <view class="foodCsBox-label">
         <block wx:for="{{t.list}}" wx:key="productAttr2" wx:for-item="t2">
-          <view class="foodCsBox-labelLi">{{t2.val}}<image src="/images/sg-img/star3.png"></image></view><!-- choose -->
+          <view class="foodCsBox-labelLi {{showProductAttrData.chooseAttrId[t.name]==t2.id?'choose':''}}" bindtap="chooseAttrLabel" data-id="{{t2.id}}" data-key="{{t.name}}" data-val="{{t2.val}}" data-price="{{t2.price}}">{{t2.val}}<image src="/images/sg-img/star3.png"></image></view>
         </block>
       </view>
     </block>
 		<view class="foodCsBox-pd df hao">
 			<view class="foodCsBox-pdInfo df cf wao flex-1">
 				<view class="foodCsBox-price">￥{{showProductAttrData.price}}</view>
-				<view class="foodCsBox-data ov-d">小份</view>
+				<view class="foodCsBox-data ov-d">{{showProductAttrData.chooseAttrTxt}}</view>
 			</view>
 			<view class="foodCsBox-pdNum df hao">
-				<view class="foodCsBox-pdSub" bindtap=""></view>
-				<view class="foodCsBox-pdInput"><input type="number" value="{{showProductAttrData.num}}"></input></view>
-				<view class="foodCsBox-pdAdd"></view>
+				<view class="foodCsBox-pdSub" bindtap="subOneNum"></view>
+				<view class="foodCsBox-pdInput"><input type="number" value="{{showProductAttrData.num}}" bindinput="inputOneNum"></input></view>
+				<view class="foodCsBox-pdAdd" bindtap="addOneNum"></view>
 			</view>
 		</view>
-		<view class="foodCsBox-add">加入购物车</view>
+		<view class="foodCsBox-add" bindtap="addCard">加入购物车</view>
 	</view>
 </view>

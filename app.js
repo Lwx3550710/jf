@@ -59,7 +59,7 @@ var that;
 
 App({
 	globalData: {
-		serverUrl: 'http://120.79.37.4:8094/jig/',
+    serverUrl: 'https://dcan.transtive.com/jig/',
     userid: '',
     userOpenid: '',
     userInfo: { // 用户微信信息
@@ -74,10 +74,10 @@ App({
       lat: 0, // 经度
       long: 0, // 纬度
     },
-    shopid: 251,
+    shopid: '',
     shopInfo: {}, // shopid 对应的门店信息
     qiniu_uploadToken: '', // 七牛图片上传的token
-    qiniu_imgServer: 'https://yhjm-cdn.yihuijumei.com/', // 七牛链接前缀
+    qiniu_imgServer: 'https://qijiang.kangjiaobainian.xyz/', // 七牛链接前缀
     wayImgUrl: '../../images/home/', // 下单方式图片地址
     wayList: [ // 下单方式
       { type: '外卖', img: 'waimai.png' },

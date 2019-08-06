@@ -1,0 +1,11 @@
+function fn(arr, arg) {
+  var result = {
+    indexOf: false,
+    toString: '',
+    join: '',
+  }
+  result.indexOf = arr.indexOf(arg) > -1;
+  result.toString = arr.join(",");
+  result.join = arr.join(arg); return result;
+}
+module.exports.fn = fn;
