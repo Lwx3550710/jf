@@ -46,9 +46,22 @@ Page({
             },
             success: function (res) {
               console.log(res)
-              wx.showToast({
-                title: '充值成功！'
-              })
+              var data = res;
+              wx.requestPayment(
+                {
+                  'timeStamp': data.timeStamp,
+                  'nonceStr': data.nonceStr,
+                  'package': data.package,
+                  'signType': 'MD5',
+                  'paySign': data.paySign,
+                  'success': function (res) {
+                    wx.showToast({
+                      title: '充值成功！'
+                    })
+                  },
+                  'fail': function (res) { },
+                  'complete': function (res) { }
+                })
             },
           })
 

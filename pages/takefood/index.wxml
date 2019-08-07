@@ -1,49 +1,58 @@
 <view class="container">
-      <view class="card-main">
-          <view class="body">
-              <view class="title">堂食</view>
-              <view class="process">
-                  <view class="no">JF009</view>
-                  <view class="jd">您的餐品正在制作中</view>
-                  <view class="store">
-                      <b>匠方银泰城店</b>
-                      <image src="../../images/takefood/aw.png"></image>
-                  </view>
-              </view>
-              <view class="info">
-                  <view class="item">
-                      <view class="box1">
-                          <view class="name">商品信息名称</view>
-                          <view class="price">￥12</view>
-                          <view class="spec">x1</view>
-                      </view>
-                      <view class="box2">口味内容</view>
-                  </view>
-                  <view class="item">
-                      <view class="box1">
-                          <view class="name">商品信息名称</view>
-                          <view class="price">￥12</view>
-                          <view class="spec">x1</view>
-                      </view>
-                      <view class="box2">口味内容</view>
-                  </view>
-                  <view class="more">
-                      <dl>
-                          <dt>查看其余3件</dt>
-                          <dd><image src="../../images/takefood/aw-cur.png" alt=""></image></dd>
-                      </dl>
-                  </view>
-              </view>
-              <view class="total">
-                  <dl>
-                      <dt>总计</dt>
-                      <dd>￥60</dd>
-                  </dl>
+  <view class="card-main">
+      <view class="body">
+          <view class="title">自提取餐码</view>
+
+
+          <view class="process" wx:if="{{type==0}}">
+              <view class="no">{{code}}</view>
+              <view class="jd">您的餐品正在制作中</view>
+              <view class="store">
+                  <b>{{address}}</b>
+                  <!-- <image src="../../images/takefood/aw.png"></image> -->
               </view>
           </view>
-          <view class="bg">
-              <image src="../../images/takefood/card-bg.png" alt=""></image>
+
+          <view class="process" wx:elif="{{type==1}}">
+              <image class="wm-head"></image>
+              <view class="wm-name flex ai jcc">
+                <text>{{dadaName}}</text>
+                <image src="../../images/images/ddps.png"></image>
+              </view> 
+              <text class="wm-info">骑手配送中，请耐心等候...</text>
+              <view class="wm-contact">联系骑手</view>
+          </view>
+
+
+
+          <view class="info">
+              <view class="item" wx:for="{{goodItem}}" wx:key="{{index}}">
+                  <view class="box1">
+                      <view class="name">{{item.good.name}}</view>
+                      <view class="price">￥ {{item.good.price}}</view>
+                      <view class="spec">x{{item.num}}</view>
+                  </view>
+                  <view class="box2">口味内容</view>
+              </view>
+
+
+              <!-- <view class="more">
+                  <dl>
+                      <dt>查看其余3件</dt>
+                      <dd><image src="../../images/takefood/aw-cur.png" alt=""></image></dd>
+                  </dl>
+              </view> -->
+          </view>
+          <view class="total">
+              <dl>
+                  <dt>总计</dt>
+                  <dd>￥{{price}}</dd>
+              </dl>
           </view>
       </view>
-    <view class="copyright"><text>注:请注意前台叫号，您也可以通过刷新小程序\n查看取餐进度</text></view>
+      <view class="bg">
+          <image src="../../images/takefood/card-bg.png" alt=""></image>
+      </view>
   </view>
+  <view class="copyright"><text>注:请注意前台叫号，您也可以通过刷新小程序\n查看取餐进度</text></view>
+</view>

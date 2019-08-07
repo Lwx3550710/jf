@@ -17,6 +17,9 @@ Page({
     that = this;
     that.getUserData();
   },
+  onShow: function () {
+    that.getUserData();
+  },
   getUserData() { // 获取用户信息
     app.ajax({
       url: 'user/getById',
