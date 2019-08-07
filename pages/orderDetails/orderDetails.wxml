@@ -1,132 +1,72 @@
-<!-- <view class="uBox">
-	<view class="state">待取餐
-		<view class="rbtn">确认取餐</view>
+<view class="uBox">
+	<view class="state">{{stateData.txt}}
+		<view class="rbtn" wx:if="{{stateData.btn}}" bindtap="{{stateData.btn.tap}}">{{stateData.btn.val}}</view>
 	</view>
 </view>
-<view class="uBox">
-	<view class="title">商品明细</view>
-	<view class="product">
-		<view class="productLi df hal">
-			<view class="productLi-lt flex-1">
-				<view class="productLi-cap ov-d">这里是商品名称</view>
-				<view class="productLi-txt">这里是用户选择的规格这里是用户选择的规格这里是用户选择的规格这里是用户选择的规格</view>
-			</view>
-			<view class="productLi-num">x1</view>
-			<view class="productLi-price">￥29</view>
-		</view>
-		<view class="productLi df hal">
-			<view class="productLi-lt flex-1">
-				<view class="productLi-cap ov-d">这里是商品名称</view>
-				<view class="productLi-txt">这里是用户选择的规格这里是用户选择的规格这里是用户选择的规格这里是用户选择的规格</view>
-			</view>
-			<view class="productLi-num">x1</view>
-			<view class="productLi-price">￥29</view>
-		</view>
-	</view>
-</view>
-<view class="uBox">
-	<view class="line df hao">
-		<view class="cap">优惠券</view>
-		<view class="txt flex-1 red">-￥10</view>
-	</view>
-	<view class="line df hao">
-		<view class="cap">红包</view>
-		<view class="txt flex-1 df hao war">暂无可用<image src="/images/sg-img/arrow.png" class="arrow"></image></view>
-	</view>
-	<view class="line df hao noBor">
-		<view class="cap"></view>
-		<view class="txt flex-1 big">实付：<em>￥48</em></view>
-	</view>
-</view>
-<view class="uBox">
-	<view class="title">取餐信息</view>
-	<view class="line df hao noBor">
-		<view class="cap">取餐码</view>
-		<view class="txt flex-1 orange">JF009</view>
-	</view>
-	<view class="line df hao noBor">
-		<view class="cap">取餐时间</view>
-		<view class="txt flex-1 orange">尽快取餐</view>
-	</view>
-</view>
-<view class="uBox">
-	<view class="title">订单信息</view>
-	<view class="line df hao noBor">
-		<view class="cap">单号</view>
-		<view class="txt flex-1"><em>123456</em></view>
-	</view>
-	<view class="line df hao noBor">
-		<view class="cap">支付方式</view>
-		<view class="txt flex-1"><em>微信支付</em></view>
-	</view>
-	<view class="line df hao noBor">
-		<view class="cap">下单时间</view>
-		<view class="txt flex-1"><em>2019-05-28 10:30</em></view>
-	</view>
-	<view class="line df hao noBor">
-		<view class="cap">订单备注</view>
-		<view class="txt flex-1">这里是用户下单时选填内容</view>
-	</view>
-</view> -->
 
-<view class="uBox">
-	<view class="state">配送中
-		<view class="rbtn">联系门店</view>
-	</view>
-</view>
-<view class="uBox">
+<view class="uBox" wx:if="{{odo.type==1}}">
 	<view class="person df hao">
 		<image src="https://c-ssl.duitang.com/uploads/item/201805/13/20180513224039_tgfwu.png" class="head"></image>
-		<view class="flex-1">配送员的名字</view>
-		<view class="btn">联系配送员</view>
+		<view class="flex-1">{{odo.dadaName||''}}</view>
+		<view class="btn" data-phone="{{odo.dadaMobile||''}}">联系配送员</view>
 	</view>
 </view>
+
 <view class="uBox">
 	<view class="title">商品明细</view>
 	<view class="product">
-		<view class="productLi df hal">
+		<view class="productLi df hal" wx:for="{{odo.other.items}}" wx:key="pd" wx:for-item="t">
 			<view class="productLi-lt flex-1">
-				<view class="productLi-cap ov-d">这里是商品名称</view>
-				<view class="productLi-txt">这里是用户选择的规格这里是用户选择的规格这里是用户选择的规格这里是用户选择的规格</view>
+				<view class="productLi-cap ov-d">{{t.good.name}}</view>
+				<view class="productLi-txt">暂无规格</view>
 			</view>
-			<view class="productLi-num">x1</view>
-			<view class="productLi-price">￥29</view>
-		</view>
-		<view class="productLi df hal">
-			<view class="productLi-lt flex-1">
-				<view class="productLi-cap ov-d">这里是商品名称</view>
-				<view class="productLi-txt">这里是用户选择的规格这里是用户选择的规格这里是用户选择的规格这里是用户选择的规格</view>
-			</view>
-			<view class="productLi-num">x1</view>
-			<view class="productLi-price">￥29</view>
+			<view class="productLi-num">x{{t.num}}</view>
+			<view class="productLi-price">￥{{t.price}}</view>
 		</view>
 	</view>
 	<view class="line df hao noBor">
 		<view class="cap">包装费</view>
-		<view class="txt flex-1 red">￥2</view>
+		<view class="txt flex-1 red">￥{{odo.packageAmount}}</view>
 	</view>
 	<view class="line df hao noBor">
 		<view class="cap">配送费</view>
-		<view class="txt flex-1 red">￥5</view>
+		<view class="txt flex-1 red">￥{{odo.sendAmount}}</view>
 	</view>
 	<view class="line df hao">
 		<view class="cap">优惠券</view>
-		<view class="txt flex-1 red">-￥5</view>
+		<view class="txt flex-1 red">-￥{{odo.couponAmount}}</view>
+	</view>
+	<view class="line df hao">
+		<view class="cap">红包抵扣</view>
+		<view class="txt flex-1 red">-￥{{odo.repack||0}}</view>
 	</view>
 	<view class="line df hao noBor">
 		<view class="cap"></view>
-		<view class="txt flex-1 big">实付：<em>￥48</em></view>
+		<view class="txt flex-1 big">实付：<em>￥{{odo.price}}</em></view>
 	</view>
 </view>
-<view class="uBox">
-	<view class="title">配送信息</view>
+
+<view class="uBox" wx:if="{{odo.type==0}}">
+	<view class="title">取餐信息</view>
 	<view class="line df hao noBor">
-		<view class="cap">送达时间</view>
-		<view class="txt flex-1 orange">尽快送达</view>
+		<view class="cap">取餐码</view>
+		<view class="txt flex-1 orange">{{odo.code}}</view>
 	</view>
 	<view class="line df hao noBor">
+		<view class="cap">取餐时间</view>
+		<view class="txt flex-1 orange">{{odo.takeTime}}</view>
+	</view>
+</view>
+
+<view class="uBox" wx:if="{{odo.type==1}}">
+	<view class="title">配送信息</view>
+	<!-- <view class="line df hao noBor">
+		<view class="cap">送达时间</view>
+		<view class="txt flex-1 orange">尽快送达</view>
+	</view> -->
+	<view class="line df hao noBor">
 		<view class="cap">收货地址</view>
-		<view class="txt flex-1"><em>这里是用户填写的收货地址</em></view>
+		<view class="txt flex-1"><em>{{odo.address.name}} / {{odo.address.address}}</em></view>
 	</view>
 	<view class="line df hao noBor">
 		<view class="cap">配送方式</view>
@@ -134,25 +74,26 @@
 	</view>
 	<view class="line df hao noBor">
 		<view class="cap">配送员</view>
-		<view class="txt flex-1"><em>呵呵呵</em></view>
+		<view class="txt flex-1"><em>{{odo.dadaName||''}}</em></view>
 	</view>
 </view>
+
 <view class="uBox">
 	<view class="title">订单信息</view>
 	<view class="line df hao noBor">
 		<view class="cap">单号</view>
-		<view class="txt flex-1"><em>123456</em></view>
+		<view class="txt flex-1"><em>{{odo.orderNo}}</em></view>
 	</view>
 	<view class="line df hao noBor">
 		<view class="cap">支付方式</view>
-		<view class="txt flex-1"><em>微信支付</em></view>
+		<view class="txt flex-1"><em>{{odo.payType==1?'微信支付':'钱包支付'}}</em></view>
 	</view>
 	<view class="line df hao noBor">
 		<view class="cap">下单时间</view>
-		<view class="txt flex-1"><em>2019-05-28 10:30</em></view>
+		<view class="txt flex-1"><em>{{odo.finishTime||'--'}}</em></view>
 	</view>
 	<view class="line df hao noBor">
 		<view class="cap">订单备注</view>
-		<view class="txt flex-1">这里是用户下单时选填内容</view>
+		<view class="txt flex-1">{{odo.remark||'空'}}</view>
 	</view>
 </view>

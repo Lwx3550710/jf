@@ -6,7 +6,8 @@ Page({
 	data: {
 	},
 	toOrderDetailPage(e){ // 订单详情
-		app.openUrl('orderDetails');
+    var oid = app.attr(e,'oid');
+    app.openUrl('orderDetails', 'oid=' + oid);
 	},
 	toOrderCommentPage(e) { // 订单评价
 		app.openUrl('orderComment');

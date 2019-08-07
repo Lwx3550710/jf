@@ -21,7 +21,7 @@ Page({
     payType: 0, // 支付方式 [0 微信] [1 钱包]
     ls_payBoxShow: false, // 选择支付方式弹框是否选择
     ls_pay: 0, // 临时选择支付方式 [0 微信] [1 钱包]
-    takeTime: 0, // 取餐时间（时间戳）
+    takeTime: '尽快取餐', // 取餐时间（时间戳）
     takeTimeTxt: '尽快取餐', // 取餐时间
     takeTimeLeftChoose: 0,
     takeTimeLeftArr: [],
@@ -234,10 +234,7 @@ Page({
     var takeTimeLeftArr = [{
       val: '今天(' + weekData.week + ')'
     }, ];
-    var takeTimeRightArr = [{
-      val: '0',
-      txt: '尽快取餐'
-    }, ];
+    var takeTimeRightArr = [{ val: '尽快取餐', txt: '尽快取餐'}, ];
 
     var timeData = util.escTime(date);
     var startHour = timeData.hour;
