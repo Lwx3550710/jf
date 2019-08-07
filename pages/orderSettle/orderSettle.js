@@ -19,7 +19,7 @@ Page({
 	},
 	onLoad(options) {
 		that = this;
-    // app.ajax({
+    // app.ajax({//购物袋详情
     //   url: 'cart/getById',
     //   data: {
     //     cartId: 29
@@ -29,7 +29,7 @@ Page({
     //   },
     // })
 
-    // app.ajax({
+    // app.ajax({//钱包支付
     //   url: 'order/pay',
     //   formPost: true,
     //   data: {
@@ -47,7 +47,7 @@ Page({
     // })
 
 
-    // app.ajax({
+    // app.ajax({//微信支付
     //   url: 'pay1/prepare',
     //   data:{
     //     cartId: 29,
