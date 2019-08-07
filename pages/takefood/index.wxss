@@ -51,8 +51,10 @@
     height: 10px;
 }
 .card-main .info{
-    padding: 0 20px;
-    overflow: hidden;
+padding: 0 20px 20px;
+overflow: auto;
+height: 304rpx;
+
 }
 .card-main .info .item{
     width: 100%;
@@ -138,4 +140,41 @@
     font-size: 12px;
     text-align: center;
     padding: 15px 0;
+}
+.wm-head{
+  width:80rpx;
+  height: 80rpx;
+  border-radius: 50%;
+  border:2rpx solid #ddd;
+}
+.wm-name {
+
+}
+.wm-name text{
+color: #000000;
+font-size: 30rpx;
+margin: 5px 12px 10rpx 0rpx;
+padding-left: 134rpx;
+
+}
+.wm-name image{
+  width: 100rpx;
+  height: 30rpx;
+}
+.wm-info{
+  font-size: 26rpx;
+  color: #000000;
+
+}
+.wm-contact{
+  font-size: 28rpx;
+  color:#C79F62;
+  width:180rpx;
+  height: 50rpx;
+  line-height: 50rpx;
+  text-align: center;
+  border-radius: 30rpx;
+  border: 2rpx solid #C79F62;
+  margin: 25rpx auto 0;
+
 }
