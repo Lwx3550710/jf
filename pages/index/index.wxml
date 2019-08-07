@@ -139,7 +139,7 @@
 					<view class="spCarBox-toolLi df hao" bindtap="emptyShopCar"><image src="/images/sg-img/del.png"></image>清空购物车</view>
 				</view>
 				<scroll-view class="spCarBox-sc" scroll-y="true">
-          <block wx:for="{{shopCarList}}" wx:key="shopCar" wx:for-item="sc">
+          <block wx:for="{{shopCarList}}" wx:key="shopCar" wx:for-item="sc" wx:if="{{sc.num>0}}">
             <view class="spCarBox-scLi df hao">
               <view class="spCarBox-scFood ov-d flex-1">{{sc.name}}</view>
               <view class="spCarBox-scPrice">￥{{sc.price}}</view>
@@ -179,13 +179,13 @@
       <view class="foodCsBox-type">{{t.name}}</view>
       <view class="foodCsBox-label">
         <block wx:for="{{t.list}}" wx:key="productAttr2" wx:for-item="t2">
-          <view class="foodCsBox-labelLi {{showProductAttrData.chooseAttrId[t.name]==t2.id?'choose':''}}" bindtap="chooseAttrLabel" data-id="{{t2.id}}" data-key="{{t.name}}" data-val="{{t2.val}}" data-price="{{t2.price}}">{{t2.val}}<image src="/images/sg-img/star3.png"></image></view>
+          <view class="foodCsBox-labelLi {{showProductAttrData.chooseAttrId[t.name]==t2.id?'choose':''}}" bindtap="chooseAttrLabel" data-id="{{t2.id}}" data-key="{{t.name}}" data-val="{{t2.val}}" data-price="{{t2.price}}" data-pdprice="{{showProductAttrData.price}}">{{t2.val}}<image src="/images/sg-img/star3.png"></image></view>
         </block>
       </view>
     </block>
 		<view class="foodCsBox-pd df hao">
 			<view class="foodCsBox-pdInfo df cf wao flex-1">
-				<view class="foodCsBox-price">￥{{showProductAttrData.price}}</view>
+				<view class="foodCsBox-price">￥{{showProductAttrData.allPrice}}</view>
 				<view class="foodCsBox-data ov-d">{{showProductAttrData.chooseAttrTxt}}</view>
 			</view>
 			<view class="foodCsBox-pdNum df hao">

@@ -11,8 +11,8 @@
             <view class="form-label"></view>
             <view class="form-input">
                 <radio-group name="sex">
-                  <label for="sex1"><radio value="1" checked="{{sex == 0}}"></radio>男士</label>
-                  <label for="sex2"><radio value="2" checked="{{sex == 1}}"></radio>女士</label>
+                  <label for="sex1"><radio value="0" checked="{{sex == 0}}"></radio>男士</label>
+                  <label for="sex2"><radio value="1" checked="{{sex == 1}}"></radio>女士</label>
                 </radio-group>
             </view>
         </view>

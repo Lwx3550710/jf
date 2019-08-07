@@ -1,91 +1,128 @@
 <view class="uBox">
 	<view class="address df cf wao" hidden="{{orderType!=0}}" bindtap="toChooseShopPage">
-		<view class="one ov-d">匠方肉夹馍（银泰城店）</view>
-		<view class="three">您距离当前门店5000米以上，请确定下单门店是否正确</view>
-		<image src="/images/sg-img/arrow.png"></image>
+		<view class="one ov-d">{{shopInfo.name}}</view>
+		<view class="three">{{shopInfo.distance>5000?'您距离当前门店5000米以上，请确定下单门店是否正确':'您距离当前门店'+shopInfo.distance+'米'}}
+    </view>
+		<!-- <image src="/images/sg-img/arrow.png"></image> -->
 	</view>
 	<view class="address df cf wao" hidden="{{orderType!=1}}" bindtap="toChooseAddressPage">
-		<view class="one ov-d">这里是用户设置的收货地址这里是用户设置的收货地址这里是用户设置的收货地址</view>
-		<view class="two">收货人(先生/女士) 13920191234</view>
+    <view class="one ov-d" hidden="{{addressInfo.id!=''}}">请选择外卖配送的地址</view>
+    <view class="one ov-d" hidden="{{addressInfo.id==''}}">{{addressInfo.txt}}</view>
+    <view class="two" hidden="{{addressInfo.id==''}}">{{addressInfo.name}}(先生/女士) {{addressInfo.phone}}</view>
 		<image src="/images/sg-img/arrow.png"></image>
 	</view>
 	<view class="tabType df">
-		<view class="tabTypeLi flex-1 df hao wao {{orderType==0?'cur':''}}" bindtap="chooseType" data-index="0">
+		<view class="tabTypeLi flex-1 df hao wao {{orderType==0?'cur':''}}" bindtap="chooseOrderType" data-index="0">
 			<image src="/images/sg-img/type-1.png" hidden="{{orderType==0}}"></image>
 			<image src="/images/sg-img/type-1-cur.png" hidden="{{orderType!=0}}"></image>
 			门店自取
 		</view>
-		<view class="tabTypeLi flex-1 df hao wao {{orderType==1?'cur':''}}" bindtap="chooseType" data-index="1">
+		<view class="tabTypeLi flex-1 df hao wao {{orderType==1?'cur':''}}" bindtap="chooseOrderType" data-index="1">
 			<image src="/images/sg-img/type-2.png" hidden="{{orderType==1}}"></image>
 			<image src="/images/sg-img/type-2-cur.png" hidden="{{orderType!=1}}"></image>
 			外卖配送
 		</view>
 	</view>
-	<view class="line etLine df hao noBor" hidden="{{orderType!=0}}">
+	<view class="line etLine df hao noBor" hidden="{{orderType!=0}}" bindtap="showTakeTime">
 		<view class="cap">取餐时间</view>
-		<view class="txt orange flex-1 df hao war">尽快取餐<image src="/images/sg-img/arrow.png" class="arrow"></image></view>
+		<view class="txt orange flex-1 df hao war">{{takeTimeTxt||'请选择取餐时间'}}<image src="/images/sg-img/arrow.png" class="arrow"></image></view>
 	</view>
 	<view class="line etLine df hao noBor" hidden="{{orderType!=0}}" style="margin-top: -40rpx;">
 		<view class="cap">联系电话</view>
-		<view class="txt flex-1"><em>13920191234</em></view>
+		<view class="txt flex-1" bindtap="makePhone" data-phone="{{shopInfo.mobile}}"><em>{{shopInfo.mobile}}</em></view>
 	</view>
-	<view class="line etLine df hao noBor" hidden="{{orderType!=1}}">
+	<!-- <view class="line etLine df hao noBor" hidden="{{orderType!=1}}">
 		<view class="cap">送达时间</view>
 		<view class="txt orange flex-1">现在下单预计12:00送达</view>
-	</view>
+	</view> -->
 </view>
 <view class="uBox">
 	<view class="title">商品明细</view>
 	<view class="product">
+    <block wx:for="{{shopCarList}}" wx:key="*this" wx:for-item="t">
 		<view class="productLi df hal">
 			<view class="productLi-lt flex-1">
-				<view class="productLi-cap ov-d">这里是商品名称</view>
-				<view class="productLi-txt">这里是用户选择的规格这里是用户选择的规格这里是用户选择的规格这里是用户选择的规格</view>
+				<view class="productLi-cap ov-d">{{t.name}}</view>
+				<view class="productLi-txt">{{t.attr}}</view>
 			</view>
-			<view class="productLi-num">x1</view>
-			<view class="productLi-price">￥29</view>
+			<view class="productLi-num">x{{t.num}}</view>
+			<view class="productLi-price">￥{{t.price}}</view>
 		</view>
-		<view class="productLi df hal">
-			<view class="productLi-lt flex-1">
-				<view class="productLi-cap ov-d">这里是商品名称</view>
-				<view class="productLi-txt">这里是用户选择的规格这里是用户选择的规格这里是用户选择的规格这里是用户选择的规格</view>
-			</view>
-			<view class="productLi-num">x1</view>
-			<view class="productLi-price">￥29</view>
-		</view>
+    </block>
 	</view>
-	<view class="line df hao noBor">
+	<!-- <view class="line df hao noBor">
 		<view class="cap">配送费</view>
 		<view class="txt flex-1"><em>￥5</em></view>
 	</view>
 	<view class="line df hao noBor">
 		<view class="cap">优惠券</view>
 		<view class="txt flex-1 red">-10</view>
-	</view>
-	<view class="line df hao noBor">
+	</view> -->
+	<view class="line df hao noBor" bindtap="toChooseRedCarPage">
 		<view class="cap">红包</view>
-		<view class="txt flex-1 df hao war">暂无可用<image src="/images/sg-img/arrow.png" class="arrow"></image></view>
+		<view class="txt flex-1 df hao war">{{canChooseRedCar?'选择红包':'暂无可用'}}<image src="/images/sg-img/arrow.png" class="arrow"></image></view>
 	</view>
 	<view class="line df hao noBor">
 		<view class="cap"></view>
-		<view class="txt flex-1 big">共2个商品，小计：<em>￥48</em></view>
+		<view class="txt flex-1 big">共{{shopCarAllNum}}个商品，小计：<em>￥{{shopCarAllPrice}}</em></view>
 	</view>
 </view>
-<view class="uBox" style="padding-bottom: 98rpx;">
-	<view class="line df hao noBor">
+<view class="uBox" style="margin-bottom: 108rpx;">
+	<view class="line df hao noBor" bindtap="showPayType">
 		<view class="cap">支付方式</view>
 		<view class="txt flex-1 df hao war">
-			<image src="/images/sg-img/wechat.png" class="wechat"></image>
-			<em>微信支付</em>
+      <block wx:if="{{payType==0}}">
+        <image src="/images/sg-img/pay-1.png" class="sImg"></image>
+        <em>微信支付</em>
+      </block>
+      <block wx:else>
+        <image src="/images/sg-img/pay-2.png" class="sImg"></image>
+        <em>钱包支付</em>
+      </block>
 			<image src="/images/sg-img/arrow.png" class="arrow"></image>
 		</view>
 	</view>
 	<view class="line df hao noBor">
 		<view class="cap">备注</view>
-		<view class="input flex-1"><input placeholder="选填"></input></view>
+		<view class="input flex-1"><input placeholder="选填" bindinput="descInput" maxlength="30" value="{{desc}}"></input></view>
 	</view>
 </view>
 <view class="fixedTool df hao">
-	<view class="flex-1 price">￥48</view>
-	<view class="pay">支付</view>
+	<view class="flex-1 price">￥{{shopCarAllPrice}}</view>
+	<view class="pay" bindtap="toPay">支付</view>
+</view>
+
+<!-- 选择支付方式 -->
+<view class="layer" hidden="{{!ls_payBoxShow}}">
+  <view class="payTypeBox">
+    <view class="top">选择支付方式 <view class="close df hao wao" bindtap="hidePayType"><image src="/images/sg-img/pay-close.png"></image></view></view>
+    <view class="pd df cf hao wao">
+      <view class="pd-1">{{shopCarList[0].name}}{{shopCarList.length>1?' 等...':''}}</view>
+      <view class="pd-2"><em>￥</em>{{shopCarAllPrice}}</view>
+      <view class="pd-3">共{{shopCarAllNum}}件商品</view>
+    </view>
+    <view class="choose df hao" bindtap="choosePayType" data-val="0">
+      <image src="/images/sg-img/pay-1.png" class="sImg"></image>
+      <view class="flex-1">微信支付</view>
+      <image src="/images/sg-img/pay-choose.png" hidden="{{ls_pay==1}}" class="chooseImg"></image>
+    </view>
+    <view class="choose df hao" bindtap="choosePayType" data-val="1">
+      <image src="/images/sg-img/pay-2.png" class="sImg"></image>
+      <view class="flex-1">钱包余额 （￥1.02）</view>
+      <image src="/images/sg-img/pay-choose.png" hidden="{{ls_pay==0}}" class="chooseImg"></image>
+    </view>
+    <view class="bet" bindtap="agreePayType">确 认</view>
+  </view>
+</view>
+
+<!-- 选择取餐时间 -->
+<view class="layer" hidden="{{!takeTimeBoxShow}}" bindtap="hideTakeTime">
+  <view class="takeTimeBox df" catchtap="noEvent">
+    <scroll-view scroll-y="true" class="left">
+      <view class="left-li {{takeTimeLeftChoose==index?'choose':''}}" wx:for="{{takeTimeLeftArr}}" wx:key="takeTimeLeft" wx:for-item="sl">{{sl.val}}</view>
+    </scroll-view>
+    <scroll-view scroll-y="true" class="right flex">
+      <view class="right-li {{takeTimeRightChoose==index?'choose':''}}" wx:for="{{takeTimeRightArr}}" wx:key="takeTimeRight" wx:for-item="sr" bindtap="chooseTakeTime" data-index="{{index}}" data-val="{{sr.val}}" data-txt="{{sr.txt}}">{{sr.txt}}<image src="/images/sg-img/choose.png" class="chooseImg"></image></view>
+    </scroll-view>
+  </view>
 </view>

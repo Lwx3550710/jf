@@ -1,9 +1,9 @@
 <view class="addressPage">
   <scroll-view class="addressScroll" scroll-y="true">
     <view class="addressContent" wx:for="{{addressData}}" wx:key="index">
-      <view class="addressLi flex ai jcb">
-        <view class="addressInfo">
-          <view class="addressInfoPlace">
+      <view class="addressLi flex ai jcb" bindtap="chooseAddress" data-index="{{index}}">
+        <view class="addressInfo" style="flex:1;overflow:hidden;">
+          <view class="addressInfoPlace ov-d">
             <text>{{item.address}}</text>
             <text>{{item.detail}}</text>
           </view>

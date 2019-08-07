@@ -1,10 +1,17 @@
-.addressPage{
-    background: rgb(247,247,247);
-    width: 100%;
-    height: 100%;
-    position: absolute;
+.ov-d {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
-.addressScroll{
+
+.addressPage {
+  background: rgb(247, 247, 247);
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}
+
+.addressScroll {
   position: absolute;
   left: 0;
   right: 0;
@@ -12,76 +19,78 @@
   bottom: 141rpx;
   overflow-y: auto;
 }
-.addressPage img{
-    width: 750rpx;
-    height: 157rpx;
-    display: block;
-}
-.addressPage .btn{
-    width:640rpx;
-    line-height:80rpx;
-    color: #fff;
-    font-size:36rpx;
-    margin: 0 auto;
-    border-radius:10rpx;
-    left: 55rpx;
-    bottom: 40rpx;
-    text-align: center;
-    position: absolute;
-    background:rgba(38,30,19,1);
-}
-.addressContent{
 
-}
-.addressContent .addressLi{
-height: 158rpx;
-background: #fff;
-margin-top: 20rpx;
-
-}
-.addressContent .addressLi .addressInfo{
-
-}
-.addressInfo .addressInfoPlace{
-margin-left: 24rpx;
-
-}
-.addressInfo .addressInfoPlace text{
-color: #333;
-font-size: 30rpx;
-margin-right: 20rpx;
-
-}
-.addressInfo .addressInfoPerson{
-margin-left: 24rpx;
-margin-top: 5rpx;
-
-
-}
-.addressInfo .addressInfoPerson text{
-color: #333;
-font-size: 26rpx;
-margin-right: 20rpx;
-
+.addressPage img {
+  width: 750rpx;
+  height: 157rpx;
+  display: block;
 }
 
-.addressContent .addressLi .addressIcon{
-  width:30rpx;
-  height:30rpx;
+.addressPage .btn {
+  width: 640rpx;
+  line-height: 80rpx;
+  color: #fff;
+  font-size: 36rpx;
+  margin: 0 auto;
+  border-radius: 10rpx;
+  left: 55rpx;
+  bottom: 40rpx;
+  text-align: center;
+  position: absolute;
+  background: rgba(38, 30, 19, 1);
+}
+
+.addressContent {
+}
+
+.addressContent .addressLi {
+  height: 158rpx;
+  background: #fff;
+  margin-top: 20rpx;
+}
+
+.addressContent .addressLi .addressInfo {
+}
+
+.addressInfo .addressInfoPlace {
+  margin-left: 24rpx;
+}
+
+.addressInfo .addressInfoPlace text {
+  color: #333;
+  font-size: 30rpx;
+  margin-right: 20rpx;
+}
+
+.addressInfo .addressInfoPerson {
+  margin-left: 24rpx;
+  margin-top: 5rpx;
+}
+
+.addressInfo .addressInfoPerson text {
+  color: #333;
+  font-size: 26rpx;
+  margin-right: 20rpx;
+}
+
+.addressContent .addressLi .addressIcon {
+  width: 30rpx;
+  height: 30rpx;
   margin-right: 24rpx;
+}
 
+.addressIcon image {
+  width: 100%;
+  height: 100%;
 }
-.addressIcon image{
-  width:100%;
-  height:100%;
-}
-.addressTips{
-font-size: 26rpx;
-color: #999999;
-margin-left: 24rpx;
-margin-top: 20rpx;
 
+.addressTips {
+  font-size: 26rpx;
+  color: #999;
+  margin-left: 24rpx;
+  margin-top: 20rpx;
 }
-.addressContent.active text{
-    color:#999999;
+
+.addressContent.active text {
+  color: #999;
 }

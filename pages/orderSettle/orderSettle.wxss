@@ -104,9 +104,9 @@ page {
   color: #333;
 }
 
-.line .wechat {
-  width: 34rpx;
-  height: 30rpx;
+.line .sImg {
+  width: 36rpx;
+  height: 36rpx;
   margin-right: 14rpx;
 }
 
@@ -206,4 +206,158 @@ page {
   background: #c79f62;
   color: #fff;
   font-size: 36rpx;
+}
+
+.layer {
+  position: fixed;
+  z-index: 999;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.payTypeBox {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #fff;
+}
+
+.payTypeBox .top {
+  height: 90rpx;
+  font-size: 34rpx;
+  color: #333;
+  line-height: 90rpx;
+  text-align: center;
+  border-bottom: 2rpx solid #dcdddd;
+  position: relative;
+}
+
+.payTypeBox .close {
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 88rpx;
+}
+
+.payTypeBox .close image {
+  width: 28rpx;
+  height: 28rpx;
+}
+
+.payTypeBox .pd {
+  height: 258rpx;
+}
+
+.payTypeBox .pd-1 {
+  font-size: 28rpx;
+  color: #666;
+  line-height: 32rpx;
+  height: 32rpx;
+}
+
+.payTypeBox .pd-2 {
+  font-size: 50rpx;
+  color: #333;
+  line-height: 54rpx;
+  height: 54rpx;
+  margin: 28rpx 0;
+}
+
+.payTypeBox .pd-3 {
+  font-size: 24rpx;
+  color: #a1a1a1;
+  line-height: 28rpx;
+  height: 28rpx;
+}
+
+.payTypeBox .choose {
+  font-size: 28rpx;
+  color: #666;
+  line-height: 32rpx;
+  height: 100rpx;
+  border-bottom: 2rpx solid #dcdddd;
+}
+
+.payTypeBox .choose .sImg {
+  width: 36rpx;
+  height: 36rpx;
+  margin: 0 22rpx;
+}
+
+.payTypeBox .choose .chooseImg {
+  width: 36rpx;
+  height: 36rpx;
+  margin: 0 24rpx;
+}
+
+.payTypeBox .bet {
+  font-size: 30rpx;
+  color: #fff;
+  background: #c79f62;
+  border-radius: 10rpx;
+  text-align: center;
+  line-height: 90rpx;
+  margin: 40rpx 26rpx;
+}
+
+.takeTimeBox {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 500rpx;
+  background: #f7f7f7;
+}
+
+.takeTimeBox .left {
+  width: 200rpx;
+  overflow-y: auto;
+}
+
+.takeTimeBox .left-li {
+  font-size: 26rpx;
+  color: #333;
+  line-height: 88rpx;
+  text-align: center;
+}
+
+.takeTimeBox .left-li.choose {
+  background: #fff;
+}
+
+.takeTimeBox .right {
+  overflow-y: auto;
+  overflow-x: hidden;
+  background: #fff;
+}
+
+.takeTimeBox .right-li {
+  font-size: 26rpx;
+  color: #666;
+  line-height: 88rpx;
+  padding: 0 40rpx;
+  position: relative;
+}
+
+.takeTimeBox .right-li .chooseImg {
+  width: 30rpx;
+  height: 22rpx;
+  display: none;
+  position: absolute;
+  right: 24rpx;
+  top: 50%;
+  margin-top: -11rpx;
+}
+
+.takeTimeBox .right-li.choose {
+  color: #c79f62;
+}
+
+.takeTimeBox .right-li.choose .chooseImg {
+  display: block;
 }

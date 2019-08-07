@@ -1,16 +1,9 @@
 var app = getApp();
 var that;
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
     sex:0,
   },
-  /**
-   * 生命周期函数--监听页面加载
-   */
   onLoad: function (options) {
     that = this;
     if(options.id){
