@@ -1,21 +1,23 @@
 <view class="addressPage">
-  <view class="addressContent" wx:for="{{addressData}}" wx:key="index">
-    <view class="addressLi flex ai jcb">
-      <view class="addressInfo">
-        <view class="addressInfoPlace">
-          <text>{{item.address}}</text>
-          <text>{{item.detail}}</text>
+  <scroll-view class="addressScroll" scroll-y="true">
+    <view class="addressContent" wx:for="{{addressData}}" wx:key="index">
+      <view class="addressLi flex ai jcb">
+        <view class="addressInfo">
+          <view class="addressInfoPlace">
+            <text>{{item.address}}</text>
+            <text>{{item.detail}}</text>
+          </view>
+          <view class="addressInfoPerson">
+            <text>{{item.name}}</text>
+            <text>{{item.mobile}}</text>
+          </view>
         </view>
-        <view class="addressInfoPerson">
-          <text>{{item.name}}</text>
-          <text>{{item.mobile}}</text>
+        <view class="addressIcon" bindtap="toEditAddressPage" data-id="{{item.id}}">
+          <image src="../../images/images/address.png"></image>
         </view>
-      </view>
-      <view class="addressIcon" bindtap="toEditAddressPage" data-id="{{item.id}}">
-        <image src="../../images/images/address.png"></image>
       </view>
     </view>
-  </view>
+  </scroll-view>
 
   <!-- <view class="addressTips">以下地址超出配送范围</view>
 
