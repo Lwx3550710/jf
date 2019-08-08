@@ -4,7 +4,6 @@ var that;
 
 Page({
 	data: {
-		imgUrl: '',
 		fb_type: [],
 		canSubmit: 0,
 		fb_chooseType: 0, // 反馈问题类型

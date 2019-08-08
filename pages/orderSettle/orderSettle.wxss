@@ -277,7 +277,7 @@ page {
 
 .payTypeBox .choose {
   font-size: 28rpx;
-  color: #666;
+  color: #333;
   line-height: 32rpx;
   height: 100rpx;
   border-bottom: 2rpx solid #dcdddd;
@@ -293,6 +293,10 @@ page {
   width: 36rpx;
   height: 36rpx;
   margin: 0 24rpx;
+}
+
+.payTypeBox .choose.noChoose {
+  color: #ddd;
 }
 
 .payTypeBox .bet {

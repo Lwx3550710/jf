@@ -9,8 +9,9 @@ Page({
     var oid = app.attr(e,'oid');
     app.openUrl('orderDetails', 'oid=' + oid);
 	},
-	toOrderCommentPage(e) { // 订单评价
-		app.openUrl('orderComment');
+  toOrderCommentPage(e) { // 订单评价
+    var oid = app.attr(e, 'oid');
+    app.openUrl('orderComment', 'oid=' + oid);
 	},
 	onLoad(options) {
 		that = this;

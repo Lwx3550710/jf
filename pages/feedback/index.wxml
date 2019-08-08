@@ -7,7 +7,7 @@
 	<text class="rich">{{fb_contentVal.length}}/80</text>
 	<view class="df hao upload">
 		<view class="upload-li" wx:for="{{fb_uploadImg}}" wx:key="*this">
-			<image mode="aspectFill" class="img" src="{{imgUrl+item}}" bindtap="showImg" data-url="{{item}}"></image>
+			<image mode="aspectFill" class="img" src="{{item}}" bindtap="showImg" data-url="{{item}}"></image>
 			<view class="del df hao wao" bindtap="delUploadImg" data-index="{{index}}"><image mode="widthFix" src="/images/sg-img/del2.png"></image></view>
 		</view>
 		<view class="upload-add" bindtap="getImgFile" hidden="{{fb_uploadImg.length>=3}}"></view>

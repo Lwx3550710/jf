@@ -1,6 +1,10 @@
 <view class="uBox">
 	<view class="state">{{stateData.txt}}
-		<view class="rbtn" wx:if="{{stateData.btn}}" bindtap="{{stateData.btn.tap}}">{{stateData.btn.val}}</view>
+    <view class="rbtnLine df hao">
+      <block wx:for="{{stateData.btn}}" wx:key="stateBtn" wx:for-item="t">
+        <view class="rbtn" bindtap="{{t.tap}}" data-val="{{t.val||''}}">{{t.cap}}</view>
+      </block>
+    </view>
 	</view>
 </view>
 
@@ -8,7 +12,7 @@
 	<view class="person df hao">
 		<image src="../../images/images/ddhead.png" class="head"></image>
 		<view class="flex-1">{{odo.dadaName||''}}</view>
-		<view class="btn" data-phone="{{odo.dadaMobile||''}}">联系配送员</view>
+		<view class="btn" bindtap="makePhone" data-val="{{odo.dadaMobile||''}}">联系配送员</view>
 	</view>
 </view>
 

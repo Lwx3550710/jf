@@ -111,9 +111,10 @@
       <view class="flex-1">微信支付</view>
       <image src="/images/sg-img/pay-choose.png" hidden="{{ls_pay==1}}" class="chooseImg"></image>
     </view>
-    <view class="choose df hao" bindtap="choosePayType" data-val="1">
-      <image src="/images/sg-img/pay-2.png" class="sImg"></image>
-      <view class="flex-1">钱包余额 （￥1.02）</view>
+    <view class="choose df hao {{myMoney<shopCarAllPrice?'noChoose':''}}" bindtap="choosePayType" data-val="1">
+      <image src="/images/sg-img/pay-2.png" class="sImg" hidden="{{myMoney<shopCarAllPrice}}"></image>
+      <image src="/images/sg-img/pay-2a.png" class="sImg" hidden="{{myMoney>=shopCarAllPrice}}"></image>
+      <view class="flex-1">钱包余额 （￥{{myMoney}}）</view>
       <image src="/images/sg-img/pay-choose.png" hidden="{{ls_pay==0}}" class="chooseImg"></image>
     </view>
     <view class="bet" bindtap="agreePayType">确 认</view>

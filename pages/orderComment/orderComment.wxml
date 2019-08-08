@@ -1,38 +1,41 @@
 <view class="starLine">
 	<view class="cap">对门店的评价</view>
 	<view class="star df hao wao">
-		<image src="/images/sg-img/star-u-2.png"></image>
-		<image src="/images/sg-img/star-u-2.png"></image>
-		<image src="/images/sg-img/star-u-2.png"></image>
-		<image src="/images/sg-img/star-u-2.png"></image>
-		<image src="/images/sg-img/star-u-1.png"></image>
+		<image bindtap="chooseStar" data-val="star_all" data-num="1" src="/images/sg-img/star-u-{{star_all>0?2:1}}.png"></image>
+		<image bindtap="chooseStar" data-val="star_all" data-num="2" src="/images/sg-img/star-u-{{star_all>1?2:1}}.png"></image>
+		<image bindtap="chooseStar" data-val="star_all" data-num="3" src="/images/sg-img/star-u-{{star_all>2?2:1}}.png"></image>
+		<image bindtap="chooseStar" data-val="star_all" data-num="4" src="/images/sg-img/star-u-{{star_all>3?2:1}}.png"></image>
+		<image bindtap="chooseStar" data-val="star_all" data-num="5" src="/images/sg-img/star-u-{{star_all>4?2:1}}.png"></image>
 	</view>
-	<view class="txt">非常满意</view>
+	<view class="txt">{{starTxt}}</view>
 	<view class="star2 df hao wao">
 		<em>食材</em>
-		<image src="/images/sg-img/star-u-4.png"></image>
-		<image src="/images/sg-img/star-u-4.png"></image>
-		<image src="/images/sg-img/star-u-4.png"></image>
-		<image src="/images/sg-img/star-u-4.png"></image>
-		<image src="/images/sg-img/star-u-3.png"></image>
+		<image bindtap="chooseStar" data-val="star_food" data-num="1" src="/images/sg-img/star-u-{{star_food>0?4:3}}.png"></image>
+		<image bindtap="chooseStar" data-val="star_food" data-num="2" src="/images/sg-img/star-u-{{star_food>1?4:3}}.png"></image>
+		<image bindtap="chooseStar" data-val="star_food" data-num="3" src="/images/sg-img/star-u-{{star_food>2?4:3}}.png"></image>
+		<image bindtap="chooseStar" data-val="star_food" data-num="4" src="/images/sg-img/star-u-{{star_food>3?4:3}}.png"></image>
+		<image bindtap="chooseStar" data-val="star_food" data-num="5" src="/images/sg-img/star-u-{{star_food>4?4:3}}.png"></image>
 	</view>
 	<view class="star2 df hao wao">
 		<em>包装</em>
-		<image src="/images/sg-img/star-u-4.png"></image>
-		<image src="/images/sg-img/star-u-4.png"></image>
-		<image src="/images/sg-img/star-u-4.png"></image>
-		<image src="/images/sg-img/star-u-4.png"></image>
-		<image src="/images/sg-img/star-u-3.png"></image>
+		<image bindtap="chooseStar" data-val="star_bz" data-num="1" src="/images/sg-img/star-u-{{star_bz>0?4:3}}.png"></image>
+		<image bindtap="chooseStar" data-val="star_bz" data-num="2" src="/images/sg-img/star-u-{{star_bz>1?4:3}}.png"></image>
+		<image bindtap="chooseStar" data-val="star_bz" data-num="3" src="/images/sg-img/star-u-{{star_bz>2?4:3}}.png"></image>
+		<image bindtap="chooseStar" data-val="star_bz" data-num="4" src="/images/sg-img/star-u-{{star_bz>3?4:3}}.png"></image>
+		<image bindtap="chooseStar" data-val="star_bz" data-num="5" src="/images/sg-img/star-u-{{star_bz>4?4:3}}.png"></image>
 	</view>
 </view>
 <view class="commentline">
-	<textarea placeholder="餐点味道好，包装也很不错，下次还点你们家" placeholder-class="place"></textarea>
+	<textarea placeholder="餐点味道好，包装也很不错，下次还点你们家" placeholder-class="place" bindinput="descInput"></textarea>
 	<view class="tool df har">
 		<view class="pic flex-1">
-			<view class="picAdd df cf hao wao"><image src="/images/sg-img/pic.png"></image>添加照片</view>
-			<view class="picLi"><image src="/images/sg-img/food.jpg" mode="aspectFill"></image></view>
+      <view class="picLi" wx:for="{{fb_uploadImg}}" wx:key="*this">
+        <image mode="aspectFill" src="{{item}}" bindtap="showImg" data-url="{{item}}"></image>
+        <view class="picDel df hao wao" bindtap="delUploadImg" data-index="{{index}}"><image mode="widthFix" src="/images/sg-img/del2.png"></image></view>
+      </view>
+      <view class="picAdd df cf hao wao" bindtap="getImgFile" hidden="{{fb_uploadImg.length>=6}}"><image src="/images/sg-img/pic.png"></image>添加照片</view>
 		</view>
 		<view class="info">评价文字/图片可得积分</view>
 	</view>
 </view>
-<view class="submit">发表评价</view>
+<view class="submit" bindtap="submitForm">发表评价</view>

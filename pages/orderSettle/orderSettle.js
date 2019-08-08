@@ -29,6 +29,7 @@ Page({
     takeTimeRightArr: [],
     takeTimeBoxShow: false, // 选择取餐时间弹框是否显示
     desc: '', // 备注
+    myMoney: 0, // 我的零钱
   },
   makePhone(e) { // 打电话
     var phone = app.attr(e, 'phone');
@@ -60,6 +61,7 @@ Page({
     })
   },
   showPayType() {
+    that.getMyMoney();
     that.setData({
       ls_payBoxShow: true,
       ls_pay: that.data.payType,
@@ -72,6 +74,9 @@ Page({
   },
   choosePayType(e) {
     var val = app.attr(e, 'val');
+    if (val == 1 && that.data.myMoney < that.data.shopCarAllPrice){
+      return false;
+    }
     that.setData({
       ls_pay: val,
     })
@@ -286,6 +291,18 @@ Page({
       return parseInt(new Date(weekData.time.replace(/-/g, '/') + ' ' + t + ':00').getTime() / 1000);
     }
   },
+  getMyMoney() { // 获取我的零钱
+    app.ajax({
+      url: 'user/getById',
+      data: {},
+      success: function (r) {
+        // console.log(r);
+        that.setData({
+          myMoney: Number(r.leftAmount),
+        })
+      },
+    })
+  },
   noEvent() {}, // 用来阻止事件
   onLoad(options) {
     that = this;
@@ -300,6 +317,7 @@ Page({
     that.setData({
       shopInfo: appData.shopInfo,
     })
+    that.getMyMoney();
   },
   onShareAppMessage() {},
 })

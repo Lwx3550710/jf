@@ -469,7 +469,21 @@ Page({
     })
   },
   emptyShopCar() { // 清空购物车
-    that.getShopCar();
+    var shopCarData = that.data.shopCarList;
+    var ids = [];
+    shopCarData.forEach((b,a)=>{
+      ids.push(b.id);
+    })
+    app.ajax({
+      url: 'shop/deleteCartItem',
+      formPost: true,
+      data: {
+        itemId: ids.toString(),
+      },
+      success: function (r) {
+        that.getShopCar();
+      },
+    })
   },
 	noEvent(){}, // 用来阻止事件
 	onLoad(options) {

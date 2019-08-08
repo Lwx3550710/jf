@@ -30,6 +30,7 @@ page {
   font-size: 26rpx;
   color: #000;
   line-height: 30rpx;
+  height: 30rpx;
   text-align: center;
   padding: 24rpx 0;
 }
@@ -63,7 +64,7 @@ page {
   line-height: 40rpx;
   width: 100%;
   box-sizing: border-box;
-  padding: 18rpx 24rpx;
+  padding: 18rpx 24rpx 0 24rpx;
   height: 204rpx;
 }
 
@@ -77,6 +78,8 @@ page {
 
 .commentline .pic {
   overflow: hidden;
+  padding-top: 18rpx;
+  padding-right: 24rpx;
 }
 
 .commentline .picAdd, .commentline .picLi {
@@ -90,6 +93,21 @@ page {
   float: left;
   margin-left: 24rpx;
   margin-bottom: 16rpx;
+  position: relative;
+}
+
+.commentline .picDel {
+  width: 30rpx;
+  height: 30rpx;
+  border-radius: 50%;
+  background: rgba(161, 161, 161, 0.9);
+  position: absolute;
+  right: -15rpx;
+  top: -15rpx;
+}
+
+.commentline .picDel image {
+  width: 16rpx;
 }
 
 .commentline .picAdd image {
@@ -108,6 +126,7 @@ page {
   font-size: 20rpx;
   color: #999;
   line-height: 24rpx;
+  margin-right: 24rpx;
 }
 
 .submit {

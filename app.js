@@ -141,8 +141,6 @@ App({
       objData.userId = that.globalData.userid;
     }
 
-    objData.userId = 974;
-
     wx.request({
       url: obj.url,
       data: objData,

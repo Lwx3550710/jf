@@ -18,6 +18,12 @@ page {
   position: relative;
 }
 
+.state .rbtnLine {
+  position: absolute;
+  right: 0;
+  bottom: 30rpx;
+}
+
 .state .rbtn {
   width: 118rpx;
   line-height: 38rpx;
@@ -26,9 +32,7 @@ page {
   font-size: 24rpx;
   text-align: center;
   border-radius: 6rpx;
-  position: absolute;
-  right: 28rpx;
-  bottom: 30rpx;
+  margin-right: 28rpx;
 }
 
 .title {
