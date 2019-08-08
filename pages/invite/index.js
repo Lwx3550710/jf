@@ -1,14 +1,16 @@
 var app = getApp();
 var appData = app.globalData;
 var that;
-
+var app = getApp();
+var appData = app.globalData;
+var that;
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    
   },
 
   /**
@@ -17,7 +19,9 @@ Page({
   onLoad: function (options) {
     that = this;
     
-
+    that.setData({
+      QR: "https://www.kuaizhan.com/common/encode-png?large=true&data=https://dcan.transtive.com/jig/?userid=" + app.globalData.userid,
+    })
     this.getInvites();
   },
 
@@ -26,9 +30,9 @@ Page({
       url: 'user/invites',
       success: function (res) {
         console.log(res);
-        // that.setData({
-        //   couponData: res.list,
-        // })
+        that.setData({
+          inviteData: res,
+        })
       },
     })
   },

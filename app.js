@@ -1,13 +1,4 @@
-// 初始化AV
-const AV = require('./utils/av-weapp.js');
-const appId = "wxb59d10019c76d3ed";
-const appKey = "fb4f6a2e1f92f6ce8fb55b3f263ee37f";
 const qiniuUploader = require("./utils/qiniuUploader.js");
-
-AV.init({ 
-	appId: appId, 
-	appKey: appKey,
-});
 
 // 初始化七牛相关参数
 function initQiniu(uptoken) {

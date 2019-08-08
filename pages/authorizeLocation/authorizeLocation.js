@@ -5,6 +5,7 @@ Page({
 	data: {
 		requestCount: 0, // 请求次数（最多为4次，都不成功显示手动刷新）
 		initLoadState: 0, // 请求状态 [0 未请求] [1 请求中] [2 请求成功] [3 请求失败] [4 4次请求失败]
+    inViteId:'',//邀请人id
 	},
 	toInitPage() {
     app.openUrlCs('authorize');
@@ -139,6 +140,7 @@ Page({
               noUserid: true,
               data: {
                 js_code: res.code,
+                userId: that.data.inViteId
               },
               noUserid:true,
               header: {
@@ -168,6 +170,14 @@ Page({
   },
   onLoad: function (options) {
     that = this;
+
+    var inViteLink = decodeURIComponent(options.q);
+    if (inViteLink != "undefined"){
+      var inViteId = decodeURIComponent(options.q).split('=')[1];//邀请人id
+      that.setData({
+        inViteId: inViteId
+      });
+    }
     that.getData();
   },
   onShow() { },
