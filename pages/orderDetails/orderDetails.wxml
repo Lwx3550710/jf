@@ -6,7 +6,7 @@
 
 <view class="uBox" wx:if="{{odo.type==1}}">
 	<view class="person df hao">
-		<image src="https://c-ssl.duitang.com/uploads/item/201805/13/20180513224039_tgfwu.png" class="head"></image>
+		<image src="../../images/images/ddhead.png" class="head"></image>
 		<view class="flex-1">{{odo.dadaName||''}}</view>
 		<view class="btn" data-phone="{{odo.dadaMobile||''}}">联系配送员</view>
 	</view>
@@ -18,7 +18,7 @@
 		<view class="productLi df hal" wx:for="{{odo.other.items}}" wx:key="pd" wx:for-item="t">
 			<view class="productLi-lt flex-1">
 				<view class="productLi-cap ov-d">{{t.good.name}}</view>
-				<view class="productLi-txt">暂无规格</view>
+				<view class="productLi-txt">{{t.goodItems[0].name}}</view>
 			</view>
 			<view class="productLi-num">x{{t.num}}</view>
 			<view class="productLi-price">￥{{t.price}}</view>
@@ -50,7 +50,7 @@
 	<view class="title">取餐信息</view>
 	<view class="line df hao noBor">
 		<view class="cap">取餐码</view>
-		<view class="txt flex-1 orange">{{odo.code}}</view>
+		<view class="txt flex-1 orange">{{odo.code || '--'}}</view>
 	</view>
 	<view class="line df hao noBor">
 		<view class="cap">取餐时间</view>

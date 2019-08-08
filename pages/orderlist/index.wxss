@@ -58,10 +58,10 @@
     float: right;
 }
 .orderPage .orderInfo .bd{
-    padding: 15px 0;
-    border-top: 1px #E6E6E6 solid;
-    border-bottom: 1px #E6E6E6 solid;
-    overflow: hidden;
+  padding: 10px 0;
+  border-top: 1px #E6E6E6 solid;
+  overflow: hidden;
+
 }
 .orderPage .orderInfo .bd p{
     width: 80%;
@@ -71,6 +71,9 @@
 }
 .orderPage .orderInfo .bd span{
     float: right;
+    font-size: 28rpx;
+    color: #000000;
+
 }
 .orderPage .group .ft{
     width: 100%;

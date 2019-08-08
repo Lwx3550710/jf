@@ -14,7 +14,7 @@
           </view>
 
           <view class="process" wx:elif="{{type==1}}">
-              <image class="wm-head"></image>
+              <image src="../../images/images/ddhead.png" class="wm-head"></image>
               <view class="wm-name flex ai jcc">
                 <text>{{dadaName}}</text>
                 <image src="../../images/images/ddps.png"></image>
@@ -32,7 +32,7 @@
                       <view class="price">￥ {{item.good.price}}</view>
                       <view class="spec">x{{item.num}}</view>
                   </view>
-                  <view class="box2">口味内容</view>
+                  <view class="box2">{{item.goodItems[0].name}}</view>
               </view>
 
 

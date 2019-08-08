@@ -43,7 +43,7 @@
 		<view class="productLi df hal">
 			<view class="productLi-lt flex-1">
 				<view class="productLi-cap ov-d">{{t.name}}</view>
-				<view class="productLi-txt">{{t.attr}}</view>
+				<view class="productLi-txt">{{t.attr[0].name}}</view>
 			</view>
 			<view class="productLi-num">x{{t.num}}</view>
 			<view class="productLi-price">￥{{t.price}}</view>
