@@ -1,5 +1,5 @@
 <view class="uBox">
-	<view class="address df cf wao" hidden="{{orderType!=0}}" bindtap="toChooseShopPage">
+	<view class="address df cf wao" hidden="{{orderType==1}}" bindtap="toChooseShopPage">
 		<view class="one ov-d">{{shopInfo.name}}</view>
 		<view class="three">{{shopInfo.distance>5000?'您距离当前门店5000米以上，请确定下单门店是否正确':'您距离当前门店'+shopInfo.distance+'米'}}
     </view>
@@ -11,7 +11,7 @@
     <view class="two" hidden="{{addressInfo.id==''}}">{{addressInfo.name}}(先生/女士) {{addressInfo.phone}}</view>
 		<image src="/images/sg-img/arrow.png"></image>
 	</view>
-	<view class="tabType df">
+	<view class="tabType df tabTypeNew">
 		<view class="tabTypeLi flex-1 df hao wao {{orderType==0?'cur':''}}" bindtap="chooseOrderType" data-index="0">
 			<image src="/images/sg-img/type-1.png" hidden="{{orderType==0}}"></image>
 			<image src="/images/sg-img/type-1-cur.png" hidden="{{orderType!=0}}"></image>
@@ -22,12 +22,17 @@
 			<image src="/images/sg-img/type-2-cur.png" hidden="{{orderType!=1}}"></image>
 			外卖配送
 		</view>
+		<view class="tabTypeLi flex-1 df hao wao {{orderType==2?'cur':''}}" bindtap="chooseOrderType" data-index="2">
+			<image src="/images/sg-img/type-3.png" hidden="{{orderType==2}}"></image>
+			<image src="/images/sg-img/type-3-cur.png" hidden="{{orderType!=2}}"></image>
+			<em style="width: 3em;">堂食</em>
+		</view>
 	</view>
-	<view class="line etLine df hao noBor" hidden="{{orderType!=0}}" bindtap="showTakeTime">
+	<view class="line etLine df hao noBor" hidden="{{orderType==1}}" bindtap="showTakeTime">
 		<view class="cap">取餐时间</view>
 		<view class="txt orange flex-1 df hao war">{{takeTimeTxt||'请选择取餐时间'}}<image src="/images/sg-img/arrow.png" class="arrow"></image></view>
 	</view>
-	<view class="line etLine df hao noBor" hidden="{{orderType!=0}}" style="margin-top: -40rpx;">
+	<view class="line etLine df hao noBor" hidden="{{orderType==1}}" style="margin-top: -40rpx;">
 		<view class="cap">联系电话</view>
 		<view class="txt flex-1" bindtap="makePhone" data-phone="{{shopInfo.mobile}}"><em>{{shopInfo.mobile}}</em></view>
 	</view>

@@ -32,7 +32,7 @@ Page({
           fb_uploadImgHash: imgDataHash,
 				});
 			}else{
-				that.show(r);
+				console.log(r);
 			}
 		})
 	},

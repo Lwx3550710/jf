@@ -46,7 +46,7 @@
 	</view>
 </view>
 
-<view class="uBox" wx:if="{{odo.type==0}}">
+<view class="uBox" wx:if="{{odo.type==0||odo.type==2}}">
 	<view class="title">取餐信息</view>
 	<view class="line df hao noBor">
 		<view class="cap">取餐码</view>

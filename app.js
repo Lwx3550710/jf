@@ -82,7 +82,7 @@ App({
     wayList: [ // 下单方式
       { type: '外卖', img: 'waimai.png' },
       { type: '自取', img: 'ziqu.png' },
-      // { type: '堂食', img: 'shitang.png' },
+      { type: '堂食', img: 'shitang.png' },
     ],
 	},
 	back() { // 返回上一页
@@ -140,6 +140,8 @@ App({
     if (!objData.userId && obj.noUserid!=true){
       objData.userId = that.globalData.userid;
     }
+
+    objData.userId = 974;
 
     wx.request({
       url: obj.url,

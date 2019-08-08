@@ -159,7 +159,7 @@
 <view class="foodCatBox" hidden="{{!isShowProductDetail}}">
 	<view class="foodCatBox-content">
 		<view class="foodCatBox-close" bindtap="hideProductDetail"></view>
-		<image class="foodCatBox-pdimg" src="{{showProductDetailData.img}}"></image>
+		<image class="foodCatBox-pdimg" src="{{showProductDetailData.img}}" mode="aspectFill"></image>
 		<view class="foodCatBox-name">{{showProductDetailData.name}}</view>
 		<view class="foodCatBox-sale">月售{{showProductDetailData.sale}}</view>
 		<view class="foodCatBox-txt">{{showProductDetailData.txt}}</view>

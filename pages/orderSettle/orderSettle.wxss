@@ -361,3 +361,17 @@ page {
 .takeTimeBox .right-li.choose .chooseImg {
   display: block;
 }
+
+.tabTypeNew {
+  padding: 0 18rpx;
+}
+
+.tabTypeNew .tabTypeLi {
+  margin: 0 6rpx;
+  font-size: 26rpx;
+  line-height: 30rpx;
+}
+
+.tabTypeNew .tabTypeLi image {
+  margin-right: 20rpx;
+}
