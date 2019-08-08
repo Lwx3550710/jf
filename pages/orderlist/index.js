@@ -58,6 +58,35 @@ Page({
       }
     })
   },
+  confirmOrder(e) {//取消订单
+    var id = app.attr(e, 'id');
+    wx.showModal({
+      title: '提示',
+      content: '确认取消？',
+      success: function (res) {
+        if (res.confirm) {
+          app.ajax({
+            url: 'order/updateOrder',
+            formPost: true,
+            noUserid: true,
+            data: {
+              orderId: id,
+              status: 2
+            },
+            success: function (res) {
+              console.log(res);
+              wx.showToast({
+                title: '已取餐！',
+                success: function () {
+                  that.onShow()
+                }
+              })
+            },
+          })
+        }
+      }
+    })
+  },
   toIndex(){
     wx.switchTab({    //跳转到首页
       url: "/pages/index/index"

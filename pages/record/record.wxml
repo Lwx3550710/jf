@@ -3,9 +3,10 @@
 		<view class="li df hao" wx:for="{{list}}" wx:key="*this">
 			<view class="flex-1">
 				<view class="title">{{item.title}}</view>
-				<text>{{item.date}}</text>
+				<text>{{item.createTime}}</text>
 			</view>
-			<view class="score">{{item.score>0?'+'+item.score:item.score}}</view>
+      <view class="score active" wx:if="{{item.amount>0}}">+{{item.amount}}</view>
+			<view class="score" wx:else>{{item.amount}}</view>
 		</view>
 
 		<view class="noMore" hidden="{{list.length==0}}">没有更多记录了~</view>

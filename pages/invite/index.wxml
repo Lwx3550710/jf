@@ -3,18 +3,14 @@
     <view class="inviteInfo">
         <view class="inviteTitle"><text>成功邀请一位好友即可获得福利</text></view>
         <view class="inviteQR">
-            <image class="" src="../../images/images/QR.png"></image>
+            <image class="" src="{{QR}}"></image>
         </view>
         <text class="inviteCode">长按保存二维码</text>
         <view class="inviteLine"></view>
         <view class="invitePerson">
-            <view class="invitePersonLi flex ai jcb">
+            <view class="invitePersonLi flex ai jcb" wx:for="{{inviteData}}" wx:if="index">
                 <text >邀请成功好友的昵称</text>
-                <text >139*********</text>
-            </view>   
-            <view class="invitePersonLi flex ai jcb">
-                <text >邀请成功好友的昵称</text>
-                <text >139*********</text>
+                <text >{{item}}</text>
             </view>   
         </view>
         <view class="inviteCircle flex ai jcb">

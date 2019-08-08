@@ -12,6 +12,8 @@ Page({
 	onLoad(options) {
 		that = this;
 
+    that.getRecordList();
+
 		that.setData({
 			count: 281,
 			list: [
@@ -26,5 +28,16 @@ Page({
 			],
 		})
 	},
+  getRecordList(){
+    app.ajax({
+      url: 'user/items',
+      success: function (res) {
+        console.log(res)
+        that.setData({
+          list: res.list
+        })
+      },
+    })
+  },
 	onShareAppMessage() { },
 })

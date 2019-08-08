@@ -23,16 +23,23 @@
               <view class="wm-contact">联系骑手</view>
           </view>
 
-
+          <view class="process" wx:else>
+              <view class="no">--</view>
+              <view class="jd">您的餐品正在制作中</view>
+              <view class="store">
+                  <b>--</b>
+                  <!-- <image src="../../images/takefood/aw.png"></image> -->
+              </view>
+          </view>
 
           <view class="info">
-              <view class="item" wx:for="{{goodItem}}" wx:key="{{index}}">
+              <view class="item">
                   <view class="box1">
-                      <view class="name">{{item.good.name}}</view>
-                      <view class="price">￥ {{item.good.price}}</view>
-                      <view class="spec">x{{item.num}}</view>
+                      <view class="name">--</view>
+                      <view class="price">￥ --</view>
+                      <view class="spec">x--</view>
                   </view>
-                  <view class="box2">{{item.goodItems[0].name}}</view>
+                  <view class="box2">--</view>
               </view>
 
 
@@ -46,7 +53,7 @@
           <view class="total">
               <dl>
                   <dt>总计</dt>
-                  <dd>￥{{price}}</dd>
+                  <dd>￥{{price || '--'}}</dd>
               </dl>
           </view>
       </view>

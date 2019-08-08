@@ -73,6 +73,10 @@
   line-height: 30rpx;
 }
 
+.card .score.active{
+  color:#C29B62;
+}
+
 .noMore {
   font-size: 22rpx;
   height: 78rpx;
