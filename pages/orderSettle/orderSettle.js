@@ -4,7 +4,7 @@ var appData = app.globalData;
 var that;
 Page({
   data: {
-    orderType: 0, // [0 自取] [1 外卖]
+    orderType: 0, // [0 自取] [1 外卖] [2 堂食]
     shopInfo: {}, // 门店信息
     shopCarList: [], // 购物车列表
     shopCarId: '', // 用户cartid，用来加入购物车，获取不到时不能提交
@@ -221,6 +221,11 @@ Page({
             title: '温馨提示',
             content: '您已经支付成功',
             showCancel: false,
+            success: function(){
+              wx.switchTab({
+                url: '/pages/takefood/index',
+              })
+            },
           })
         },
       })
@@ -286,7 +291,7 @@ Page({
     that = this;
     that.getShopCarId(that.getShopCar);
     that.setData({
-      orderType: (options.way == '自取' ? 0 : 1), // [0 自取] [1 外卖]
+      orderType: (options.way == '自取' ? 0 : (options.way == '外卖' ? 1 : 2)), // [0 自取] [1 外卖] [2 堂食]
     })
 
     that.setTakeTimeData();
