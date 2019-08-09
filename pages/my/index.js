@@ -68,7 +68,6 @@ Page({
       })
       return false
     }
-    console.log(1)
     app.ajax({
       url: 'user/deciphering',
       data: {
