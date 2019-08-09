@@ -1,14 +1,16 @@
 <view class="container">
   <view class="card-main">
       <view class="body">
-          <view class="title">自提取餐码</view>
+          <view class="title" wx:if="{{type==0}}">自取</view>
+          <view class="title" wx:if="{{type==1}}">外卖配送</view>
+          <view class="title" wx:if="{{type==2}}">堂食</view>
 
 
           <view class="process" wx:if="{{type==0 || type==2}}">
               <view class="no">{{code}}</view>
               <view class="jd">您的餐品正在制作中</view>
               <view class="store">
-                  <b>{{address}}</b>
+                  <b>{{shopName}}</b>
                   <!-- <image src="../../images/takefood/aw.png"></image> -->
               </view>
           </view>
@@ -23,23 +25,15 @@
               <view class="wm-contact">联系骑手</view>
           </view>
 
-          <view class="process" wx:else>
-              <view class="no">--</view>
-              <view class="jd">您的餐品正在制作中</view>
-              <view class="store">
-                  <b>--</b>
-                  <!-- <image src="../../images/takefood/aw.png"></image> -->
-              </view>
-          </view>
 
           <view class="info">
-              <view class="item">
+              <view class="item" wx:for="{{goodItem}}" wx:key="{{index}}">
                   <view class="box1">
-                      <view class="name">--</view>
-                      <view class="price">￥ --</view>
-                      <view class="spec">x--</view>
+                      <view class="name">{{item.good.name}}</view>
+                      <view class="price">￥ {{item.good.price}}</view>
+                      <view class="spec">x{{item.num}}</view>
                   </view>
-                  <view class="box2">--</view>
+                  <view class="box2">{{item.goodItems[0].name}}</view>
               </view>
 
 

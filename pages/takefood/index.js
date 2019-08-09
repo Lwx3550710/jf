@@ -30,7 +30,7 @@ Page({
             goodItem: data.other.items,
             price: data.price || 0,
             code: data.code || '--',
-            address: data.address || '--',
+            shopName: data.shop.name || '--',
             type: data.type
           })
         }
