@@ -2,13 +2,13 @@
 	<view class="state">{{stateData.txt}}
     <view class="rbtnLine df hao">
       <block wx:for="{{stateData.btn}}" wx:key="stateBtn" wx:for-item="t">
-        <view class="rbtn" bindtap="{{t.tap}}" data-val="{{t.val||''}}">{{t.cap}}</view>
+        <view class="rbtn {{t.class||''}}" bindtap="{{t.tap||''}}" data-val="{{t.val||''}}">{{t.cap}}</view>
       </block>
     </view>
 	</view>
 </view>
 
-<view class="uBox" wx:if="{{odo.type==1}}">
+<view class="uBox" wx:if="{{odo.type==1&&odo.status!=9}}">
 	<view class="person df hao">
 		<image src="../../images/images/ddhead.png" class="head"></image>
 		<view class="flex-1">{{odo.dadaName||''}}</view>

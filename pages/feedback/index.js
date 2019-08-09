@@ -24,7 +24,7 @@ Page({
 			if(t=='success'){
 				r.forEach((v, i)=>{
           imgData.push(appData.qiniu_imgServer+v.imageURL);
-          imgDataHash.push(v.hash);
+          imgDataHash.push(appData.qiniu_imgServer +v.hash);
 				})
 				that.setData({
           fb_uploadImg: imgData,
@@ -74,17 +74,27 @@ Page({
 	submitForm() { // 提交表单
 		var data = that.data;
 		if (that.data.canSubmit == 1) {
+      var s_arr = [];
+      data.fb_uploadImg.forEach((b,a)=>{
+        s_arr.push(b.replace('/tmp/', ''));
+      })
+      var arr = data.fb_uploadImgHash.concat(s_arr);
+      
 			app.ajax({
         url: 'user/insertSuggest',
         formPost: true,
 				data: {
           type: data.fb_type[data.fb_chooseType].id,
           desc: data.fb_contentVal,
-          fileUrls: data.fb_uploadImgHash.join('#'),
+          fileUrls: arr.join('#'),
 				},
 				success: r => {
 					// console.log(r);
-					that.show('提交成功，感谢您的反馈！');
+          wx.showModal({
+            title: '提示',
+            content: '提交成功，感谢您的反馈！',
+            showCancel: false,
+          })
 					that.setData({
 						canSubmit: 0,
 						fb_chooseType: 0, // 反馈问题类型

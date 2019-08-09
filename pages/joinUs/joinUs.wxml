@@ -1,21 +1,21 @@
 <view class="line df hao">
 	<view class="cap df hao"><em>*</em>姓名</view>
-	<view class="flex-1 input"><input placeholder="请输入"></input></view>
+	<view class="flex-1 input"><input placeholder="请输入" bindinput="nameInput" value="{{nameVal}}"></input></view>
 </view>
 <view class="line df hao">
 	<view class="cap df hao"><em>*</em>电话</view>
-	<view class="flex-1 input"><input placeholder="请输入"></input></view>
+	<view class="flex-1 input"><input placeholder="请输入" bindinput="phoneInput" value="{{phoneVal}}"></input></view>
 </view>
 <view class="line df hao">
 	<view class="cap df hao"><em>*</em>意向区域</view>
-	<view class="flex-1 input"><input placeholder="请输入"></input></view>
+	<view class="flex-1 input"><input placeholder="请输入" bindinput="yxInput" value="{{yxVal}}"></input></view>
 </view>
 <view class="line">
 	<view class="cap df hao"><em>*</em>投资额度</view>
 	<view class="choose df hao">
-		<view class="choose-li cur">20—30万</view>
-		<view class="choose-li">31—45万</view>
-		<view class="choose-li">46—60万</view>
+    <block wx:for="{{typeList}}" wx:key="typeList" wx:for-item="t">
+		<view class="choose-li {{chooseTypeIndex==index?'cur':''}}" bindtap="chooseType" data-index="{{index}}" >{{t.name}}</view>
+    </block>
 	</view>
 </view>
-<view class="submit">提交</view>
+<view class="submit" bindtap="formSubmit">提交</view>

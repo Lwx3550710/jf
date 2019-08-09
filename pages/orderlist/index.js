@@ -15,7 +15,6 @@ Page({
 	},
 	onLoad(options) {
 		that = this;
-    that.getOrderList();
 	},
   onShow(){
     that.getOrderList();

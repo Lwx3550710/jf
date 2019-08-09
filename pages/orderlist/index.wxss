@@ -1,6 +1,21 @@
+page {
+  background: #f7f7f7;
+}
+
 .orderPage {
-  background: rgb(247, 247, 247);
-  /* width: 100%; *//* height: 100%; *//* position: absolute; */
+  background: #f7f7f7;
+  /* width: 100%; height: 100%; position: absolute; */
+}
+
+.orderEmpty {
+  font-size: 30rpx;
+  color: #a1a1a1;
+  line-height: 600rpx;
+  text-align: center;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
 }
 
 .orderPage .group {
@@ -116,4 +131,9 @@
 .orderPage .group .ft .pingjia {
   color: #e50110;
   border-color: #e50110;
+}
+
+.orderPage .group .ft .pingjia.not {
+  color: #a1a1a1;
+  border-color: #a1a1a1;
 }

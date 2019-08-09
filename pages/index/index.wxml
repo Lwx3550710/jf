@@ -75,28 +75,25 @@
           <view class="sifBox-cmtLableLi">满意(7)</view>
         </view> -->
         <view class="sifBox-cmtList">
-          <view class="sifBox-cmtLi">
-            <view class="sifBox-cmtPerson df hao">
-              <image src="https://c-ssl.duitang.com/uploads/item/201805/13/20180513224039_tgfwu.png" class="sifBox-cmtHead"></image>
-              <view class="sifBox-cmtInfo flex-1">
-                <view class="sifBox-cmtName">用过的昵称</view>
-                <view class="sifBox-cmtStar2 df hao">
-                  <image src="/images/sg-img/star2.png"></image>
-                  <image src="/images/sg-img/star2.png"></image>
-                  <image src="/images/sg-img/star2.png"></image>
-                  <image src="/images/sg-img/star2.png"></image>
-                  <image src="/images/sg-img/star2.png"></image>
-                  10分钟内送达
+          <block wx:for="{{commentList}}" wx:key="commentList" wx:for-item="t" wx:for-index="ix">
+            <view class="sifBox-cmtLi">
+              <view class="sifBox-cmtPerson df hao">
+                <image src="{{t.head}}" class="sifBox-cmtHead"></image>
+                <view class="sifBox-cmtInfo flex-1">
+                  <view class="sifBox-cmtName">{{t.username}}</view>
+                  <view class="sifBox-cmtStar2 df hao">
+                    <image src="/images/sg-img/star2.png" wx:for="{{t.totalStarArr}}" wx:key="cl_totalStar"></image>
+                    <!-- 10分钟内送达 -->
+                  </view>
                 </view>
+                <view class="sifBox-cmtDate">{{t.date}}</view>
               </view>
-              <view class="sifBox-cmtDate">2019.05.28</view>
+              <view class="sifBox-cmtTxt">{{t.content}}</view>
+              <view class="sifBox-cmtImg">
+                <image src="{{t2}}" mode="aspectFill" wx:for="{{t.imgArr}}" wx:key="commentListImg" wx:for-item="t2" wx:for-index="ix2" bindtap="showImg" data-index="{{ix}}" data-imgindex="{{ix2}}"></image>
+              </view>
             </view>
-            <view class="sifBox-cmtTxt">这是用户评论这是用户评论这是用户评论这是用户评论这是用户评论这是用户评论这是用户评论这是用户评论</view>
-            <view class="sifBox-cmtImg">
-              <image src="https://c-ssl.duitang.com/uploads/item/201805/13/20180513224039_tgfwu.png"></image>
-              <image src="https://c-ssl.duitang.com/uploads/item/201805/13/20180513224039_tgfwu.png"></image>
-            </view>
-          </view>
+          </block>
         </view>
       </scroll-view>
       <scroll-view class="sifBox-content" scroll-y="true" hidden="{{curSifMain!='门店'}}">
