@@ -59,6 +59,34 @@ Page({
       },
     })
   },
+  getPhoneNumber(e) {//获取手机号码
+
+    if (e.detail.iv == null || e.detail.encryptedData == null) {
+      wx.showToast({
+        title: e.detail.errMsg,
+        icon: 'none',
+      })
+      return false
+    }
+    console.log(1)
+    app.ajax({
+      url: 'user/deciphering',
+      data: {
+        encrypdata: e.detail.encryptedData,
+        openId: app.globalData.userOpenid,
+        ivdata: e.detail.iv,
+        sessionkey: app.globalData.sessionKey
+      },
+      success: function (res) {
+        console.log(res)
+        app.globalData.phoneNumber = res.phoneNumber;
+        wx.showToast({
+          title: 获取成功,
+          icon: 'none',
+        })
+      },
+    })
+  },
   myinfo: function (e) {
     wx.navigateTo({
       url: `../myinfo/index`

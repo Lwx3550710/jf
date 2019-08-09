@@ -38,6 +38,7 @@
     border-radius: 20px;
     display: inline-block;
     text-align: center;
+    font-size:24rpx;
 }
 .mod-hd .assets{
     clear: both;

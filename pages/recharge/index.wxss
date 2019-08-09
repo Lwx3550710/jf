@@ -9,21 +9,23 @@
     line-height:50px;
 }
 .rechargePage .group{
-    padding-bottom: 40px;
+    padding-bottom: 20px;
     clear: both;
     overflow: hidden;
+    margin: 0 20rpx;
+
 }
 .rechargePage .group .items{
-    width: 150px;
+    width: 149px;
     height: 75px;
     position: relative;
     z-index: 1;
     float: left;
-    margin: 10px;
+    margin-bottom: 20px;
     overflow: hidden;
 }
 .rechargePage .group .items:nth-child(odd){
-    margin-right: 15px;
+    /* margin-right: 28rpx; */
 }
 .rechargePage .group .items div{
     width: 150px;
@@ -52,7 +54,7 @@
 
 }
 .rechargePage .group .items image{
-    width: 150px;
+    width: 149px;
     height: 75px;
 }
 .rechargePage .btn{

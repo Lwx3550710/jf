@@ -4,7 +4,7 @@
           <view class="title">自提取餐码</view>
 
 
-          <view class="process" wx:if="{{type==0}}">
+          <view class="process" wx:if="{{type==0 || type==2}}">
               <view class="no">{{code}}</view>
               <view class="jd">您的餐品正在制作中</view>
               <view class="store">

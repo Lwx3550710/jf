@@ -1,6 +1,6 @@
 <view class="rechargePage">
     <view class="title">请选择充值金额</view>
-    <view class="group">
+    <view class="group flex jcb flw">
         <view class="items {{shopMoney == item.money?'active':''}}"  wx:for="{{list}}" bindtap="chooseMoney" wx:key="index" data-type="{{item.money}}">
             <view class="money">￥{{item.money}}</view>
             <view class="bg" wx:if="{{shopMoney == item.money}}"><image src="../../images/images/recharge-2.png" alt=""></image></view>

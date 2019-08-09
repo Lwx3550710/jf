@@ -80,7 +80,7 @@ Page({
 				data: {
           type: data.fb_type[data.fb_chooseType].id,
           desc: data.fb_contentVal,
-          fileUrls: data.fb_uploadImgHash.join('#'),
+          fileUrls: appData.qiniu_imgServer+data.fb_uploadImgHash.join('#'),
 				},
 				success: r => {
 					// console.log(r);

@@ -150,6 +150,7 @@ Page({
                 // console.log(r)
                 appData.userOpenid = r.openId;
                 appData.userid = r.userId;
+                appData.sessionKey = r.session_key;
                 wx.switchTab({
                   url: '/pages/index/index',
                 })

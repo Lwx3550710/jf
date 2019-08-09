@@ -4,7 +4,7 @@
         <view class="photo" bindtap="myinfo"><image src="{{headUrl}}"></image></view>
         <view class="info">
             <view class="name">{{nickname || '--'}}</view>
-            <!-- <view class="btn">点击授权</view> -->
+            <button  class="btn" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">点击授权</button >
         </view>
     </view>
     <view class="assets">

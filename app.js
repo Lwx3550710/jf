@@ -75,6 +75,8 @@ App({
       { type: '自取', img: 'ziqu.png' },
       { type: '堂食', img: 'shitang.png' },
     ],
+    sessionKey:'',
+    phoneNumber:'',
 	},
 	back() { // 返回上一页
 		wx.navigateBack();
