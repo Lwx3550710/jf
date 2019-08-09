@@ -42,7 +42,7 @@ Page({
       if (t == 'success') {
         r.forEach((v, i) => {
           imgData.push(appData.qiniu_imgServer + v.imageURL);
-          imgDataHash.push(v.hash);
+          imgDataHash.push(appData.qiniu_imgServer + v.hash);
         })
         that.setData({
           fb_uploadImg: imgData,
@@ -88,12 +88,18 @@ Page({
       return false;
     }
 
+    var s_arr = [];
+    data.fb_uploadImg.forEach((b, a) => {
+      s_arr.push(b.replace('/tmp/', ''));
+    })
+    var arr = data.fb_uploadImgHash.concat(s_arr);
+
     app.ajax({
       url: 'order/insertEval',
       formPost: true,
       data: {
         orderId: data.orderId,
-        likeJson: '', // 食物评价列表json串
+        likeJson: '[]', // 食物评价列表json串
         // "likeJson": "[{\"orderInfoItemId\":11,\"type\":1},{\"orderInfoItemId\":12,\"type\":1},{\"orderInfoItemId\":13,\"type\":1}]"
         //orderInfoItemId 为每个orderInfoItem对象的中id
         //type:  0:赞；1：不喜欢
@@ -101,10 +107,10 @@ Page({
         foodStar: data.star_food, // 食材评价
         packageStar: data.star_bz, // 包装评价
         content: data.fb_contentVal, // 评价
-        fileUrls: data.fb_uploadImgHash.join('#'), // 图片集合；#隔开
+        fileUrls: arr.join('#'), // 图片集合；#隔开
         type: 0, // 评价方式 [0 不匿名] [1 匿名]
         deliveryStar: 2, //配送评价 [0 差] [1 一般] [2 很棒]
-        deliveryConfigIds: '', // 配送员评价类型；多个#隔开
+        deliveryConfigIds: 0, // 配送员评价类型；多个#隔开
         deliveryContent: '', // 配送员文字评价
       },
       success: r => {

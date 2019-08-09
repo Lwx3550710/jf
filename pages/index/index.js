@@ -82,11 +82,40 @@ Page({
       },
       success: function (r) {
         // console.log(r)
+        var commentList = [];
+        r.list.forEach((b,a)=>{
+          var totalStarArr = [];
+          for (var i = 0; i < b.totalStar; i++) {
+            totalStarArr.push(1);
+          }
+
+          var fileUrls = (b.fileUrls||'').split('#');
+          var imgArr = [];
+          fileUrls.forEach((b,a)=>{
+            if (endWith(b, '.png') || endWith(b, '.jpg') || endWith(b, '.jpeg')){
+              imgArr.push( b.replace(appData.qiniu_imgServer, appData.qiniu_imgServer+'tmp/') );
+            }
+          })
+
+          commentList.push({
+            username: (b.user.nickname || '--'),
+            head: (b.user.headUrl || ''),
+            totalStarArr: totalStarArr, // 总评（用来循环星星）
+            date: b.createTime.substring(0,10).replace(/-/g,'.'),
+            content: b.content,
+            imgArr: imgArr,
+          })
+        })
         that.setData({
-          commentList: r.list,
+          commentList: commentList,
         })
       },
     })
+
+    function endWith (data,endStr){ // 判断是否以指定字符串结尾
+      var d = data.length - endStr.length;
+      return (d >= 0 && data.lastIndexOf(endStr) == d);
+    }
   },
 	showShopCar(e){ // 显示购物车
 		that.setData({
@@ -469,21 +498,26 @@ Page({
     })
   },
   emptyShopCar() { // 清空购物车
-    var shopCarData = that.data.shopCarList;
-    var ids = [];
-    shopCarData.forEach((b,a)=>{
-      ids.push(b.id);
-    })
     app.ajax({
-      url: 'shop/deleteCartItem',
+      url: 'cart/clear',
       formPost: true,
       data: {
-        itemId: ids.toString(),
+        cartId: that.data.shopCarId,
       },
       success: function (r) {
         that.getShopCar();
       },
     })
+  },
+  showImg(e) { // 预览图片
+    var index = app.attr(e, 'index');
+    var imgindex = app.attr(e, 'imgindex');
+    var imgData = that.data.commentList[index].imgArr;
+    var showUrl = imgData[imgindex];
+    wx.previewImage({
+      urls: imgData,
+      current: showUrl,
+    });
   },
 	noEvent(){}, // 用来阻止事件
 	onLoad(options) {

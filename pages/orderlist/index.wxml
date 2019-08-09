@@ -31,9 +31,11 @@
 
         <block wx:if="{{item.status == 6}}">
           <span class="confirm" catchtap="toIndex">再来一单</span>
-          <span class="pingjia" catchtap="toOrderCommentPage" data-oid="{{item.id}}">评价</span>
+          <span class="pingjia" catchtap="toOrderCommentPage" data-oid="{{item.id}}" wx:if="{{item.eval==false}}">评价</span>
+          <span class="pingjia not" wx:else>已评价</span>
         </block>
       </view>
     </view>
   </view>
+  <view class="orderEmpty" hidden="{{orderData.length>0}}">暂无订单</view>
 </view>

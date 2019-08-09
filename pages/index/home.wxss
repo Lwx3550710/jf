@@ -196,6 +196,7 @@
   float: left;
   margin-right: 16rpx;
   margin-bottom: 16rpx;
+  border: 2rpx solid #eee;
 }
 
 .sifBox-spAdd, .sifBox-spFood, .sifBox-spTime, .sifBox-spLoc {
