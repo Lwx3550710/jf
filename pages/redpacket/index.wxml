@@ -11,7 +11,7 @@
             <b wx:else>满{{item.coupon.limitAmount}}金额可用，不限制 使门店面</b>
             <span>{{tools.dateSubstring(item.coupon.endTime)}}到期</span>
         </view>
-        <view class="info-3" bindtap="toUse">立即使用</view>
+        <view class="info-3" bindtap="toUse" bindtap="chooseRepacks" data-index="{{index}}" data-status="{{item.status}}">立即使用</view>
     </view>
 </view>
 

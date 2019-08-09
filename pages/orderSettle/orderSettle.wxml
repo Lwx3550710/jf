@@ -63,9 +63,16 @@
 		<view class="cap">优惠券</view>
 		<view class="txt flex-1 red">-10</view>
 	</view> -->
+
+  <view class="line df hao noBor" bindtap="toChooseCoupons">
+		<view class="cap">优惠券</view>
+    <view class="txt flex-1 df hao war active" wx:if="{{couponInfo.amount > 0}}">-￥{{couponInfo.amount}}<image src="/images/sg-img/arrow.png" class="arrow"></image></view>
+		<view class="txt flex-1 df hao war {{canChooseCoupons?'active' : ''}}">{{canChooseCoupons?'-￥'+couponsAmount:'暂无可用'}}<image src="/images/sg-img/arrow.png" class="arrow"></image></view>
+	</view>
 	<view class="line df hao noBor" bindtap="toChooseRedCarPage">
 		<view class="cap">红包</view>
-		<view class="txt flex-1 df hao war">{{canChooseRedCar?'选择红包':'暂无可用'}}<image src="/images/sg-img/arrow.png" class="arrow"></image></view>
+    <view class="txt flex-1 df hao war active" wx:if="{{redpacketInfo.amount > 0}}">-￥{{redpacketInfo.amount}}<image src="/images/sg-img/arrow.png" class="arrow"></image></view>
+		<view class="txt flex-1 df hao war {{canChooseRedCar?'active' : ''}}" wx:else>{{canChooseRedCar? '-￥'+repacksAmount:'暂无可用'}}<image src="/images/sg-img/arrow.png" class="arrow"></image></view>
 	</view>
 	<view class="line df hao noBor">
 		<view class="cap"></view>

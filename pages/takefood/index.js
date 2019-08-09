@@ -21,16 +21,19 @@ Page({
       url: 'order/takeOrders',
       success: function (res) {
         console.log(res)
-        var data = res[0];
-        that.setData({
-          dadaName: data.dadaName || '--',
-          dadaMobile: data.dadaMobile,
-          goodItem: data.other.items,
-          price: data.price || 0,
-          code: data.code || '--',
-          address: data.address || '--',
-          type: data.type
-        })
+
+        if(res.length>0){
+          var data = res[0];
+          that.setData({
+            dadaName: data.dadaName || '--',
+            dadaMobile: data.dadaMobile,
+            goodItem: data.other.items,
+            price: data.price || 0,
+            code: data.code || '--',
+            address: data.address || '--',
+            type: data.type
+          })
+        }
       },
     })
   },

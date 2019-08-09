@@ -86,6 +86,11 @@ page {
   padding-left: 60rpx;
 }
 
+.line .txt.active{
+  font-size:30rpx;
+  color:#e50110;
+}
+
 .line .txt .arrow {
   width: 11rpx;
   height: 20rpx;

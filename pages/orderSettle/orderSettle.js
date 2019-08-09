@@ -12,11 +12,18 @@ Page({
     shopCarAllNum: 0, // 商品总数量
     shopCarAllPrice: 0, // 购物车总价
     canChooseRedCar: false, // 是否可选择红包
+    canChooseCoupons: false, // 是否可选择优惠券
     addressInfo: { // 外卖地址
       id: '',
       name: '',
       phone: '',
       txt: '',
+    },
+    couponInfo:{//优惠券地址
+
+    },
+    redpacketInfo:{ // 红包地址
+
     },
     payType: 0, // 支付方式 [0 微信] [1 钱包]
     ls_payBoxShow: false, // 选择支付方式弹框是否选择
@@ -45,7 +52,12 @@ Page({
   },
   toChooseRedCarPage() { // 选择红包
     if (that.data.canChooseRedCar) {
-      app.openUrl('redpacket/index');
+      app.openUrl('redpacket/index', 'init=orderSettle');
+    }
+  }, 
+  toChooseCoupons() { // 选择优惠券
+    if (that.data.canChooseCoupons) {
+      app.openUrl('coupons/index', 'init=orderSettle');
     }
   },
   agreePayType() {
@@ -312,6 +324,68 @@ Page({
     })
 
     that.setTakeTimeData();
+    that.getCoupon();
+    that.getRepacks();
+  },
+  getCoupon: function () {//获取优惠券
+    app.ajax({
+      url: 'user/coupons',
+      data: {
+        userId: app.globalData.userid,
+      },
+      success: function (res) {
+        // console.log(res);
+        let couponsNum = 0;
+        let couponsAmountArray = [];
+        if (res.list.length > 0) {
+          res.list.forEach(item => {
+            if (item.status == 0) {
+              couponsNum += 1;
+              couponsAmountArray.push(item.coupon.amount);
+            }
+          })
+
+          console.log(couponsAmountArray)
+          if (couponsNum > 0) {
+            that.setData({
+              canChooseCoupons: true,
+              couponsAmount: Math.max.apply(Math, couponsAmountArray)
+            })
+          }
+
+        }
+      },
+    })
+  },
+  getRepacks: function () {//获取红包
+    app.ajax({
+      url: 'user/repacks',
+      data: {
+        userId: app.globalData.userid,
+      },
+      success: function (res) {
+        console.log(res);
+        let repacksNum = 0;
+        let repacksAmountArray = [];
+        if (res.list.length > 0) {
+          res.list.forEach(item => {
+            if (item.status == 0) {
+              repacksNum += 1;
+              repacksAmountArray.push(item.coupon.amount);
+            }
+          })
+
+          console.log(repacksAmountArray)
+          if (repacksNum > 0) {
+            that.setData({
+              canChooseRedCar: true,
+              repacksAmount:Math.max.apply(Math, repacksAmountArray)
+            })
+          }
+
+        }
+      },
+    })
   },
   onShow() {
     that.setData({

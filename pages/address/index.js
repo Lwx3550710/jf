@@ -32,9 +32,12 @@ Page({
   },
 	onLoad(options) {
 		that = this;
-    that.setData({
-      init: options.init,
-    })
+
+    if (options.init){
+      that.setData({
+        init: options.init,
+      })
+    }
 	},
   onShow() {
     that.getAddressList();

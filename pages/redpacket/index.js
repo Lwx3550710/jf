@@ -11,6 +11,11 @@ Page({
   },
   onLoad: function (options) {
     that = this;
+    if (options.init) {
+      that.setData({
+        init: options.init,
+      })
+    }
     this.getRepacks();
   },
   getRepacks: function () {
@@ -26,6 +31,28 @@ Page({
         })
       },
     })
+  },
+  chooseRepacks(e) {
+    var index = app.attr(e, 'index');
+    var status = app.attr(e, 'status');
+    var data = that.data.repacksData[index];
+    if (status == 0){//判断是否有用的红包
+      if (that.data.init == 'orderSettle') { // 订单结算
+        var lastPage = app.getPage(-1);
+        lastPage.setData({
+          redpacketInfo: { // 外卖地址
+            amount: data.coupon.amount
+          },
+        })
+        app.back();
+      }
+    }else{
+      wx.showToast({
+        title: '已过期！',
+        icon: 'none',
+      })
+    }
+    
   },
   onShareAppMessage: function () {
 
