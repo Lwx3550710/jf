@@ -41,7 +41,8 @@ Page({
         var lastPage = app.getPage(-1);
         lastPage.setData({
           redpacketInfo: { // 外卖地址
-            amount: data.coupon.amount
+            amount: data.coupon.amount,
+            id: data.id
           },
         })
         app.back();
