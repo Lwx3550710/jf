@@ -48,7 +48,8 @@ Page({
         var lastPage = app.getPage(-1);
         lastPage.setData({
           couponInfo: { // 外卖地址
-            amount: data.coupon.amount
+            amount: data.coupon.amount,
+            id: data.id
           },
         })
         app.back();

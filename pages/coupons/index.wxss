@@ -5,8 +5,11 @@ page{
   position: relative;
   height: 285rpx;
   width: 90%;
-margin: 25rpx auto 0;
+  margin: 0 auto 25rpx;
 
+}
+.coupons:first-child{
+  margin-top:35rpx;
 }
 .couponsBg{
   position: absolute;

@@ -181,13 +181,14 @@ Page({
     }
 
     if (that.data.payType == 0) { // 微信支付
+      console.log(that.data.couponInfo)
       app.ajax({
         url: 'pay1/prepare',
         formPost: true,
         data: {
           cartId: cartid,
-          couponId: 0, // 优惠券ID
-          repackId: 0, // 红包卷ID
+          couponId: that.data.couponInfo.id, // 优惠券ID
+          repackId: that.data.redpacketInfo.id, // 红包卷ID
           remark: desc,
           addressId: addressId,
           type: orderType,
@@ -225,8 +226,8 @@ Page({
         formPost: true,
         data: {
           cartId: cartid,
-          couponId: 0, // 优惠券ID
-          repackId: 0, // 红包卷ID
+          couponId: that.data.couponInfo.id, // 优惠券ID
+          repackId: that.data.redpacketInfo.id, // 红包卷ID
           remark: desc,
           addressId: addressId,
           type: orderType,
@@ -334,22 +335,32 @@ Page({
         userId: app.globalData.userid,
       },
       success: function (res) {
-        // console.log(res);
-        let couponsNum = 0;
-        let couponsAmountArray = [];
+        console.log(res);
+        let Num = 0;
+        let amountArray = [];
         if (res.list.length > 0) {
-          res.list.forEach(item => {
+          res.list.forEach((item, index) => {//得到未使用的列表
             if (item.status == 0) {
-              couponsNum += 1;
-              couponsAmountArray.push(item.coupon.amount);
+              Num += 1;
+              amountArray.push(item);
             }
           })
 
-          console.log(couponsAmountArray)
-          if (couponsNum > 0) {
+          let maxindex = 0;
+          amountArray.forEach((item, index) => {//获取当前最大金额的索引
+            if (amountArray[maxindex].coupon.amount <= item.coupon.amount) {
+              maxindex = index;
+            }
+          })
+
+          if (Num > 0) {
             that.setData({
               canChooseCoupons: true,
-              couponsAmount: Math.max.apply(Math, couponsAmountArray)
+              couponsAmount: amountArray[maxindex].coupon.amount,
+              couponInfo: {
+                amount: amountArray[maxindex].coupon.amount,
+                id: amountArray[maxindex].id
+              },
             })
           }
 
@@ -365,21 +376,32 @@ Page({
       },
       success: function (res) {
         console.log(res);
-        let repacksNum = 0;
-        let repacksAmountArray = [];
+
+        let Num = 0;
+        let amountArray = [];
         if (res.list.length > 0) {
-          res.list.forEach(item => {
+          res.list.forEach((item,index) => {//得到未使用的列表
             if (item.status == 0) {
-              repacksNum += 1;
-              repacksAmountArray.push(item.coupon.amount);
+              Num += 1;
+              amountArray.push(item);
             }
           })
 
-          console.log(repacksAmountArray)
-          if (repacksNum > 0) {
+          let maxindex = 0;
+          amountArray.forEach((item,index)=>{//获取当前最大金额的索引
+            if (amountArray[maxindex].coupon.amount <= item.coupon.amount){
+              maxindex = index;
+            }
+          })
+
+          if (Num > 0) {
             that.setData({
               canChooseRedCar: true,
-              repacksAmount:Math.max.apply(Math, repacksAmountArray)
+              repacksAmount: amountArray[maxindex].coupon.amount,
+              redpacketInfo: { 
+                amount: amountArray[maxindex].coupon.amount,
+                id: amountArray[maxindex].id
+              },
             })
           }
 
