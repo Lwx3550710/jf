@@ -55,11 +55,11 @@
 		</view>
     </block>
 	</view>
-	<!-- <view class="line df hao noBor">
+	<view class="line df hao noBor" hidden="{{orderType==0 || orderType==2 }}">
 		<view class="cap">配送费</view>
-		<view class="txt flex-1"><em>￥5</em></view>
+		<view class="txt flex-1"><em>￥{{yunfei || '--'}}</em></view>
 	</view>
-	<view class="line df hao noBor">
+	<!-- <view class="line df hao noBor">
 		<view class="cap">优惠券</view>
 		<view class="txt flex-1 red">-10</view>
 	</view> -->

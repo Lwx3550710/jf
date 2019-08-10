@@ -60,7 +60,6 @@ Page({
     })
   },
   getPhoneNumber(e) {//获取手机号码
-
     if (e.detail.iv == null || e.detail.encryptedData == null) {
       wx.showToast({
         title: e.detail.errMsg,

@@ -30,11 +30,8 @@ Page({
     var shopPhone = that.data.shopInfo.mobile;
     if (t == 0) { // 待接单
       return { txt: '待接单', btn: [{ cap: '取消订单', tap: 'cancelOrder' }] };
-    } else if (t == 1) { // 已接单，商家制作中
+    } else if (t == 2) { // 已接单，商家制作中
       return { txt: '已接单，商家制作中', btn: [{ cap: '联系门店', tap: 'makePhone', val: shopPhone }] };
-    } else if (t == 2) { // 待取餐
-      // return { txt: '待取餐', btn: [{ cap: '确认取餐', tap: '' }] };
-      return { txt: '待取餐' };
     } else if (t == 3) { // 骑手已接单
       return { txt: '骑手已接单' };
     } else if (t == 4) { // 骑手已到店

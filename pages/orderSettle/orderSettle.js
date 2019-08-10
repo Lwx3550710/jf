@@ -413,6 +413,22 @@ Page({
     that.setData({
       shopInfo: appData.shopInfo,
     })
+
+    if (that.data.addressInfo.id){//判断是否选择了地址
+      app.ajax({//配送费
+        url: 'cart/getDeliveryFee',
+        data: {
+          cartId: that.data.shopCarId,
+          addressId: that.data.addressInfo.id
+        },
+        success: function (res) {
+          console.log(res);
+          that.setData({
+            yunfei: res,
+          })
+        },
+      })
+    }
     that.getMyMoney();
   },
   onShareAppMessage() {},

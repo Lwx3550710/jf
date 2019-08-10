@@ -101,6 +101,14 @@ Page({
         if (r.authSetting['scope.userInfo']) { // 用户已授权个人信息权限
           wx.getUserInfo({
             success: r2 => {
+              console.log(r2)
+              that.setData({
+                iv: r2.iv,
+                encryptedData: r2.encryptedData,
+                nickName: r2.userInfo.nickName,
+                gender: r2.userInfo.gender,
+                avatarUrl: r2.userInfo.avatarUrl
+              });
               that.getUserinfoSuccess({
                 detail: {
                   userInfo: r2.userInfo,
@@ -132,22 +140,27 @@ Page({
 
       wx.login({
         success: function (res) {
+          console.log(res)
           if (res.code) {
             that.code = res.code;
+            
             // 获取openId并缓存
             app.ajax({
               url: 'user/getWechatAuthorize.do',
               noUserid: true,
               data: {
                 js_code: res.code,
-                userId: that.data.inViteId
+                userId: that.data.inViteId,
+                nickName: that.data.nickName,
+                gender: that.data.gender,
+                avatarUrl: that.data.avatarUrl
               },
               noUserid:true,
               header: {
                 'content-type': 'application/x-www-form-urlencoded'
               },
               success: function (r) {
-                // console.log(r)
+                console.log(r)
                 appData.userOpenid = r.openId;
                 appData.userid = r.userId;
                 appData.sessionKey = r.session_key;
