@@ -34,7 +34,8 @@
 	</view>
 	<view class="line etLine df hao noBor" hidden="{{orderType==1}}" style="margin-top: -40rpx;">
 		<view class="cap">联系电话</view>
-		<view class="txt flex-1" bindtap="makePhone" data-phone="{{shopInfo.mobile}}"><em>{{shopInfo.mobile}}</em></view>
+		<!-- <view class="txt flex-1" bindtap="makePhone" data-phone="{{shopInfo.mobile}}"><em>{{shopInfo.mobile}}</em></view> -->
+		<view class="input flex-1"><input placeholder="请输入您的联系方式" bindinput="userPhoneInput"></input></view>
 	</view>
 	<!-- <view class="line etLine df hao noBor" hidden="{{orderType!=1}}">
 		<view class="cap">送达时间</view>
