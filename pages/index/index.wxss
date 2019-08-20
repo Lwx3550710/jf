@@ -76,6 +76,9 @@
 .menu_bd {
   width: 180rpx;
   background: #f7f7f7;
+  height: 100%;
+overflow-y: auto;
+
 }
 
 .menu_bd li {
@@ -98,9 +101,15 @@
   overflow-y: auto;
 }
 
+.wrapper_bd .photo{
+  width: 100%;
+  display: block;
+  position: relative;
+}
+
 .wrapper_bd .photo image {
-  width: 530rpx;
-  height: 242rpx;
+  width: 100%;
+  height: inherit;
 }
 
 .wrapper_bd .items {

@@ -45,6 +45,7 @@ Page({
     shopCarNum: 0, // 购物车数量
     shopCarAllPrice: 0, // 购物车总价
     commentList: [], // 评价列表
+    bannerImg:[],//匠方轮播
 	},
 	toChooseShopPage() { // 选择门店
 		app.openUrl('mapShop');
@@ -254,6 +255,19 @@ Page({
         that.setData({
           shopData: list,
           goodsData: list[that.data.shopMenuIndex].goods,
+        })
+      },
+    })
+  },
+  getbanner(){//获取匠方轮播
+    app.ajax({
+      url: 'p/common/viewBanner',
+      success: function (res) {
+        // console.log(res)
+        console.log(res)
+        console.log(res.value.split('#'))
+        that.setData({
+          bannerImg: res.value.split('#'),
         })
       },
     })
@@ -543,6 +557,7 @@ Page({
       packageStarArr: packageStarArr, // 包装数组（用来循环星星）
     })
     that.getShopProduct();
+    that.getbanner();
     that.getShopCarId(that.getShopCar);
   },
 	onShareAppMessage() { },

@@ -27,7 +27,16 @@
             </ul>
           </view>
           <view class="wrapper_bd">
-            <view class="photo"><image mode="widthFix" src="../../images/home/adv.png" alt=""></image></view>
+            <!-- <view><image mode="widthFix" src="../../images/home/adv.png" alt=""></image></view> -->
+            <swiper class="photo" indicator-dots="true"
+              autoplay="true" interval="3000" duration="500">
+              <block wx:for="{{bannerImg}}" wx:key="index">
+                <swiper-item>
+                  <image mode='aspectFill' src="{{item}}" alt=""></image>
+                </swiper-item>
+              </block>
+            </swiper>
+
             <view class="items" bindtap="showProductDetail" wx:for="{{goodsData}}" wx:key="index" data-id="{{item.id}}">
                 <view class="food-image"><image mode="widthFix" src="{{item.logoUrl}}" alt=""></image></view>
                 <view class="food-info">
