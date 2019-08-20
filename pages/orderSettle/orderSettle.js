@@ -19,12 +19,9 @@ Page({
       phone: '',
       txt: '',
     },
-    couponInfo:{//优惠券地址
-
-    },
-    redpacketInfo:{ // 红包地址
-
-    },
+    userPhone: '', // 用户联系方式
+    couponInfo: {}, //优惠券地址
+    redpacketInfo: {}, // 红包地址
     payType: 0, // 支付方式 [0 微信] [1 钱包]
     ls_payBoxShow: false, // 选择支付方式弹框是否选择
     ls_pay: 0, // 临时选择支付方式 [0 微信] [1 钱包]
@@ -37,6 +34,11 @@ Page({
     takeTimeBoxShow: false, // 选择取餐时间弹框是否显示
     desc: '', // 备注
     myMoney: 0, // 我的零钱
+  },
+  userPhoneInput(e) { // 输入用户联系方式
+    that.setData({
+      userPhone: e.detail.value,
+    })
   },
   makePhone(e) { // 打电话
     var phone = app.attr(e, 'phone');
@@ -180,8 +182,31 @@ Page({
       return false;
     }
 
+    var phoneVal = that.data.userPhone || '';
+    if (orderType == 0 || orderType == 2) {
+      if (phoneVal==''){
+        wx.showModal({
+          title: '提示',
+          content: '请输入您的联系方式',
+          showCancel: false,
+        })
+        return false;
+      }
+
+      var mobile = /^[1][3,4,5,7,8][0-9]{9}$/;
+      // var myreg = /^(([0\+]\d{2,3}-)?(0\d{2,3})-)(\d{7,8})(-(\d{3,}))?$/;  //判断是否是座机电话
+      var isMobile = mobile.exec(phoneVal)
+      if (!isMobile) {
+        wx.showModal({
+          title: '提示',
+          content: '您输入的联系方式格式不正确，请重新检查填写',
+          showCancel: false,
+        })
+        return false;
+      }
+    }
+
     if (that.data.payType == 0) { // 微信支付
-      console.log(that.data.couponInfo)
       app.ajax({
         url: 'pay1/prepare',
         formPost: true,
@@ -193,9 +218,9 @@ Page({
           addressId: addressId,
           type: orderType,
           takeTime: takeTime,
+          mobile: phoneVal,
         },
         success: function(r) {
-          console.log(r.timeStamp)
           wx.requestPayment({
             'timeStamp': r.timeStamp,
             'nonceStr': r.nonceStr,
@@ -208,6 +233,11 @@ Page({
                 title: '温馨提示',
                 content: '您已经支付成功',
                 showCancel: false,
+                success: function () {
+                  wx.switchTab({
+                    url: '/pages/takefood/index',
+                  })
+                },
               })
             },
             'fail': function(r) {
@@ -232,6 +262,7 @@ Page({
           addressId: addressId,
           type: orderType,
           takeTime: takeTime,
+          mobile: phoneVal,
         },
         success: function(r) {
           // console.log(r);
