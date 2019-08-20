@@ -19,6 +19,8 @@ Page({
     if (options.init) {
       that.setData({
         init: options.init,
+        shopCarId: options.shopCarId,
+        repacksAmount: options.repacksAmount
       })
     }
     this.getCoupon();
@@ -45,14 +47,28 @@ Page({
     if (status == 0) {//判断是否有用的红包
       console.log(that.data.init)
       if (that.data.init == 'orderSettle') { // 订单结算
-        var lastPage = app.getPage(-1);
-        lastPage.setData({
-          couponInfo: { // 外卖地址
-            amount: data.coupon.amount,
-            id: data.id
+        app.ajax({//重新获取价格
+          url: 'cart/getById',
+          data: {
+            cartId: that.data.shopCarId,
+          },
+          success: function (r) {
+            var lastPage = app.getPage(-1);
+            console.log(r.price)
+            console.log(data.coupon.amount)
+            console.log(that.data.repacksAmount)
+            lastPage.setData({
+              couponInfo: { 
+                amount: data.coupon.amount,
+                id: data.id,
+              },
+              repacksAmount:that.data.repacksAmount,
+              couponsAmount: data.coupon.amount,
+              shopCarAllPrice: r.price - data.coupon.amount - that.data.repacksAmount
+            })
+            app.back();
           },
         })
-        app.back();
       }
     } else {
       wx.showToast({

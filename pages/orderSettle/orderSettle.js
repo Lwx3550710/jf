@@ -54,12 +54,12 @@ Page({
   },
   toChooseRedCarPage() { // 选择红包
     if (that.data.canChooseRedCar) {
-      app.openUrl('redpacket/index', 'init=orderSettle');
+      app.openUrl('redpacket/index', 'init=orderSettle&shopCarId=' + that.data.shopCarId + '&couponsAmount=' + that.data.couponsAmount);
     }
   }, 
   toChooseCoupons() { // 选择优惠券
     if (that.data.canChooseCoupons) {
-      app.openUrl('coupons/index', 'init=orderSettle');
+      app.openUrl('coupons/index', 'init=orderSettle&shopCarId=' + that.data.shopCarId + '&repacksAmount=' + that.data.repacksAmount);
     }
   },
   agreePayType() {
@@ -146,7 +146,6 @@ Page({
         var shopCarList = [];
         var countNum = 0;
         r.other.items.forEach((b, a) => {
-          console.log(b.good.packageAmount)
           shopCarList.push({
             id: b.id,
             name: b.good.name,
@@ -156,15 +155,18 @@ Page({
             gid: b.goodId,
           })
           countNum += Number(b.num);
-        })
+        })  
         that.setData({
           // shopCarId: r.id, // 用户cartid，用来加入购物车，获取不到时不能提交
           shopCarNum: r.other.items.length, // 购物车数量
           shopCarAllNum: countNum, // 商品总数量
           shopCarAllPrice: r.price, // 购物车总价
           shopCarList: shopCarList,
-          packageAmount: ''
+          packageAmount: r.totalPackageAmount
         })
+        that.getCoupon();
+        that.getRepacks();
+
       },
     })
   },
@@ -358,8 +360,6 @@ Page({
     })
 
     that.setTakeTimeData();
-    that.getCoupon();
-    that.getRepacks();
   },
   getCoupon: function () {//获取优惠券
     app.ajax({
@@ -394,6 +394,7 @@ Page({
                 amount: amountArray[maxindex].coupon.amount,
                 id: amountArray[maxindex].id
               },
+              shopCarAllPrice: that.data.shopCarAllPrice - amountArray[maxindex].coupon.amount
             })
           }
 
@@ -435,6 +436,7 @@ Page({
                 amount: amountArray[maxindex].coupon.amount,
                 id: amountArray[maxindex].id
               },
+              shopCarAllPrice: that.data.shopCarAllPrice - amountArray[maxindex].coupon.amount
             })
           }
 
@@ -443,6 +445,7 @@ Page({
     })
   },
   onShow() {
+    
     that.setData({
       shopInfo: appData.shopInfo,
     })

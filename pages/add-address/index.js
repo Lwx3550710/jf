@@ -3,6 +3,7 @@ var that;
 Page({
   data: {
     sex:0,
+    id:0,
   },
   onLoad: function (options) {
     that = this;
@@ -76,7 +77,7 @@ Page({
             formPost: true,
             data: {
               userId: app.globalData.userid,
-              id:0,
+              id: that.data.id,
               name: that.data.name,
               mobile: that.data.mobile,
               address: that.data.shdz,

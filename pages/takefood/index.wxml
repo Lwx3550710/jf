@@ -54,6 +54,12 @@
       <view class="bg">
           <image src="../../images/takefood/card-bg.png" alt=""></image>
       </view>
+
+      <!-- <view class="qucan-bg">
+        <image class="qucan-bg-content" src="../../images/takefood/qucan_bg.png" alt=""></image>
+        <image class="qucan-bg-people" src="../../images/takefood/qucan_people.png" alt=""></image>  
+        <view class="qucan-bg-btn">去点餐</view>
+      </view> -->
   </view>
   <view class="copyright"><text>注:请注意前台叫号，您也可以通过刷新小程序\n查看取餐进度</text></view>
 </view>
