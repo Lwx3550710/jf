@@ -1,8 +1,17 @@
 .mod-hd{
-    background: rgb(246, 246, 246);
-    width: 100%;
-    min-height: 100px;
-    overflow: hidden;
+width: 100%;
+min-height: 100px;
+overflow: hidden;
+position: relative;
+
+}
+.mod-hd .person_bg{
+position: absolute;
+top: 0;
+left: 0;
+z-index: -1;
+width: 100%;
+
 }
 .mod-hd .user{
     padding: 20px;

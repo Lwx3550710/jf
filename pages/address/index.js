@@ -25,6 +25,7 @@ Page({
           name: data.name,
           phone: data.mobile,
           txt: data.address,
+          type: data.type
         },
       })
       app.back();

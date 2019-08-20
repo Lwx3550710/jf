@@ -25,6 +25,7 @@
             <span>钱包</span>
         </view>
     </view>
+    <image class="person_bg" src="../../images/images/person_bg.png"></image>
 </view>
 <view class="mod-group">
     <view class="items" wx:for="{{group}}" wx:key="index" data-id="{{item.target}}" bindtap="bindShowTarget">

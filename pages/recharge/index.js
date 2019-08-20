@@ -8,15 +8,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    list: [{
-      'money': '100'
-    }, {
-      'money': '200'
-    }, {
-      'money': '300'
-    }, {
-      'money': '400'
-    }],
+    list: [],
     shopMoney:'100',
   },
 
@@ -25,6 +17,25 @@ Page({
    */
   onLoad: function (options) {
     that = this;
+    that.getDraws();// 金额列表
+  },
+  getDraws() { // 金额列表
+    app.ajax({
+      url: 'common/draws',
+      success: function (res) {
+        console.log(res);
+        let moneyArray = [];
+        res.forEach(item=>{
+          moneyArray.push({
+            money: item.amount
+          });
+        })
+        that.setData({
+          list: moneyArray,
+        })
+        
+      },
+    })
   },
   chooseMoney(e) {//选择充值金额
     var type = app.attr(e, 'type');

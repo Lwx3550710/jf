@@ -12,7 +12,7 @@
             <text>{{item.mobile}}</text>
           </view>
         </view>
-        <view class="addressIcon" bindtap="toEditAddressPage" data-id="{{item.id}}">
+        <view class="addressIcon" catchtap="toEditAddressPage" data-id="{{item.id}}">
           <image src="../../images/images/address.png"></image>
         </view>
       </view>

@@ -3,7 +3,7 @@
     <view class="inviteInfo">
         <view class="inviteTitle"><text>成功邀请一位好友即可获得福利</text></view>
         <view class="inviteQR">
-            <image class="" src="{{QR}}"></image>
+            <image class="" bindtap="previewImage" src="{{QR}}" data-img="{{QR}}"></image>
         </view>
         <text class="inviteCode">长按保存二维码</text>
         <view class="inviteLine"></view>

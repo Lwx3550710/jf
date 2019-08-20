@@ -146,6 +146,7 @@ Page({
         var shopCarList = [];
         var countNum = 0;
         r.other.items.forEach((b, a) => {
+          console.log(b.good.packageAmount)
           shopCarList.push({
             id: b.id,
             name: b.good.name,
@@ -162,6 +163,7 @@ Page({
           shopCarAllNum: countNum, // 商品总数量
           shopCarAllPrice: r.price, // 购物车总价
           shopCarList: shopCarList,
+          packageAmount: ''
         })
       },
     })

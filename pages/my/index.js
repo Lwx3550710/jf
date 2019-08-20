@@ -79,7 +79,7 @@ Page({
         console.log(res)
         app.globalData.phoneNumber = res.phoneNumber;
         wx.showToast({
-          title: 获取成功,
+          title: '获取成功',
           icon: 'none',
         })
       },

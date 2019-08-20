@@ -23,6 +23,13 @@ Page({
       },
     })
   },
+  //长按保存图片方法
+  previewImage: function (e) {
+    wx.previewImage({
+      urls: e.currentTarget.dataset.img.split(',')
+      // 需要预览的图片http链接  使用split把字符串转数组。不然会报错
+    })
+  },
   onShow: function () {},
   onShareAppMessage: function () {}
 })

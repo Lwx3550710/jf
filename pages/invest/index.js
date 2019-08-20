@@ -1,19 +1,41 @@
 // pages/invest/index.js
+var that;
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    inputValue:'https://s?tn=news&rtt=1&bsst=..'
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    that = this;
   },
+  getValue(e){
+    var val = e.detail.value;
+    this.setData({
+      inputValue: val
+    });
+  },
+  paste(e) {
+    wx.setClipboardData({
+      data: that.data.inputValue,
+      success: function (res) {
+        wx.getClipboardData({
+          success: function(res) {
+            wx.showToast({
+              title: '复制成功',
+            })
+          }
+        })
+      }
+    })
+  },
+
 
   /**
    * 生命周期函数--监听页面初次渲染完成

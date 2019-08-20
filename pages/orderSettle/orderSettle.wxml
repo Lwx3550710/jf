@@ -8,7 +8,7 @@
 	<view class="address df cf wao" hidden="{{orderType!=1}}" bindtap="toChooseAddressPage">
     <view class="one ov-d" hidden="{{addressInfo.id!=''}}">请选择外卖配送的地址</view>
     <view class="one ov-d" hidden="{{addressInfo.id==''}}">{{addressInfo.txt}}</view>
-    <view class="two" hidden="{{addressInfo.id==''}}">{{addressInfo.name}}(先生/女士) {{addressInfo.phone}}</view>
+    <view class="two" hidden="{{addressInfo.id==''}}">{{addressInfo.name}} {{addressInfo.type == 1?'女':'男'}} {{addressInfo.phone}}</view>
 		<image src="/images/sg-img/arrow.png"></image>
 	</view>
 	<view class="tabType df tabTypeNew">
@@ -59,6 +59,10 @@
 	<view class="line df hao noBor" hidden="{{orderType==0 || orderType==2 }}">
 		<view class="cap">配送费</view>
 		<view class="txt flex-1"><em>￥{{yunfei || '--'}}</em></view>
+	</view>
+  <view class="line df hao noBor" hidden="{{orderType==0 || orderType==2 }}">
+		<view class="cap">包装费</view>
+		<view class="txt flex-1"><em>￥{{packageAmount || '--'}}</em></view>
 	</view>
 	<!-- <view class="line df hao noBor">
 		<view class="cap">优惠券</view>

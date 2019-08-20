@@ -151,8 +151,7 @@ Page({
               data: {
                 js_code: res.code,
                 userId: that.data.inViteId,
-                // nickName: that.data.nickName,
-                nickName: '',
+                nickName: that.data.nickName,
                 gender: that.data.gender,
                 avatarUrl: that.data.avatarUrl
               },
