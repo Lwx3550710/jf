@@ -264,8 +264,8 @@ Page({
       url: 'p/common/viewBanner',
       success: function (res) {
         // console.log(res)
-        console.log(res)
-        console.log(res.value.split('#'))
+        // console.log(res)
+        // console.log(res.value.split('#'))
         that.setData({
           bannerImg: res.value.split('#'),
         })

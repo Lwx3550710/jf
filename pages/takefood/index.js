@@ -14,11 +14,13 @@ Page({
    */
   onLoad: function (options) {
     that = this;
-    that.getTakeOrders();
   },
   getTakeOrders(){
     app.ajax({
       url: 'order/takeOrders',
+      data:{
+        shopId: app.globalData.shopid
+      },
       success: function (res) {
         console.log(res)
 
