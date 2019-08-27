@@ -31,7 +31,10 @@
     "pages/mapShop/mapShop",
     "pages/orderDetails/orderDetails",
     "pages/orderSettle/orderSettle",
-    "pages/feedback/index"
+    "pages/feedback/index",
+    "pages/privacyPolicy/privacyPolicy",
+    "pages/walletRule/walletRule",
+    "pages/commonQuestion/commonQuestion"
   ],
   "window": {
     "backgroundTextStyle": "light",

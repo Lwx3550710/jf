@@ -11,7 +11,7 @@
             <span>{{orderWayType}}</span>
             <image mode="widthFix" src="../../images/home/arrow.png" class="icon-2" alt=""></image>
         </view>
-        <view class="address"><image mode="widthFix" src="../../images/home/address.png" alt=""></image>距您{{shopInfo.distance}}m</view>
+        <view class="address"><image mode="widthFix" src="../../images/home/address.png" alt=""></image>距您{{shopInfo.distance}}km</view>
     </view>
     <view class="sifBox flex-1">
       <view class="sifBox-tab df hao">
@@ -56,19 +56,19 @@
       <scroll-view class="sifBox-content" scroll-y="true" hidden="{{curSifMain!='评价'}}">
         <view class="sifBox-cmtTop df hao">
           <view class="sifBox-cmtScore">
-            <em>{{shopInfo.totalStar}}.0</em>
+            <em>{{shopInfo.totalStar}}</em>
             <span>门店评分</span>
           </view>
           <view class="flex-1 sifBox-cmtPut">
             <view class="sifBox-cmtStar df hao">
               <span>食材</span>
               <image src="/images/sg-img/star.png" wx:for="{{foodStarArr}}" wx:key="foodStar"></image>
-              <em>{{shopInfo.foodStar}}.0</em>
+              <em>{{shopInfo.foodStar}}</em>
             </view>
             <view class="sifBox-cmtStar df hao">
               <span>包装</span>
               <image src="/images/sg-img/star.png" wx:for="{{packageStarArr}}" wx:key="packageStar"></image>
-              <em>{{shopInfo.packageStar}}.0</em>
+              <em>{{shopInfo.packageStar}}</em>
             </view>
           </view>
           <!-- <view class="sifBox-cmtLoc">

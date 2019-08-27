@@ -1,8 +1,13 @@
 <view class="top df hao">
 	<view class="address df hao flex-1">成都市 武侯区 <image src="/images/sg-img/arrow.png"></image></view>
-	<view class="search df hao"><image src="/images/sg-img/search.png"></image>搜索</view>
+	<view class="search df hao" bindtap="openSearch"><image src="/images/sg-img/search.png"></image>搜索</view>
+	<view class="searchInput df hao" hidden="{{searchHide}}">
+    <input placeholder="请输入门店或地址搜索" value="{{searchVal}}" bindinput="bindSearchInput"></input>
+    <view class="searchBtn df hao wao" bindtap="endSearch"><image src="/images/sg-img/search.png"></image></view>
+  </view>
+  <view class="searchCancel" hidden="{{searchHide}}" bindtap="closeSearch">取消</view>
 </view>
-<map id="map" class="map" longitude="{{chooseLocation.long}}" latitude="{{chooseLocation.lat}}" scale="14" markers="{{markers}}" bindmarkertap="markertap" show-location="true"></map>
+<map id="map" class="map" longitude="{{chooseLocation.long}}" latitude="{{chooseLocation.lat}}" scale="14" markers="{{markers}}" bindmarkertap="markertap" show-location="true" show-scale="true"></map>
 <scroll-view scroll-y="true" class="addList">
 	<view class="addEt df hao wao"></view>
 	<view class="addLi df" bindtap="showShop" wx:for="{{shopList}}" wx:key="*this" data-index="{{index}}">

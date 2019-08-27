@@ -15,16 +15,19 @@
 		<view class="tabTypeLi flex-1 df hao wao {{orderType==0?'cur':''}}" bindtap="chooseOrderType" data-index="0">
 			<image src="/images/sg-img/type-1.png" hidden="{{orderType==0}}"></image>
 			<image src="/images/sg-img/type-1-cur.png" hidden="{{orderType!=0}}"></image>
+			<image src="/images/sg-img/choose2.png" class="jb" hidden="{{orderType!=0}}"></image>
 			门店自取
 		</view>
 		<view class="tabTypeLi flex-1 df hao wao {{orderType==1?'cur':''}}" bindtap="chooseOrderType" data-index="1">
 			<image src="/images/sg-img/type-2.png" hidden="{{orderType==1}}"></image>
 			<image src="/images/sg-img/type-2-cur.png" hidden="{{orderType!=1}}"></image>
+			<image src="/images/sg-img/choose2.png" class="jb" hidden="{{orderType!=1}}"></image>
 			外卖配送
 		</view>
 		<view class="tabTypeLi flex-1 df hao wao {{orderType==2?'cur':''}}" bindtap="chooseOrderType" data-index="2">
 			<image src="/images/sg-img/type-3.png" hidden="{{orderType==2}}"></image>
 			<image src="/images/sg-img/type-3-cur.png" hidden="{{orderType!=2}}"></image>
+			<image src="/images/sg-img/choose2.png" class="jb" hidden="{{orderType!=2}}"></image>
 			<em style="width: 3em;">堂食</em>
 		</view>
 	</view>

@@ -1,0 +1,16 @@
+@import "../../common/sg.wxss";
+
+.img {
+  width: 368rpx;
+  height: 368rpx;
+  display: block;
+  margin: 142rpx auto 4rpx auto;
+}
+
+text {
+  font-size: 26rpx;
+  color: #999;
+  line-height: 28rpx;
+  text-align: center;
+  display: block;
+}

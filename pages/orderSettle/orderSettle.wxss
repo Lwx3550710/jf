@@ -173,6 +173,7 @@ page {
   font-size: 30rpx;
   line-height: 34rpx;
   height: 118rpx;
+  position: relative;
 }
 
 .tabTypeLi image {
@@ -383,4 +384,13 @@ page {
 
 .tabTypeNew .tabTypeLi image {
   margin-right: 20rpx;
+}
+
+.tabTypeNew image.jb {
+  width: 36rpx;
+  height: 38rpx;
+  margin-right: 0;
+  position: absolute;
+  right: 0;
+  bottom: 0;
 }

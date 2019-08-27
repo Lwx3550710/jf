@@ -11,9 +11,51 @@ Page({
       lat: '',
       long: '',
     },
+    markerList: [],
 		markers: [],
+    allList: [], // 门店
     shopList: [], // 门店
+    searchHide: true,
+    searchVal: '',
 	},
+  openSearch(){ // 开启搜索门店
+    that.setData({
+      searchHide: false,
+      searchVal: '',
+    })
+  },
+  closeSearch() { // 关闭搜索门店
+    that.setData({
+      searchHide: true,
+      shopList: that.data.allList,
+    })
+  },
+  bindSearchInput(e){
+    that.setData({
+      searchVal: e.detail.value,
+    })
+  },
+  endSearch(){ // 搜索门店
+    var searchVal = that.data.searchVal;
+    var allList = that.data.allList; // 门店
+    var shopList = [];
+    allList.forEach((b, a) => {
+      if (b.name.indexOf(searchVal) >= 0 || b.address.indexOf(searchVal) >= 0){
+        shopList.push(b);
+      }
+    })
+    that.setData({
+      shopList: shopList,
+    })
+
+    if(shopList.length==0){
+      wx.showModal({
+        title: '提示',
+        content: '搜索不到符合的门店！',
+        showCancel: false,
+      })
+    }
+  },
 	chooseShop(e) { // 选择门店
 		var index = app.attr(e, 'index');
     var d = that.data.shopList[index];
@@ -29,7 +71,8 @@ Page({
         lat: d.lati,
         long: d.longt,
       },
-      markers: that.data.markers,
+      // markers: that.data.markers,
+      markers: [ that.data.markerList[index] ],
     })
   },
   getShop(json) { // 获取附近门店
@@ -63,7 +106,18 @@ Page({
           b.distance = parseInt(b.distance);
           markerArr.push({
             iconPath: "/images/sg-img/ads-1.png",
-            title: b.name,
+            // title: b.name,
+            callout: {
+              content: b.name+'>',
+              color: '#333',
+              fontSize: 12,
+              display: 'ALWAYS',
+              bgColor: '#fff',
+              textAlign: 'center',
+              padding: 10,
+              borderRadius: 4,
+              borderWidth: 0,
+            },
             id: a,
             latitude: Number(b.lati),
             longitude: Number(b.longt),
@@ -72,8 +126,10 @@ Page({
           });
         })
         that.setData({
-          shopList: r.list||[],
-          markers: markerArr,
+          shopList: r.list || [],
+          allList: r.list||[],
+          // markers: markerArr,
+          markerList: markerArr,
         })
       }
     });
