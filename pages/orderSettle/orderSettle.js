@@ -34,6 +34,7 @@ Page({
     takeTimeBoxShow: false, // 选择取餐时间弹框是否显示
     desc: '', // 备注
     myMoney: 0, // 我的零钱
+    arriveTime:'',//送达时间
   },
   userPhoneInput(e) { // 输入用户联系方式
     that.setData({
@@ -162,7 +163,8 @@ Page({
           shopCarAllNum: countNum, // 商品总数量
           shopCarAllPrice: r.price, // 购物车总价
           shopCarList: shopCarList,
-          packageAmount: r.totalPackageAmount
+          packageAmount: r.totalPackageAmount,
+          arriveTime: r.arriveTime, //送达时间
         })
         that.getCoupon();
         that.getRepacks();

@@ -10,6 +10,6 @@
 		</view>
 
 		<view class="noMore" hidden="{{list.length==0}}">没有更多记录了~</view>
-		<view class="empty" hidden="{{list.length>0}}">暂无积分记录</view>
+		<view class="empty" hidden="{{list.length>0}}">暂无消费记录</view>
 	</view>
 </scroll-view>

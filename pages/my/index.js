@@ -8,6 +8,7 @@ Page({
       nickName: 'mpvue',
       avatarUrl: 'http://mpvue.com/assets/logo.png',
     },
+    shouquan: true,
     group: [{
       'title': '收货地址',
       'icon': '/../../images/my/address.png',
@@ -56,13 +57,19 @@ Page({
           repackNum: res.other.repackNum,
           leftAmount: res.leftAmount,
         })
+
+        if (res.mobile!=''){//判断是否依有授权
+          that.setData({
+            shouquan: false
+          })
+        }
       },
     })
   },
   getPhoneNumber(e) {//获取手机号码
     if (e.detail.iv == null || e.detail.encryptedData == null) {
       wx.showToast({
-        title: e.detail.errMsg,
+        title: '获取失败',
         icon: 'none',
       })
       return false
@@ -81,6 +88,9 @@ Page({
         wx.showToast({
           title: '获取成功',
           icon: 'none',
+        })
+        that.setData({
+          shouquan:false
         })
       },
     })

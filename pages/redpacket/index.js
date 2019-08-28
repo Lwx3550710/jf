@@ -59,6 +59,10 @@ Page({
             app.back();
           },
         })
+      }else{
+        wx.switchTab({
+          url: '/pages/index/index',
+        })
       }
     }else{
       wx.showToast({

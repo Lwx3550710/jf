@@ -1,3 +1,4 @@
+<wxs src="../../wxs/dataSubstring.wxs" module="tools" />
 <view class="uBox">
 	<view class="address df cf wao" hidden="{{orderType==1}}" bindtap="toChooseShopPage">
 		<view class="one ov-d">{{shopInfo.name}}</view>
@@ -40,10 +41,11 @@
 		<!-- <view class="txt flex-1" bindtap="makePhone" data-phone="{{shopInfo.mobile}}"><em>{{shopInfo.mobile}}</em></view> -->
 		<view class="input flex-1"><input placeholder="请输入您的联系方式" bindinput="userPhoneInput"></input></view>
 	</view>
-	<!-- <view class="line etLine df hao noBor" hidden="{{orderType!=1}}">
+
+	<view class="line etLine df hao noBor" hidden="{{orderType!=1}}">
 		<view class="cap">送达时间</view>
-		<view class="txt orange flex-1">现在下单预计12:00送达</view>
-	</view> -->
+		<view class="txt orange flex-1">现在下单预计{{tools.dateMSSubstring(arriveTime)||'--'}}送达</view>
+	</view>
 </view>
 <view class="uBox">
 	<view class="title">商品明细</view>

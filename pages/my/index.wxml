@@ -4,7 +4,7 @@
         <view class="photo" bindtap="myinfo"><image src="{{headUrl}}"></image></view>
         <view class="info">
             <view class="name">{{nickname || '--'}}</view>
-            <button  class="btn" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">点击授权</button >
+            <button wx:if="{{shouquan}}" class="btn" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">点击授权</button >
         </view>
     </view>
     <view class="assets">
@@ -13,15 +13,15 @@
             <span>积分</span>
         </view> -->
         <view class="items" bindtap="coupons">
-            <b>{{couponNum}}</b>
+            <b>{{couponNum || 0}}</b>
             <span>我的券</span>
         </view>
         <view class="items" bindtap="redpacket">
-            <b>{{repackNum}}</b>
+            <b>{{repackNum || 0}}</b>
             <span>我的红包</span>
         </view>
         <view class="items" bindtap="myWallet">
-            <b>{{leftAmount}}</b>
+            <b><i>￥</i>{{leftAmount || 0}}</b>
             <span>钱包</span>
         </view>
     </view>
