@@ -3,6 +3,8 @@ var appData = app.globalData;
 var that;
 Page({
   data: {
+    couponsAmount:0,
+    shopCarAllPriceUser:0,
   },
   toUse(){ // 立即使用
     wx.switchTab({
@@ -15,7 +17,8 @@ Page({
       that.setData({
         init: options.init,
         shopCarId: options.shopCarId,
-        couponsAmount: options.couponsAmount
+        couponsAmount: options.couponsAmount || 0,
+        shopCarAllPriceUser: options.shopCarAllPriceUser || 0
       })
     }
     this.getRepacks();
@@ -28,8 +31,18 @@ Page({
       },
       success: function (res) {
         console.log(res);
+        let listMoney = that.data.shopCarAllPriceUser - that.data.couponsAmount;
+        if(!that.data.init){//判断是否是订单跳转
+          listMoney = 100000;
+        }
+        let listArray = [];
+        res.list.forEach(item => {//筛选出符合购物车总价的条件
+          if (item.coupon.amount < listMoney) {
+            listArray.push(item);
+          }
+        })
         that.setData({
-          repacksData: res.list,
+          repacksData: listArray,
         })
       },
     })
@@ -47,9 +60,6 @@ Page({
           },
           success: function (r) {
             var lastPage = app.getPage(-1);
-            console.log(r.price)
-            console.log(data.coupon.amount)
-            console.log(that.data.couponsAmount)
             lastPage.setData({
               redpacketInfo: {
                 amount: data.coupon.amount,

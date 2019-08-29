@@ -11,6 +11,7 @@ Page({
     shopCarNum: 0, // 购物车数量
     shopCarAllNum: 0, // 商品总数量
     shopCarAllPrice: 0, // 购物车总价
+    shopCarAllPriceUser: 0, // 购物车总价(传参用)
     canChooseRedCar: false, // 是否可选择红包
     canChooseCoupons: false, // 是否可选择优惠券
     addressInfo: { // 外卖地址
@@ -58,12 +59,12 @@ Page({
   },
   toChooseRedCarPage() { // 选择红包
     if (that.data.canChooseRedCar) {
-      app.openUrl('redpacket/index', 'init=orderSettle&shopCarId=' + that.data.shopCarId + '&couponsAmount=' + that.data.couponsAmount);
+      app.openUrl('redpacket/index', 'init=orderSettle&shopCarId=' + that.data.shopCarId + '&couponsAmount=' + that.data.couponsAmount + '&shopCarAllPriceUser=' + that.data.shopCarAllPriceUser);
     }
   }, 
   toChooseCoupons() { // 选择优惠券
     if (that.data.canChooseCoupons) {
-      app.openUrl('coupons/index', 'init=orderSettle&shopCarId=' + that.data.shopCarId + '&repacksAmount=' + that.data.repacksAmount);
+      app.openUrl('coupons/index', 'init=orderSettle&shopCarId=' + that.data.shopCarId + '&repacksAmount=' + that.data.repacksAmount + '&shopCarAllPriceUser=' + that.data.shopCarAllPriceUser);
     }
   },
   agreePayType() {
@@ -165,12 +166,12 @@ Page({
           shopCarNum: r.other.items.length, // 购物车数量
           shopCarAllNum: countNum, // 商品总数量
           shopCarAllPrice: r.price, // 购物车总价
+          shopCarAllPriceUser: r.price,
           shopCarList: shopCarList,
           packageAmount: r.totalPackageAmount,
           arriveTime: r.arriveTime, //送达时间
         })
         that.getCoupon();
-        that.getRepacks();
 
       },
     })
@@ -387,7 +388,7 @@ Page({
         let amountArray = [];
         if (res.list.length > 0) {
           res.list.forEach((item, index) => {//得到未使用的列表
-            if (item.status == 0) {
+            if (item.status == 0 && that.data.shopCarAllPrice > item.coupon.amount) {
               Num += 1;
               amountArray.push(item);
             }
@@ -413,6 +414,8 @@ Page({
           }
 
         }
+
+        that.getRepacks();//获取红包
       },
     })
   },
@@ -429,7 +432,7 @@ Page({
         let amountArray = [];
         if (res.list.length > 0) {
           res.list.forEach((item,index) => {//得到未使用的列表
-            if (item.status == 0) {
+            if (item.status == 0 && that.data.shopCarAllPrice > item.coupon.amount) {
               Num += 1;
               amountArray.push(item);
             }

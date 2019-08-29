@@ -8,7 +8,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    repacksAmount: 0,
+    shopCarAllPriceUser: 0,
   },
 
   /**
@@ -20,7 +21,8 @@ Page({
       that.setData({
         init: options.init,
         shopCarId: options.shopCarId,
-        repacksAmount: options.repacksAmount
+        repacksAmount: options.repacksAmount || 0,
+        shopCarAllPriceUser: options.shopCarAllPriceUser || 0
       })
     }
     this.getCoupon();
@@ -34,8 +36,18 @@ Page({
       },
       success: function (res) {
         console.log(res);
+        let listMoney = that.data.shopCarAllPriceUser - that.data.repacksAmount;
+        if (!that.data.init) {//判断是否是订单跳转
+          listMoney = 100000;
+        }
+        let listArray = [];
+        res.list.forEach(item=>{//筛选出符合购物车总价的条件
+          if (item.coupon.amount < listMoney){
+            listArray.push(item);
+          }
+        })
         that.setData({
-          couponData: res.list,
+          couponData: listArray,
         })
       },
     })
@@ -54,9 +66,6 @@ Page({
           },
           success: function (r) {
             var lastPage = app.getPage(-1);
-            console.log(r.price)
-            console.log(data.coupon.amount)
-            console.log(that.data.repacksAmount)
             lastPage.setData({
               couponInfo: { 
                 amount: data.coupon.amount,
