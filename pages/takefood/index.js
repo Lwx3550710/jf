@@ -6,7 +6,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    hasOrder:true,
   },
 
   /**
@@ -33,10 +33,16 @@ Page({
             price: data.price || 0,
             code: data.code || '--',
             shopName: data.shop.name || '--',
-            type: data.type
+            type: data.type,
+            hasOrder:false
           })
         }
       },
+    })
+  },
+  goToOrder(){
+    wx.switchTab({
+      url: '/pages/index/index',
     })
   },
   /**
@@ -45,7 +51,6 @@ Page({
   onReady: function () {
 
   },
-
   /**
    * 生命周期函数--监听页面显示
    */

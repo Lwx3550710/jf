@@ -1,7 +1,9 @@
 .container{
-    background: #F8F9F7;
-    width: 100%;
-    position: absolute;
+  background: #f2f2f2;
+  width: 100%;
+  position: absolute;
+  height: 100%;
+
 }
 .card-main{
     width: 323px;
@@ -178,15 +180,34 @@ padding-left: 134rpx;
   margin: 25rpx auto 0;
 
 }
-/* .qucan-bg{
+.qucan-conent{
+position: absolute;
+z-index: 1;
+text-align: center;
+width: 100%;
 
 }
-.qucan-bg .qucan-bg-content{
-  
+.qucan-people{
+width: 150rpx;
+margin-top: 264rpx;
+
 }
-.qucan-bg .qucan-bg-people{
-  
+.qucan-tips{
+display: block;
+font-size: 26rpx;
+margin-top: 41rpx;
+color: #999;
+
 }
-.qucan-bg .qucan-bg-btn{
-  
-} */
+.qucan-btn{
+width: 300rpx;
+height: 60rpx;
+text-align: center;
+line-height: 60rpx;
+background: #C79F62;
+color: #fff;
+border-radius: 10rpx;
+margin: 250rpx auto 0;
+font-size: 30rpx;
+
+}

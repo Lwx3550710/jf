@@ -11,35 +11,35 @@ Page({
     shouquan: true,
     group: [{
       'title': '收货地址',
-      'icon': '/../../images/my/address.png',
+      'icon': '../../images/my/address.png',
       'target': 'address'
     }, {
       'title': '我的订单',
-      'icon': '/../../images/my/order.png',
+      'icon': '../../images/my/order.png',
       'target': 'orderlist'
     }, {
       'title': '我的会员',
-      'icon': '/../../images/my/member.png',
+      'icon': '../../images/my/member.png',
       'target': 'member'
     }, {
       'title': '邀请好友',
-      'icon': '/../../images/my/invite.png',
+      'icon': '../../images/my/invite.png',
       'target': 'invite'
     }, {
       'title': '在线客服',
-      'icon': '/../../images/my/kf.png',
+      'icon': '../../images/my/kf.png',
       'target': 'kf'
     }, {
       'title': '意见反馈',
-      'icon': '/../../images/my/idea.png',
+      'icon': '../../images/my/idea.png',
 			'target': 'feedback'
     }, {
       'title': '关于匠方',
-      'icon': '/../../images/my/about.png',
+      'icon': '../../images/my/about.png',
       'target': 'about'
     }, {
       'title': '投资人/经营人',
-      'icon': '/../../images/my/invest.png',
+      'icon': '../../images/my/invest.png',
       'target': 'invest'
     }]
   },

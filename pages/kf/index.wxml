@@ -1,4 +1,4 @@
-<view class="flex flv">
+<!-- <view class="flex flv">
   <view class="kfTitle flex ai jcc">
       <image src="../../images/images/kf.png"></image>
       <text>客服热线</text>
@@ -56,4 +56,20 @@
 </view>
 <view class="kfInput flex ai jcc">
   <textarea auto-height="true" placeholder="请简短描述您的问题" placeholder-class="placeholder"></textarea>
+</view> -->
+
+
+<view class="kfLi flex ai jcb">
+  <text>QQ:</text>
+  <text>2794645829</text>
+</view>
+
+<view class="kfLi flex ai jcb">
+  <text>微信:</text>
+  <text>wxid_d4xrwr6c3msr12</text>
+</view>
+
+<view class="kfLi flex ai jcb">
+  <text>电话:</text>
+  <text>0571-87917209</text>
 </view>

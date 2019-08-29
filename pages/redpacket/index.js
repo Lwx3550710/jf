@@ -47,6 +47,9 @@ Page({
           },
           success: function (r) {
             var lastPage = app.getPage(-1);
+            console.log(r.price)
+            console.log(data.coupon.amount)
+            console.log(that.data.couponsAmount)
             lastPage.setData({
               redpacketInfo: {
                 amount: data.coupon.amount,

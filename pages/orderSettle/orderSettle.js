@@ -35,6 +35,9 @@ Page({
     desc: '', // 备注
     myMoney: 0, // 我的零钱
     arriveTime:'',//送达时间
+    couponsAmount:0,
+    repacksAmount:0,
+
   },
   userPhoneInput(e) { // 输入用户联系方式
     that.setData({
@@ -218,8 +221,8 @@ Page({
         formPost: true,
         data: {
           cartId: cartid,
-          couponId: that.data.couponInfo.id, // 优惠券ID
-          repackId: that.data.redpacketInfo.id, // 红包卷ID
+          couponId: that.data.couponInfo.id || 0, // 优惠券ID
+          repackId: that.data.redpacketInfo.id || 0, // 红包卷ID
           remark: desc,
           addressId: addressId,
           type: orderType,
@@ -262,8 +265,8 @@ Page({
         formPost: true,
         data: {
           cartId: cartid,
-          couponId: that.data.couponInfo.id, // 优惠券ID
-          repackId: that.data.redpacketInfo.id, // 红包卷ID
+          couponId: that.data.couponInfo.id || 0, // 优惠券ID
+          repackId: that.data.redpacketInfo.id || 0, // 红包卷ID
           remark: desc,
           addressId: addressId,
           type: orderType,
@@ -271,17 +274,26 @@ Page({
           mobile: phoneVal,
         },
         success: function(r) {
-          // console.log(r);
-          wx.showModal({
-            title: '温馨提示',
-            content: '您已经支付成功',
-            showCancel: false,
-            success: function(){
-              wx.switchTab({
-                url: '/pages/takefood/index',
-              })
-            },
-          })
+          console.log(r);
+          if (r == 'ok'){
+            wx.showModal({
+              title: '温馨提示',
+              content: '您已经支付成功',
+              showCancel: false,
+              success: function () {
+                wx.switchTab({
+                  url: '/pages/takefood/index',
+                })
+              },
+            })
+          }else{
+            wx.showModal({
+              title: '温馨提示',
+              content: '支付失败',
+              showCancel: false,
+            })
+          }
+          
         },
       })
     }
@@ -396,7 +408,7 @@ Page({
                 amount: amountArray[maxindex].coupon.amount,
                 id: amountArray[maxindex].id
               },
-              shopCarAllPrice: that.data.shopCarAllPrice - amountArray[maxindex].coupon.amount
+              shopCarAllPrice: Number(that.data.shopCarAllPrice) - Number(amountArray[maxindex].coupon.amount)
             })
           }
 
@@ -438,7 +450,7 @@ Page({
                 amount: amountArray[maxindex].coupon.amount,
                 id: amountArray[maxindex].id
               },
-              shopCarAllPrice: that.data.shopCarAllPrice - amountArray[maxindex].coupon.amount
+              shopCarAllPrice: Number(that.data.shopCarAllPrice) - Number(amountArray[maxindex].coupon.amount)
             })
           }
 

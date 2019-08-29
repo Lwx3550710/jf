@@ -1,4 +1,4 @@
-page{
+/* page{
   background: #f2f2f2;
 }
 .kfTitle{
@@ -73,4 +73,15 @@ margin: 20rpx 0;
   font-size:26rpx;
   color:#ccc;
 }
+ */
 
+ .kfLi{
+  height: 100rpx;
+  margin: 0 15px;
+  border-bottom: 2rpx solid #ddd;
+  
+ }
+ .kfLi text{
+    font-size: 26rpx;
+    color: #333;
+ }

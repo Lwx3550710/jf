@@ -1,5 +1,5 @@
 <view class="container">
-  <view class="card-main">
+  <view class="card-main" wx:if="{{!hasOrder}}">
       <view class="body">
           <view class="title" wx:if="{{type==0}}">自取</view>
           <view class="title" wx:if="{{type==1}}">外卖配送</view>
@@ -11,7 +11,6 @@
               <view class="jd">您的餐品正在制作中</view>
               <view class="store">
                   <b>{{shopName}}</b>
-                  <!-- <image src="../../images/takefood/aw.png"></image> -->
               </view>
           </view>
 
@@ -37,12 +36,7 @@
               </view>
 
 
-              <!-- <view class="more">
-                  <dl>
-                      <dt>查看其余3件</dt>
-                      <dd><image src="../../images/takefood/aw-cur.png" alt=""></image></dd>
-                  </dl>
-              </view> -->
+             
           </view>
           <view class="total">
               <dl>
@@ -54,12 +48,17 @@
       <view class="bg">
           <image src="../../images/takefood/card-bg.png" alt=""></image>
       </view>
-
-      <!-- <view class="qucan-bg">
-        <image class="qucan-bg-content" src="../../images/takefood/qucan_bg.png" alt=""></image>
-        <image class="qucan-bg-people" src="../../images/takefood/qucan_people.png" alt=""></image>  
-        <view class="qucan-bg-btn">去点餐</view>
-      </view> -->
   </view>
-  <view class="copyright"><text>注:请注意前台叫号，您也可以通过刷新小程序\n查看取餐进度</text></view>
+  <view class="copyright" wx:if="{{!hasOrder}}"><text>注:请注意前台叫号，您也可以通过刷新小程序\n查看取餐进度</text></view>
+
+  <view class="card-main" wx:if="{{hasOrder}}">
+      <view class="bg">
+          <image class="qucan-bg-content" src="../../images/takefood/qucan_bg.png" alt=""></image>
+      </view>
+      <view class="qucan-conent">
+        <image class="qucan-people" mode="widthFix" src="../../images/takefood/qucan_people.png" alt=""></image>
+        <text class="qucan-tips">您今天还没有点餐哦</text>
+        <view class="qucan-btn" bindtap="goToOrder">去点餐</view>
+      </view>
+  </view>
 </view>
