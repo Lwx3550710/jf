@@ -441,7 +441,7 @@ Page({
           goodJson: JSON.stringify(productArr),
         },
         success: function (r) {
-          // that.getShopCar();
+          that.getShopCar();
         },
       })
     }else{ // 删除该商品
@@ -480,7 +480,7 @@ Page({
         goodJson: JSON.stringify(productArr),
       },
       success: function (r) {
-        // that.getShopCar();
+        that.getShopCar();
       },
     })
   },
@@ -507,7 +507,7 @@ Page({
         goodJson: JSON.stringify(productArr),
       },
       success: function (r) {
-        // that.getShopCar();
+        that.getShopCar();
       },
     })
   },
