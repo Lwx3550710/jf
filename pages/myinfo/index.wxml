@@ -31,7 +31,7 @@
               <view class="form-input"><view class="form-info">{{birth || ''}}</view></view>
             </block>
             <block wx:else>
-              <view class="form-input"><input name="birth" type="text" class="i-text" placeholder="请输入生日信息，保存后不可修改" placeholder-class="placeholder"></input></view>
+              <view class="form-input"><input name="birth" type="number" bindinput='inputNum' class="i-text" placeholder="请输入生日信息，保存后不可修改" placeholder-class="placeholder"></input></view>
             </block>
 
         </view>

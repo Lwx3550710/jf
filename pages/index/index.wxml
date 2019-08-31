@@ -11,7 +11,11 @@
             <span>{{orderWayType}}</span>
             <image mode="widthFix" src="../../images/home/arrow.png" class="icon-2" alt=""></image>
         </view>
-        <view class="address"><image mode="widthFix" src="../../images/home/address.png" alt=""></image>距您{{shopInfo.distance}}km</view>
+        <view class="address"><image mode="widthFix" src="../../images/home/address.png" alt=""></image>
+          距您
+          <text wx:if="{{shopInfo.distance<1}}">{{shopInfo.distance*1000}}m</text>
+          <text wx:if="{{shopInfo.distance>=1000}}">{{shopInfo.distance}}km</text>
+        </view>
     </view>
     <view class="sifBox flex-1">
       <view class="sifBox-tab df hao">

@@ -431,7 +431,7 @@ Page({
         id: shopCarLi.id,
         goodId: shopCarLi.gid,
         num: nowNum,
-        itemIds: shopCarLi.goodItems || '',
+        itemIds: shopCarLi.attr[0].id || '',
       }];
       app.ajax({
         url: 'shop/insertCart',
@@ -470,7 +470,7 @@ Page({
       id: shopCarLi.id,
       goodId: shopCarLi.gid,
       num: nowNum,
-      itemIds: shopCarLi.goodItems || '',
+      itemIds: shopCarLi.attr[0].id || '',
     }];
     app.ajax({
       url: 'shop/insertCart',
@@ -492,12 +492,11 @@ Page({
     that.setData({
       ['shopCarList[' + index + '].num']: nowNum,
     })
-
     var productArr = [{
       id: shopCarLi.id,
       goodId: shopCarLi.gid,
       num: nowNum,
-      itemIds: shopCarLi.goodItems||'',
+      itemIds: shopCarLi.attr[0].id||'',
     }];
     app.ajax({
       url: 'shop/insertCart',
