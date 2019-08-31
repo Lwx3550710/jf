@@ -31,7 +31,9 @@
               <view class="form-input"><view class="form-info">{{birth || ''}}</view></view>
             </block>
             <block wx:else>
-              <view class="form-input"><input name="birth" type="number" bindinput='inputNum' class="i-text" placeholder="请输入生日信息，保存后不可修改" placeholder-class="placeholder"></input></view>
+              <picker mode="date" value="" start="1900-01-01" end="2100-01-01" bindchange="bindDateChange">  
+                <view class="form-input"><input name="birth" value="{{date}}" class="i-text" placeholder="请输入生日信息，保存后不可修改" placeholder-class="placeholder" disabled="disabled"></input></view>
+              </picker> 
             </block>
 
         </view>
