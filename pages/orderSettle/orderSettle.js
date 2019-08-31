@@ -6,12 +6,12 @@ Page({
   data: {
     orderType: 0, // [0 自取] [1 外卖] [2 堂食]
     shopInfo: {}, // 门店信息
-    shopCarList: [], // 购物车列表
-    shopCarId: '', // 用户cartid，用来加入购物车，获取不到时不能提交
-    shopCarNum: 0, // 购物车数量
+    shopCarList: [], // 购物袋列表
+    shopCarId: '', // 用户cartid，用来加入购物袋，获取不到时不能提交
+    shopCarNum: 0, // 购物袋数量
     shopCarAllNum: 0, // 商品总数量
-    shopCarAllPrice: 0, // 购物车总价
-    shopCarAllPriceUser: 0, // 购物车总价(传参用)
+    shopCarAllPrice: 0, // 购物袋总价
+    shopCarAllPriceUser: 0, // 购物袋总价(传参用)
     canChooseRedCar: false, // 是否可选择红包
     canChooseCoupons: false, // 是否可选择优惠券
     addressInfo: { // 外卖地址
@@ -135,13 +135,13 @@ Page({
       success: function(r) {
         // console.log(r)
         that.setData({
-          shopCarId: r.id, // 用户cartid，用来加入购物车，获取不到时不能提交
+          shopCarId: r.id, // 用户cartid，用来加入购物袋，获取不到时不能提交
         })
         call && call();
       },
     })
   },
-  getShopCar() { // 获取购物车列表
+  getShopCar() { // 获取购物袋列表
     app.ajax({
       url: 'cart/getById',
       data: {
@@ -162,10 +162,10 @@ Page({
           countNum += Number(b.num);
         })  
         that.setData({
-          // shopCarId: r.id, // 用户cartid，用来加入购物车，获取不到时不能提交
-          shopCarNum: r.other.items.length, // 购物车数量
+          // shopCarId: r.id, // 用户cartid，用来加入购物袋，获取不到时不能提交
+          shopCarNum: r.other.items.length, // 购物袋数量
           shopCarAllNum: countNum, // 商品总数量
-          shopCarAllPrice: r.price, // 购物车总价
+          shopCarAllPrice: r.price, // 购物袋总价
           shopCarAllPriceUser: r.price,
           shopCarList: shopCarList,
           packageAmount: r.totalPackageAmount,

@@ -36,7 +36,7 @@ Page({
           listMoney = 100000;
         }
         let listArray = [];
-        res.list.forEach(item => {//筛选出符合购物车总价的条件
+        res.list.forEach(item => {//筛选出符合购物袋总价的条件
           if (item.coupon.amount < listMoney) {
             listArray.push(item);
           }

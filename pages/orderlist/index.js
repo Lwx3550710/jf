@@ -58,11 +58,11 @@ Page({
       }
     })
   },
-  confirmOrder(e) {//取消订单
+  confirmOrder(e) {//确定订单
     var id = app.attr(e, 'id');
     wx.showModal({
       title: '提示',
-      content: '确认取消？',
+      content: '确认取餐？',
       success: function (res) {
         if (res.confirm) {
           app.ajax({
@@ -71,7 +71,7 @@ Page({
             noUserid: true,
             data: {
               orderId: id,
-              status: 2
+              status: 6
             },
             success: function (res) {
               console.log(res);

@@ -27,7 +27,7 @@ pages/tradepinone/index                     匠方钱包 输入密码
 pages/tradepintwo/index                     匠方钱包 确认密码
 pages/wallet/index                          匠方钱包 开通后
 pages/feedback/index                        意见反馈
-pages/record/record                         消费记录
+pages/record/record                         交易记录
 
 
 pages/setPass/setPass                       匠方钱包 设置密码/确认密码/重设密码/修改密码(type区分)

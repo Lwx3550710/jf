@@ -7,7 +7,7 @@ var goodsDataById = {};
 Page({
   data: {
 		curSifMain: '菜单', // 选中的顶部菜单
-		isShowShopCar: false, // 是否显示购物车详情
+		isShowShopCar: false, // 是否显示购物袋详情
 		isShowProductDetail: false, // 是否显示商品详情
     showProductDetailData: { // 商品详情数据
       id: '',
@@ -40,10 +40,10 @@ Page({
     goodsData: [], // 商品列表
     foodStarArr: [], // 食材数组（用来循环星星）
     packageStarArr: [], // 包装数组（用来循环星星）
-    shopCarList: [], // 购物车列表
-    shopCarId: '', // 用户cartid，用来加入购物车，获取不到时不能提交
-    shopCarNum: 0, // 购物车数量
-    shopCarAllPrice: 0, // 购物车总价
+    shopCarList: [], // 购物袋列表
+    shopCarId: '', // 用户cartid，用来加入购物袋，获取不到时不能提交
+    shopCarNum: 0, // 购物袋数量
+    shopCarAllPrice: 0, // 购物袋总价
     commentList: [], // 评价列表
     bannerImg:[],//匠方轮播
 	},
@@ -54,7 +54,7 @@ Page({
     if (that.data.shopCarList.length==0){
       wx.showModal({
         title: '操作失败',
-        content: '请先将要购买的商品加入到购物车',
+        content: '请先将要购买的商品加入到购物袋',
         showCancel: false,
       })
       return false;
@@ -118,13 +118,13 @@ Page({
       return (d >= 0 && data.lastIndexOf(endStr) == d);
     }
   },
-	showShopCar(e){ // 显示购物车
+	showShopCar(e){ // 显示购物袋
 		that.setData({
 			isShowShopCar: true,
 		})
     that.getShopCar();
 	},
-	hideShopCar(e) { // 隐藏购物车
+	hideShopCar(e) { // 隐藏购物袋
 		that.setData({
 			isShowShopCar: false,
 		})
@@ -347,7 +347,7 @@ Page({
       'showProductAttrData.chooseAttrTxt': chooseAttrTxt.toString(),
     })
   },
-  addCard(){ // 加入购物车
+  addCard(){ // 加入购物袋
     var sData = that.data.showProductAttrData;
     var t = [];
     for (var s in sData.chooseAttrId) {
@@ -369,7 +369,7 @@ Page({
       },
       success: function (r) {
         wx.showToast({
-          title: '成功加入购物车',
+          title: '成功加入购物袋',
         })
         that.hideProductAttr();
         that.getShopCar();
@@ -385,13 +385,13 @@ Page({
       success: function (r) {
         // console.log(r)
         that.setData({
-          shopCarId: r.id, // 用户cartid，用来加入购物车，获取不到时不能提交
+          shopCarId: r.id, // 用户cartid，用来加入购物袋，获取不到时不能提交
         })
         call && call();
       },
     })
   },
-  getShopCar(){ // 获取购物车列表
+  getShopCar(){ // 获取购物袋列表
     app.ajax({
       url: 'cart/getById',
       data: {
@@ -410,15 +410,15 @@ Page({
           })
         })
         that.setData({
-          // shopCarId: r.id, // 用户cartid，用来加入购物车，获取不到时不能提交
-          shopCarNum: r.other.items.length, // 购物车数量
-          shopCarAllPrice: r.price, // 购物车总价
+          // shopCarId: r.id, // 用户cartid，用来加入购物袋，获取不到时不能提交
+          shopCarNum: r.other.items.length, // 购物袋数量
+          shopCarAllPrice: r.price, // 购物袋总价
           shopCarList: shopCarList,
         })
       },
     })
   },
-  subShopCarNum(e){ // 购物车列表数量-
+  subShopCarNum(e){ // 购物袋列表数量-
     var index = app.attr(e, 'index');
     var shopCarLi = that.data.shopCarList[index];
     var nowNum = Number(shopCarLi.num);
@@ -457,7 +457,7 @@ Page({
       })
     }
   },
-  inputShopCarNum(e) { //购物车列表数量更改
+  inputShopCarNum(e) { //购物袋列表数量更改
     var index = app.attr(e, 'index');
     var shopCarLi = that.data.shopCarList[index];
     // return e.detail.value.replace(/[^1-9]/g, '');
@@ -484,7 +484,7 @@ Page({
       },
     })
   },
-  addShopCarNum(e){ // 购物车列表数量+
+  addShopCarNum(e){ // 购物袋列表数量+
     var index = app.attr(e, 'index');
     var shopCarLi = that.data.shopCarList[index];
     var nowNum = Number(shopCarLi.num);
@@ -511,7 +511,7 @@ Page({
       },
     })
   },
-  emptyShopCar() { // 清空购物车
+  emptyShopCar() { // 清空购物袋
     app.ajax({
       url: 'cart/clear',
       formPost: true,
@@ -559,6 +559,7 @@ Page({
     that.getShopProduct();
     that.getbanner();
     that.getShopCarId(that.getShopCar);
+    
   },
 	onShareAppMessage() { },
 })

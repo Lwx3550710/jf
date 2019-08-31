@@ -142,7 +142,7 @@
 		<view class="spCarBox" hidden="{{!isShowShopCar}}" bindtap="hideShopCar">
 			<view class="spCarBox-content" catchtap="noEvent">
 				<view class="spCarBox-tool df hao">
-					<view class="spCarBox-toolLi df hao" bindtap="emptyShopCar"><image src="/images/sg-img/del.png"></image>清空购物车</view>
+					<view class="spCarBox-toolLi df hao" bindtap="emptyShopCar"><image src="/images/sg-img/del.png"></image>清空购物袋</view>
 				</view>
 				<scroll-view class="spCarBox-sc" scroll-y="true">
           <block wx:for="{{shopCarList}}" wx:key="shopCar" wx:for-item="sc" wx:if="{{sc.num>0}}">
@@ -156,7 +156,7 @@
               <view class="spCarBox-scAdd" bindtap="addShopCarNum" data-index="{{index}}"></view>
             </view>
           </block>
-          <view class="spCarBox-empty" hidden="{{shopCarNum>0}}">您的购物车还是空的噢~</view>
+          <view class="spCarBox-empty" hidden="{{shopCarNum>0}}">您的购物袋还是空的噢~</view>
 				</scroll-view>
 			</view>
 		</view>
@@ -200,6 +200,6 @@
 				<view class="foodCsBox-pdAdd" bindtap="addOneNum"></view>
 			</view>
 		</view>
-		<view class="foodCsBox-add" bindtap="addCard">加入购物车</view>
+		<view class="foodCsBox-add" bindtap="addCard">加入购物袋</view>
 	</view>
 </view>

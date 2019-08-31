@@ -5,7 +5,7 @@ var that;
 Page({
   data: {
     list: [
-      { 'name': '消费记录', 'target': 'record', 'param': '' },
+      { 'name': '交易记录', 'target': 'record', 'param': '' },
       // { 'name': '修改交易密码', 'target': 'setPass', 'param': 'type=edit' },
       // { 'name': '修改交易密码', 'target': 'setPass', 'param': '' },
       // { 'name': '重置交易密码', 'target': 'setPass', 'param': 'type=reset' },
