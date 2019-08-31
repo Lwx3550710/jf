@@ -17,45 +17,24 @@ Page({
 		})
 
     that.getLocationPower(lor=>{
-      app.globalData.userLocation = {
+      appData.userLocation = {
         lat: lor.lat,
         long: lor.long,
       };
 
-      // that.toInitPage();
-
-      // 获取最近门店 shopid
-      that.getShop({
+      appData.chooseLocation = {
         lat: lor.lat,
         long: lor.long,
-        call: r=>{
-          // console.log(r);
-          if(r.list.length>0){
-            var s = r.list[0];
-            appData.shopid = s.id;
-            s.distance = parseInt(s.distance);
-            appData.shopInfo = s;
-          }
+      };
 
-          // 先检测是否已经进行用户授权，如已经授权直接进入首页，否则进入授权页
-          that.checkPower();
-        },
+      // 获取最近门店 shopid
+      app.getShopInfo(r=>{
+        // console.log(r);
+        // 先检测是否已经进行用户授权，如已经授权直接进入首页，否则进入授权页
+        that.checkPower();
       })
     });
 	},
-  getShop(json){ // 获取附近门店
-    app.ajax({
-      url: 'shop/selectShop',
-      data: {
-        lati: json.lat,
-        longt: json.long,
-      },
-      success: r=>{
-        // console.log(r);
-        json.call && json.call(r);
-      },
-    })
-  },
 	resetInit() { // 重试
 		that.setData({
 			requestCount: 0, // 请求次数（最多为5次，都不成功显示手动刷新）
@@ -101,7 +80,7 @@ Page({
         if (r.authSetting['scope.userInfo']) { // 用户已授权个人信息权限
           wx.getUserInfo({
             success: r2 => {
-              console.log(r2)
+              // console.log(r2)
               that.setData({
                 iv: r2.iv,
                 encryptedData: r2.encryptedData,
@@ -140,10 +119,9 @@ Page({
 
       wx.login({
         success: function (res) {
-          console.log(res)
+          // console.log(res)
           if (res.code) {
             that.code = res.code;
-            
             // 获取openId并缓存
             app.ajax({
               url: 'user/getWechatAuthorize.do',
@@ -160,7 +138,7 @@ Page({
                 'content-type': 'application/x-www-form-urlencoded'
               },
               success: function (r) {
-                console.log(r)
+                // console.log(r)
                 appData.userOpenid = r.openId;
                 appData.userid = r.userId;
                 appData.sessionKey = r.session_key;

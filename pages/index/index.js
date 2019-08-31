@@ -542,20 +542,29 @@ Page({
       orderWayImg: appData.wayList[0].img, // 下单方式图片
     })
 	},
-  onShow(){
-    var foodStarArr = [], packageStarArr = [];
-    for (var i = 0; i < appData.shopInfo.foodStar; i++) {
-      foodStarArr.push(1);
-    }
-    for (var i = 0; i < appData.shopInfo.packageStar; i++) {
-      packageStarArr.push(1);
-    }
-
+  onShow() {
     that.setData({
-      shopInfo: appData.shopInfo,
-      foodStarArr: foodStarArr, // 食材数组（用来循环星星）
-      packageStarArr: packageStarArr, // 包装数组（用来循环星星）
+      shopInfo: {},
+      foodStarArr: [], // 食材数组（用来循环星星）
+      packageStarArr: [], // 包装数组（用来循环星星）
     })
+    app.getShopInfo(r => {
+      // console.log(r);
+      var foodStarArr = [], packageStarArr = [];
+      for (var i = 0; i < appData.shopInfo.foodStar; i++) {
+        foodStarArr.push(1);
+      }
+      for (var i = 0; i < appData.shopInfo.packageStar; i++) {
+        packageStarArr.push(1);
+      }
+
+      that.setData({
+        shopInfo: appData.shopInfo,
+        foodStarArr: foodStarArr, // 食材数组（用来循环星星）
+        packageStarArr: packageStarArr, // 包装数组（用来循环星星）
+      })
+    },true)
+    
     that.getShopProduct();
     that.getbanner();
     that.getShopCarId(that.getShopCar);
