@@ -3,11 +3,11 @@ var appData = app.globalData;
 var that;
 Page({
 	data: {
-    userLocation: {
+    userLocation: { // 用户当前经纬度信息
       lat: '',
       long: '',
     },
-    chooseLocation: {
+    chooseLocation: { // 选中门店经纬度信息
       lat: '',
       long: '',
     },
@@ -61,6 +61,10 @@ Page({
     var d = that.data.shopList[index];
     appData.shopid = d.id;
     appData.shopInfo = d;
+    appData.chooseLocation = {
+      lat: d.lati,
+      long: d.longt,
+    };
 		app.back();
   },
   showShop(e) { // 显示门店
@@ -75,19 +79,6 @@ Page({
       markers: [ that.data.markerList[index] ],
     })
   },
-  getShop(json) { // 获取附近门店
-    app.ajax({
-      url: 'shop/selectShop',
-      data: {
-        lati: json.lat,
-        longt: json.long,
-      },
-      success: r => {
-        // console.log(r);
-        json.call && json.call(r);
-      },
-    })
-  },
 	onLoad(options) {
 		that = this;
     var userLocation = appData.userLocation;
@@ -97,41 +88,37 @@ Page({
       chooseLocation: userLocation,
     });
 
-    that.getShop({
-      lat: userLocation.lat,
-      long: userLocation.long,
-      call(r){
-        var markerArr = [];
-        r.list.forEach((b, a) => {
-          b.distance = parseInt(b.distance);
-          markerArr.push({
-            iconPath: "/images/sg-img/ads-1.png",
-            // title: b.name,
-            callout: {
-              content: b.name+'>',
-              color: '#333',
-              fontSize: 12,
-              display: 'ALWAYS',
-              bgColor: '#fff',
-              textAlign: 'center',
-              padding: 10,
-              borderRadius: 4,
-              borderWidth: 0,
-            },
-            id: a,
-            latitude: Number(b.lati),
-            longitude: Number(b.longt),
-            width: 23,
-            height: 28
-          });
-        })
-        that.setData({
-          shopList: r.list || [],
-          allList: r.list||[],
-          // markers: markerArr,
-          markerList: markerArr,
-        })
-      }
+    app.getShopInfo(r=>{
+      var markerArr = [];
+      r.list.forEach((b, a) => {
+        b.distance = parseInt(b.distance);
+        markerArr.push({
+          iconPath: "/images/sg-img/ads-1.png",
+          // title: b.name,
+          callout: {
+            content: b.name+'>',
+            color: '#333',
+            fontSize: 12,
+            display: 'ALWAYS',
+            bgColor: '#fff',
+            textAlign: 'center',
+            padding: 10,
+            borderRadius: 4,
+            borderWidth: 0,
+          },
+          id: a,
+          latitude: Number(b.lati),
+          longitude: Number(b.longt),
+          width: 23,
+          height: 28
+        });
+      })
+      that.setData({
+        shopList: r.list || [],
+        allList: r.list||[],
+        // markers: markerArr,
+        markerList: markerArr,
+      })
     });
 	},
 	onShareAppMessage() { },

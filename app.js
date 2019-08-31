@@ -65,6 +65,10 @@ App({
       lat: 0, // 经度
       long: 0, // 纬度
     },
+    chooseLocation: { // 选中门店经纬度信息
+      lat: '',
+      long: '',
+    },
     shopid: '',
     shopInfo: {}, // shopid 对应的门店信息
     qiniu_uploadToken: '', // 七牛图片上传的token
@@ -217,6 +221,39 @@ App({
       }
     }, error=>{
       call && call('fail', error);
+    })
+  },
+  getShopInfo(call,type) { // 获取门店信息
+    var location = that.globalData.chooseLocation;
+    if (type==true){
+      var json = {
+        shopId: that.globalData.shopid,
+        key: 0,
+      };
+    }else{
+      var json = {
+        lati: location.lat,
+        longt: location.long,
+      }
+    };
+    that.ajax({
+      url: (type == true ? 'shop/getById':'shop/selectShop'),
+      data: json,
+      success: r => {
+        // console.log(r);
+        if(type==true){
+          r = { list: [r] };
+        }
+
+        if (r.list.length > 0) {
+          var s = r.list[0];
+          that.globalData.shopid = s.id;
+          s.distance = parseInt(s.distance);
+          that.globalData.shopInfo = s;
+        }
+        
+        call && call(r);
+      },
     })
   },
 	onLaunch(options) {
