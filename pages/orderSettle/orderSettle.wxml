@@ -2,7 +2,7 @@
 <view class="uBox">
 	<view class="address df cf wao" hidden="{{orderType==1}}" bindtap="toChooseShopPage">
 		<view class="one ov-d">{{shopInfo.name}}</view>
-		<view class="three">{{shopInfo.distance>5000?'您距离当前门店5000米以上，请确定下单门店是否正确':'您距离当前门店'+shopInfo.distance+'米'}}
+		<view class="three">{{shopInfo.distance>5000?'您距离当前门店5000米以上，请确定下单门店是否正确':'您距离当前门店'+ (shopInfo.distance || 0) +'米'}}
     </view>
 		<!-- <image src="/images/sg-img/arrow.png"></image> -->
 	</view>

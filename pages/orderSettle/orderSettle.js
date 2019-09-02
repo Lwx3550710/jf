@@ -11,7 +11,9 @@ Page({
     shopCarNum: 0, // 购物袋数量
     shopCarAllNum: 0, // 商品总数量
     shopCarAllPrice: 0, // 购物袋总价
-    shopCarAllPriceUser: 0, // 购物袋总价(传参用)
+    shopCarAllParam: 0, // 购物袋总价(传参用)
+    shopCarAllPSum: 0, // 购物袋总价(传参用 计算用)
+    shopCarAllSum: 0, // 购物袋总价(切换取餐方式 计算用)
     canChooseRedCar: false, // 是否可选择红包
     canChooseCoupons: false, // 是否可选择优惠券
     addressInfo: { // 外卖地址
@@ -38,6 +40,7 @@ Page({
     arriveTime:'',//送达时间
     couponsAmount:0,
     repacksAmount:0,
+    yunfei:0,//运费
 
   },
   userPhoneInput(e) { // 输入用户联系方式
@@ -59,12 +62,12 @@ Page({
   },
   toChooseRedCarPage() { // 选择红包
     if (that.data.canChooseRedCar) {
-      app.openUrl('redpacket/index', 'init=orderSettle&shopCarId=' + that.data.shopCarId + '&couponsAmount=' + that.data.couponsAmount + '&shopCarAllPriceUser=' + that.data.shopCarAllPriceUser);
+      app.openUrl('redpacket/index', 'init=orderSettle&shopCarId=' + that.data.shopCarId + '&couponsAmount=' + that.data.couponsAmount + '&shopCarAllParam=' + that.data.shopCarAllParam + '&yunfei=' + that.data.yunfei + '&packageAmount=' + that.data.packageAmount + '&orderType=' + that.data.orderType);
     }
   }, 
   toChooseCoupons() { // 选择优惠券
     if (that.data.canChooseCoupons) {
-      app.openUrl('coupons/index', 'init=orderSettle&shopCarId=' + that.data.shopCarId + '&repacksAmount=' + that.data.repacksAmount + '&shopCarAllPriceUser=' + that.data.shopCarAllPriceUser);
+      app.openUrl('coupons/index', 'init=orderSettle&shopCarId=' + that.data.shopCarId + '&repacksAmount=' + that.data.repacksAmount + '&shopCarAllParam=' + that.data.shopCarAllParam + '&yunfei=' + that.data.yunfei + '&packageAmount=' + that.data.packageAmount + '&orderType=' + that.data.orderType);
     }
   },
   agreePayType() {
@@ -78,6 +81,18 @@ Page({
     that.setData({
       orderType: index,
     })
+    console.log(index)
+    if(index == 1){
+      that.setData({
+        shopCarAllPrice: that.data.shopCarAllSum + that.data.yunfei + that.data.packageAmount, // 购物袋总价
+        shopCarAllParam: that.data.shopCarAllPSum
+      })
+    }else{
+      that.setData({
+        shopCarAllPrice: that.data.shopCarAllSum, // 购物袋总价
+        shopCarAllParam: that.data.shopCarAllPSum - that.data.yunfei - that.data.packageAmount 
+      })
+    }
   },
   showPayType() {
     that.getMyMoney();
@@ -165,8 +180,10 @@ Page({
           // shopCarId: r.id, // 用户cartid，用来加入购物袋，获取不到时不能提交
           shopCarNum: r.other.items.length, // 购物袋数量
           shopCarAllNum: countNum, // 商品总数量
-          shopCarAllPrice: r.price, // 购物袋总价
-          shopCarAllPriceUser: r.price,
+          shopCarAllPrice: r.price + r.totalPackageAmount, // 购物袋总价
+          shopCarAllParam: r.price + r.totalPackageAmount,
+          shopCarAllPSum: r.price + r.totalPackageAmount,
+          shopCarAllSum: r.price,
           shopCarList: shopCarList,
           packageAmount: r.totalPackageAmount,
           arriveTime: r.arriveTime, //送达时间
@@ -229,6 +246,7 @@ Page({
           type: orderType,
           takeTime: takeTime,
           mobile: phoneVal,
+          sendAmount:that.data.yunfei
         },
         success: function(r) {
           wx.requestPayment({
@@ -273,6 +291,7 @@ Page({
           type: orderType,
           takeTime: takeTime,
           mobile: phoneVal,
+          sendAmount: that.data.yunfei
         },
         success: function(r) {
           console.log(r);
@@ -409,7 +428,8 @@ Page({
                 amount: amountArray[maxindex].coupon.amount,
                 id: amountArray[maxindex].id
               },
-              shopCarAllPrice: Number(that.data.shopCarAllPrice) - Number(amountArray[maxindex].coupon.amount)
+              shopCarAllPrice: Number(that.data.shopCarAllPrice) - Number(amountArray[maxindex].coupon.amount),
+              shopCarAllSum: Number(that.data.shopCarAllSum) - Number(amountArray[maxindex].coupon.amount)
             })
           }
 
@@ -453,7 +473,8 @@ Page({
                 amount: amountArray[maxindex].coupon.amount,
                 id: amountArray[maxindex].id
               },
-              shopCarAllPrice: Number(that.data.shopCarAllPrice) - Number(amountArray[maxindex].coupon.amount)
+              shopCarAllPrice: Number(that.data.shopCarAllPrice) - Number(amountArray[maxindex].coupon.amount),
+              shopCarAllSum: Number(that.data.shopCarAllSum) - Number(amountArray[maxindex].coupon.amount)
             })
           }
 
@@ -475,9 +496,12 @@ Page({
           addressId: that.data.addressInfo.id
         },
         success: function (res) {
-          console.log(res);
+          // console.log(res);
           that.setData({
             yunfei: res,
+            shopCarAllPrice: that.data.shopCarAllPrice + res, // 购物袋总价
+            shopCarAllParam: that.data.shopCarAllParam + res,
+            shopCarAllPSum: that.data.shopCarAllPSum + res,
           })
         },
       })

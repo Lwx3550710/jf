@@ -9,7 +9,7 @@ Page({
    */
   data: {
     repacksAmount: 0,
-    shopCarAllPriceUser: 0,
+    shopCarAllParam: 0,
   },
 
   /**
@@ -22,7 +22,10 @@ Page({
         init: options.init,
         shopCarId: options.shopCarId,
         repacksAmount: options.repacksAmount || 0,
-        shopCarAllPriceUser: options.shopCarAllPriceUser || 0
+        shopCarAllParam: options.shopCarAllParam || 0,
+        yunfei: options.yunfei || 0,
+        packageAmount: options.packageAmount || 0,
+        orderType: options.orderType || 0,
       })
     }
     this.getCoupon();
@@ -36,7 +39,7 @@ Page({
       },
       success: function (res) {
         console.log(res);
-        let listMoney = that.data.shopCarAllPriceUser - that.data.repacksAmount;
+        let listMoney = that.data.shopCarAllParam - that.data.repacksAmount;
         if (!that.data.init) {//判断是否是订单跳转
           listMoney = 100000;
         }
@@ -66,6 +69,14 @@ Page({
           },
           success: function (r) {
             var lastPage = app.getPage(-1);
+
+            var carPrice = 0;
+            if (that.data.orderType == 1) {//判断是哪种取餐方式
+              carPrice = r.price - data.coupon.amount - that.data.repacksAmount + Number(that.data.yunfei) + Number(that.data.packageAmount)
+            } else {
+              carPrice = r.price - data.coupon.amount - that.data.repacksAmount;
+            }
+
             lastPage.setData({
               couponInfo: { 
                 amount: data.coupon.amount,
@@ -73,7 +84,8 @@ Page({
               },
               repacksAmount:that.data.repacksAmount,
               couponsAmount: data.coupon.amount,
-              shopCarAllPrice: r.price - data.coupon.amount - that.data.repacksAmount
+              shopCarAllPrice: carPrice,
+              shopCarAllSum: r.price - data.coupon.amount - that.data.repacksAmount
             })
             app.back();
           },

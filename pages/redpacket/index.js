@@ -4,7 +4,7 @@ var that;
 Page({
   data: {
     couponsAmount:0,
-    shopCarAllPriceUser:0,
+    shopCarAllParam:0,
   },
   toUse(){ // 立即使用
     wx.switchTab({
@@ -18,7 +18,10 @@ Page({
         init: options.init,
         shopCarId: options.shopCarId,
         couponsAmount: options.couponsAmount || 0,
-        shopCarAllPriceUser: options.shopCarAllPriceUser || 0
+        shopCarAllParam: options.shopCarAllParam || 0,
+        yunfei: options.yunfei || 0,
+        packageAmount: options.packageAmount || 0,
+        orderType: options.orderType || 0,
       })
     }
     this.getRepacks();
@@ -31,7 +34,8 @@ Page({
       },
       success: function (res) {
         console.log(res);
-        let listMoney = that.data.shopCarAllPriceUser - that.data.couponsAmount;
+        let listMoney = that.data.shopCarAllParam - that.data.couponsAmount;
+        console.log(that.data.shopCarAllParam)
         if(!that.data.init){//判断是否是订单跳转
           listMoney = 100000;
         }
@@ -60,6 +64,14 @@ Page({
           },
           success: function (r) {
             var lastPage = app.getPage(-1);
+
+            var carPrice = 0;
+            if (that.data.orderType == 1){//判断是哪种取餐方式
+              carPrice = r.price - data.coupon.amount - that.data.couponsAmount + Number(that.data.yunfei) + Number(that.data.packageAmount)
+            }else{
+              carPrice = r.price - data.coupon.amount - that.data.couponsAmount;
+            }
+
             lastPage.setData({
               redpacketInfo: {
                 amount: data.coupon.amount,
@@ -67,7 +79,8 @@ Page({
               },
               couponsAmount: that.data.couponsAmount,
               repacksAmount: data.coupon.amount,
-              shopCarAllPrice: r.price - data.coupon.amount - that.data.couponsAmount
+              shopCarAllPrice: carPrice,
+              shopCarAllSum: r.price - data.coupon.amount - that.data.couponsAmount
             })
             app.back();
           },
