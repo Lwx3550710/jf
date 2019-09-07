@@ -144,7 +144,11 @@ App({
       method: obj.type || 'GET',
       header: header,
       success: function (res) {
-        typeof obj.success == "function" && obj.success(res.data.value)
+        if(obj.allData == true){
+          typeof obj.success == "function" && obj.success(res.data)
+        }else{
+          typeof obj.success == "function" && obj.success(res.data.value)
+        }
       },
       fail: obj.fail || function () { },
     })
@@ -223,7 +227,7 @@ App({
       call && call('fail', error);
     })
   },
-  getShopInfo(call,type) { // 获取门店信息
+  getShopInfo(call,type,shopSelect) { // 获取门店信息
     var location = that.globalData.chooseLocation;
     if (type==true){
       var json = {
@@ -246,10 +250,12 @@ App({
         }
 
         if (r.list.length > 0) {
-          var s = r.list[0];
-          that.globalData.shopid = s.id;
-          s.distance = parseInt(s.distance);
-          that.globalData.shopInfo = s;
+          if(shopSelect != true){
+            var s = r.list[0];
+            that.globalData.shopid = s.id;
+            s.distance = parseInt(s.distance);
+            that.globalData.shopInfo = s;
+          }
         }
         
         call && call(r);

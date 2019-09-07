@@ -7,8 +7,8 @@ Page({
    */
   data: {
     hasOrder:true,
+    dadaMobile:'',
   },
-
   /**
    * 生命周期函数--监听页面加载
    */
@@ -23,12 +23,11 @@ Page({
       },
       success: function (res) {
         console.log(res)
-
-        if(res.length>0){
-          var data = res[0];
+        var data = res[0];
+        if (res.length > 0 && data.status < 6){//判断有数据 且 订单进行中
           that.setData({
             dadaName: data.dadaName || '--',
-            dadaMobile: data.dadaMobile,
+            dadaMobile: data.dadaMobile || '',
             goodItem: data.other.items,
             price: data.price || 0,
             code: data.code || '--',
@@ -38,6 +37,20 @@ Page({
           })
         }
       },
+    })
+  },
+  toChooseShopPage() { // 选择门店
+    app.openUrl('mapShop', 'type=qucan');
+  },
+  calling: function () {
+    wx.makePhoneCall({
+      phoneNumber: that.data.dadaMobile, //此号码并非真实电话号码，仅用于测试
+      success: function () {
+        console.log("拨打电话成功！")
+      },
+      fail: function () {
+        console.log("拨打电话失败！")
+      }
     })
   },
   goToOrder(){

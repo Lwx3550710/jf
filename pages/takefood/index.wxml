@@ -9,8 +9,8 @@
           <view class="process" wx:if="{{type==0 || type==2}}">
               <view class="no">{{code}}</view>
               <view class="jd">您的餐品正在制作中</view>
-              <view class="store">
-                  <b>{{shopName}}</b>
+              <view class="store" bindtap="toChooseShopPage">
+                  <b>{{shopName}} ></b>
               </view>
           </view>
 
@@ -21,7 +21,7 @@
                 <image src="../../images/images/ddps.png"></image>
               </view> 
               <text class="wm-info">骑手配送中，请耐心等候...</text>
-              <view class="wm-contact">联系骑手</view>
+              <view class="wm-contact" bindtap="calling">联系骑手</view>
           </view>
 
 
@@ -34,10 +34,8 @@
                   </view>
                   <view class="box2">{{item.goodItems[0].name}}</view>
               </view>
-
-
-             
           </view>
+
           <view class="total">
               <dl>
                   <dt>总计</dt>

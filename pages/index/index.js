@@ -426,12 +426,16 @@ Page({
     that.setData({
       ['shopCarList[' + index + '].num']: nowNum,
     })
+    var hasGoodTtem = '';
+    if (shopCarLi.attr){
+      hasGoodTtem = shopCarLi.attr[0].id;
+    }
     if (nowNum >= 1) {
       var productArr = [{
         id: shopCarLi.id,
         goodId: shopCarLi.gid,
         num: nowNum,
-        itemIds: shopCarLi.attr[0].id || '',
+        itemIds: hasGoodTtem,
       }];
       app.ajax({
         url: 'shop/insertCart',
@@ -461,17 +465,24 @@ Page({
     var index = app.attr(e, 'index');
     var shopCarLi = that.data.shopCarList[index];
     // return e.detail.value.replace(/[^1-9]/g, '');
-    var nowNum = Number(e.detail.value.replace(/[^1-9]/g, ''));
+    var nowNum = Number(e.detail.value.replace(/[^0-9]/g, ''));
+    if(nowNum == 0){
+      nowNum = 1;
+    }
     that.setData({
       ['shopCarList['+index+'].num']: nowNum,
     })
-
+    var hasGoodTtem = '';
+    if (shopCarLi.attr) {
+      hasGoodTtem = shopCarLi.attr[0].id;
+    }
     var productArr = [{
       id: shopCarLi.id,
       goodId: shopCarLi.gid,
       num: nowNum,
-      itemIds: shopCarLi.attr[0].id || '',
+      itemIds: hasGoodTtem || '',
     }];
+
     app.ajax({
       url: 'shop/insertCart',
       formPost: true,
@@ -492,11 +503,15 @@ Page({
     that.setData({
       ['shopCarList[' + index + '].num']: nowNum,
     })
+    var hasGoodTtem = '';
+    if (shopCarLi.attr) {
+      hasGoodTtem = shopCarLi.attr[0].id;
+    }
     var productArr = [{
       id: shopCarLi.id,
       goodId: shopCarLi.gid,
       num: nowNum,
-      itemIds: shopCarLi.attr[0].id||'',
+      itemIds: hasGoodTtem,
     }];
     app.ajax({
       url: 'shop/insertCart',
@@ -506,6 +521,7 @@ Page({
         goodJson: JSON.stringify(productArr),
       },
       success: function (r) {
+        console.log(r)
         that.getShopCar();
       },
     })

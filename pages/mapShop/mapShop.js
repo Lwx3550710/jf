@@ -61,6 +61,7 @@ Page({
     var d = that.data.shopList[index];
     appData.shopid = d.id;
     appData.shopInfo = d;
+    console.log(appData)
     appData.chooseLocation = {
       lat: d.lati,
       long: d.longt,
@@ -70,6 +71,7 @@ Page({
   showShop(e) { // 显示门店
     var index = app.attr(e, 'index');
     var d = that.data.shopList[index];
+    console.log(that.data.markerList);
     that.setData({
       chooseLocation: {
         lat: d.lati,
@@ -116,10 +118,26 @@ Page({
       that.setData({
         shopList: r.list || [],
         allList: r.list||[],
-        // markers: markerArr,
         markerList: markerArr,
       })
-    });
+
+      if (options.type == 'qucan') {//判断是否是取餐页面
+        console.log(appData.shopInfo)
+        that.data.markerList.forEach(item => {
+          if (item.callout.content.replace('>', '') == appData.shopInfo.name) {
+            that.setData({
+              chooseLocation: {
+                lat: item.latitude,
+                long: item.longitude,
+              },
+              markers: [item],
+            })
+          }
+        })
+      }
+    },false,true);
+
+    
 	},
 	onShareAppMessage() { },
 })

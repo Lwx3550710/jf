@@ -86,10 +86,10 @@
 	</view>
 	<view class="line df hao noBor">
 		<view class="cap"></view>
-		<view class="txt flex-1 big">共{{shopCarAllNum}}个商品，小计：<em>￥{{shopCarAllPrice}}</em></view>
+		<view class="txt flex-1 big">共{{shopCarAllNum}}个商品，小计：<em>￥{{tools.toFixedTwo(shopCarAllPrice)}}</em></view>
 	</view>
 </view>
-<view class="uBox" style="margin-bottom: 108rpx;">
+<view class="uBox" style="padding-bottom: 88rpx;">
 	<view class="line df hao noBor" bindtap="showPayType">
 		<view class="cap">支付方式</view>
 		<view class="txt flex-1 df hao war">
@@ -110,7 +110,7 @@
 	</view>
 </view>
 <view class="fixedTool df hao">
-	<view class="flex-1 price">￥{{shopCarAllPrice}}</view>
+	<view class="flex-1 price">￥{{tools.toFixedTwo(shopCarAllPrice)}}</view>
 	<view class="pay" bindtap="toPay">支付</view>
 </view>
 
@@ -120,7 +120,7 @@
     <view class="top">选择支付方式 <view class="close df hao wao" bindtap="hidePayType"><image src="/images/sg-img/pay-close.png"></image></view></view>
     <view class="pd df cf hao wao">
       <view class="pd-1">{{shopCarList[0].name}}{{shopCarList.length>1?' 等...':''}}</view>
-      <view class="pd-2"><em>￥</em>{{shopCarAllPrice}}</view>
+      <view class="pd-2"><em>￥</em>{{tools.toFixedTwo(shopCarAllPrice)}}</view>
       <view class="pd-3">共{{shopCarAllNum}}件商品</view>
     </view>
     <view class="choose df hao" bindtap="choosePayType" data-val="0">

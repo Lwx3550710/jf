@@ -247,7 +247,7 @@
 }
 
 .spCarBox {
-  position: fixed;
+  position: absolute;
   z-index: 88;
   top: 0;
   left: 0;
