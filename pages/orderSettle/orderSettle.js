@@ -11,8 +11,8 @@ Page({
     shopCarNum: 0, // 购物袋数量
     shopCarAllNum: 0, // 商品总数量
     shopCarAllPrice: 0, // 购物袋总价
-    shopCarAllParam: 0, // 购物袋总价(传参用)
-    shopCarAllPSum: 0, // 购物袋总价(传参用 计算用)
+    shopCarAllParam: 0, // 购物袋总价(传参)
+    shopCarAllPSum: 0, // 购物袋总价(传参 计算用)
     shopCarAllSum: 0, // 购物袋总价(切换取餐方式 计算用)
     canChooseRedCar: false, // 是否可选择红包
     canChooseCoupons: false, // 是否可选择优惠券
@@ -81,7 +81,6 @@ Page({
     that.setData({
       orderType: index,
     })
-    console.log(index)
     if (index == 1) {
       that.setData({
         shopCarAllPrice: that.data.shopCarAllSum + that.data.yunfei + that.data.packageAmount, // 购物袋总价
@@ -249,10 +248,10 @@ Page({
           mobile: phoneVal,
           sendAmount: that.data.yunfei
         },
-        success: function(r) {
-          console.log(r)
-          if (r.value) {
-            var data = r.value;
+        success: function(res) {
+          console.log(res)
+          if (res.value) {
+            var data = res.value;
             wx.requestPayment({
               'timeStamp': data.timeStamp,
               'nonceStr': data.nonceStr,
@@ -265,9 +264,7 @@ Page({
                   content: '您已经支付成功',
                   showCancel: false,
                   success: function() {
-                    wx.switchTab({
-                      url: '/pages/takefood/index',
-                    })
+                    app.openUrl('orderDetails', 'oid=' + res.value);
                   },
                 })
               },
@@ -306,15 +303,16 @@ Page({
         },
         success: function(r) {
           console.log(r);
-          if (r.value == 'ok') {
+          if (r.value) {
             wx.showModal({
               title: '温馨提示',
               content: '您已经支付成功',
               showCancel: false,
               success: function() {
-                wx.switchTab({
-                  url: '/pages/takefood/index',
-                })
+                // wx.switchTab({
+                //   url: '/pages/takefood/index',
+                // })
+                app.openUrl('orderDetails', 'oid=' + r.value);
               },
             })
           } else {
@@ -406,7 +404,6 @@ Page({
     that.setData({
       orderType: (options.way == '自取' ? 0 : (options.way == '外卖' ? 1 : 2)), // [0 自取] [1 外卖] [2 堂食]
     })
-
     that.setTakeTimeData();
   },
   getCoupon: function() { //获取优惠券
@@ -513,9 +510,8 @@ Page({
           // console.log(res);
           that.setData({
             yunfei: res,
-            shopCarAllPrice: that.data.shopCarAllPrice + res, // 购物袋总价
-            shopCarAllParam: that.data.shopCarAllParam + res,
-            shopCarAllPSum: that.data.shopCarAllPSum + res,
+            shopCarAllPrice: that.data.shopCarAllPSum - that.data.repacksAmount - that.data.couponsAmount + res, // 购物袋总价
+            shopCarAllParam: that.data.shopCarAllPSum + res,
           })
         },
       })

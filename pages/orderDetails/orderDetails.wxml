@@ -94,7 +94,7 @@
 	</view>
 	<view class="line df hao noBor">
 		<view class="cap">下单时间</view>
-		<view class="txt flex-1"><em>{{odo.finishTime||'--'}}</em></view>
+		<view class="txt flex-1"><em>{{odo.createTime||'--'}}</em></view>
 	</view>
 	<view class="line df hao noBor">
 		<view class="cap">订单备注</view>
