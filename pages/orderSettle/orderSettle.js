@@ -12,8 +12,8 @@ Page({
     shopCarAllNum: 0, // 商品总数量
     shopCarAllPrice: 0, // 购物袋总价
     shopCarAllParam: 0, // 购物袋总价(传参)
-    shopCarAllPSum: 0, // 购物袋总价(传参 计算用)
-    shopCarAllSum: 0, // 购物袋总价(切换取餐方式 计算用)
+    shopCarAllPSum: 0, // 购物袋总价(传参 计算用 不包含优惠券跟红包 配送费 包含包装费) 
+    shopCarAllSum: 0, // 购物袋总价(切换取餐方式 计算用 不包含配送费 包装费 包含优惠券跟红包 )
     canChooseRedCar: false, // 是否可选择红包
     canChooseCoupons: false, // 是否可选择优惠券
     addressInfo: { // 外卖地址
@@ -92,6 +92,7 @@ Page({
         shopCarAllParam: that.data.shopCarAllPSum - that.data.yunfei - that.data.packageAmount
       })
     }
+    that.getCoupon();
   },
   showPayType() {
     that.getMyMoney();
@@ -249,7 +250,7 @@ Page({
           sendAmount: that.data.yunfei
         },
         success: function(res) {
-          console.log(res)
+          //console.log(res)
           if (res.value) {
             var data = res.value;
             wx.requestPayment({
@@ -302,7 +303,7 @@ Page({
           sendAmount: that.data.yunfei
         },
         success: function(r) {
-          console.log(r);
+          //console.log(r);
           if (r.value) {
             wx.showModal({
               title: '温馨提示',
@@ -413,7 +414,17 @@ Page({
         userId: app.globalData.userid,
       },
       success: function(res) {
-        console.log(res);
+        //console.log(res);
+        
+        //重置
+        that.setData({
+          canChooseCoupons: false,
+          couponsAmount: 0,
+          couponInfo: {},
+          shopCarAllPrice: Number(that.data.shopCarAllPrice) + that.data.couponsAmount,
+          shopCarAllSum: Number(that.data.shopCarAllSum)  + that.data.couponsAmount
+        })
+
         let Num = 0;
         let amountArray = [];
         if (res.list.length > 0) {
@@ -457,7 +468,16 @@ Page({
         userId: app.globalData.userid,
       },
       success: function(res) {
-        console.log(res);
+        //console.log(res);
+
+        //重置
+        that.setData({
+          canChooseRedCar: false,
+          repacksAmount: 0,
+          redpacketInfo: {},
+          shopCarAllPrice: Number(that.data.shopCarAllPrice) + that.data.repacksAmount,
+          shopCarAllSum: Number(that.data.shopCarAllSum) + that.data.repacksAmount
+        })
 
         let Num = 0;
         let amountArray = [];
