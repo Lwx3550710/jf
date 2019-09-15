@@ -17,6 +17,7 @@ Page({
   chooseAddress(e){
     var index = app.attr(e,'index');
     var data = that.data.addressData[index];
+    console.log(data)
     if (that.data.init == 'orderSettle') { // 订单结算
       var lastPage = app.getPage(-1);
       lastPage.setData({
@@ -25,7 +26,8 @@ Page({
           name: data.name,
           phone: data.mobile,
           txt: data.address,
-          type: data.type
+          type: data.type,
+          detail: data.detail
         },
       })
       app.back();

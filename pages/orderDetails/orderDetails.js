@@ -1,5 +1,6 @@
 var app = getApp();
 var appData = app.globalData;
+var util = require("../../utils/util.js");
 var that;
 Page({
   data: {
@@ -19,6 +20,10 @@ Page({
       },
       success: function (r) {
         // console.log(r);
+        var takeTime = r.takeTime;
+        if (takeTime != '尽快取餐'){
+          r.takeTime = util.formatTime(takeTime);
+        }
         that.setData({
           odo: r,
           stateData: that.getStateData(r.status,r),

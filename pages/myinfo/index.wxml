@@ -35,7 +35,6 @@
                 <view class="form-input"><input name="birth" value="{{date}}" class="i-text" placeholder="请输入生日信息，保存后不可修改" placeholder-class="placeholder" disabled="disabled"></input></view>
               </picker> 
             </block>
-
         </view>
 
     </view>

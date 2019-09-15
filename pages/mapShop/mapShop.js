@@ -17,6 +17,7 @@ Page({
     shopList: [], // 门店
     searchHide: true,
     searchVal: '',
+    area:'--',
 	},
   openSearch(){ // 开启搜索门店
     that.setData({
@@ -61,7 +62,6 @@ Page({
     var d = that.data.shopList[index];
     appData.shopid = d.id;
     appData.shopInfo = d;
-    console.log(appData)
     appData.chooseLocation = {
       lat: d.lati,
       long: d.longt,
@@ -71,13 +71,13 @@ Page({
   showShop(e) { // 显示门店
     var index = app.attr(e, 'index');
     var d = that.data.shopList[index];
-    console.log(that.data.markerList);
     that.setData({
       chooseLocation: {
         lat: d.lati,
         long: d.longt,
       },
       // markers: that.data.markers,
+      area: that.data.shopList[index].address,
       markers: [ that.data.markerList[index] ],
     })
   },
@@ -122,15 +122,17 @@ Page({
       })
 
       if (options.type == 'qucan') {//判断是否是取餐页面
-        console.log(appData.shopInfo)
+        console.log(appData.shopInfo.address)
         that.data.markerList.forEach(item => {
           if (item.callout.content.replace('>', '') == appData.shopInfo.name) {
+            console.log(item)
             that.setData({
               chooseLocation: {
                 lat: item.latitude,
                 long: item.longitude,
               },
               markers: [item],
+              area: appData.shopInfo.address
             })
           }
         })

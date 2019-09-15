@@ -81,13 +81,16 @@ overflow-y: auto;
 
 }
 
+.menu_bd ul{
+  height: 100%;
+}
+
 .menu_bd li {
-  line-height: 120rpx;
+  line-height: 50rpx;
   font-size: 28rpx;
   color: #999;
   text-align: center;
   padding: 0 10rpx;
-  display: block;
 }
 
 .menu_bd li.active {
@@ -117,21 +120,34 @@ overflow-y: auto;
   clear: both;
   display: flex;
   overflow: hidden;
+  position: relative;
+  margin-top: 10rpx;
+
 }
 
 .wrapper_bd .items .food-image {
   width: 120rpx;
-  margin-top:10rpx;
+  height: 120rpx;
+  margin-top: 20rpx;
   margin-right: 20rpx;
+  position: relative;
+  overflow: hidden;
+
 }
 
 .wrapper_bd .items .food-image image {
   width: 120rpx;
   height: 120rpx;
+  position: absolute;
+  transform: translate(-50%,-50%);
+  top:50%;
+  left:50%;
 }
 
 .wrapper_bd .items .food-info {
   width: 100%;
+  position: absolute;
+  left: 140rpx;
 }
 
 .wrapper_bd .items .food-info .name {

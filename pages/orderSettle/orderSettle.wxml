@@ -8,7 +8,7 @@
 	</view>
 	<view class="address df cf wao" hidden="{{orderType!=1}}" bindtap="toChooseAddressPage">
     <view class="one ov-d" hidden="{{addressInfo.id!=''}}">请选择外卖配送的地址</view>
-    <view class="one ov-d" hidden="{{addressInfo.id==''}}">{{addressInfo.txt}}</view>
+    <view class="one ov-d" hidden="{{addressInfo.id==''}}">{{addressInfo.txt}}-{{addressInfo.detail}}</view>
     <view class="two" hidden="{{addressInfo.id==''}}">{{addressInfo.name}} {{addressInfo.type == 1?'女':'男'}} {{addressInfo.phone}}</view>
 		<image src="/images/sg-img/arrow.png"></image>
 	</view>

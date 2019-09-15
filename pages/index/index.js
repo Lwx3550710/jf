@@ -48,7 +48,7 @@ Page({
     bannerImg:[],//匠方轮播
 	},
 	toChooseShopPage() { // 选择门店
-		app.openUrl('mapShop');
+		app.openUrl('mapShop', 'type=qucan');
 	},
 	toOrderSettlePage() { // 去结算
     if (that.data.shopCarList.length==0){

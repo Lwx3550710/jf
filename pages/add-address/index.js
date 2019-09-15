@@ -13,6 +13,9 @@ Page({
         id: options.id
       })
       if (options.type == 'edit') {
+        wx.setNavigationBarTitle({
+          title: '编辑地址'
+        })
         that.getAddress();//获取地址详情
       }
     }

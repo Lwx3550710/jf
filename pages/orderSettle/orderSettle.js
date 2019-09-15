@@ -270,11 +270,11 @@ Page({
                 })
               },
               'fail': function(r) {
-                wx.showModal({
-                  title: '支付失败',
-                  content: '支付失败，请稍后重试',
-                  showCancel: false,
-                })
+                // wx.showModal({
+                //   title: '支付失败',
+                //   content: '支付失败，请稍后重试',
+                //   showCancel: false,
+                // })
               },
             })
           } else {

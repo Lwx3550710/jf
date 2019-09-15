@@ -19,7 +19,7 @@
         <view class="status" wx:if="{{item.status == 6}}">已送达</view>
         <view class="status" wx:if="{{item.status == 9}}">取消订单</view>
       </view>
-      <view class="bd" wx:for="{{item.goods}}" wx:key="index" wx:for-item="goods">
+      <view class="bd" wx:for="{{item.goods}}" wx:if="{{index<2}}" wx:key="index" wx:for-item="goods">
         <span>￥{{goods.price}}</span>
         <p>{{goods.name}}</p>
       </view>

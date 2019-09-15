@@ -1,5 +1,5 @@
 <view class="top df hao">
-	<view class="address df hao flex-1">成都市 武侯区 <image src="/images/sg-img/arrow.png"></image></view>
+	<view class="address df hao flex-1">{{area}}</view>
 	<view class="search df hao" bindtap="openSearch"><image src="/images/sg-img/search.png"></image>搜索</view>
 	<view class="searchInput df hao" hidden="{{searchHide}}">
     <input placeholder="请输入门店或地址搜索" value="{{searchVal}}" bindinput="bindSearchInput"></input>
