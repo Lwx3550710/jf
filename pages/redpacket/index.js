@@ -35,19 +35,20 @@ Page({
       success: function (res) {
         console.log(res);
         let listMoney = that.data.shopCarAllParam - that.data.couponsAmount;
-        console.log(that.data.shopCarAllParam)
         if(!that.data.init){//判断是否是订单跳转
           listMoney = 100000;
         }
         let listArray = [];
         res.list.forEach(item => {//筛选出符合购物袋总价的条件
-          if (item.coupon.amount < listMoney) {
+          if (item.coupon.amount < listMoney || item.status == 2 || item.status == 1) {
             listArray.push(item);
           }
         })
         that.setData({
           repacksData: listArray,
         })
+
+        console.log(that.data.repacksData)
       },
     })
   },

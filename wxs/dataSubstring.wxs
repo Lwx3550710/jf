@@ -1,9 +1,7 @@
 var dateSubstring = function (val) { //截取后台返回的时间字段
-  console.log(val)
   if (val.length == 0 || val == undefined) {
     return;
   }
-  console.log(val)
   return val.substring(0, 10);
 }
 
@@ -11,7 +9,6 @@ var dateMSSubstring = function (val) { //截取后台返回的时间字段 返�
   if (val.length == 0 || val == undefined) {
     return;
   }
-  console.log(val)
   return val.substring(11, 16);
 }
 
@@ -19,8 +16,7 @@ var toFixedTwo = function (val) { //截取小数点后两位
   if (val.length == 0 || val == undefined) {
     return;
   }
-  console.log(val)
-  return val.toFixed(2);
+  return Number(val).toFixed(2);
 }
 
 module.exports = {

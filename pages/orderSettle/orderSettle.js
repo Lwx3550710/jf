@@ -61,14 +61,10 @@ Page({
     // app.openUrl('mapShop');
   },
   toChooseRedCarPage() { // 选择红包
-    if (that.data.canChooseRedCar) {
       app.openUrl('redpacket/index', 'init=orderSettle&shopCarId=' + that.data.shopCarId + '&couponsAmount=' + that.data.couponsAmount + '&shopCarAllParam=' + that.data.shopCarAllParam + '&yunfei=' + that.data.yunfei + '&packageAmount=' + that.data.packageAmount + '&orderType=' + that.data.orderType);
-    }
   },
   toChooseCoupons() { // 选择优惠券
-    if (that.data.canChooseCoupons) {
       app.openUrl('coupons/index', 'init=orderSettle&shopCarId=' + that.data.shopCarId + '&repacksAmount=' + that.data.repacksAmount + '&shopCarAllParam=' + that.data.shopCarAllParam + '&yunfei=' + that.data.yunfei + '&packageAmount=' + that.data.packageAmount + '&orderType=' + that.data.orderType);
-    }
   },
   agreePayType() {
     that.setData({
@@ -83,13 +79,13 @@ Page({
     })
     if (index == 1) {
       that.setData({
-        shopCarAllPrice: that.data.shopCarAllSum + that.data.yunfei + that.data.packageAmount, // 购物袋总价
-        shopCarAllParam: that.data.shopCarAllPSum
+        shopCarAllPrice: Number(that.data.shopCarAllSum) + Number(that.data.yunfei) + Number(that.data.packageAmount), // 购物袋总价
+        shopCarAllParam: Number(that.data.shopCarAllPSum)
       })
     } else {
       that.setData({
-        shopCarAllPrice: that.data.shopCarAllSum, // 购物袋总价
-        shopCarAllParam: that.data.shopCarAllPSum - that.data.yunfei - that.data.packageAmount
+        shopCarAllPrice: Number(that.data.shopCarAllSum), // 购物袋总价
+        shopCarAllParam: Number(that.data.shopCarAllPSum) - Number(that.data.yunfei) - Number(that.data.packageAmount)
       })
     }
     that.getCoupon();
@@ -247,7 +243,7 @@ Page({
           type: orderType,
           takeTime: takeTime,
           mobile: phoneVal,
-          sendAmount: that.data.yunfei
+          sendAmount: that.data.yunfei || 0 
         },
         success: function(res) {
           //console.log(res)
@@ -300,7 +296,7 @@ Page({
           type: orderType,
           takeTime: takeTime,
           mobile: phoneVal,
-          sendAmount: that.data.yunfei
+          sendAmount: that.data.yunfei || 0
         },
         success: function(r) {
           //console.log(r);
@@ -469,14 +465,11 @@ Page({
       },
       success: function(res) {
         //console.log(res);
-
         //重置
         that.setData({
           canChooseRedCar: false,
           repacksAmount: 0,
-          redpacketInfo: {},
-          shopCarAllPrice: Number(that.data.shopCarAllPrice) + that.data.repacksAmount,
-          shopCarAllSum: Number(that.data.shopCarAllSum) + that.data.repacksAmount
+          redpacketInfo: {}
         })
 
         let Num = 0;

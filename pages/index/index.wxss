@@ -145,7 +145,7 @@ overflow-y: auto;
 }
 
 .wrapper_bd .items .food-info {
-  width: 100%;
+  width: 370rpx;
   position: absolute;
   left: 140rpx;
 }

@@ -27,7 +27,7 @@
         <view class="food_bd">
           <view class="menu_bd">
             <ul class="flex flv">
-                <li class="{{shopMenuIndex==index?'active':''}} flex-1 flex ai jcc" bindtap="chooseShopMenu" wx:for="{{shopData}}" wx:key="index" data-type="{{index}}">{{item.name}}</li>
+                <li class="{{shopMenuIndex==index?'active':''}} flex-1 flex ai jcc" bindtap="chooseShopMenu" wx:for="{{shopData}}" wx:key="index" data-type="{{index}}">{{item.name || '--'}}</li>
             </ul>
           </view>
           <view class="wrapper_bd">

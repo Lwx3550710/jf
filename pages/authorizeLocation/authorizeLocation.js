@@ -8,7 +8,7 @@ Page({
     inViteId:'',//邀请人id
 	},
 	toInitPage() {
-    app.openUrlCs('authorize');
+    app.openUrlCs('authorize','inViteId='+that.data.inViteId);
 	},
 	getData() {
 		that.setData({
@@ -116,11 +116,18 @@ Page({
         head: s.avatarUrl, // 微信头像
         gender: s.gender, // 性别
       }
-
       wx.login({
         success: function (res) {
+          console.log(555)
           // console.log(res)
           if (res.code) {
+            console.log(666)
+
+            console.log(res.code)
+            console.log(that.data.inViteId)
+            console.log(that.data.nickName)
+            console.log(that.data.gender)
+            console.log(that.data.avatarUrl)
             that.code = res.code;
             // 获取openId并缓存
             app.ajax({
@@ -133,15 +140,16 @@ Page({
                 gender: that.data.gender,
                 avatarUrl: that.data.avatarUrl
               },
-              noUserid:true,
               header: {
                 'content-type': 'application/x-www-form-urlencoded'
               },
               success: function (r) {
-                // console.log(r)
+                console.log(777)
+                console.log(r)
                 appData.userOpenid = r.openId;
                 appData.userid = r.userId;
                 appData.sessionKey = r.session_key;
+                console.log(888)
                 wx.switchTab({
                   url: '/pages/index/index',
                 })

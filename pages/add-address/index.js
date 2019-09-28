@@ -62,7 +62,15 @@ Page({
         duration: 1500
       })
       return false;
+    }else if (!(/^1[34578]\d{9}$/.test(e.detail.value.mobile))) {
+      wx.showToast({
+        title: '输入正确手机号!',
+        icon: 'loading',
+        duration: 1500
+      })
+      return false; 
     }
+    
     that.setData({
       name: e.detail.value.name,
       sex: e.detail.value.sex,
@@ -101,6 +109,16 @@ Page({
    */
   onReady: function () {
 
+  },
+
+  handleInput(e) {
+    let mph = this.validateNumber(e.detail.value)
+    this.setData({
+      mph
+    })
+  },
+  validateNumber(val) {
+    return val.replace(/[^\w]/g, '')
   },
 
   /**

@@ -37,6 +37,8 @@ Page({
       },
     })
   },
-  onShow: function () {},
+  onShow: function () {
+    that.getUserData();
+  },
   onShareAppMessage: function () {}
 })

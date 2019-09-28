@@ -48,3 +48,6 @@
     text-align: center;
     background:#C79F62;
 }
+.shouhuodozhi{
+  padding-right: 30rpx;
+}

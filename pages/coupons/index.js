@@ -45,7 +45,7 @@ Page({
         }
         let listArray = [];
         res.list.forEach(item=>{//筛选出符合购物袋总价的条件
-          if (item.coupon.amount < listMoney){
+          if (item.coupon.amount < listMoney || item.status == 2 || item.status == 1){
             listArray.push(item);
           }
         })
@@ -72,11 +72,10 @@ Page({
 
             var carPrice = 0;
             if (that.data.orderType == 1) {//判断是哪种取餐方式
-              carPrice = r.price - data.coupon.amount - that.data.repacksAmount + Number(that.data.yunfei) + Number(that.data.packageAmount)
+              carPrice = Number(r.price) - Number(data.coupon.amount) - Number(that.data.repacksAmount) + Number(that.data.yunfei) + Number(that.data.packageAmount)
             } else {
-              carPrice = r.price - data.coupon.amount - that.data.repacksAmount;
+              carPrice = Number(r.price) - Number(data.coupon.amount) - Number(that.data.repacksAmount);
             }
-
             lastPage.setData({
               couponInfo: { 
                 amount: data.coupon.amount,
@@ -84,8 +83,8 @@ Page({
               },
               repacksAmount:that.data.repacksAmount,
               couponsAmount: data.coupon.amount,
-              shopCarAllPrice: carPrice,
-              shopCarAllSum: r.price - data.coupon.amount - that.data.repacksAmount
+              shopCarAllPrice: Number(carPrice),
+              shopCarAllSum: Number(r.price) - Number(data.coupon.amount) - Number(that.data.repacksAmount)
             })
             app.back();
           },

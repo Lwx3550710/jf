@@ -120,7 +120,7 @@ Page({
   },
 	showShopCar(e){ // 显示购物袋
 		that.setData({
-			isShowShopCar: true,
+      isShowShopCar: !this.data.isShowShopCar,
 		})
     that.getShopCar();
 	},

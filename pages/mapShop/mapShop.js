@@ -122,10 +122,8 @@ Page({
       })
 
       if (options.type == 'qucan') {//判断是否是取餐页面
-        console.log(appData.shopInfo.address)
         that.data.markerList.forEach(item => {
           if (item.callout.content.replace('>', '') == appData.shopInfo.name) {
-            console.log(item)
             that.setData({
               chooseLocation: {
                 lat: item.latitude,

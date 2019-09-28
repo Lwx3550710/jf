@@ -90,7 +90,7 @@
 	</view>
 	<view class="line df hao noBor">
 		<view class="cap">支付方式</view>
-		<view class="txt flex-1"><em>{{odo.payType==1?'微信支付':'钱包支付'}}</em></view>
+		<view class="txt flex-1"><em>{{odo.payType==0?'微信支付':'钱包支付'}}</em></view>
 	</view>
 	<view class="line df hao noBor">
 		<view class="cap">下单时间</view>
