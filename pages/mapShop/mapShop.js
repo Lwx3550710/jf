@@ -62,10 +62,10 @@ Page({
     var d = that.data.shopList[index];
     appData.shopid = d.id;
     appData.shopInfo = d;
-    appData.chooseLocation = {
-      lat: d.lati,
-      long: d.longt,
-    };
+    // appData.chooseLocation = {
+    //   lat: d.lati,
+    //   long: d.longt,
+    // };
 		app.back();
   },
   showShop(e) { // 显示门店

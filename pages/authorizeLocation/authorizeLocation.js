@@ -52,7 +52,7 @@ Page({
         // } else {
           wx.getLocation({
             success: function (r) {
-              // console.log(r);
+              console.log(r);
               success && success({
                 lat: r.latitude,
                 long: r.longitude,
@@ -118,16 +118,10 @@ Page({
       }
       wx.login({
         success: function (res) {
-          console.log(555)
           // console.log(res)
           if (res.code) {
-            console.log(666)
 
             console.log(res.code)
-            console.log(that.data.inViteId)
-            console.log(that.data.nickName)
-            console.log(that.data.gender)
-            console.log(that.data.avatarUrl)
             that.code = res.code;
             // 获取openId并缓存
             app.ajax({
@@ -144,12 +138,10 @@ Page({
                 'content-type': 'application/x-www-form-urlencoded'
               },
               success: function (r) {
-                console.log(777)
                 console.log(r)
                 appData.userOpenid = r.openId;
                 appData.userid = r.userId;
                 appData.sessionKey = r.session_key;
-                console.log(888)
                 wx.switchTab({
                   url: '/pages/index/index',
                 })

@@ -33,7 +33,6 @@ Page({
   },
   getUserinfoSuccess: function (e) {
     var s = that.data.userInfo;
-    console.log(11)
     // console.log(s)
     if (s) {
       appData.userInfo = { // 用户微信信息
@@ -44,11 +43,9 @@ Page({
         head: s.avatarUrl, // 微信头像
         gender: s.gender, // 性别
       }
-      console.log(22)
 
       wx.login({
         success: function(res) {
-          console.log(33)
           if (res.code) {
             that.code = res.code;
             // 获取openId并缓存
@@ -66,7 +63,6 @@ Page({
                 'content-type': 'application/x-www-form-urlencoded'
               },
               success: function(r) {
-                console.log(44)
                 // console.log(r)
                 appData.userOpenid = r.openId;
                 appData.userid = r.userId;

@@ -13,8 +13,8 @@
         </view>
         <view class="address"><image mode="widthFix" src="../../images/home/address.png" alt=""></image>
           距您
-          <text wx:if="{{shopInfo.distance<1}}">{{shopInfo.distance*1000}}m</text>
-          <text wx:if="{{shopInfo.distance>=1000}}">{{shopInfo.distance}}km</text>
+          <!-- <text wx:if="{{shopInfo.distance<1}}">{{shopInfo.distance*1000}}m</text> -->
+          <text>{{shopInfo.distance}}km</text>
         </view>
     </view>
     <view class="sifBox flex-1">

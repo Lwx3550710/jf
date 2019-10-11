@@ -30,11 +30,11 @@
 	</view>
 	<view class="line df hao noBor">
 		<view class="cap">包装费</view>
-		<view class="txt flex-1 red">￥{{odo.packageAmount}}</view>
+		<view class="txt flex-1 red">￥{{odo.packageAmount || 0}}</view>
 	</view>
 	<view class="line df hao noBor">
 		<view class="cap">配送费</view>
-		<view class="txt flex-1 red">￥{{odo.sendAmount || '--'}}</view>
+		<view class="txt flex-1 red">￥{{odo.sendAmount || 0}}</view>
 	</view>
 	<view class="line df hao">
 		<view class="cap">优惠券</view>

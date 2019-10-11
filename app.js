@@ -233,6 +233,8 @@ App({
       var json = {
         shopId: that.globalData.shopid,
         key: 0,
+        lati: location.lat,
+        longt: location.long,
       };
     }else{
       var json = {
@@ -244,7 +246,7 @@ App({
       url: (type == true ? 'shop/getById':'shop/selectShop'),
       data: json,
       success: r => {
-        // console.log(r);
+        console.log(r);
         if(type==true){
           r = { list: [r] };
         }

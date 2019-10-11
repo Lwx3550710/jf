@@ -83,6 +83,7 @@ Page({
         shopCarAllParam: Number(that.data.shopCarAllPSum)
       })
     } else {
+      console.log(Number(that.data.shopCarAllSum))
       that.setData({
         shopCarAllPrice: Number(that.data.shopCarAllSum), // 购物袋总价
         shopCarAllParam: Number(that.data.shopCarAllPSum) - Number(that.data.yunfei) - Number(that.data.packageAmount)
@@ -195,7 +196,7 @@ Page({
     var addressId = that.data.addressInfo.id || 0;
     var takeTime = that.data.takeTime;
     var desc = that.data.desc;
-
+    console.log(takeTime);
     if (orderType == 1 && addressId == 0) {
       wx.showModal({
         title: '支付失败',
@@ -261,7 +262,7 @@ Page({
                   content: '您已经支付成功',
                   showCancel: false,
                   success: function() {
-                    app.openUrl('orderDetails', 'oid=' + res.value);
+                    app.openUrl('orderDetails', 'oid=' + res.value.orderId);
                   },
                 })
               },
@@ -417,10 +418,9 @@ Page({
           canChooseCoupons: false,
           couponsAmount: 0,
           couponInfo: {},
-          shopCarAllPrice: Number(that.data.shopCarAllPrice) + that.data.couponsAmount,
-          shopCarAllSum: Number(that.data.shopCarAllSum)  + that.data.couponsAmount
+          shopCarAllPrice: Number(that.data.shopCarAllPrice) + that.data.couponsAmount + that.data.repacksAmount,
+          shopCarAllSum: Number(that.data.shopCarAllSum) + that.data.couponsAmount + that.data.repacksAmount
         })
-
         let Num = 0;
         let amountArray = [];
         if (res.list.length > 0) {

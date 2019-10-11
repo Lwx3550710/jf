@@ -237,11 +237,14 @@ Page({
     });
 	},
   getShopProduct(){//获取产品数据
+    var location = appData.chooseLocation;
     app.ajax({
       url: 'shop/getById',
       data: {
         shopId: appData.shopid,
-        key: ''
+        key: '',
+        lati: location.lat,
+        longt: location.long,
       },
       success: function (res) {
         // console.log(res)
@@ -353,10 +356,22 @@ Page({
     for (var s in sData.chooseAttrId) {
       t.push(sData.chooseAttrId[s]);
     }
+
+  
+    //判断选中商品是否存在购物车
+    var cartProductId = 0;
+    var cartProductNum = sData.num;
+    that.data.shopCarList.forEach(item=>{
+      if (item.gid == sData.id){
+        cartProductId = item.id;
+        cartProductNum = cartProductNum + item.num;
+      }
+    })
+
     var productArr = [{
-      id: 0,
+      id: cartProductId,
       goodId: sData.id,
-      num: sData.num,
+      num: cartProductNum,
       itemIds: t.join('#'),
     }];
 
@@ -564,7 +579,7 @@ Page({
       packageStarArr: [], // 包装数组（用来循环星星）
     })
     app.getShopInfo(r => {
-      // console.log(r);
+      console.log(r);
       var foodStarArr = [], packageStarArr = [];
       for (var i = 0; i < appData.shopInfo.foodStar; i++) {
         foodStarArr.push(1);
