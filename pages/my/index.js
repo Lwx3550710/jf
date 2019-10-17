@@ -1,4 +1,5 @@
 var app = getApp()
+var appData = app.globalData;
 var that;
 
 Page({
@@ -42,6 +43,70 @@ Page({
       'icon': '../../images/my/invest.png',
       'target': 'invest'
     }]
+  },
+  bindGetUserInfo: function (e) {
+    if (e.detail.userInfo) {
+      var that = this;
+      let userInfo = e.detail;
+      wx.login({
+        success: function (res) {
+
+          if (res.code) {
+            that.code = res.code;
+
+            that.setData({
+              iv: userInfo.iv,
+              encryptedData: userInfo.encryptedData,
+              nickName: userInfo.userInfo.nickName,
+              gender: userInfo.userInfo.gender,
+              avatarUrl: userInfo.userInfo.avatarUrl,
+              userInfo: userInfo.userInfo,
+            });
+            // 获取openId并缓存
+            app.ajax({
+              url: 'user/getWechatAuthorize.do',
+              noUserid: true,
+              data: {
+                js_code: res.code,
+                userId: that.data.inViteId,
+                nickName: that.data.nickName,
+                gender: that.data.gender,
+                avatarUrl: that.data.avatarUrl
+              },
+              header: {
+                'content-type': 'application/x-www-form-urlencoded'
+              },
+              success: function (r) {
+                // console.log(r)
+                appData.userOpenid = r.openId;
+                appData.userid = r.userId;
+                wx.switchTab({
+                  url: '/pages/index/index',
+                })
+              }
+            });
+
+
+          } else {
+            console.log('获取用户登录态失败！' + res.errMsg)
+          }
+        }
+      });
+    } else {
+      //用户按了拒绝按钮
+      wx.showModal({
+        title: '警告',
+        content: '您点击了拒绝授权，将无法进入小程序，请授权之后再进入!!!',
+        showCancel: false,
+        confirmText: '返回授权',
+        success: function (res) {
+          // 用户没有授权成功，不需要改变 isHide 的值
+          if (res.confirm) {
+            console.log('用户点击了“返回授权”');
+          }
+        }
+      });
+    }
   },
   getUserData(){ // 获取用户信息
     app.ajax({
@@ -96,24 +161,16 @@ Page({
     })
   },
   myinfo: function (e) {
-    wx.navigateTo({
-      url: `../myinfo/index`
-    })
+    app.openUrl('myinfo/index');
   },
   myScore: function (e) {
-    wx.navigateTo({
-      url: `../myScore/myScore`
-    })
+    app.openUrl('myScore/myScore');
   },
   coupons: function (e) {
-    wx.navigateTo({
-      url: `../coupons/index`
-    })
+    app.openUrl('coupons/index');
   },
   redpacket: function (e) {
-    wx.navigateTo({
-      url: `../redpacket/index`
-    })
+    app.openUrl('redpacket/index');
   },
   myWallet: function (e) {
     if (that.data.isOpenWallet){ // 已开启钱包
@@ -123,15 +180,15 @@ Page({
     }
   },
   bindShowTarget: function(e){
-    wx.navigateTo({
-      url: `../${e.currentTarget.dataset.id}/index`
-    })
+    app.openUrl(e.currentTarget.dataset.id+'/index');
   },
   onLoad(options) {
     that = this;
-    that.getUserData(); // 获取用户信息
   },
   onShow() {
     that.getUserData(); // 获取用户信息
+    that.setData({
+      appDataUserid: appData.userid
+    })
   },
 })

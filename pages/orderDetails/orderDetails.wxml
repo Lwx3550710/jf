@@ -100,4 +100,30 @@
 		<view class="cap">订单备注</view>
 		<view class="txt flex-1">{{odo.remark||'空'}}</view>
 	</view>
+
+  
 </view>
+
+<view class="wallet_alert" wx:if="{{walletAlert}}">
+    <view class="wallet_alert_content">
+      <view class="wallet_alert_title">恭喜你获得￥<text>{{walletAlertTotal || 0}}</text>元的红包</view>
+
+      <view class="wallet_li_all">
+        <view class="wallet_li" wx:for="{{walletAlertArray}}" wx:key="index">
+          <image class="wallet_li_bg" src="../../images/home/alertWallet.png" mode="aspectFill"></image>
+
+          <text class="wallet_li_type" wx:if="{{item.type == 2}}">品质红包</text>
+          <text class="wallet_li_type" wx:if="{{item.type == 1}}">优惠券</text>
+
+          <text class="wallet_li_info">{{item.name || '--'}}</text>
+
+          <view class="wallet_li_money">
+            <view class="wallet_li_moneyNum">￥<text>{{item.amount || 0}}</text></view>
+            <view class="wallet_li_btn" bindtap="alertWalletClose">去使用</view>
+          </view>
+        </view>
+      </view>
+    </view>
+
+    <image bindtap="alertWalletClose" class="alertWalletClose" src="../../images/home/alertWalletClose.png" mode="aspectFill"></image>
+  </view>

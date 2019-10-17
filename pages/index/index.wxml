@@ -3,7 +3,7 @@
 <view class="shop_container">
     <view class="header_bd">
         <view class="store" bindtap="toChooseShopPage">
-            <span>{{shopInfo.name}}</span>
+            <span>{{shopInfo.name || '--'}}</span>
             <image mode="widthFix" src="../../images/takefood/aw.png" class="icon-1" alt=""></image>
         </view>
         <view class="waimai" bindtap="toDiningwayPage">
@@ -112,7 +112,7 @@
       <scroll-view class="sifBox-content" scroll-y="true" hidden="{{curSifMain!='门店'}}">
         <view class="sifBox-spAdd df hao">
           <image src="/images/sg-img/gps.png" class="ig1"></image>
-          <view class="flex-1 ov-d">{{shopInfo.address}}</view>
+          <view class="flex-1 ov-d">{{shopInfo.address || '--'}}</view>
           <image src="/images/sg-img/phone.png" class="ig2" bindtap="makePhone" data-phone="{{shopInfo.mobile}}"></image>
         </view>
         <view class="sifBox-spFood df hao">
@@ -206,4 +206,28 @@
 		</view>
 		<view class="foodCsBox-add" bindtap="addCard">加入购物袋</view>
 	</view>
+</view>
+
+<view class="wallet_alert" wx:if="{{walletAlert}}">
+  <view class="wallet_alert_content">
+    <view class="wallet_alert_title">恭喜你获得￥<text>{{walletAlertTotal || 0}}</text>元的红包</view>
+
+    <view class="wallet_li_all">
+      <view class="wallet_li" wx:for="{{walletAlertArray}}" wx:key="index">
+        <image class="wallet_li_bg" src="../../images/home/alertWallet.png" mode="aspectFill"></image>
+
+        <text class="wallet_li_type" wx:if="{{item.type == 2}}">品质红包</text>
+        <text class="wallet_li_type" wx:if="{{item.type == 1}}">优惠券</text>
+
+        <text class="wallet_li_info">{{item.name || '--'}}</text>
+
+        <view class="wallet_li_money">
+          <view class="wallet_li_moneyNum">￥<text>{{item.amount || 0}}</text></view>
+          <view class="wallet_li_btn" bindtap="alertWalletClose">去使用</view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <image bindtap="alertWalletClose" class="alertWalletClose" src="../../images/home/alertWalletClose.png" mode="aspectFill"></image>
 </view>

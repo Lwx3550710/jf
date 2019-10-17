@@ -4,7 +4,11 @@
         <view class="photo" bindtap="myinfo"><image src="{{headUrl}}"></image></view>
         <view class="info">
             <view class="name">{{nickname || '--'}}</view>
-            <button wx:if="{{shouquan}}" class="btn" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">点击授权</button >
+            <button wx:if="{{!appDataUserid}}" class='btn' type='primary' open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="bindGetUserInfo">
+            授权登录
+            </button>
+
+            <button wx:if="{{shouquan}}" class="btn" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">授权手机号</button >
         </view>
     </view>
     <view class="assets">

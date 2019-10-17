@@ -8,7 +8,10 @@ Page({
     inViteId:'',//邀请人id
 	},
 	toInitPage() {
-    app.openUrlCs('authorize','inViteId='+that.data.inViteId);
+    // app.openUrlCs('authorize', 'inViteId=' + that.data.inViteId);
+    wx.switchTab({
+      url: '/pages/my/index',
+    })
 	},
 	getData() {
 		that.setData({
@@ -106,7 +109,7 @@ Page({
   },
   getUserinfoSuccess: function (e) {
     var s = e.detail.userInfo;
-    // console.log(s)
+    console.log(s)
     if (s) {
       appData.userInfo = { // 用户微信信息
         country: s.country, // 国家

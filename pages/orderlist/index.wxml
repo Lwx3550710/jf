@@ -23,7 +23,11 @@
         <span>￥{{goods.price}}</span>
         <p>{{goods.name}}</p>
       </view>
-      <view class="ft">
+      <view class="ft flex ai jcb">
+        <view class="goodtype" wx:if="{{item.type == 0}}">#自提</view>
+        <view class="goodtype" wx:if="{{item.type == 1}}">#外卖</view>
+        <view class="goodtype" wx:if="{{item.type == 2}}">#堂食</view>
+
         <span class="confirm" wx:if="{{item.status == 0}}" catchtap="cancelOrder" data-id="{{item.id}}">取消订单</span>
         <span class="confirm" wx:if="{{item.status == 2}}" catchtap="confirmOrder" data-id="{{item.id}}">确认取餐</span>
         <span class="confirm" wx:if="{{item.status == 5}}" data-id="{{item.id}}">联系配送员</span>

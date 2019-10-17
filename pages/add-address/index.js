@@ -35,6 +35,7 @@ Page({
           sex: res.type,
           shdz: res.address,
           mph: res.detail,
+          id: res.id,
         })
       },
     })
@@ -94,6 +95,30 @@ Page({
               address: that.data.shdz,
               detail: that.data.mph,
               type: that.data.sex,
+            },
+            success: function (res) {
+              console.log(res)
+              app.back();
+            },
+          })
+        }
+      }
+    })
+  },
+  deleteAddress: function(e){
+    var id = app.attr(e, 'id');
+    wx.showModal({
+      title: '提示',
+      content: '确认要删除地址？',
+      success: function (res) {
+        if (res.confirm) {
+          app.ajax({
+            url: 'user/deleteAddress',
+            formPost: true,
+            noUserid:true,
+            type: 'post',
+            data: {
+              id: id
             },
             success: function (res) {
               console.log(res)

@@ -155,3 +155,116 @@ page {
 .line .txt em {
   color: #333;
 }
+
+/* 弹出红包 */
+.wallet_alert{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color:rgba(0,0,0,0.3);
+  z-index: 1111;
+}
+.wallet_alert .wallet_alert_content{
+  width: 582rpx;
+  height: 590rpx;
+  background: #ff5560;
+  border-radius: 30rpx;
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+}
+.wallet_alert_title{
+  text-align: center;
+  font-size: 24rpx;
+  color: #fff;
+  margin: 25rpx 0;
+}
+.wallet_alert_title text{
+  font-size: 32rpx;
+}
+.wallet_li_all{
+  height: 490rpx;
+  overflow-y: auto;
+
+}
+.wallet_li{
+  position: relative;
+  width: 476rpx;
+  height: 124rpx;
+margin: 0 auto 20rpx auto;
+
+
+}
+.wallet_li_bg{
+  width: 476rpx;
+  height: 124rpx;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.wallet_li_type{
+font-size: 21rpx;
+color: #ff5560;
+position: absolute;
+top: 50%;
+left: 25rpx;
+width: 25rpx;
+line-height: 27rpx;
+transform: translate(0,-50%);
+
+}
+.wallet_li_info{
+position: absolute;
+top: 42rpx;
+left: 110rpx;
+font-size: 24rpx;
+overflow: hidden;/*超出部分隐藏*/
+text-overflow:ellipsis;/* 超出部分显示省略号 */
+white-space: nowrap;/*规定段落中的文本不进行换行 */
+width: 200rpx;
+
+}
+.wallet_li_money{
+position: absolute;
+top: 6rpx;
+right: 18rpx;
+text-align: center;
+
+
+}
+.wallet_li_money .wallet_li_moneyNum{
+ font-size: 25rpx;
+color: #ff5560;
+
+}
+.wallet_li_btn{
+width: 114rpx;
+height: 43rpx;
+background: #ff5560;
+border-radius: 20rpx;
+text-align: center;
+line-height: 43rpx;
+color: #fff;
+font-size: 22rpx;
+
+}
+.wallet_li_moneyNum{
+
+}
+.wallet_li_moneyNum text{
+font-size: 45rpx;
+font-weight: bold;
+
+}
+.alertWalletClose{
+  width: 60rpx;
+  height: 60rpx;
+  position: absolute;
+  bottom: 155rpx;
+  left: 50%;
+  transform: translate(-50%,0);
+
+}

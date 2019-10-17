@@ -49,6 +49,7 @@ width: 100%;
     display: inline-block;
     text-align: center;
     font-size:24rpx;
+    margin-right:10rpx;
 }
 .mod-hd .assets{
     clear: both;

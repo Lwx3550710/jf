@@ -30,5 +30,6 @@
         </view>
     </view>
     <button form-type="submit" class="btn">保存</button >
+    <button bindtap="deleteAddress" data-id="{{id}}" class="deletebtn">删除地址</button >
   </form>
 </view>

@@ -46,6 +46,9 @@ Page({
     shopCarAllPrice: 0, // 购物袋总价
     commentList: [], // 评价列表
     bannerImg:[],//匠方轮播
+    walletAlert:false,//红包优惠券 弹窗
+    walletAlertArray: [],//红包优惠券 
+    walletAlertTotal: 0,//红包优惠券 金额
 	},
 	toChooseShopPage() { // 选择门店
 		app.openUrl('mapShop', 'type=qucan');
@@ -406,6 +409,27 @@ Page({
       },
     })
   },
+  getReminds(){
+    app.ajax({
+      url: 'user/reminds',
+      success: function (r) {
+        console.log(r.list)
+
+        if(r.list.length > 0){
+          that.setData({
+            walletAlert:true,
+            walletAlertArray: r.list,
+            walletAlertTotal: r.totalPrice
+          })
+        }
+      },
+    })
+  },
+  alertWalletClose(){
+    that.setData({
+      walletAlert:false
+    })
+  },
   getShopCar(){ // 获取购物袋列表
     app.ajax({
       url: 'cart/getById',
@@ -598,7 +622,7 @@ Page({
     that.getShopProduct();
     that.getbanner();
     that.getShopCarId(that.getShopCar);
-    
+    that.getReminds();
   },
 	onShareAppMessage() { },
 })

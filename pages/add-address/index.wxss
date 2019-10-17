@@ -48,6 +48,18 @@
     text-align: center;
     background:#C79F62;
 }
+.addressPage .deletebtn{
+    width:640rpx;
+    line-height:80rpx;
+    color: #C79F62;
+    font-size:36rpx;
+    margin: 0 auto;
+    border-radius:10rpx;
+    text-align: center;
+    border: 1rpx solid #C79F62;
+    margin-top: 45rpx;
+    background:rgb(247,247,247);
+}
 .shouhuodozhi{
   padding-right: 30rpx;
 }

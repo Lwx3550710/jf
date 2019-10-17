@@ -262,7 +262,7 @@ Page({
                   content: '您已经支付成功',
                   showCancel: false,
                   success: function() {
-                    app.openUrl('orderDetails', 'oid=' + res.value.orderId);
+                    app.openUrl('orderDetails', 'oid=' + res.value.orderId + '&paytype=true');
                   },
                 })
               },
@@ -310,7 +310,7 @@ Page({
                 // wx.switchTab({
                 //   url: '/pages/takefood/index',
                 // })
-                app.openUrl('orderDetails', 'oid=' + r.value);
+                app.openUrl('orderDetails', 'oid=' + r.value + '&paytype=true');
               },
             })
           } else {

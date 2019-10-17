@@ -89,32 +89,63 @@ App({
 		return e.currentTarget.dataset[name];
 	},
 	openUrl(file, param, success, fail) { // 跳转
-		if (file.indexOf('/')==-1){
-			file = file + '/' + file;
-		}
-		wx.navigateTo({
-			url: '/pages/' + file + '?' + param,
-			success(t) {
-				success && success(t);
-			},
-			fail(t) {
-				fail && fail(t);
-			},
-		})
+    wx.getSetting({
+      success: (r) => {
+        if (!r.authSetting['scope.userInfo']) {
+          wx.showToast({
+            title: '请在"我的"进行授权！',
+            icon: 'none',
+          })
+          return false;
+        }
+
+        if (file.indexOf('/') == -1) {
+          file = file + '/' + file;
+        }
+        wx.navigateTo({
+          url: '/pages/' + file + '?' + param,
+          success(t) {
+            success && success(t);
+          },
+          fail(t) {
+            fail && fail(t);
+          },
+        })
+      }
+    })
 	},
 	openUrlCs(file, param, success, fail) { // 关闭当前并跳转
-		if (file.indexOf('/') == -1) {
-			file = file + '/' + file;
-		}
-		wx.redirectTo({
-			url: '/pages/' + file + '?' + param,
-			success(t) {
-				success && success(t);
-			},
-			fail(t) {
-				fail && fail(t);
-			},
-		})
+    wx.getSetting({
+      success: (r) => {
+        if (!r.authSetting['scope.userInfo']) {
+          wx.showToast({
+            title: '请在"我的"进行授权！',
+            icon: 'none',
+          })
+          return false;
+        }
+
+        if (file.indexOf('/') == -1) {
+          file = file + '/' + file;
+        }
+
+        if (file.indexOf('/') == -1) {
+          file = file + '/' + file;
+        }
+        wx.redirectTo({
+          url: '/pages/' + file + '?' + param,
+          success(t) {
+            success && success(t);
+          },
+          fail(t) {
+            fail && fail(t);
+          },
+        })
+      }
+    })
+
+   
+		
 	},
   ajax(obj) { // formPost为true时为“post表单提交”
     var header = obj.header || {}

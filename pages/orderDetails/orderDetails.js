@@ -8,6 +8,9 @@ Page({
     orderId: '', // 订单id
     odo: {}, // 订单信息
     stateData: {}, // 状态内容
+    walletAlert: false,//红包优惠券 弹窗
+    walletAlertArray: [],//红包优惠券 
+    walletAlertTotal: 0,//红包优惠券 金额
   },
   toOrderCommentPage(e) { // 订单评价
     app.openUrl('orderComment','oid='+that.data.orderId);
@@ -103,7 +106,10 @@ Page({
     that.setData({
       orderId: options.oid,
     })
-
+    console.log(options);
+    if (options.paytype=="true"){
+      that.remindsOrder();
+    }
     // that.testOrderState(6);
 	},
   onShow(){
@@ -128,5 +134,30 @@ Page({
         console.log(res);
       },
     })
-  }
+  },
+  remindsOrder() {
+    app.ajax({
+      url: '/user/remindsOrder',
+      noUserid: true,
+      data: {
+        orderId: that.data.orderId,
+      },
+      success: function (r) {
+        console.log(r.list)
+
+        if (r.list.length > 0) {
+          that.setData({
+            walletAlert: true,
+            walletAlertArray: r.list,
+            walletAlertTotal: r.totalPrice
+          })
+        }
+      },
+    })
+  },
+  alertWalletClose() {
+    that.setData({
+      walletAlert: false
+    })
+  },
 })
